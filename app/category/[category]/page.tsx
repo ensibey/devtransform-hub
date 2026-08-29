@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
   const title = `${categoryInfo.name} - Free Online Client-Side Tools`;
   const description = `${categoryInfo.description} 100% private, zero server storage, and instant in-browser execution.`;
-  const canonicalUrl = `https://devtransform.pages.dev/category/${categoryInfo.slug}/`;
+  const canonicalUrl = `https://zeroupload.pages.dev/category/${categoryInfo.slug}/`;
 
   return {
     title,

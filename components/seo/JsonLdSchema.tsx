@@ -64,15 +64,15 @@ export function JsonLdSchema({
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://devtransform-hub.vercel.app/',
+        item: 'https://zeroupload.pages.dev/',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: isConverter ? 'Converters' : 'Formatters',
         item: isConverter
-          ? 'https://devtransform-hub.vercel.app/#converters'
-          : 'https://devtransform-hub.vercel.app/#formatters',
+          ? 'https://zeroupload.pages.dev/#converters'
+          : 'https://zeroupload.pages.dev/#formatters',
       },
       {
         '@type': 'ListItem',

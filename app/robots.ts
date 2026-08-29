@@ -5,8 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/'],
     },
-    sitemap: 'https://devtransform.pages.dev/sitemap.xml',
+    sitemap: 'https://zeroupload.pages.dev/sitemap.xml',
   };
 }

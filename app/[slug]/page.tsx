@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const seoData = getPairSEOData(pair.from as FormatId, pair.to as FormatId);
-  const canonicalUrl = `https://devtransform-hub.vercel.app/${pair.slug}/`;
+  const canonicalUrl = `https://zeroupload.pages.dev/${pair.slug}/`;
 
   return {
     title: seoData.title,
@@ -98,7 +98,7 @@ export default function MatrixConverterPage({ params }: PageProps) {
   const seoData = getPairSEOData(pair.from as FormatId, pair.to as FormatId);
   const fromDetail = FORMAT_DETAILS[pair.from as FormatId] || FORMAT_DETAILS.json;
   const toDetail = FORMAT_DETAILS[pair.to as FormatId] || FORMAT_DETAILS.typescript;
-  const canonicalUrl = `https://devtransform-hub.vercel.app/${pair.slug}/`;
+  const canonicalUrl = `https://zeroupload.pages.dev/${pair.slug}/`;
 
   return (
     <div className="space-y-8 py-2">

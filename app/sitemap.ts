@@ -3,7 +3,7 @@ import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
 import { TOOLS_REGISTRY } from '@/lib/registry';
 import { CATEGORIES } from '@/types/tool';
 
-const BASE_URL = 'https://devtransform-hub.vercel.app';
+const BASE_URL = 'https://zeroupload.pages.dev';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date();
@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 3. All 23 Standalone Client-Side Utilities
+  // 3. Standalone Client-Side Utilities
   TOOLS_REGISTRY.forEach((tool) => {
     routes.push({
       url: `${BASE_URL}/tools/${tool.slug}/`,

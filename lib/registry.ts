@@ -32,6 +32,7 @@ import { Base64EncoderDecoder } from '@/components/tools/dev/Base64EncoderDecode
 import { HashGenerator } from '@/components/tools/dev/HashGenerator';
 import { UuidGenerator } from '@/components/tools/dev/UuidGenerator';
 import { JwtDecoder } from '@/components/tools/dev/JwtDecoder';
+import { CurlConverter } from '@/components/tools/dev/CurlConverter';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -334,6 +335,19 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isPopular: true,
     seoDescription: 'Inspect and debug JWT tokens without sending sensitive authorization credentials or secrets over the wire.',
     component: JwtDecoder,
+  },
+  {
+    id: 'curl-to-code',
+    slug: 'curl-to-code',
+    title: 'cURL to Code Converter (Fetch, Axios, Python, Go, Rust)',
+    shortDesc: 'Convert cURL command syntax into native JavaScript fetch, Axios, Python requests, Go http, and Rust reqwest.',
+    category: 'dev',
+    keywords: ['curl to fetch', 'curl to python', 'curl to code', 'curl to axios', 'curl to go', 'curl converter'],
+    icon: 'Terminal',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Instantly convert cURL API requests into clean, idiomatic JavaScript Fetch, Axios, Python Requests, Go net/http, and Rust reqwest code in your browser.',
+    component: CurlConverter,
   },
 ];
 
