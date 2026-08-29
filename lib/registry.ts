@@ -36,6 +36,10 @@ import { CurlConverter } from '@/components/tools/dev/CurlConverter';
 import { RegexTester } from '@/components/tools/dev/RegexTester';
 import { UnixTimestampConverter } from '@/components/tools/dev/UnixTimestampConverter';
 import { UrlEncoderDecoder } from '@/components/tools/dev/UrlEncoderDecoder';
+import { GlassmorphismGenerator } from '@/components/tools/dev/GlassmorphismGenerator';
+import { BoxShadowGenerator } from '@/components/tools/dev/BoxShadowGenerator';
+import { SqlFormatter } from '@/components/tools/dev/SqlFormatter';
+import { HtmlMinifier } from '@/components/tools/dev/HtmlMinifier';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -390,6 +394,58 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Encode, decode, and parse URL query parameters instantly in your browser.',
     component: UrlEncoderDecoder,
+  },
+  {
+    id: 'css-glassmorphism',
+    slug: 'css-glassmorphism',
+    title: 'CSS Glassmorphism & Frosted Glass Generator',
+    shortDesc: 'Create modern frosted glass UI with backdrop-blur, specular transparency, and Tailwind CSS code.',
+    category: 'dev',
+    keywords: ['glassmorphism generator', 'css glassmorphism', 'backdrop filter blur', 'frosted glass css', 'tailwind glassmorphism'],
+    icon: 'Sparkles',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Interactive Glassmorphism generator with real-time backdrop blur and Tailwind CSS class exports.',
+    component: GlassmorphismGenerator,
+  },
+  {
+    id: 'css-box-shadow',
+    slug: 'css-box-shadow',
+    title: 'CSS Box Shadow & Glow Generator',
+    shortDesc: 'Design layered drop shadows, neon glows, and inset shadows with visual live interactive canvas.',
+    category: 'dev',
+    keywords: ['box shadow generator', 'css box shadow', 'drop shadow generator', 'neon glow css', 'shadow generator'],
+    icon: 'Layers',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Design smooth multi-layered CSS box shadows, 3D elevations, and neon glows with one-click copy.',
+    component: BoxShadowGenerator,
+  },
+  {
+    id: 'sql-formatter',
+    slug: 'sql-formatter',
+    title: 'SQL Query Formatter & Beautifier',
+    shortDesc: 'Format, prettify, and indent SQL queries with uppercase keyword highlighting and custom spacing.',
+    category: 'dev',
+    keywords: ['sql formatter', 'format sql', 'sql beautifier', 'sql prettifier', 'sql indent'],
+    icon: 'Database',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Format and beautify complex SQL queries directly in your browser with uppercase keywords.',
+    component: SqlFormatter,
+  },
+  {
+    id: 'html-minifier',
+    slug: 'html-minifier',
+    title: 'HTML & XML Code Minifier / Compressor',
+    shortDesc: 'Minify and compress HTML markup, strip comments, collapse whitespace, and reduce payload size.',
+    category: 'dev',
+    keywords: ['html minifier', 'minify html', 'compress html', 'html compressor', 'strip html comments'],
+    icon: 'Code2',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Minify and compress HTML code in real-time to boost webpage load performance.',
+    component: HtmlMinifier,
   },
 ];
 
