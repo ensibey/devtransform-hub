@@ -3,52 +3,60 @@ import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
 import { TOOLS_REGISTRY } from '@/lib/registry';
 import { CATEGORIES } from '@/types/tool';
 
+const BASE_URL = 'https://devtransform-hub.vercel.app';
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://devtransform.pages.dev';
-  const lastModified = new Date();
+  const currentDate = new Date();
+  const routes: MetadataRoute.Sitemap = [];
 
-  // 1. Home
-  const staticRoutes: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/`,
-      lastModified,
-      changeFrequency: 'daily',
-      priority: 1.0,
-    },
-  ];
-
-  // 2. Categories
-  const categoryRoutes: MetadataRoute.Sitemap = Object.keys(CATEGORIES).map((cat) => ({
-    url: `${baseUrl}/category/${cat}/`,
-    lastModified,
+  // 1. Homepage
+  routes.push({
+    url: `${BASE_URL}/`,
+    lastModified: currentDate,
     changeFrequency: 'daily',
-    priority: 0.9,
-  }));
+    priority: 1.0,
+  });
 
-  // 3. Standalone Tools
-  const toolRoutes: MetadataRoute.Sitemap = TOOLS_REGISTRY.map((tool) => ({
-    url: `${baseUrl}/tools/${tool.slug}/`,
-    lastModified,
-    changeFrequency: 'weekly',
-    priority: 0.85,
-  }));
+  // 2. All 90 Programmatic Matrix Converter Routes
+  const pairs = getAllMatrixPairs();
+  pairs.forEach((pair) => {
+    routes.push({
+      url: `${BASE_URL}/${pair.slug}/`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    });
+  });
 
-  // 4. Matrix pairs (90 combinations)
-  const matrixPairs = getAllMatrixPairs();
-  const matrixRoutes: MetadataRoute.Sitemap = matrixPairs.map((pair) => ({
-    url: `${baseUrl}/${pair.slug}/`,
-    lastModified,
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }));
+  // 3. All 23 Standalone Client-Side Utilities
+  TOOLS_REGISTRY.forEach((tool) => {
+    routes.push({
+      url: `${BASE_URL}/tools/${tool.slug}/`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    });
+  });
 
-  // 5. Formatters
-  const formatterRoutes: MetadataRoute.Sitemap = FORMAT_LIST.map((format) => ({
-    url: `${baseUrl}/formatters/${format.id}/`,
-    lastModified,
-    changeFrequency: 'weekly',
-    priority: 0.7,
-  }));
+  // 4. 5 Tool Category Pillars
+  Object.keys(CATEGORIES).forEach((category) => {
+    routes.push({
+      url: `${BASE_URL}/category/${category}/`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    });
+  });
 
-  return [...staticRoutes, ...categoryRoutes, ...toolRoutes, ...matrixRoutes, ...formatterRoutes];
+  // 5. 10 Code & Format Beautifiers
+  FORMAT_LIST.forEach((format) => {
+    routes.push({
+      url: `${BASE_URL}/formatters/${format.id}/`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    });
+  });
+
+  return routes;
 }
