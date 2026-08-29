@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://zeroupload.pages.dev/sitemap.xml',
+    sitemap: 'https://zeroupload-edb.pages.dev/sitemap.xml',
   };
 }

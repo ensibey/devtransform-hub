@@ -3,7 +3,7 @@ import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
 import { TOOLS_REGISTRY } from '@/lib/registry';
 import { CATEGORIES } from '@/types/tool';
 
-const BASE_URL = 'https://zeroupload.pages.dev';
+const BASE_URL = 'https://zeroupload-edb.pages.dev';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date();

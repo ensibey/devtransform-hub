@@ -14,7 +14,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://zeroupload.pages.dev'),
+  metadataBase: new URL('https://zeroupload-edb.pages.dev'),
   title: {
     default: 'ZeroUpload - Privacy-First Zero-Server Developer Utility & Converter Suite',
     template: '%s | ZeroUpload',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: 'ZeroUpload - Privacy-First Zero-Server Developer Converter Suite',
     description:
       'Convert JSON, YAML, CSV, XML, TOML to TypeScript, Go, Rust, Python, and SQL with sub-millisecond client-side Web Workers. Zero tracking, zero data leaves browser.',
-    url: 'https://zeroupload.pages.dev',
+    url: 'https://zeroupload-edb.pages.dev',
     siteName: 'ZeroUpload',
     locale: 'en_US',
     type: 'website',
