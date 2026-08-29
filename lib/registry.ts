@@ -44,6 +44,9 @@ import { PasswordGenerator } from '@/components/tools/dev/PasswordGenerator';
 import { MarkdownTableGenerator } from '@/components/tools/text/MarkdownTableGenerator';
 import { Base64ImageConverter } from '@/components/tools/image/Base64ImageConverter';
 import { FlexboxPlayground } from '@/components/tools/dev/FlexboxPlayground';
+import { GradientGenerator } from '@/components/tools/dev/GradientGenerator';
+import { ClampCalculator } from '@/components/tools/dev/ClampCalculator';
+import { HtmlEntityEncoder } from '@/components/tools/dev/HtmlEntityEncoder';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -502,6 +505,45 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Visual CSS Flexbox builder with interactive items, alignment toggles, and live CSS export.',
     component: FlexboxPlayground,
+  },
+  {
+    id: 'css-gradient-generator',
+    slug: 'css-gradient-generator',
+    title: 'CSS Gradient Generator (Linear & Radial)',
+    shortDesc: 'Create smooth multi-color linear and radial CSS gradients with live angle controls and color presets.',
+    category: 'dev',
+    keywords: ['gradient generator', 'css gradient', 'linear gradient', 'radial gradient', 'color gradient'],
+    icon: 'Palette',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Interactive CSS Gradient Generator with real-time live canvas and one-click CSS exports.',
+    component: GradientGenerator,
+  },
+  {
+    id: 'css-clamp-calculator',
+    slug: 'css-clamp-calculator',
+    title: 'CSS Clamp & Fluid Typography Calculator',
+    shortDesc: 'Calculate responsive fluid font sizes using CSS clamp(min, preferred, max) with real-time viewport scaling.',
+    category: 'dev',
+    keywords: ['clamp calculator', 'css clamp', 'fluid typography', 'responsive font size', 'clamp font size'],
+    icon: 'Type',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate fluid responsive CSS typography using modern clamp() functions.',
+    component: ClampCalculator,
+  },
+  {
+    id: 'html-entity-encoder',
+    slug: 'html-entity-encoder',
+    title: 'HTML Entity Encoder & Decoder',
+    shortDesc: 'Encode special characters into HTML entities (&amp;, &lt;, &gt;, &quot;) and decode entities back to text.',
+    category: 'dev',
+    keywords: ['html entity encoder', 'html decode', 'encode html entities', 'escape html', 'html special chars'],
+    icon: 'Code',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Encode and decode HTML special entities with named and numeric representation modes.',
+    component: HtmlEntityEncoder,
   },
 ];
 
