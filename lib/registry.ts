@@ -40,6 +40,8 @@ import { GlassmorphismGenerator } from '@/components/tools/dev/GlassmorphismGene
 import { BoxShadowGenerator } from '@/components/tools/dev/BoxShadowGenerator';
 import { SqlFormatter } from '@/components/tools/dev/SqlFormatter';
 import { HtmlMinifier } from '@/components/tools/dev/HtmlMinifier';
+import { PasswordGenerator } from '@/components/tools/dev/PasswordGenerator';
+import { MarkdownTableGenerator } from '@/components/tools/text/MarkdownTableGenerator';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -446,6 +448,32 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Minify and compress HTML code in real-time to boost webpage load performance.',
     component: HtmlMinifier,
+  },
+  {
+    id: 'password-generator',
+    slug: 'password-generator',
+    title: 'Strong Password & Passphrase Generator',
+    shortDesc: 'Generate cryptographically secure random passwords with customizable length and entropy scoring.',
+    category: 'dev',
+    keywords: ['password generator', 'strong password', 'random password', 'secure password', 'generate password'],
+    icon: 'Lock',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate quantum-safe cryptographic passwords with customizable character sets and entropy scoring.',
+    component: PasswordGenerator,
+  },
+  {
+    id: 'markdown-table-generator',
+    slug: 'markdown-table-generator',
+    title: 'Markdown Table Generator & Spreadsheet Grid',
+    shortDesc: 'Design Markdown tables with interactive grid editing, column alignments, and instant markdown output.',
+    category: 'text',
+    keywords: ['markdown table generator', 'markdown table', 'table generator', 'md table', 'table builder'],
+    icon: 'Table',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Interactive visual Markdown table generator with custom alignments and real-time preview.',
+    component: MarkdownTableGenerator,
   },
 ];
 
