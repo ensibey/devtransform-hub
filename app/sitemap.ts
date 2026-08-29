@@ -3,6 +3,7 @@ import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
 import { getAllTimezonePairs } from '@/lib/timezone-matrix';
 import { getAllUnitPairs } from '@/lib/units-matrix';
 import { getAllPercentageProblems } from '@/lib/percentage-matrix';
+import { getAllColorDefinitions } from '@/lib/color-matrix';
 import { getAllHttpStatuses } from '@/lib/http-status-data';
 import { getAllCronSchedules } from '@/lib/cron-data';
 import { TOOLS_REGISTRY } from '@/lib/registry';
@@ -66,7 +67,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 6. HTTP Status Codes
+  // 6. Color Code Converters
+  const colors = getAllColorDefinitions();
+  colors.forEach((col) => {
+    routes.push({
+      url: `${BASE_URL}/color/${col.slug}/`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    });
+  });
+
+  // 7. HTTP Status Codes
   const httpStatuses = getAllHttpStatuses();
   httpStatuses.forEach((status) => {
     routes.push({
@@ -77,7 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 7. Cron Schedule Explanations
+  // 8. Cron Schedule Explanations
   const cronSchedules = getAllCronSchedules();
   cronSchedules.forEach((cron) => {
     routes.push({
@@ -88,7 +100,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 8. 24 Standalone Utilities
+  // 9. 24 Standalone Utilities
   TOOLS_REGISTRY.forEach((tool) => {
     routes.push({
       url: `${BASE_URL}/tools/${tool.slug}/`,
@@ -98,7 +110,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 9. Category Hubs
+  // 10. Category Hubs
   Object.keys(CATEGORIES).forEach((category) => {
     routes.push({
       url: `${BASE_URL}/category/${category}/`,
@@ -108,7 +120,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 10. Formatters
+  // 11. Formatters
   FORMAT_LIST.forEach((format) => {
     routes.push({
       url: `${BASE_URL}/formatters/${format.id}/`,

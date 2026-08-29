@@ -33,6 +33,9 @@ import { HashGenerator } from '@/components/tools/dev/HashGenerator';
 import { UuidGenerator } from '@/components/tools/dev/UuidGenerator';
 import { JwtDecoder } from '@/components/tools/dev/JwtDecoder';
 import { CurlConverter } from '@/components/tools/dev/CurlConverter';
+import { RegexTester } from '@/components/tools/dev/RegexTester';
+import { UnixTimestampConverter } from '@/components/tools/dev/UnixTimestampConverter';
+import { UrlEncoderDecoder } from '@/components/tools/dev/UrlEncoderDecoder';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -348,6 +351,45 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Instantly convert cURL API requests into clean, idiomatic JavaScript Fetch, Axios, Python Requests, Go net/http, and Rust reqwest code in your browser.',
     component: CurlConverter,
+  },
+  {
+    id: 'regex-tester',
+    slug: 'regex-tester',
+    title: 'Regex Tester & Match Visualizer',
+    shortDesc: 'Test regular expressions in real-time with capture group extraction, flags support, and error diagnostics.',
+    category: 'dev',
+    keywords: ['regex tester', 'regular expression', 'regex matcher', 'regex debugger', 'regex online'],
+    icon: 'Terminal',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Test and debug JavaScript regular expressions in real-time with capture groups and flags.',
+    component: RegexTester,
+  },
+  {
+    id: 'unix-timestamp',
+    slug: 'unix-timestamp',
+    title: 'Unix Timestamp & Epoch Converter',
+    shortDesc: 'Convert epoch seconds and milliseconds to human-readable dates (UTC, Local, ISO-8601) and vice-versa.',
+    category: 'dev',
+    keywords: ['unix timestamp', 'epoch converter', 'epoch to date', 'timestamp to date', 'current epoch'],
+    icon: 'Clock',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Live Unix epoch clock and bidirectional date-to-timestamp converter.',
+    component: UnixTimestampConverter,
+  },
+  {
+    id: 'url-encoder-decoder',
+    slug: 'url-encoder-decoder',
+    title: 'URL & URI Component Encoder / Decoder',
+    shortDesc: 'Encode and decode URI strings, escape query parameters, and parse URL search query parameters.',
+    category: 'dev',
+    keywords: ['url encoder', 'url decoder', 'encode uri', 'decode uri', 'query string parser'],
+    icon: 'Binary',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Encode, decode, and parse URL query parameters instantly in your browser.',
+    component: UrlEncoderDecoder,
   },
 ];
 
