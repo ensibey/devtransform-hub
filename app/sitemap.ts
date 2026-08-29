@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next';
 import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
 import { getAllTimezonePairs } from '@/lib/timezone-matrix';
 import { getAllUnitPairs } from '@/lib/units-matrix';
+import { getAllHttpStatuses } from '@/lib/http-status-data';
+import { getAllCronSchedules } from '@/lib/cron-data';
 import { TOOLS_REGISTRY } from '@/lib/registry';
 import { CATEGORIES } from '@/types/tool';
 
@@ -52,7 +54,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 5. 24 Standalone Utilities
+  // 5. HTTP Status Codes
+  const httpStatuses = getAllHttpStatuses();
+  httpStatuses.forEach((status) => {
+    routes.push({
+      url: `${BASE_URL}/http-status/${status.slug}/`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    });
+  });
+
+  // 6. Cron Schedule Explanations
+  const cronSchedules = getAllCronSchedules();
+  cronSchedules.forEach((cron) => {
+    routes.push({
+      url: `${BASE_URL}/cron/${cron.slug}/`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    });
+  });
+
+  // 7. 24 Standalone Utilities
   TOOLS_REGISTRY.forEach((tool) => {
     routes.push({
       url: `${BASE_URL}/tools/${tool.slug}/`,
@@ -62,7 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 6. Category Hubs
+  // 8. Category Hubs
   Object.keys(CATEGORIES).forEach((category) => {
     routes.push({
       url: `${BASE_URL}/category/${category}/`,
@@ -72,7 +96,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 7. Formatters
+  // 9. Formatters
   FORMAT_LIST.forEach((format) => {
     routes.push({
       url: `${BASE_URL}/formatters/${format.id}/`,
