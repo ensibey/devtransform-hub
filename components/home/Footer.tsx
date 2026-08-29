@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ShieldCheck, Zap, Github, Heart } from 'lucide-react';
+import { ShieldCheck, Github } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -13,22 +13,23 @@ export function Footer() {
               <span className="text-sm font-bold text-white tracking-tight">
                 Zero<span className="text-brand-emerald">Upload</span>
               </span>
-              <span className="px-2 py-0.2 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
                 100% Client-Side
               </span>
             </div>
             <p className="text-xs text-zinc-500 max-w-md leading-relaxed">
-              Open-source, privacy-first developer utility suite. Zero telemetry, zero server uploads, 100% browser sandbox execution.
+              Gizlilik odaklı, sıfır sunucu yüklemesi gerektiren açık kaynaklı araç paketi.
             </p>
           </div>
 
-          {/* Badges & Links */}
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 font-mono text-[11px]">
-            <div className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300">
-              <Zap className="w-3.5 h-3.5 text-brand-emerald" />
-              <span>Hosted on Cloudflare Pages Edge</span>
-            </div>
-
+          {/* Links */}
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 font-mono text-[11px]">
+            <Link
+              href="/#tools"
+              className="px-3 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 hover:text-white transition-colors"
+            >
+              Tüm Araçlar
+            </Link>
             <a
               href="https://github.com/ensibey/devtransform-hub"
               target="_blank"
@@ -43,11 +44,11 @@ export function Footer() {
 
         <div className="border-t border-zinc-800/60 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-zinc-500 font-mono">
           <div>
-            © {new Date().getFullYear()} ZeroUpload. Free & Open Source under MIT License.
+            © {new Date().getFullYear()} ZeroUpload. Açık kaynak MIT Lisansı.
           </div>
-          <div className="flex items-center space-x-1 mt-2 sm:mt-0 text-emerald-400/80">
+          <div className="flex items-center space-x-1 mt-2 sm:mt-0 text-emerald-400">
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span>0 bytes of data leaves your browser.</span>
+            <span>Verileriniz asla cihazınızdan ayrılmaz.</span>
           </div>
         </div>
       </div>
