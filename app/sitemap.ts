@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next';
 import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
+import { getAllTimezonePairs } from '@/lib/timezone-matrix';
+import { getAllUnitPairs } from '@/lib/units-matrix';
 import { TOOLS_REGISTRY } from '@/lib/registry';
 import { CATEGORIES } from '@/types/tool';
 
@@ -17,9 +19,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 1.0,
   });
 
-  // 2. All 90 Programmatic Matrix Converter Routes
-  const pairs = getAllMatrixPairs();
-  pairs.forEach((pair) => {
+  // 2. 90 Code Converters
+  const matrixPairs = getAllMatrixPairs();
+  matrixPairs.forEach((pair) => {
     routes.push({
       url: `${BASE_URL}/${pair.slug}/`,
       lastModified: currentDate,
@@ -28,7 +30,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 3. Standalone Client-Side Utilities
+  // 3. Timezone Pairs (Top 2450 world city pairs)
+  const tzPairs = getAllTimezonePairs();
+  tzPairs.forEach((pair) => {
+    routes.push({
+      url: `${BASE_URL}/timezone/${pair.slug}/`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    });
+  });
+
+  // 4. Unit Conversion Pairs (350+ pairs)
+  const unitPairs = getAllUnitPairs();
+  unitPairs.forEach((pair) => {
+    routes.push({
+      url: `${BASE_URL}/convert/${pair.slug}/`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    });
+  });
+
+  // 5. 24 Standalone Utilities
   TOOLS_REGISTRY.forEach((tool) => {
     routes.push({
       url: `${BASE_URL}/tools/${tool.slug}/`,
@@ -38,7 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 4. 5 Tool Category Pillars
+  // 6. Category Hubs
   Object.keys(CATEGORIES).forEach((category) => {
     routes.push({
       url: `${BASE_URL}/category/${category}/`,
@@ -48,7 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 5. 10 Code & Format Beautifiers
+  // 7. Formatters
   FORMAT_LIST.forEach((format) => {
     routes.push({
       url: `${BASE_URL}/formatters/${format.id}/`,
