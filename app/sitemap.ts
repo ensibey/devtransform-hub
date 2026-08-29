@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
 import { getAllTimezonePairs } from '@/lib/timezone-matrix';
 import { getAllUnitPairs } from '@/lib/units-matrix';
+import { getAllPercentageProblems } from '@/lib/percentage-matrix';
 import { getAllHttpStatuses } from '@/lib/http-status-data';
 import { getAllCronSchedules } from '@/lib/cron-data';
 import { TOOLS_REGISTRY } from '@/lib/registry';
@@ -54,7 +55,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 5. HTTP Status Codes
+  // 5. 525 Percentage Calculations
+  const percentageProblems = getAllPercentageProblems();
+  percentageProblems.forEach((prob) => {
+    routes.push({
+      url: `${BASE_URL}/percentage/${prob.slug}/`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    });
+  });
+
+  // 6. HTTP Status Codes
   const httpStatuses = getAllHttpStatuses();
   httpStatuses.forEach((status) => {
     routes.push({
@@ -65,7 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 6. Cron Schedule Explanations
+  // 7. Cron Schedule Explanations
   const cronSchedules = getAllCronSchedules();
   cronSchedules.forEach((cron) => {
     routes.push({
@@ -76,7 +88,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 7. 24 Standalone Utilities
+  // 8. 24 Standalone Utilities
   TOOLS_REGISTRY.forEach((tool) => {
     routes.push({
       url: `${BASE_URL}/tools/${tool.slug}/`,
@@ -86,7 +98,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 8. Category Hubs
+  // 9. Category Hubs
   Object.keys(CATEGORIES).forEach((category) => {
     routes.push({
       url: `${BASE_URL}/category/${category}/`,
@@ -96,7 +108,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 9. Formatters
+  // 10. Formatters
   FORMAT_LIST.forEach((format) => {
     routes.push({
       url: `${BASE_URL}/formatters/${format.id}/`,
