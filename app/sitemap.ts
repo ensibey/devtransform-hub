@@ -4,6 +4,7 @@ import { getAllTimezonePairs } from '@/lib/timezone-matrix';
 import { getAllUnitPairs } from '@/lib/units-matrix';
 import { getAllPercentageProblems } from '@/lib/percentage-matrix';
 import { getAllColorDefinitions } from '@/lib/color-matrix';
+import { getAllTextTransformations } from '@/lib/text-matrix';
 import { getAllHttpStatuses } from '@/lib/http-status-data';
 import { getAllCronSchedules } from '@/lib/cron-data';
 import { TOOLS_REGISTRY } from '@/lib/registry';
@@ -78,7 +79,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 7. HTTP Status Codes
+  // 7. Text Transformations
+  const textTransforms = getAllTextTransformations();
+  textTransforms.forEach((t) => {
+    routes.push({
+      url: `${BASE_URL}/text/${t.slug}/`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    });
+  });
+
+  // 8. HTTP Status Codes
   const httpStatuses = getAllHttpStatuses();
   httpStatuses.forEach((status) => {
     routes.push({
@@ -89,7 +101,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 8. Cron Schedule Explanations
+  // 9. Cron Schedule Explanations
   const cronSchedules = getAllCronSchedules();
   cronSchedules.forEach((cron) => {
     routes.push({
@@ -100,7 +112,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 9. 24 Standalone Utilities
+  // 10. Standalone Utilities
   TOOLS_REGISTRY.forEach((tool) => {
     routes.push({
       url: `${BASE_URL}/tools/${tool.slug}/`,
@@ -110,7 +122,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 10. Category Hubs
+  // 11. Category Hubs
   Object.keys(CATEGORIES).forEach((category) => {
     routes.push({
       url: `${BASE_URL}/category/${category}/`,
@@ -120,7 +132,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 11. Formatters
+  // 12. Formatters
   FORMAT_LIST.forEach((format) => {
     routes.push({
       url: `${BASE_URL}/formatters/${format.id}/`,
