@@ -42,6 +42,8 @@ import { SqlFormatter } from '@/components/tools/dev/SqlFormatter';
 import { HtmlMinifier } from '@/components/tools/dev/HtmlMinifier';
 import { PasswordGenerator } from '@/components/tools/dev/PasswordGenerator';
 import { MarkdownTableGenerator } from '@/components/tools/text/MarkdownTableGenerator';
+import { Base64ImageConverter } from '@/components/tools/image/Base64ImageConverter';
+import { FlexboxPlayground } from '@/components/tools/dev/FlexboxPlayground';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -474,6 +476,32 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Interactive visual Markdown table generator with custom alignments and real-time preview.',
     component: MarkdownTableGenerator,
+  },
+  {
+    id: 'image-to-base64',
+    slug: 'image-to-base64',
+    title: 'Image to Base64 & Base64 to Image Decoder',
+    shortDesc: 'Convert PNG, JPG, SVG to Base64 data URIs, HTML img tags, and decode Base64 back to image files.',
+    category: 'image',
+    keywords: ['image to base64', 'base64 to image', 'base64 image decoder', 'data uri generator', 'base64 png'],
+    icon: 'FileImage',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert images to Base64 strings and decode Base64 to PNG/JPG downloads with HTML and CSS snippets.',
+    component: Base64ImageConverter,
+  },
+  {
+    id: 'css-flexbox-playground',
+    slug: 'css-flexbox-playground',
+    title: 'CSS Flexbox Visualizer & Interactive Playground',
+    shortDesc: 'Interactive CSS Flexbox sandbox with direction, alignment, justify, wrap, and Tailwind code generator.',
+    category: 'dev',
+    keywords: ['flexbox playground', 'css flexbox', 'flexbox generator', 'flexbox visualizer', 'tailwind flexbox'],
+    icon: 'Layout',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Visual CSS Flexbox builder with interactive items, alignment toggles, and live CSS export.',
+    component: FlexboxPlayground,
   },
 ];
 
