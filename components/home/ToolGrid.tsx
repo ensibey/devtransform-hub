@@ -36,6 +36,7 @@ import {
   FileSpreadsheet,
   Percent,
   Maximize2,
+  RotateCw,
 } from 'lucide-react';
 
 export interface ToolGridProps {
@@ -67,6 +68,7 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   FileSpreadsheet: FileSpreadsheet,
   Percent: Percent,
   Maximize2: Maximize2,
+  RotateCw: RotateCw,
 };
 
 export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
@@ -99,10 +101,11 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
   const categoryCounts = useMemo(() => {
     const counts: Record<ToolCategoryKey, number> = {
       all: DEVELOPER_TOOLS.length,
+      pdf: 0,
+      image: 0,
+      text: 0,
+      dev: 0,
       converters: 0,
-      security: 0,
-      'web-api': 0,
-      formatters: 0,
       calculators: 0,
     };
 
@@ -116,7 +119,23 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
   }, []);
 
   return (
-    <section id="tools" className="mt-8 space-y-6">
+    <section id="tools" className="mt-10 space-y-6">
+      {/* Section Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-800/80 pb-4">
+        <div>
+          <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+            Tüm Araçlar Kataloğu
+          </h2>
+          <p className="text-xs sm:text-sm text-zinc-400">
+            Kategorilere göre filtreleyin veya anında arama yapın.
+          </p>
+        </div>
+
+        <span className="text-xs font-mono text-zinc-500">
+          Toplam {DEVELOPER_TOOLS.length} Araç & 90 Dönüştürücü
+        </span>
+      </div>
+
       {/* Category Filter Tabs */}
       <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar pb-2 pt-1">
         {CATEGORY_FILTERS.map((cat) => {
@@ -174,12 +193,12 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
                     <div className="flex items-center space-x-1.5">
                       {tool.isNew && (
                         <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-brand-emerald border border-emerald-500/30 font-semibold">
-                          NEW
+                          YENİ
                         </span>
                       )}
                       {tool.isPopular && (
                         <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/30 font-semibold">
-                          POPULAR
+                          POPÜLER
                         </span>
                       )}
                       <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-zinc-800/80 text-zinc-400 border border-zinc-700/60">
@@ -213,7 +232,7 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
                   </div>
 
                   <div className="flex items-center space-x-1 text-xs font-mono text-brand-emerald font-semibold group-hover:translate-x-1 transition-transform">
-                    <span className="text-[11px]">Open</span>
+                    <span className="text-[11px]">Kullan</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </div>
                 </div>
@@ -229,10 +248,10 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
           </div>
           <div className="space-y-1">
             <h3 className="text-sm font-bold text-zinc-200">
-              No developer tools found matching &quot;{searchQuery}&quot;
+              &quot;{searchQuery}&quot; ile eşleşen bir araç bulunamadı
             </h3>
             <p className="text-xs text-zinc-500 max-w-sm mx-auto leading-relaxed">
-              Try searching with another keyword (e.g. JSON, Python, JWT, cURL, PDF, Hash).
+              Farklı bir anahtar kelime deneyin (örn. PDF, Resim, cURL, JSON, JWT, Kelime, Hash).
             </p>
           </div>
           <button
@@ -240,7 +259,7 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
             onClick={onClearSearch}
             className="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-semibold text-zinc-200 border border-zinc-700 transition-colors cursor-pointer"
           >
-            Clear search query
+            Aramayı Temizle
           </button>
         </div>
       )}
