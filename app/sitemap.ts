@@ -10,9 +10,16 @@ import { getAllCronSchedules } from '@/lib/cron-data';
 import { TOOLS_REGISTRY } from '@/lib/registry';
 import { CATEGORIES } from '@/types/tool';
 
+import { generateSitemaps } from '@/scripts/build-sitemaps';
+
 const BASE_URL = 'https://zeroupload-edb.pages.dev';
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  try {
+    generateSitemaps(['public', 'out']);
+  } catch (e) {
+    console.error('Error in generateSitemaps:', e);
+  }
   const currentDate = new Date();
   const routes: MetadataRoute.Sitemap = [];
 
