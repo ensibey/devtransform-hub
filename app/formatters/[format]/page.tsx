@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = `Online ${format.shortName} Formatter, Beautifier & Validator`;
   const description = `Format, prettify, lint, and validate ${format.name} online in your browser. 100% client-side with Prettier standalone & CodeMirror 6.`;
-  const canonicalUrl = `https://zeroupload-edb.pages.dev/formatters/${format.id}/`;
+  const canonicalUrl = `https://devtransform-hub.vercel.app/formatters/${format.id}/`;
 
   return {
     title,

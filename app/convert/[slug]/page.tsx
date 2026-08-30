@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = `Convert ${pair.from.name} to ${pair.to.name} (${pair.from.symbol} to ${pair.to.symbol}) - ${pair.from.nameTr} ${pair.to.nameTr} Çevirme`;
   const description = `Free online ${pair.from.name} to ${pair.to.name} converter. 1 ${pair.from.symbol} = ${pair.multiplier} ${pair.to.symbol}. Instant calculation with formula and conversion table.`;
-  const canonicalUrl = `https://zeroupload-edb.pages.dev/convert/${pair.slug}/`;
+  const canonicalUrl = `https://devtransform-hub.vercel.app/convert/${pair.slug}/`;
 
   return {
     title,
@@ -90,7 +90,7 @@ export default function UnitPairPage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: `${pair.from.name} to ${pair.to.name} Converter`,
-    url: `https://zeroupload-edb.pages.dev/convert/${pair.slug}/`,
+    url: `https://devtransform-hub.vercel.app/convert/${pair.slug}/`,
     description: `Instant ${pair.from.name} to ${pair.to.name} conversion tool.`,
     applicationCategory: 'UtilityApplication',
     operatingSystem: 'All',
@@ -101,9 +101,9 @@ export default function UnitPairPage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://zeroupload-edb.pages.dev/' },
-      { '@type': 'ListItem', position: 2, name: pair.from.categoryName, item: 'https://zeroupload-edb.pages.dev/#tools' },
-      { '@type': 'ListItem', position: 3, name: `${pair.from.symbol} to ${pair.to.symbol}`, item: `https://zeroupload-edb.pages.dev/convert/${pair.slug}/` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://devtransform-hub.vercel.app/' },
+      { '@type': 'ListItem', position: 2, name: pair.from.categoryName, item: 'https://devtransform-hub.vercel.app/#tools' },
+      { '@type': 'ListItem', position: 3, name: `${pair.from.symbol} to ${pair.to.symbol}`, item: `https://devtransform-hub.vercel.app/convert/${pair.slug}/` },
     ],
   };
 

@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = `What is ${prob.percent}% of ${prob.baseNumber}? (${prob.result}) - ${prob.titleTr}`;
   const description = `${prob.percent}% of ${prob.baseNumber} is ${prob.result}. Step-by-step mathematical explanation, formula, discount calculator, and percentage table.`;
-  const canonicalUrl = `https://zeroupload-edb.pages.dev/percentage/${prob.slug}/`;
+  const canonicalUrl = `https://devtransform-hub.vercel.app/percentage/${prob.slug}/`;
 
   return {
     title,
@@ -93,7 +93,7 @@ export default function PercentageProblemPage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: `Percentage Calculator: ${prob.title}`,
-    url: `https://zeroupload-edb.pages.dev/percentage/${prob.slug}/`,
+    url: `https://devtransform-hub.vercel.app/percentage/${prob.slug}/`,
     description: prob.title,
     applicationCategory: 'EducationalApplication',
     operatingSystem: 'All',
@@ -104,9 +104,9 @@ export default function PercentageProblemPage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://zeroupload-edb.pages.dev/' },
-      { '@type': 'ListItem', position: 2, name: 'Percentages', item: 'https://zeroupload-edb.pages.dev/#tools' },
-      { '@type': 'ListItem', position: 3, name: `${prob.percent}% of ${prob.baseNumber}`, item: `https://zeroupload-edb.pages.dev/percentage/${prob.slug}/` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://devtransform-hub.vercel.app/' },
+      { '@type': 'ListItem', position: 2, name: 'Percentages', item: 'https://devtransform-hub.vercel.app/#tools' },
+      { '@type': 'ListItem', position: 3, name: `${prob.percent}% of ${prob.baseNumber}`, item: `https://devtransform-hub.vercel.app/percentage/${prob.slug}/` },
     ],
   };
 

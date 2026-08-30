@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = `${item.name} Online Converter & Tool (${item.nameTr})`;
   const description = `Free online ${item.name} utility. ${item.description} Instant client-side transformation with zero latency and complete privacy.`;
-  const canonicalUrl = `https://zeroupload-edb.pages.dev/text/${item.slug}/`;
+  const canonicalUrl = `https://devtransform-hub.vercel.app/text/${item.slug}/`;
 
   return {
     title,
@@ -88,7 +88,7 @@ export default function TextTransformationPage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: item.name,
-    url: `https://zeroupload-edb.pages.dev/text/${item.slug}/`,
+    url: `https://devtransform-hub.vercel.app/text/${item.slug}/`,
     description: item.description,
     applicationCategory: 'UtilityApplication',
     operatingSystem: 'All',
@@ -99,9 +99,9 @@ export default function TextTransformationPage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://zeroupload-edb.pages.dev/' },
-      { '@type': 'ListItem', position: 2, name: 'Text Tools', item: 'https://zeroupload-edb.pages.dev/#tools' },
-      { '@type': 'ListItem', position: 3, name: item.name, item: `https://zeroupload-edb.pages.dev/text/${item.slug}/` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://devtransform-hub.vercel.app/' },
+      { '@type': 'ListItem', position: 2, name: 'Text Tools', item: 'https://devtransform-hub.vercel.app/#tools' },
+      { '@type': 'ListItem', position: 3, name: item.name, item: `https://devtransform-hub.vercel.app/text/${item.slug}/` },
     ],
   };
 

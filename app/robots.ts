@@ -7,13 +7,13 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
     },
     sitemap: [
-      'https://zeroupload-edb.pages.dev/sitemap.xml',
-      'https://zeroupload-edb.pages.dev/sitemap-main.xml',
-      'https://zeroupload-edb.pages.dev/sitemap-code.xml',
-      'https://zeroupload-edb.pages.dev/sitemap-timezones.xml',
-      'https://zeroupload-edb.pages.dev/sitemap-units.xml',
-      'https://zeroupload-edb.pages.dev/sitemap-percentages.xml',
-      'https://zeroupload-edb.pages.dev/sitemap-utils.xml',
+      'https://devtransform-hub.vercel.app/sitemap.xml',
+      'https://devtransform-hub.vercel.app/sitemap-main.xml',
+      'https://devtransform-hub.vercel.app/sitemap-code.xml',
+      'https://devtransform-hub.vercel.app/sitemap-timezones.xml',
+      'https://devtransform-hub.vercel.app/sitemap-units.xml',
+      'https://devtransform-hub.vercel.app/sitemap-percentages.xml',
+      'https://devtransform-hub.vercel.app/sitemap-utils.xml',
     ],
   };
 }

@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
 
   const title = `${tool.title} - Free Online Client-Side Utility`;
   const description = tool.seoDescription;
-  const canonicalUrl = `https://zeroupload-edb.pages.dev/tools/${tool.slug}/`;
+  const canonicalUrl = `https://devtransform-hub.vercel.app/tools/${tool.slug}/`;
 
   return {
     title,

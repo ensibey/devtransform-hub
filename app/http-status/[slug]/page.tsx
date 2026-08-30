@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = `HTTP ${status.code} ${status.name} Explained: Causes & How to Fix (${status.nameTr})`;
   const description = `What is HTTP status ${status.code} (${status.name})? Learn the RFC definition, common root causes, and practical code solutions for Node.js, Python, and Nginx.`;
-  const canonicalUrl = `https://zeroupload-edb.pages.dev/http-status/${status.slug}/`;
+  const canonicalUrl = `https://devtransform-hub.vercel.app/http-status/${status.slug}/`;
 
   return {
     title,
@@ -110,16 +110,16 @@ export default function HttpStatusPage({ params }: PageProps) {
     '@type': 'TechArticle',
     headline: `HTTP ${status.code} ${status.name} Complete Guide & Fixes`,
     description: status.summary,
-    url: `https://zeroupload-edb.pages.dev/http-status/${status.slug}/`,
+    url: `https://devtransform-hub.vercel.app/http-status/${status.slug}/`,
   };
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://zeroupload-edb.pages.dev/' },
-      { '@type': 'ListItem', position: 2, name: 'HTTP Status Codes', item: 'https://zeroupload-edb.pages.dev/#tools' },
-      { '@type': 'ListItem', position: 3, name: `HTTP ${status.code}`, item: `https://zeroupload-edb.pages.dev/http-status/${status.slug}/` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://devtransform-hub.vercel.app/' },
+      { '@type': 'ListItem', position: 2, name: 'HTTP Status Codes', item: 'https://devtransform-hub.vercel.app/#tools' },
+      { '@type': 'ListItem', position: 3, name: `HTTP ${status.code}`, item: `https://devtransform-hub.vercel.app/http-status/${status.slug}/` },
     ],
   };
 

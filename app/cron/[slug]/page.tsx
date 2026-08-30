@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = `${item.expression} Cron Schedule: "${item.title}" Meaning & Examples (${item.titleTr})`;
   const description = `What does the cron schedule "${item.expression}" mean? Plain English explanation, next execution dates, crontab, GitHub Actions, and Kubernetes examples.`;
-  const canonicalUrl = `https://zeroupload-edb.pages.dev/cron/${item.slug}/`;
+  const canonicalUrl = `https://devtransform-hub.vercel.app/cron/${item.slug}/`;
 
   return {
     title,
@@ -96,7 +96,7 @@ export default function CronSchedulePage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: `${item.expression} Cron Schedule Explainer`,
-    url: `https://zeroupload-edb.pages.dev/cron/${item.slug}/`,
+    url: `https://devtransform-hub.vercel.app/cron/${item.slug}/`,
     description: item.description,
     applicationCategory: 'DeveloperApplication',
     operatingSystem: 'All',
@@ -107,9 +107,9 @@ export default function CronSchedulePage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://zeroupload-edb.pages.dev/' },
-      { '@type': 'ListItem', position: 2, name: 'Cron Schedules', item: 'https://zeroupload-edb.pages.dev/#tools' },
-      { '@type': 'ListItem', position: 3, name: item.expression, item: `https://zeroupload-edb.pages.dev/cron/${item.slug}/` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://devtransform-hub.vercel.app/' },
+      { '@type': 'ListItem', position: 2, name: 'Cron Schedules', item: 'https://devtransform-hub.vercel.app/#tools' },
+      { '@type': 'ListItem', position: 3, name: item.expression, item: `https://devtransform-hub.vercel.app/cron/${item.slug}/` },
     ],
   };
 

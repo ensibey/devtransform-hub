@@ -12,7 +12,7 @@ import { CATEGORIES } from '@/types/tool';
 
 import { generateSitemaps } from '@/scripts/build-sitemaps';
 
-const BASE_URL = 'https://zeroupload-edb.pages.dev';
+const BASE_URL = 'https://devtransform-hub.vercel.app';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   try {

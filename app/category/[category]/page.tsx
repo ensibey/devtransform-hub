@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
   const title = `${categoryInfo.name} - Free Online Client-Side Tools`;
   const description = `${categoryInfo.description} 100% private, zero server storage, and instant in-browser execution.`;
-  const canonicalUrl = `https://zeroupload-edb.pages.dev/category/${categoryInfo.slug}/`;
+  const canonicalUrl = `https://devtransform-hub.vercel.app/category/${categoryInfo.slug}/`;
 
   return {
     title,

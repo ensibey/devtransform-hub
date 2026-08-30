@@ -11,7 +11,7 @@ import { getAllCronSchedules } from '../lib/cron-data';
 import { TOOLS_REGISTRY } from '../lib/registry';
 import { CATEGORIES } from '../types/tool';
 
-const BASE_URL = 'https://zeroupload-edb.pages.dev';
+const BASE_URL = 'https://devtransform-hub.vercel.app';
 const currentDate = new Date().toISOString();
 
 function buildUrlSetXml(urls: { url: string; lastModified?: string; changeFrequency?: string; priority?: number }[]) {

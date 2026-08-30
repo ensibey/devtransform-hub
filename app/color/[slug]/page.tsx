@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = `${color.hex} to RGB, HSL & CMYK Converter — "${color.name}" (${color.nameTr} Renk Kodu)`;
   const description = `Convert HEX ${color.hex} to RGB(${color.rgb.join(', ')}), HSL(${color.hsl[0]}, ${color.hsl[1]}%, ${color.hsl[2]}%), and CMYK. WCAG contrast ratio test, shades, and CSS code snippets.`;
-  const canonicalUrl = `https://zeroupload-edb.pages.dev/color/${color.slug}/`;
+  const canonicalUrl = `https://devtransform-hub.vercel.app/color/${color.slug}/`;
 
   return {
     title,
@@ -114,7 +114,7 @@ export default function ColorPage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: `${color.hex} Color Converter`,
-    url: `https://zeroupload-edb.pages.dev/color/${color.slug}/`,
+    url: `https://devtransform-hub.vercel.app/color/${color.slug}/`,
     description: `Convert ${color.hex} to RGB, HSL, and CMYK.`,
     applicationCategory: 'DesignApplication',
     operatingSystem: 'All',
@@ -125,9 +125,9 @@ export default function ColorPage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://zeroupload-edb.pages.dev/' },
-      { '@type': 'ListItem', position: 2, name: 'Color Codes', item: 'https://zeroupload-edb.pages.dev/#tools' },
-      { '@type': 'ListItem', position: 3, name: color.hex, item: `https://zeroupload-edb.pages.dev/color/${color.slug}/` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://devtransform-hub.vercel.app/' },
+      { '@type': 'ListItem', position: 2, name: 'Color Codes', item: 'https://devtransform-hub.vercel.app/#tools' },
+      { '@type': 'ListItem', position: 3, name: color.hex, item: `https://devtransform-hub.vercel.app/color/${color.slug}/` },
     ],
   };
 

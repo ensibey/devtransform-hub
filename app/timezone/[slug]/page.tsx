@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = `${pair.from.name} to ${pair.to.name} Time Difference & Live Clock (${pair.from.nameTr} - ${pair.to.nameTr} Saat Farkı)`;
   const description = `What is the time difference between ${pair.from.name} (${pair.from.country}) and ${pair.to.name} (${pair.to.country})? Live world clock, meeting planner, and exact hour conversion table.`;
-  const canonicalUrl = `https://zeroupload-edb.pages.dev/timezone/${pair.slug}/`;
+  const canonicalUrl = `https://devtransform-hub.vercel.app/timezone/${pair.slug}/`;
 
   return {
     title,
@@ -106,7 +106,7 @@ export default function TimezonePairPage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: `${pair.from.name} to ${pair.to.name} Timezone Converter`,
-    url: `https://zeroupload-edb.pages.dev/timezone/${pair.slug}/`,
+    url: `https://devtransform-hub.vercel.app/timezone/${pair.slug}/`,
     description: `Live time difference and meeting planner between ${pair.from.name} and ${pair.to.name}.`,
     applicationCategory: 'UtilityApplication',
     operatingSystem: 'All',
@@ -117,9 +117,9 @@ export default function TimezonePairPage({ params }: PageProps) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://zeroupload-edb.pages.dev/' },
-      { '@type': 'ListItem', position: 2, name: 'Timezones', item: 'https://zeroupload-edb.pages.dev/#tools' },
-      { '@type': 'ListItem', position: 3, name: `${pair.from.name} to ${pair.to.name}`, item: `https://zeroupload-edb.pages.dev/timezone/${pair.slug}/` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://devtransform-hub.vercel.app/' },
+      { '@type': 'ListItem', position: 2, name: 'Timezones', item: 'https://devtransform-hub.vercel.app/#tools' },
+      { '@type': 'ListItem', position: 3, name: `${pair.from.name} to ${pair.to.name}`, item: `https://devtransform-hub.vercel.app/timezone/${pair.slug}/` },
     ],
   };
 
