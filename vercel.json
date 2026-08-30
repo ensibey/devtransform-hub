@@ -1,0 +1,13 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": true,
+  "routes": [
+    {
+      "src": "/google5716913a2e6e8126.html",
+      "dest": "/google5716913a2e6e8126.html",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8"
+      }
+    }
+  ]
+}
