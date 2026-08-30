@@ -47,6 +47,8 @@ import { FlexboxPlayground } from '@/components/tools/dev/FlexboxPlayground';
 import { GradientGenerator } from '@/components/tools/dev/GradientGenerator';
 import { ClampCalculator } from '@/components/tools/dev/ClampCalculator';
 import { HtmlEntityEncoder } from '@/components/tools/dev/HtmlEntityEncoder';
+import { SlugGenerator } from '@/components/tools/text/SlugGenerator';
+import { TriangleGenerator } from '@/components/tools/dev/TriangleGenerator';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -544,6 +546,32 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Encode and decode HTML special entities with named and numeric representation modes.',
     component: HtmlEntityEncoder,
+  },
+  {
+    id: 'url-slug-generator',
+    slug: 'url-slug-generator',
+    title: 'SEO Friendly URL Slugify & Permalink Generator',
+    shortDesc: 'Convert blog post titles, Turkish & international characters into clean SEO URL slugs.',
+    category: 'text',
+    keywords: ['slug generator', 'slugify', 'url slug', 'permalink generator', 'turkish char to slug'],
+    icon: 'Link2',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate clean, search-engine-friendly URL slugs with international character transliteration.',
+    component: SlugGenerator,
+  },
+  {
+    id: 'css-triangle-generator',
+    slug: 'css-triangle-generator',
+    title: 'Pure CSS Triangle & Arrow Generator',
+    shortDesc: 'Generate pure CSS border triangles for tooltips, modals, and speech bubbles with 8 direction modes.',
+    category: 'dev',
+    keywords: ['css triangle', 'triangle generator', 'css arrow', 'tooltip arrow css', 'css shape generator'],
+    icon: 'Play',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Create pure CSS border triangles with custom direction, width, height, and color.',
+    component: TriangleGenerator,
   },
 ];
 
