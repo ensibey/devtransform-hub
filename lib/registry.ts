@@ -60,6 +60,10 @@ import { JsonToTsGenerator } from '@/components/tools/dev/JsonToTsGenerator';
 import { GridGenerator } from '@/components/tools/dev/GridGenerator';
 import { UrlParser } from '@/components/tools/dev/UrlParser';
 import { CryptoSuite } from '@/components/tools/dev/CryptoSuite';
+import { CubicBezierVisualizer } from '@/components/tools/dev/CubicBezierVisualizer';
+import { KeycodeInspector } from '@/components/tools/dev/KeycodeInspector';
+import { AspectRatioVisualizer } from '@/components/tools/calculator/AspectRatioVisualizer';
+import { BulkUuidGenerator } from '@/components/tools/dev/BulkUuidGenerator';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -726,6 +730,58 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Compute high-security cryptographic hashes (SHA-256, SHA-512, SHA-384, SHA-1) entirely client-side.',
     component: CryptoSuite,
+  },
+  {
+    id: 'cubic-bezier-generator',
+    slug: 'cubic-bezier-generator',
+    title: 'CSS Cubic Bezier & Animation Timing Generator',
+    shortDesc: 'Interactive cubic bezier curve visualizer with animation playground and standard CSS export.',
+    category: 'dev',
+    keywords: ['cubic bezier generator', 'css timing function', 'cubic bezier curve', 'css transition generator'],
+    icon: 'Play',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Design and preview custom CSS cubic-bezier transition curves with a real-time animation comparison.',
+    component: CubicBezierVisualizer,
+  },
+  {
+    id: 'javascript-keycode-inspector',
+    slug: 'javascript-keycode-inspector',
+    title: 'JavaScript KeyCode & KeyboardEvent Live Inspector',
+    shortDesc: 'Inspect JavaScript event.key, event.code, keyCode, which, and modifier keys on any keypress.',
+    category: 'dev',
+    keywords: ['keycode', 'javascript keycode', 'keyboard event inspector', 'event which', 'key code finder'],
+    icon: 'Keyboard',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Real-time JavaScript KeyboardEvent inspector showing key, code, keyCode, location, and modifiers.',
+    component: KeycodeInspector,
+  },
+  {
+    id: 'aspect-ratio-calculator',
+    slug: 'aspect-ratio-calculator',
+    title: 'Responsive Aspect Ratio & Resolution Calculator',
+    shortDesc: 'Calculate proportional dimensions for 16:9, 4:3, 1:1, 9:16 (TikTok) with instant CSS snippets.',
+    category: 'calculator',
+    keywords: ['aspect ratio calculator', '16 9 calculator', 'image ratio calculator', 'screen resolution ratio'],
+    icon: 'Ratio',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Calculate responsive aspect ratios, image pixel dimensions, and CSS aspect-ratio properties.',
+    component: AspectRatioVisualizer,
+  },
+  {
+    id: 'bulk-uuid-generator',
+    slug: 'bulk-uuid-generator',
+    title: 'Bulk UUID & GUID v4 Generator',
+    shortDesc: 'Generate up to 500 random UUID v4s at once with uppercase/lowercase and JSON array formatting.',
+    category: 'dev',
+    keywords: ['bulk uuid generator', 'guid generator', 'random uuid', 'bulk guid', 'generate 100 uuids'],
+    icon: 'Fingerprint',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate batches of random cryptographic UUID / GUID v4 identifiers with custom formatting options.',
+    component: BulkUuidGenerator,
   },
 ];
 
