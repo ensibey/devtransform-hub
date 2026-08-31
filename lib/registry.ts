@@ -64,6 +64,10 @@ import { CubicBezierVisualizer } from '@/components/tools/dev/CubicBezierVisuali
 import { KeycodeInspector } from '@/components/tools/dev/KeycodeInspector';
 import { AspectRatioVisualizer } from '@/components/tools/calculator/AspectRatioVisualizer';
 import { BulkUuidGenerator } from '@/components/tools/dev/BulkUuidGenerator';
+import { DnsInspector } from '@/components/tools/dev/DnsInspector';
+import { JsonPathEvaluator } from '@/components/tools/dev/JsonPathEvaluator';
+import { MarkdownHtmlConverter } from '@/components/tools/text/MarkdownHtmlConverter';
+import { BcryptSimulator } from '@/components/tools/dev/BcryptSimulator';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -782,6 +786,58 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Generate batches of random cryptographic UUID / GUID v4 identifiers with custom formatting options.',
     component: BulkUuidGenerator,
+  },
+  {
+    id: 'dns-lookup-inspector',
+    slug: 'dns-lookup-inspector',
+    title: 'Live DNS over HTTPS (DoH) Record Inspector',
+    shortDesc: 'Lookup A, AAAA, MX, TXT, CNAME, NS, SOA records with real-time TTL and Cloudflare 1.1.1.1 resolver.',
+    category: 'dev',
+    keywords: ['dns lookup', 'dns checker', 'mx lookup', 'txt record lookup', 'dns inspector'],
+    icon: 'Globe',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Perform live DNS over HTTPS queries for A, AAAA, MX, TXT, and CNAME domain records.',
+    component: DnsInspector,
+  },
+  {
+    id: 'jsonpath-evaluator',
+    slug: 'jsonpath-evaluator',
+    title: 'JSONPath & JSON Query Expression Evaluator',
+    shortDesc: 'Extract and query nested JSON properties using JSONPath expressions with live result formatting.',
+    category: 'dev',
+    keywords: ['jsonpath evaluator', 'json query', 'jsonpath online', 'parse json path', 'json filter'],
+    icon: 'Search',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Evaluate JSONPath queries against JSON documents with instant sub-tree results and match counts.',
+    component: JsonPathEvaluator,
+  },
+  {
+    id: 'markdown-to-html-converter',
+    slug: 'markdown-to-html-converter',
+    title: 'Markdown to HTML & HTML to Markdown Converter',
+    shortDesc: 'Bidirectional converter for Markdown text and HTML tags with live preview and code export.',
+    category: 'text',
+    keywords: ['markdown to html', 'html to markdown', 'md to html', 'markdown converter', 'html to md'],
+    icon: 'FileText',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert Markdown to clean HTML code and HTML back to Markdown syntax with live preview.',
+    component: MarkdownHtmlConverter,
+  },
+  {
+    id: 'bcrypt-generator-verifier',
+    slug: 'bcrypt-generator-verifier',
+    title: 'Bcrypt Hash Generator & Password Verifier',
+    shortDesc: 'Simulate bcrypt salted password hashing with customizable cost rounds (4-14) and match verification.',
+    category: 'dev',
+    keywords: ['bcrypt generator', 'bcrypt hash', 'bcrypt password checker', 'salt rounds bcrypt', 'bcrypt simulator'],
+    icon: 'Lock',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate salted bcrypt password hashes and verify plaintext strings against hash signatures.',
+    component: BcryptSimulator,
   },
 ];
 
