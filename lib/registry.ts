@@ -49,6 +49,9 @@ import { ClampCalculator } from '@/components/tools/dev/ClampCalculator';
 import { HtmlEntityEncoder } from '@/components/tools/dev/HtmlEntityEncoder';
 import { SlugGenerator } from '@/components/tools/text/SlugGenerator';
 import { TriangleGenerator } from '@/components/tools/dev/TriangleGenerator';
+import { ChmodCalculator } from '@/components/tools/dev/ChmodCalculator';
+import { MetaTagGenerator } from '@/components/tools/dev/MetaTagGenerator';
+import { CsvJsonConverter } from '@/components/tools/dev/CsvJsonConverter';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -572,6 +575,45 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Create pure CSS border triangles with custom direction, width, height, and color.',
     component: TriangleGenerator,
+  },
+  {
+    id: 'chmod-calculator',
+    slug: 'chmod-calculator',
+    title: 'Linux Chmod Permissions Calculator',
+    shortDesc: 'Calculate Linux / Unix file permissions in octal (755, 644) and symbolic notation (rwxr-xr-x).',
+    category: 'dev',
+    keywords: ['chmod calculator', 'chmod 777', 'chmod 755', 'chmod 644', 'linux permissions calculator'],
+    icon: 'Terminal',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Calculate and convert Linux file permissions into octal chmod commands and symbolic format.',
+    component: ChmodCalculator,
+  },
+  {
+    id: 'meta-tag-generator',
+    slug: 'meta-tag-generator',
+    title: 'SEO Meta Tag & Social Card Previewer',
+    shortDesc: 'Generate OpenGraph, Twitter card, and Google search snippet meta tags with live interactive cards.',
+    category: 'dev',
+    keywords: ['meta tag generator', 'opengraph generator', 'twitter card generator', 'social preview', 'seo meta'],
+    icon: 'Globe',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate complete HTML OpenGraph, Twitter, and search engine meta tags with live social previews.',
+    component: MetaTagGenerator,
+  },
+  {
+    id: 'csv-to-json-converter',
+    slug: 'csv-to-json-converter',
+    title: 'CSV to JSON & JSON to CSV Table Converter',
+    shortDesc: 'Bidirectional CSV and JSON tabular data converter with delimiter options and file downloads.',
+    category: 'dev',
+    keywords: ['csv to json', 'json to csv', 'csv converter', 'json table converter', 'csv parser'],
+    icon: 'FileSpreadsheet',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert CSV spreadsheets to JSON arrays and JSON to CSV files directly in your browser.',
+    component: CsvJsonConverter,
   },
 ];
 
