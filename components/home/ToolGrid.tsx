@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import {
   DEVELOPER_TOOLS,
@@ -8,6 +8,7 @@ import {
   DeveloperToolItem,
   ToolCategoryKey,
 } from '@/lib/tools-data';
+import { getFavoriteToolSlugs, toggleFavoriteToolSlug } from '@/lib/storage';
 import {
   Sparkles,
   ArrowRight,
@@ -37,6 +38,14 @@ import {
   Percent,
   Maximize2,
   RotateCw,
+  Star,
+  Box,
+  Play,
+  Keyboard,
+  Ratio,
+  Link2,
+  Globe,
+  Lock,
 } from 'lucide-react';
 
 export interface ToolGridProps {
@@ -44,7 +53,7 @@ export interface ToolGridProps {
   onClearSearch: () => void;
 }
 
-// Icon dictionary helper
+// Full icon dictionary helper
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Braces: Code2,
   Code2: Code2,
@@ -69,21 +78,42 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Percent: Percent,
   Maximize2: Maximize2,
   RotateCw: RotateCw,
+  Box: Box,
+  Play: Play,
+  Keyboard: Keyboard,
+  Ratio: Ratio,
+  Link2: Link2,
+  Globe: Globe,
+  Lock: Lock,
+  Calculator: Calculator,
 };
 
 export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
-  const [selectedCategory, setSelectedCategory] = useState<ToolCategoryKey>('all');
+  const [selectedCategory, setSelectedCategory] = useState<ToolCategoryKey | 'favorites'>('all');
+  const [favoriteSlugs, setFavoriteSlugs] = useState<string[]>([]);
 
-  // Filter tools based on active category and search query
+  useEffect(() => {
+    setFavoriteSlugs(getFavoriteToolSlugs());
+  }, []);
+
+  const handleToggleFavorite = (slug: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const isNowFav = toggleFavoriteToolSlug(slug);
+    setFavoriteSlugs(getFavoriteToolSlugs());
+  };
+
+  // Filter tools based on active category, favorites, and search query
   const filteredTools = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
 
     return DEVELOPER_TOOLS.filter((tool) => {
-      // Category Match
-      const matchesCategory =
-        selectedCategory === 'all' || tool.category === selectedCategory;
-
-      if (!matchesCategory) return false;
+      // Favorites Filter
+      if (selectedCategory === 'favorites') {
+        if (!favoriteSlugs.includes(tool.slug)) return false;
+      } else if (selectedCategory !== 'all' && tool.category !== selectedCategory) {
+        return false;
+      }
 
       // Query Match
       if (!query) return true;
@@ -95,12 +125,13 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
 
       return titleMatch || descMatch || tagMatch || catMatch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [selectedCategory, searchQuery, favoriteSlugs]);
 
   // Counts per category
   const categoryCounts = useMemo(() => {
-    const counts: Record<ToolCategoryKey, number> = {
+    const counts: Record<string, number> = {
       all: DEVELOPER_TOOLS.length,
+      favorites: favoriteSlugs.length,
       pdf: 0,
       image: 0,
       text: 0,
@@ -116,51 +147,59 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
     });
 
     return counts;
-  }, []);
+  }, [favoriteSlugs]);
 
   return (
-    <section id="tools" className="mt-10 space-y-6">
-      {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-800/80 pb-4">
-        <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-            Tüm Araçlar Kataloğu
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-400">
-            Kategorilere göre filtreleyin veya anında arama yapın.
-          </p>
-        </div>
+    <section id="tools" className="space-y-8 scroll-mt-20">
+      {/* Category Pills & Filters Bar */}
+      <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-md">
+        {/* All Filter */}
+        <button
+          type="button"
+          onClick={() => setSelectedCategory('all')}
+          className={`flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+            selectedCategory === 'all'
+              ? 'bg-zinc-800 text-white shadow-md border border-zinc-700'
+              : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40'
+          }`}
+        >
+          <Sparkles className="w-3.5 h-3.5 text-brand-emerald" />
+          <span>Tüm Araçlar ({DEVELOPER_TOOLS.length})</span>
+        </button>
 
-        <span className="text-xs font-mono text-zinc-500">
-          Toplam {DEVELOPER_TOOLS.length} Araç & 90 Dönüştürücü
-        </span>
-      </div>
+        {/* Favorites Filter */}
+        {favoriteSlugs.length > 0 && (
+          <button
+            type="button"
+            onClick={() => setSelectedCategory('favorites')}
+            className={`flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
+              selectedCategory === 'favorites'
+                ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-md'
+                : 'text-amber-400/80 hover:text-amber-300 hover:bg-zinc-800/40'
+            }`}
+          >
+            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+            <span>Favorilerim ({favoriteSlugs.length})</span>
+          </button>
+        )}
 
-      {/* Category Filter Tabs */}
-      <div className="flex items-center space-x-2 overflow-x-auto no-scrollbar pb-2 pt-1">
-        {CATEGORY_FILTERS.map((cat) => {
+        {CATEGORY_FILTERS.filter((c) => c.key !== 'all').map((cat) => {
+          const count = categoryCounts[cat.key] || 0;
           const isActive = selectedCategory === cat.key;
-          const count = categoryCounts[cat.key];
 
           return (
             <button
               key={cat.key}
               type="button"
               onClick={() => setSelectedCategory(cat.key)}
-              className={`flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
+              className={`flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all ${
                 isActive
-                  ? 'bg-zinc-100 text-zinc-950 font-bold shadow-md'
-                  : 'bg-zinc-900/60 hover:bg-zinc-800/80 text-zinc-400 hover:text-zinc-200 border border-zinc-800/80'
+                  ? 'bg-zinc-800 text-brand-emerald border border-zinc-700 shadow-md'
+                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40'
               }`}
             >
               <span>{cat.label}</span>
-              <span
-                className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono ${
-                  isActive
-                    ? 'bg-zinc-950/20 text-zinc-950 font-bold'
-                    : 'bg-zinc-800 text-zinc-400'
-                }`}
-              >
+              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-zinc-950/60 text-zinc-500">
                 {count}
               </span>
             </button>
@@ -168,96 +207,87 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
         })}
       </div>
 
-      {/* Grid of Tool Cards */}
+      {/* Tools Cards Grid */}
       {filteredTools.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredTools.map((tool) => {
-            const IconComponent = ICON_MAP[tool.icon] || Sparkles;
+            const IconComp = ICON_MAP[tool.icon] || Code2;
+            const isFav = favoriteSlugs.includes(tool.slug);
 
             return (
               <Link
                 key={tool.id}
                 href={tool.path}
-                className="rounded-xl border border-zinc-800/90 bg-zinc-900/40 p-5 hover:bg-zinc-900/90 hover:border-zinc-700 transition-all duration-200 group relative overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-xl"
+                className="group relative flex flex-col justify-between p-5 rounded-2xl bg-gradient-to-b from-zinc-900/80 to-zinc-950/80 border border-zinc-800/80 hover:border-brand-emerald/50 transition-all duration-200 shadow-sm hover:shadow-xl hover:shadow-brand-emerald/5 hover:-translate-y-0.5"
               >
-                {/* Subtle Hover Gradient Glow */}
-                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-gradient-to-bl from-brand-emerald/10 via-transparent to-transparent rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-
-                <div className="space-y-3 relative z-10">
-                  {/* Top Row: Icon + Badges */}
+                <div className="space-y-3">
+                  {/* Card Header: Icon, Tags, Favorite Star */}
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-zinc-800/80 border border-zinc-700/60 flex items-center justify-center text-brand-emerald group-hover:scale-105 group-hover:border-brand-emerald/40 transition-all shadow-inner">
-                      <IconComponent className="w-5 h-5" />
+                    <div className="w-10 h-10 rounded-xl bg-zinc-800/80 border border-zinc-700/60 flex items-center justify-center text-brand-emerald group-hover:scale-105 group-hover:border-brand-emerald/50 group-hover:bg-brand-emerald/10 transition-all">
+                      <IconComp className="w-5 h-5" />
                     </div>
 
-                    <div className="flex items-center space-x-1.5">
-                      {tool.isNew && (
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-brand-emerald border border-emerald-500/30 font-semibold">
-                          YENİ
-                        </span>
-                      )}
+                    <div className="flex items-center space-x-2">
                       {tool.isPopular && (
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/30 font-semibold">
-                          POPÜLER
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/30 font-bold">
+                          POPULAR
                         </span>
                       )}
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-zinc-800/80 text-zinc-400 border border-zinc-700/60">
-                        {tool.categoryLabel}
-                      </span>
+                      {tool.isNew && (
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-brand-emerald border border-emerald-500/30 font-bold">
+                          NEW
+                        </span>
+                      )}
+
+                      {/* Favorite Toggle Star */}
+                      <button
+                        type="button"
+                        onClick={(e) => handleToggleFavorite(tool.slug, e)}
+                        className="p-1 rounded-lg hover:bg-zinc-800 text-zinc-500 hover:text-amber-400 transition-colors"
+                        title={isFav ? 'Favorilerden çıkar' : 'Favorilere ekle'}
+                      >
+                        <Star
+                          className={`w-4 h-4 transition-colors ${
+                            isFav ? 'fill-amber-400 text-amber-400' : 'text-zinc-600'
+                          }`}
+                        />
+                      </button>
                     </div>
                   </div>
 
-                  {/* Middle: Title + Description */}
-                  <div className="space-y-1">
-                    <h3 className="font-bold text-sm text-zinc-100 group-hover:text-white transition-colors">
+                  {/* Title & Description */}
+                  <div className="space-y-1.5">
+                    <h3 className="text-sm font-bold text-white group-hover:text-brand-emerald transition-colors line-clamp-1">
                       {tool.title}
                     </h3>
-                    <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed font-sans">
+                    <p className="text-xs text-zinc-400 leading-relaxed line-clamp-2">
                       {tool.description}
                     </p>
                   </div>
                 </div>
 
-                {/* Bottom Row: Tags + Arrow */}
-                <div className="mt-5 pt-3.5 border-t border-zinc-800/60 flex items-center justify-between relative z-10">
-                  <div className="flex items-center space-x-1.5 overflow-hidden">
-                    {tool.tags.slice(0, 3).map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="text-[10px] font-mono text-zinc-500 bg-zinc-950/60 px-1.5 py-0.5 rounded border border-zinc-800"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex items-center space-x-1 text-xs font-mono text-brand-emerald font-semibold group-hover:translate-x-1 transition-transform">
-                    <span className="text-[11px]">Kullan</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </div>
+                {/* Card Footer: Category label & Open Arrow */}
+                <div className="pt-4 mt-3 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono text-zinc-500">
+                  <span className="text-[11px] text-zinc-400">{tool.categoryLabel}</span>
+                  <span className="flex items-center space-x-1 text-zinc-400 group-hover:text-brand-emerald font-semibold transition-colors">
+                    <span>Aç / Open</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
                 </div>
               </Link>
             );
           })}
         </div>
       ) : (
-        /* Empty Search State */
-        <div className="p-12 rounded-2xl bg-zinc-900/40 border border-dashed border-zinc-800 text-center space-y-4">
-          <div className="w-12 h-12 rounded-2xl bg-zinc-800/80 border border-zinc-700 flex items-center justify-center text-zinc-400 mx-auto">
-            <SearchX className="w-6 h-6" />
-          </div>
-          <div className="space-y-1">
-            <h3 className="text-sm font-bold text-zinc-200">
-              &quot;{searchQuery}&quot; ile eşleşen bir araç bulunamadı
-            </h3>
-            <p className="text-xs text-zinc-500 max-w-sm mx-auto leading-relaxed">
-              Farklı bir anahtar kelime deneyin (örn. PDF, Resim, cURL, JSON, JWT, Kelime, Hash).
-            </p>
-          </div>
+        /* Empty State */
+        <div className="p-12 text-center rounded-2xl bg-zinc-900/40 border border-dashed border-zinc-800 space-y-3 font-mono text-xs text-zinc-400">
+          <SearchX className="w-8 h-8 text-zinc-600 mx-auto" />
+          <p className="text-sm text-zinc-300 font-bold">Aradığınız kriterlere uygun araç bulunamadı.</p>
+          <p className="text-zinc-500">&quot;{searchQuery}&quot; için sonuç yok.</p>
           <button
             type="button"
             onClick={onClearSearch}
-            className="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-semibold text-zinc-200 border border-zinc-700 transition-colors cursor-pointer"
+            className="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-bold transition-colors"
           >
             Aramayı Temizle
           </button>

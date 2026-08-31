@@ -14,6 +14,10 @@ import {
   ShieldCheck,
   ChevronRight,
   Sparkles,
+  Share2,
+  Check,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
 
 export interface ToolLayoutProps {
@@ -25,6 +29,8 @@ export interface ToolLayoutProps {
 export function ToolLayout({ tool, children, relatedTools = [] }: ToolLayoutProps) {
   const category = CATEGORIES[tool.category];
   const [isFavorite, setIsFavorite] = useState(false);
+  const [copiedShare, setCopiedShare] = useState(false);
+  const [isZenMode, setIsZenMode] = useState(false);
 
   useEffect(() => {
     addRecentToolSlug(tool.slug);
@@ -37,8 +43,16 @@ export function ToolLayout({ tool, children, relatedTools = [] }: ToolLayoutProp
     setIsFavorite(nextState);
   };
 
+  const handleShare = () => {
+    if (typeof window !== 'undefined') {
+      navigator.clipboard.writeText(window.location.href);
+      setCopiedShare(true);
+      setTimeout(() => setCopiedShare(false), 2000);
+    }
+  };
+
   return (
-    <div className="space-y-8 py-2">
+    <div className={`space-y-8 py-2 transition-all duration-300 ${isZenMode ? 'max-w-none px-2' : ''}`}>
       {/* Top Header & Breadcrumb */}
       <div className="space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
@@ -82,24 +96,71 @@ export function ToolLayout({ tool, children, relatedTools = [] }: ToolLayoutProp
             </p>
           </div>
 
-          {/* Favorite Toggle Button */}
-          <button
-            type="button"
-            onClick={handleToggleFavorite}
-            className={`self-start md:self-auto flex items-center space-x-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium transition-all ${
-              isFavorite
-                ? 'bg-amber-500/10 text-amber-300 border-amber-500/40'
-                : 'bg-surface-100 hover:bg-surface-50 text-zinc-400 hover:text-zinc-200 border-border'
-            }`}
-            title="Save to favorites"
-          >
-            <Star
-              className={`w-3.5 h-3.5 ${
-                isFavorite ? 'fill-amber-400 text-amber-400' : 'text-zinc-400'
+          {/* Actions Bar: Favorite, Share, Zen Mode */}
+          <div className="flex items-center space-x-2 self-start md:self-auto">
+            {/* Share Button */}
+            <button
+              type="button"
+              onClick={handleShare}
+              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-xs font-mono text-zinc-400 hover:text-zinc-200 transition-colors shadow-sm"
+              title="Share tool link"
+            >
+              {copiedShare ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-brand-emerald" />
+                  <span className="text-brand-emerald font-bold">Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Share2 className="w-3.5 h-3.5 text-zinc-400" />
+                  <span>Share</span>
+                </>
+              )}
+            </button>
+
+            {/* Zen Mode Toggle */}
+            <button
+              type="button"
+              onClick={() => setIsZenMode(!isZenMode)}
+              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl border text-xs font-mono transition-colors shadow-sm ${
+                isZenMode
+                  ? 'bg-brand-emerald/20 border-brand-emerald text-brand-emerald font-bold'
+                  : 'bg-zinc-900 hover:bg-zinc-800 border-zinc-800 text-zinc-400 hover:text-zinc-200'
               }`}
-            />
-            <span>{isFavorite ? 'Saved to Favorites' : 'Add to Favorites'}</span>
-          </button>
+              title="Toggle Focus / Expanded Width Mode"
+            >
+              {isZenMode ? (
+                <>
+                  <Minimize2 className="w-3.5 h-3.5" />
+                  <span>Standard</span>
+                </>
+              ) : (
+                <>
+                  <Maximize2 className="w-3.5 h-3.5" />
+                  <span>Focus</span>
+                </>
+              )}
+            </button>
+
+            {/* Favorite Toggle Button */}
+            <button
+              type="button"
+              onClick={handleToggleFavorite}
+              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl border text-xs font-mono transition-all shadow-sm ${
+                isFavorite
+                  ? 'bg-amber-500/10 text-amber-300 border-amber-500/40 font-bold'
+                  : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 border-zinc-800'
+              }`}
+              title="Save to favorites"
+            >
+              <Star
+                className={`w-3.5 h-3.5 ${
+                  isFavorite ? 'fill-amber-400 text-amber-400' : 'text-zinc-400'
+                }`}
+              />
+              <span>{isFavorite ? 'Saved' : 'Pin'}</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -138,37 +199,32 @@ export function ToolLayout({ tool, children, relatedTools = [] }: ToolLayoutProp
 
       {/* Related Tools in Category */}
       {relatedTools.length > 0 && (
-        <section className="border-t border-border pt-8 space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-base font-bold text-zinc-200 tracking-tight">
-              More {category?.name || 'Utilities'}
+        <section className="border-t border-border pt-10 space-y-6">
+          <div className="flex items-center space-x-2">
+            <Layers className="w-4 h-4 text-brand-emerald" />
+            <h3 className="text-lg font-bold text-white tracking-tight">
+              More {category?.name || 'Related'} Utilities
             </h3>
-            <Link
-              href={`/category/${tool.category}/`}
-              className="text-xs text-brand-emerald hover:underline flex items-center space-x-1"
-            >
-              <span>View all</span>
-              <ArrowRight className="w-3 h-3" />
-            </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-            {relatedTools.slice(0, 3).map((rTool) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {relatedTools.map((relTool) => (
               <Link
-                key={rTool.slug}
-                href={`/tools/${rTool.slug}/`}
-                className="p-3.5 rounded-xl bg-surface-100 hover:bg-surface-50 border border-border hover:border-zinc-600 transition-all flex flex-col justify-between"
+                key={relTool.id}
+                href={`/tools/${relTool.slug}/`}
+                className="p-4 rounded-xl bg-surface-100 hover:bg-surface-50 border border-border hover:border-brand-emerald/30 transition-all flex flex-col justify-between space-y-3 group"
               >
-                <div>
-                  <div className="font-semibold text-xs text-zinc-200">
-                    {rTool.title}
-                  </div>
-                  <div className="text-[11px] text-zinc-400 mt-1 line-clamp-2">
-                    {rTool.shortDesc}
-                  </div>
+                <div className="space-y-1.5">
+                  <h4 className="font-semibold text-zinc-100 text-xs sm:text-sm group-hover:text-brand-emerald transition-colors">
+                    {relTool.title}
+                  </h4>
+                  <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed">
+                    {relTool.shortDesc}
+                  </p>
                 </div>
-                <div className="mt-3 text-[10px] font-mono text-brand-emerald">
-                  Open Tool →
+                <div className="flex items-center space-x-1 text-xs text-brand-emerald font-medium pt-2">
+                  <span>Open tool</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </Link>
             ))}
