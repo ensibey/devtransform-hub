@@ -52,6 +52,10 @@ import { TriangleGenerator } from '@/components/tools/dev/TriangleGenerator';
 import { ChmodCalculator } from '@/components/tools/dev/ChmodCalculator';
 import { MetaTagGenerator } from '@/components/tools/dev/MetaTagGenerator';
 import { CsvJsonConverter } from '@/components/tools/dev/CsvJsonConverter';
+import { MockDataGenerator } from '@/components/tools/dev/MockDataGenerator';
+import { BoxModelVisualizer } from '@/components/tools/dev/BoxModelVisualizer';
+import { PlaceholderGenerator } from '@/components/tools/image/PlaceholderGenerator';
+import { JsMinifier } from '@/components/tools/dev/JsMinifier';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -614,6 +618,58 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Convert CSV spreadsheets to JSON arrays and JSON to CSV files directly in your browser.',
     component: CsvJsonConverter,
+  },
+  {
+    id: 'mock-data-generator',
+    slug: 'mock-data-generator',
+    title: 'Fake Data & Mock JSON/CSV/SQL Generator',
+    shortDesc: 'Generate realistic mock user data, emails, roles, companies in JSON, CSV, and SQL INSERT formats.',
+    category: 'dev',
+    keywords: ['mock data generator', 'fake json generator', 'mock user data', 'test data generator', 'sql insert generator'],
+    icon: 'Database',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate custom mock JSON records, CSV spreadsheets, and SQL statements for development and testing.',
+    component: MockDataGenerator,
+  },
+  {
+    id: 'css-box-model-visualizer',
+    slug: 'css-box-model-visualizer',
+    title: 'CSS Box Model & Padding/Margin Visualizer',
+    shortDesc: 'Interactive nested visualizer for Margin, Border, Padding, Content with border-box / content-box modes.',
+    category: 'dev',
+    keywords: ['css box model', 'box model visualizer', 'padding margin visualizer', 'box-sizing calculator'],
+    icon: 'Box',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Visualize and calculate rendered element dimensions with CSS box model and box-sizing properties.',
+    component: BoxModelVisualizer,
+  },
+  {
+    id: 'placeholder-image-generator',
+    slug: 'placeholder-image-generator',
+    title: 'SVG Placeholder & Dummy Image Generator',
+    shortDesc: 'Create customized SVG and WebP placeholder images with custom dimensions, colors, and Data URIs.',
+    category: 'image',
+    keywords: ['placeholder image generator', 'svg placeholder', 'dummy image', 'data uri image generator'],
+    icon: 'Image',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate lightweight SVG placeholder images and Data URIs with custom dimensions and colors.',
+    component: PlaceholderGenerator,
+  },
+  {
+    id: 'js-minifier',
+    slug: 'js-minifier',
+    title: 'JavaScript & TypeScript Code Minifier',
+    shortDesc: 'Compress and minify JavaScript/TypeScript code by stripping comments and compacting whitespace.',
+    category: 'dev',
+    keywords: ['js minifier', 'javascript compressor', 'minify js', 'compress typescript', 'clean js code'],
+    icon: 'FileCode',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Minify JavaScript and TypeScript code online with instant file size reduction and download.',
+    component: JsMinifier,
   },
 ];
 
