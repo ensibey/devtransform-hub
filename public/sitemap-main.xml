@@ -2,379 +2,403 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://devtransform-hub.vercel.app/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/category/text/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/category/image/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/category/pdf/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/category/calculator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/category/dev/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/formatters/json/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/formatters/yaml/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/formatters/csv/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/formatters/xml/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/formatters/toml/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/formatters/typescript/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/formatters/go/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/formatters/rust/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/formatters/python/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/formatters/sql/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/word-counter/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/case-converter/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/text-diff/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/lorem-ipsum-generator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/markdown-previewer/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/image-compressor/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/image-converter/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/qr-code-generator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/svg-optimizer/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/color-palette-extractor/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/pdf-merge/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/pdf-split/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/image-to-pdf/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/pdf-rotate/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/percentage-calculator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/aspect-ratio-calculator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/timezone-converter/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/unit-converter/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/json-formatter-validator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/base64-encoder-decoder/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/hash-generator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/uuid-generator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/jwt-decoder/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/curl-to-code/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/regex-tester/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/unix-timestamp/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/url-encoder-decoder/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/css-glassmorphism/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/css-box-shadow/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/sql-formatter/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/html-minifier/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/password-generator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/markdown-table-generator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/image-to-base64/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/css-flexbox-playground/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/css-gradient-generator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/css-clamp-calculator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/html-entity-encoder/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/url-slug-generator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/css-triangle-generator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/chmod-calculator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/meta-tag-generator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/csv-to-json-converter/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/mock-data-generator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/css-box-model-visualizer/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/placeholder-image-generator/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devtransform-hub.vercel.app/tools/js-minifier/</loc>
-    <lastmod>2026-08-31T14:18:56.860Z</lastmod>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://devtransform-hub.vercel.app/tools/json-to-typescript/</loc>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://devtransform-hub.vercel.app/tools/css-grid-generator/</loc>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://devtransform-hub.vercel.app/tools/url-parser/</loc>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://devtransform-hub.vercel.app/tools/crypto-hash-suite/</loc>
+    <lastmod>2026-08-31T14:24:46.752Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>

@@ -56,6 +56,10 @@ import { MockDataGenerator } from '@/components/tools/dev/MockDataGenerator';
 import { BoxModelVisualizer } from '@/components/tools/dev/BoxModelVisualizer';
 import { PlaceholderGenerator } from '@/components/tools/image/PlaceholderGenerator';
 import { JsMinifier } from '@/components/tools/dev/JsMinifier';
+import { JsonToTsGenerator } from '@/components/tools/dev/JsonToTsGenerator';
+import { GridGenerator } from '@/components/tools/dev/GridGenerator';
+import { UrlParser } from '@/components/tools/dev/UrlParser';
+import { CryptoSuite } from '@/components/tools/dev/CryptoSuite';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -670,6 +674,58 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Minify JavaScript and TypeScript code online with instant file size reduction and download.',
     component: JsMinifier,
+  },
+  {
+    id: 'json-to-typescript',
+    slug: 'json-to-typescript',
+    title: 'JSON to TypeScript Interfaces & Types Converter',
+    shortDesc: 'Convert JSON payloads into clean, strongly typed TypeScript interfaces with nested type inference.',
+    category: 'dev',
+    keywords: ['json to typescript', 'json to ts', 'json to interface', 'generate ts types', 'typescript generator'],
+    icon: 'Code2',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate strongly typed TypeScript interfaces and type definitions from JSON data structures.',
+    component: JsonToTsGenerator,
+  },
+  {
+    id: 'css-grid-generator',
+    slug: 'css-grid-generator',
+    title: 'CSS Grid Interactive Matrix & Layout Generator',
+    shortDesc: 'Visual CSS Grid playground with customizable rows, columns, gaps, and instant Tailwind classes.',
+    category: 'dev',
+    keywords: ['css grid generator', 'grid layout visualizer', 'css grid playground', 'tailwind grid generator'],
+    icon: 'LayoutGrid',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Interactive visual CSS Grid generator for responsive web layouts and Tailwind CSS utilities.',
+    component: GridGenerator,
+  },
+  {
+    id: 'url-parser',
+    slug: 'url-parser',
+    title: 'URL Parser & Query String Parameter Inspector',
+    shortDesc: 'Deconstruct URLs into protocol, hostname, path, hash, and interactive query parameters table.',
+    category: 'dev',
+    keywords: ['url parser', 'query string builder', 'url inspector', 'parse url params', 'query parameters'],
+    icon: 'Link2',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Parse and inspect URL components, query parameters, protocol, hostname, and path elements.',
+    component: UrlParser,
+  },
+  {
+    id: 'crypto-hash-suite',
+    slug: 'crypto-hash-suite',
+    title: 'Multi-Algorithm Cryptographic Hash Suite',
+    shortDesc: 'Generate SHA-256, SHA-512, SHA-384, and SHA-1 cryptographic digests with client-side Web Crypto.',
+    category: 'dev',
+    keywords: ['sha512 generator', 'sha256 generator', 'crypto hash suite', 'sha384 hash', 'sha1 generator'],
+    icon: 'Lock',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Compute high-security cryptographic hashes (SHA-256, SHA-512, SHA-384, SHA-1) entirely client-side.',
+    component: CryptoSuite,
   },
 ];
 
