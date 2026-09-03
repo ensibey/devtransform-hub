@@ -10,6 +10,8 @@ import { getAllHttpStatuses } from '../lib/http-status-data';
 import { getAllCronSchedules } from '../lib/cron-data';
 import { getAllRegexPatterns } from '../lib/regex-matrix';
 import { getAllShadowPresets } from '../lib/shadow-matrix';
+import { getAllCheatSheets } from '../lib/cheatsheet-matrix';
+import { getAllComparisons } from '../lib/comparison-matrix';
 import { TOOLS_REGISTRY } from '../lib/registry';
 import { CATEGORIES } from '../types/tool';
 
@@ -96,6 +98,8 @@ export function generateSitemaps(targetDirs: string[]) {
     ...getAllCronSchedules().map((c) => ({ url: `${BASE_URL}/cron/${c.slug}/`, priority: 0.7 })),
     ...getAllRegexPatterns().map((r) => ({ url: `${BASE_URL}/regex/${r.slug}/`, priority: 0.8 })),
     ...getAllShadowPresets().map((s) => ({ url: `${BASE_URL}/css-shadow/${s.slug}/`, priority: 0.8 })),
+    ...getAllCheatSheets().map((c) => ({ url: `${BASE_URL}/cheatsheet/${c.slug}/`, priority: 0.8 })),
+    ...getAllComparisons().map((v) => ({ url: `${BASE_URL}/vs/${v.slug}/`, priority: 0.8 })),
   ];
   const utilXml = buildUrlSetXml(utilUrls);
 
