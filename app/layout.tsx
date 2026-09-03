@@ -44,6 +44,17 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'ZeroUpload Team' }],
   manifest: '/manifest.json',
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/icon.svg',
+  },
   openGraph: {
     title: 'ZeroUpload - Privacy-First Zero-Server Developer Converter Suite',
     description:
