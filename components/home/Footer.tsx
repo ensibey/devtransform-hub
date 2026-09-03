@@ -18,7 +18,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-xs text-zinc-500 max-w-md leading-relaxed">
-              Gizlilik odaklı, sıfır sunucu yüklemesi gerektiren açık kaynaklı araç paketi.
+              Privacy-first, zero-server developer and daily utility suite. No data ever leaves your browser.
             </p>
           </div>
 
@@ -28,7 +28,13 @@ export function Footer() {
               href="/#tools"
               className="px-3 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 hover:text-white transition-colors"
             >
-              Tüm Araçlar
+              All Tools
+            </Link>
+            <Link
+              href="/category/dev/"
+              className="px-3 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 hover:text-white transition-colors"
+            >
+              Developer Hub
             </Link>
             <a
               href="https://github.com/ensibey/devtransform-hub"
@@ -44,11 +50,11 @@ export function Footer() {
 
         <div className="border-t border-zinc-800/60 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-zinc-500 font-mono">
           <div>
-            © {new Date().getFullYear()} ZeroUpload. Açık kaynak MIT Lisansı.
+            © {new Date().getFullYear()} ZeroUpload. Open Source MIT License.
           </div>
           <div className="flex items-center space-x-1 mt-2 sm:mt-0 text-emerald-400">
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span>Verileriniz asla cihazınızdan ayrılmaz.</span>
+            <span>Your files and data never leave your local device.</span>
           </div>
         </div>
       </div>

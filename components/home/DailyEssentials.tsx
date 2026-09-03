@@ -22,13 +22,13 @@ export function DailyEssentials() {
         <div className="space-y-1">
           <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-[11px] font-mono text-emerald-300">
             <Sparkles className="w-3 h-3 text-emerald-400" />
-            <span>En Çok Kullanılan Günlük Araçlar</span>
+            <span>Most Popular Daily Utilities</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-            Günlük İhtiyaçlar & Hızlı Vitrin
+            Daily Essentials & Featured Hubs
           </h2>
           <p className="text-xs sm:text-sm text-zinc-400">
-            Dosya yüklemesi gerektirmeyen, doğrudan tarayıcınızda çalışan popüler araçlar.
+            Client-side utilities that execute locally in your browser with zero server roundtrips.
           </p>
         </div>
 
@@ -36,7 +36,7 @@ export function DailyEssentials() {
           href="#tools"
           className="inline-flex items-center space-x-1 text-xs font-mono text-brand-emerald hover:underline font-semibold"
         >
-          <span>Tüm 100+ Aracı Gör</span>
+          <span>Explore All 56+ Tools</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </div>
@@ -57,201 +57,213 @@ export function DailyEssentials() {
 
             <div className="space-y-1.5">
               <h3 className="font-bold text-base text-white group-hover:text-rose-200 transition-colors">
-                PDF Belge Araçları
+                PDF Document Studio
               </h3>
               <p className="text-xs text-zinc-400 leading-relaxed">
-                PDF dosyalarınızı sunucuya yüklemeden güvenle birleştirin, sayfaları ayırın veya görsellerden PDF yapın.
+                Merge, split, rotate, and convert photos to PDF. Handled locally via WebAssembly with zero data tracking.
               </p>
             </div>
 
-            {/* Quick Links */}
-            <div className="space-y-1.5 pt-2">
+            <div className="space-y-1 pt-2 border-t border-zinc-800/80 font-mono text-xs">
               <Link
                 href="/tools/pdf-merge/"
-                className="flex items-center justify-between p-2 rounded-lg bg-zinc-900/80 hover:bg-rose-950/40 border border-zinc-800 text-xs text-zinc-300 hover:text-white transition-colors"
+                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-zinc-800/60 text-zinc-300 hover:text-white transition-colors"
               >
-                <span>⚡ PDF Birleştirici</span>
-                <ArrowRight className="w-3 h-3 text-rose-400" />
+                <span>• Merge Multiple PDFs</span>
+                <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
               <Link
                 href="/tools/pdf-split/"
-                className="flex items-center justify-between p-2 rounded-lg bg-zinc-900/80 hover:bg-rose-950/40 border border-zinc-800 text-xs text-zinc-300 hover:text-white transition-colors"
+                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-zinc-800/60 text-zinc-300 hover:text-white transition-colors"
               >
-                <span>✂️ PDF Sayfa Bölücü</span>
-                <ArrowRight className="w-3 h-3 text-rose-400" />
+                <span>• Split PDF Pages</span>
+                <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
               <Link
                 href="/tools/image-to-pdf/"
-                className="flex items-center justify-between p-2 rounded-lg bg-zinc-900/80 hover:bg-rose-950/40 border border-zinc-800 text-xs text-zinc-300 hover:text-white transition-colors"
+                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-zinc-800/60 text-zinc-300 hover:text-white transition-colors"
               >
-                <span>🖼️ Görselden PDF</span>
-                <ArrowRight className="w-3 h-3 text-rose-400" />
+                <span>• Image to High-Res PDF</span>
+                <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
             </div>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-rose-900/30 flex items-center justify-between text-[10px] font-mono text-zinc-500">
-            <span>%100 İstemci Taraflı</span>
-            <span className="text-rose-400 font-semibold">pdf-lib</span>
-          </div>
-        </div>
-
-        {/* 2. Image & Media Studio */}
-        <div className="rounded-2xl border border-emerald-900/40 bg-gradient-to-b from-emerald-950/20 via-zinc-900/60 to-zinc-950 p-5 flex flex-col justify-between hover:border-emerald-700/60 transition-all group shadow-lg">
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
-                <ImageIcon className="w-5 h-5" />
-              </div>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 font-semibold">
-                Görsel Studio
-              </span>
-            </div>
-
-            <div className="space-y-1.5">
-              <h3 className="font-bold text-base text-white group-hover:text-emerald-200 transition-colors">
-                Fotoğraf & Görsel
-              </h3>
-              <p className="text-xs text-zinc-400 leading-relaxed">
-                Görselleri %80 küçültün, formatları dönüştürün, renk paleti çıkarın veya QR kod üretin.
-              </p>
-            </div>
-
-            {/* Quick Links */}
-            <div className="space-y-1.5 pt-2">
-              <Link
-                href="/tools/image-compressor/"
-                className="flex items-center justify-between p-2 rounded-lg bg-zinc-900/80 hover:bg-emerald-950/40 border border-zinc-800 text-xs text-zinc-300 hover:text-white transition-colors"
-              >
-                <span>📉 Görsel Sıkıştırıcı</span>
-                <ArrowRight className="w-3 h-3 text-emerald-400" />
-              </Link>
-              <Link
-                href="/tools/image-converter/"
-                className="flex items-center justify-between p-2 rounded-lg bg-zinc-900/80 hover:bg-emerald-950/40 border border-zinc-800 text-xs text-zinc-300 hover:text-white transition-colors"
-              >
-                <span>🔄 Format Çevirici</span>
-                <ArrowRight className="w-3 h-3 text-emerald-400" />
-              </Link>
-              <Link
-                href="/tools/qr-code-generator/"
-                className="flex items-center justify-between p-2 rounded-lg bg-zinc-900/80 hover:bg-emerald-950/40 border border-zinc-800 text-xs text-zinc-300 hover:text-white transition-colors"
-              >
-                <span>📱 QR Kod Oluşturucu</span>
-                <ArrowRight className="w-3 h-3 text-emerald-400" />
-              </Link>
-            </div>
-          </div>
-
-          <div className="mt-4 pt-3 border-t border-emerald-900/30 flex items-center justify-between text-[10px] font-mono text-zinc-500">
-            <span>Web Worker Multi-Thread</span>
-            <span className="text-emerald-400 font-semibold">Canvas 2D</span>
+          <div className="pt-4 mt-2">
+            <Link
+              href="/category/pdf/"
+              className="w-full py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-rose-500/40 text-xs font-mono text-center text-zinc-300 hover:text-white block transition-colors"
+            >
+              Open PDF Toolkit →
+            </Link>
           </div>
         </div>
 
-        {/* 3. Text & Content Lab */}
-        <div className="rounded-2xl border border-indigo-900/40 bg-gradient-to-b from-indigo-950/20 via-zinc-900/60 to-zinc-950 p-5 flex flex-col justify-between hover:border-indigo-700/60 transition-all group shadow-lg">
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 group-hover:scale-105 transition-transform">
-                <FileText className="w-5 h-5" />
-              </div>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 font-semibold">
-                Metin Lab
-              </span>
-            </div>
-
-            <div className="space-y-1.5">
-              <h3 className="font-bold text-base text-white group-hover:text-indigo-200 transition-colors">
-                Metin & İçerik Yazımı
-              </h3>
-              <p className="text-xs text-zinc-400 leading-relaxed">
-                Kelime sayın, harf boyutlarını değiştirin, iki metin arasındaki farkı görün veya canlı Markdown yazın.
-              </p>
-            </div>
-
-            {/* Quick Links */}
-            <div className="space-y-1.5 pt-2">
-              <Link
-                href="/tools/word-counter/"
-                className="flex items-center justify-between p-2 rounded-lg bg-zinc-900/80 hover:bg-indigo-950/40 border border-zinc-800 text-xs text-zinc-300 hover:text-white transition-colors"
-              >
-                <span>📊 Kelime & Karakter Sayacı</span>
-                <ArrowRight className="w-3 h-3 text-indigo-400" />
-              </Link>
-              <Link
-                href="/tools/text-diff/"
-                className="flex items-center justify-between p-2 rounded-lg bg-zinc-900/80 hover:bg-indigo-950/40 border border-zinc-800 text-xs text-zinc-300 hover:text-white transition-colors"
-              >
-                <span>🔍 Metin & Kod Farkı (Diff)</span>
-                <ArrowRight className="w-3 h-3 text-indigo-400" />
-              </Link>
-              <Link
-                href="/tools/case-converter/"
-                className="flex items-center justify-between p-2 rounded-lg bg-zinc-900/80 hover:bg-indigo-950/40 border border-zinc-800 text-xs text-zinc-300 hover:text-white transition-colors"
-              >
-                <span>🔡 Büyük/Küçük Harf Çevir</span>
-                <ArrowRight className="w-3 h-3 text-indigo-400" />
-              </Link>
-            </div>
-          </div>
-
-          <div className="mt-4 pt-3 border-t border-indigo-900/30 flex items-center justify-between text-[10px] font-mono text-zinc-500">
-            <span>Anlık İstatistikler</span>
-            <span className="text-indigo-400 font-semibold">Diff Engine</span>
-          </div>
-        </div>
-
-        {/* 4. Developer & API Tools */}
+        {/* 2. Image & Media Suite */}
         <div className="rounded-2xl border border-sky-900/40 bg-gradient-to-b from-sky-950/20 via-zinc-900/60 to-zinc-950 p-5 flex flex-col justify-between hover:border-sky-700/60 transition-all group shadow-lg">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div className="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 group-hover:scale-105 transition-transform">
-                <Terminal className="w-5 h-5" />
+                <ImageIcon className="w-5 h-5" />
               </div>
               <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-sky-500/10 text-sky-300 border border-sky-500/30 font-semibold">
-                Geliştirici Hub
+                Image Suite
               </span>
             </div>
 
             <div className="space-y-1.5">
               <h3 className="font-bold text-base text-white group-hover:text-sky-200 transition-colors">
-                Geliştirici & API
+                Image & Media Studio
               </h3>
               <p className="text-xs text-zinc-400 leading-relaxed">
-                cURL isteklerini koda çevirin, JSON verisini TypeScript veya Go structlarına dönüştürün, JWT çözün.
+                Compress WebP/JPG/PNG images up to 80%, generate custom QR codes, and extract color palettes in Canvas.
               </p>
             </div>
 
-            {/* Quick Links */}
-            <div className="space-y-1.5 pt-2">
+            <div className="space-y-1 pt-2 border-t border-zinc-800/80 font-mono text-xs">
               <Link
-                href="/tools/curl-to-code/"
-                className="flex items-center justify-between p-2 rounded-lg bg-zinc-900/80 hover:bg-sky-950/40 border border-zinc-800 text-xs text-zinc-300 hover:text-white transition-colors"
+                href="/tools/image-compressor/"
+                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-zinc-800/60 text-zinc-300 hover:text-white transition-colors"
               >
-                <span>⚡ cURL to Code</span>
-                <ArrowRight className="w-3 h-3 text-sky-400" />
+                <span>• Lossless Image Compressor</span>
+                <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
               <Link
-                href="/json-to-typescript/"
-                className="flex items-center justify-between p-2 rounded-lg bg-zinc-900/80 hover:bg-sky-950/40 border border-zinc-800 text-xs text-zinc-300 hover:text-white transition-colors"
+                href="/tools/qr-code-generator/"
+                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-zinc-800/60 text-zinc-300 hover:text-white transition-colors"
               >
-                <span>📦 JSON to TypeScript</span>
-                <ArrowRight className="w-3 h-3 text-sky-400" />
+                <span>• Custom Vector QR Code</span>
+                <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
               <Link
-                href="/tools/jwt-decoder/"
-                className="flex items-center justify-between p-2 rounded-lg bg-zinc-900/80 hover:bg-sky-950/40 border border-zinc-800 text-xs text-zinc-300 hover:text-white transition-colors"
+                href="/tools/color-palette-extractor/"
+                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-zinc-800/60 text-zinc-300 hover:text-white transition-colors"
               >
-                <span>🔑 JWT Token Decoder</span>
-                <ArrowRight className="w-3 h-3 text-sky-400" />
+                <span>• Palette & Hex Extractor</span>
+                <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
             </div>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-sky-900/30 flex items-center justify-between text-[10px] font-mono text-zinc-500">
-            <span>Sub-Millisecond AST</span>
-            <span className="text-sky-400 font-semibold">QuickType</span>
+          <div className="pt-4 mt-2">
+            <Link
+              href="/category/image/"
+              className="w-full py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-sky-500/40 text-xs font-mono text-center text-zinc-300 hover:text-white block transition-colors"
+            >
+              Open Image Suite →
+            </Link>
+          </div>
+        </div>
+
+        {/* 3. Developer & Code Lab */}
+        <div className="rounded-2xl border border-brand-emerald/30 bg-gradient-to-b from-brand-emerald/10 via-zinc-900/60 to-zinc-950 p-5 flex flex-col justify-between hover:border-brand-emerald/60 transition-all group shadow-lg">
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-brand-emerald group-hover:scale-105 transition-transform">
+                <Terminal className="w-5 h-5" />
+              </div>
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 font-semibold">
+                Dev Lab
+              </span>
+            </div>
+
+            <div className="space-y-1.5">
+              <h3 className="font-bold text-base text-white group-hover:text-emerald-200 transition-colors">
+                Developer & API Lab
+              </h3>
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                Parse cURL commands into fetch code, generate mock JSON data, inspect DNS DoH records, and test regex.
+              </p>
+            </div>
+
+            <div className="space-y-1 pt-2 border-t border-zinc-800/80 font-mono text-xs">
+              <Link
+                href="/tools/json-to-typescript/"
+                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-zinc-800/60 text-zinc-300 hover:text-white transition-colors"
+              >
+                <span>• JSON to TypeScript Interface</span>
+                <ArrowRight className="w-3 h-3 opacity-60" />
+              </Link>
+              <Link
+                href="/tools/dns-lookup-inspector/"
+                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-zinc-800/60 text-zinc-300 hover:text-white transition-colors"
+              >
+                <span>• DNS over HTTPS Resolver</span>
+                <ArrowRight className="w-3 h-3 opacity-60" />
+              </Link>
+              <Link
+                href="/tools/mock-data-generator/"
+                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-zinc-800/60 text-zinc-300 hover:text-white transition-colors"
+              >
+                <span>• Mock Data & SQL Generator</span>
+                <ArrowRight className="w-3 h-3 opacity-60" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="pt-4 mt-2">
+            <Link
+              href="/category/dev/"
+              className="w-full py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-brand-emerald/40 text-xs font-mono text-center text-zinc-300 hover:text-white block transition-colors"
+            >
+              Open Dev Lab →
+            </Link>
+          </div>
+        </div>
+
+        {/* 4. Text & Content Studio */}
+        <div className="rounded-2xl border border-violet-900/40 bg-gradient-to-b from-violet-950/20 via-zinc-900/60 to-zinc-950 p-5 flex flex-col justify-between hover:border-violet-700/60 transition-all group shadow-lg">
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <div className="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/30 flex items-center justify-center text-violet-400 group-hover:scale-105 transition-transform">
+                <FileText className="w-5 h-5" />
+              </div>
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-violet-500/10 text-violet-300 border border-violet-500/30 font-semibold">
+                Text Studio
+              </span>
+            </div>
+
+            <div className="space-y-1.5">
+              <h3 className="font-bold text-base text-white group-hover:text-violet-200 transition-colors">
+                Text & Content Studio
+              </h3>
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                Word & character counter, case converters, visual text diff viewer, and Markdown to HTML processors.
+              </p>
+            </div>
+
+            <div className="space-y-1 pt-2 border-t border-zinc-800/80 font-mono text-xs">
+              <Link
+                href="/tools/word-counter/"
+                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-zinc-800/60 text-zinc-300 hover:text-white transition-colors"
+              >
+                <span>• Live Word & Reading Time</span>
+                <ArrowRight className="w-3 h-3 opacity-60" />
+              </Link>
+              <Link
+                href="/tools/text-diff/"
+                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-zinc-800/60 text-zinc-300 hover:text-white transition-colors"
+              >
+                <span>• Git-Style Text Diff Viewer</span>
+                <ArrowRight className="w-3 h-3 opacity-60" />
+              </Link>
+              <Link
+                href="/tools/markdown-to-html-converter/"
+                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-zinc-800/60 text-zinc-300 hover:text-white transition-colors"
+              >
+                <span>• Markdown to HTML & MD</span>
+                <ArrowRight className="w-3 h-3 opacity-60" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="pt-4 mt-2">
+            <Link
+              href="/category/text/"
+              className="w-full py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-violet-500/40 text-xs font-mono text-center text-zinc-300 hover:text-white block transition-colors"
+            >
+              Open Text Studio →
+            </Link>
           </div>
         </div>
       </div>

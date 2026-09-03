@@ -5,7 +5,11 @@ import { CopyButton } from '@/components/shared/CopyButton';
 import { FileText, Download, Trash2, ArrowRightLeft, Check } from 'lucide-react';
 
 function simpleMarkdownToHtml(md: string): string {
-  let html = md;
+  // Sanitize raw scripts and iframes to prevent XSS
+  let html = md
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+    .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '');
+
   // Code blocks
   html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
   // Headers

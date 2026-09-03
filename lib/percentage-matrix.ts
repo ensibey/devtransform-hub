@@ -12,9 +12,11 @@ export interface PercentageProblem {
 export function getAllPercentageProblems(): PercentageProblem[] {
   const problems: PercentageProblem[] = [];
 
-  const commonPercentages = [1, 2, 5, 10, 12, 15, 18, 20, 25, 30, 33, 35, 40, 45, 50, 60, 70, 75, 80, 90, 95];
+  const commonPercentages = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20, 25, 30, 33, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 99
+  ];
   const commonBases = [
-    10, 20, 25, 50, 60, 75, 80, 100, 120, 150, 200, 250, 300, 400, 500, 600, 750, 800, 1000, 1200, 1500, 2000, 2500, 5000, 10000
+    5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 100, 120, 150, 180, 200, 250, 300, 350, 400, 450, 500, 600, 700, 750, 800, 900, 1000, 1200, 1500, 2000, 2500, 3000, 4000, 5000, 10000
   ];
 
   for (const p of commonPercentages) {
@@ -27,7 +29,7 @@ export function getAllPercentageProblems(): PercentageProblem[] {
         baseNumber: b,
         result: formattedResult,
         title: `What is ${p}% of ${b}?`,
-        titleTr: `${b} sayısının %${p}'i kaçtır?`,
+        titleTr: `What is ${p}% of ${b}? (${b} sayısının %${p}'i)`,
         formula: `(${p} ÷ 100) × ${b} = ${formattedResult}`,
         stepByStep: [
           `Step 1: Convert the percentage to a decimal by dividing by 100: ${p} ÷ 100 = ${(p / 100).toFixed(4)}`,
@@ -57,7 +59,7 @@ export function getPercentageProblem(slug: string): PercentageProblem | null {
     baseNumber: b,
     result,
     title: `What is ${p}% of ${b}?`,
-    titleTr: `${b} sayısının %${p}'i kaçtır?`,
+    titleTr: `What is ${p}% of ${b}? (${b} sayısının %${p}'i)`,
     formula: `(${p} ÷ 100) × ${b} = ${result}`,
     stepByStep: [
       `Step 1: Convert the percentage to a decimal by dividing by 100: ${p} ÷ 100 = ${(p / 100).toFixed(4)}`,

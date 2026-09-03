@@ -164,7 +164,7 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
           }`}
         >
           <Sparkles className="w-3.5 h-3.5 text-brand-emerald" />
-          <span>Tüm Araçlar ({DEVELOPER_TOOLS.length})</span>
+          <span>All Tools ({DEVELOPER_TOOLS.length})</span>
         </button>
 
         {/* Favorites Filter */}
@@ -179,7 +179,7 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
             }`}
           >
             <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-            <span>Favorilerim ({favoriteSlugs.length})</span>
+            <span>Favorites ({favoriteSlugs.length})</span>
           </button>
         )}
 
@@ -244,7 +244,7 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
                         type="button"
                         onClick={(e) => handleToggleFavorite(tool.slug, e)}
                         className="p-1 rounded-lg hover:bg-zinc-800 text-zinc-500 hover:text-amber-400 transition-colors"
-                        title={isFav ? 'Favorilerden çıkar' : 'Favorilere ekle'}
+                        title={isFav ? 'Remove from favorites' : 'Add to favorites'}
                       >
                         <Star
                           className={`w-4 h-4 transition-colors ${
@@ -270,7 +270,7 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
                 <div className="pt-4 mt-3 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono text-zinc-500">
                   <span className="text-[11px] text-zinc-400">{tool.categoryLabel}</span>
                   <span className="flex items-center space-x-1 text-zinc-400 group-hover:text-brand-emerald font-semibold transition-colors">
-                    <span>Aç / Open</span>
+                    <span>Launch</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
@@ -282,14 +282,14 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
         /* Empty State */
         <div className="p-12 text-center rounded-2xl bg-zinc-900/40 border border-dashed border-zinc-800 space-y-3 font-mono text-xs text-zinc-400">
           <SearchX className="w-8 h-8 text-zinc-600 mx-auto" />
-          <p className="text-sm text-zinc-300 font-bold">Aradığınız kriterlere uygun araç bulunamadı.</p>
-          <p className="text-zinc-500">&quot;{searchQuery}&quot; için sonuç yok.</p>
+          <p className="text-sm text-zinc-300 font-bold">No utilities match your search criteria.</p>
+          <p className="text-zinc-500">&quot;{searchQuery}&quot; returned 0 results.</p>
           <button
             type="button"
             onClick={onClearSearch}
             className="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-bold transition-colors"
           >
-            Aramayı Temizle
+            Clear Search
           </button>
         </div>
       )}

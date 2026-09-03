@@ -30,25 +30,25 @@ export interface DeveloperToolItem {
 }
 
 export const CATEGORY_FILTERS: CategoryFilterItem[] = [
-  { key: 'all', label: 'Tüm Araçlar / All Tools', iconName: 'Sparkles' },
-  { key: 'dev', label: '💻 Geliştirici & API (Dev)', iconName: 'Terminal' },
-  { key: 'text', label: '✍️ Metin & Yazı (Text)', iconName: 'FileText' },
-  { key: 'image', label: '🖼️ Görsel & Fotoğraf (Image)', iconName: 'Image' },
-  { key: 'pdf', label: '📄 PDF & Belgeler', iconName: 'FileSpreadsheet' },
-  { key: 'calculators', label: '🧮 Hesaplayıcılar (Calc)', iconName: 'Calculator' },
-  { key: 'converters', label: '🔄 Kod Dönüştürücüler', iconName: 'ArrowRightLeft' },
+  { key: 'all', label: 'All Tools', iconName: 'Sparkles' },
+  { key: 'dev', label: '💻 Developer & Code', iconName: 'Terminal' },
+  { key: 'text', label: '✍️ Text & Content', iconName: 'FileText' },
+  { key: 'image', label: '🖼️ Image & Media', iconName: 'Image' },
+  { key: 'pdf', label: '📄 PDF & Documents', iconName: 'FileSpreadsheet' },
+  { key: 'calculators', label: '🧮 Math & Calculators', iconName: 'Calculator' },
+  { key: 'converters', label: '🔄 Code Converters', iconName: 'ArrowRightLeft' },
 ];
 
 const CATEGORY_LABEL_MAP: Record<string, { key: ToolCategoryKey; label: string }> = {
-  text: { key: 'text', label: 'Metin & Yazı' },
-  image: { key: 'image', label: 'Görsel & Fotoğraf' },
-  pdf: { key: 'pdf', label: 'PDF & Belgeler' },
-  dev: { key: 'dev', label: 'Geliştirici & Kod' },
-  calculator: { key: 'calculators', label: 'Hesaplayıcılar' },
+  text: { key: 'text', label: 'Text & Content' },
+  image: { key: 'image', label: 'Image & Media' },
+  pdf: { key: 'pdf', label: 'PDF & Documents' },
+  dev: { key: 'dev', label: 'Developer & Code' },
+  calculator: { key: 'calculators', label: 'Calculators' },
 };
 
 export const DEVELOPER_TOOLS: DeveloperToolItem[] = TOOLS_REGISTRY.map((t) => {
-  const cat = CATEGORY_LABEL_MAP[t.category] || { key: 'dev', label: 'Geliştirici' };
+  const cat = CATEGORY_LABEL_MAP[t.category] || { key: 'dev', label: 'Developer' };
   return {
     id: t.id,
     slug: t.slug,

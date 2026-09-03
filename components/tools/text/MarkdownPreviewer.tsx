@@ -30,13 +30,22 @@ interface UserProfile {
 3. Third Item
 `);
 
-  // Basic lightweight Markdown to HTML converter
+  // Basic lightweight Markdown to HTML converter with XSS sanitization
   const renderMarkdown = (md: string) => {
+    // 1. Sanitize HTML tags to prevent XSS execution
     let html = md
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+
+    // 2. Safe markdown transformations
+    html = html
       .replace(/^### (.*$)/gim, '<h3 class="text-lg font-bold text-white mt-4 mb-2">$1</h3>')
       .replace(/^## (.*$)/gim, '<h2 class="text-xl font-bold text-white mt-6 mb-3 border-b border-border pb-1">$1</h2>')
       .replace(/^# (.*$)/gim, '<h1 class="text-2xl font-extrabold text-white mt-2 mb-4">$1</h1>')
-      .replace(/^\> (.*$)/gim, '<blockquote class="border-l-4 border-brand-emerald pl-4 italic text-zinc-400 my-3 bg-surface-200/50 py-2 rounded-r">$1</blockquote>')
+      .replace(/^\&gt;\s?(.*$)/gim, '<blockquote class="border-l-4 border-brand-emerald pl-4 italic text-zinc-400 my-3 bg-surface-200/50 py-2 rounded-r">$1</blockquote>')
       .replace(/\*\*(.*)\*\*/gim, '<strong class="text-brand-emerald font-semibold">$1</strong>')
       .replace(/\*(.*)\*/gim, '<em class="italic text-zinc-300">$1</em>')
       .replace(/`([^`]+)`/gim, '<code class="bg-surface-300 text-emerald-300 px-1.5 py-0.5 rounded font-mono text-xs border border-border">$1</code>')

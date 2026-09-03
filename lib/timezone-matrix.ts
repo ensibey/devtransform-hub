@@ -59,6 +59,32 @@ export const CITIES: CityInfo[] = [
   { slug: 'auckland', name: 'Auckland', nameTr: 'Auckland', country: 'New Zealand', countryTr: 'Yeni Zelanda', timezone: 'Pacific/Auckland', utcOffset: 12 },
   { slug: 'honolulu', name: 'Honolulu', nameTr: 'Honolulu', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'Pacific/Honolulu', utcOffset: -10 },
   { slug: 'kuala-lumpur', name: 'Kuala Lumpur', nameTr: 'Kuala Lumpur', country: 'Malaysia', countryTr: 'Malezya', timezone: 'Asia/Kuala_Lumpur', utcOffset: 8 },
+  // Expanded 25 Tech & Financial Hubs
+  { slug: 'lisbon', name: 'Lisbon', nameTr: 'Lizbon', country: 'Portugal', countryTr: 'Portekiz', timezone: 'Europe/Lisbon', utcOffset: 0 },
+  { slug: 'warsaw', name: 'Warsaw', nameTr: 'Varşova', country: 'Poland', countryTr: 'Polonya', timezone: 'Europe/Warsaw', utcOffset: 1 },
+  { slug: 'prague', name: 'Prague', nameTr: 'Prag', country: 'Czech Republic', countryTr: 'Çek Cumhuriyeti', timezone: 'Europe/Prague', utcOffset: 1 },
+  { slug: 'budapest', name: 'Budapest', nameTr: 'Budapeşte', country: 'Hungary', countryTr: 'Macaristan', timezone: 'Europe/Budapest', utcOffset: 1 },
+  { slug: 'helsinki', name: 'Helsinki', nameTr: 'Helsinki', country: 'Finland', countryTr: 'Finlandiya', timezone: 'Europe/Helsinki', utcOffset: 2 },
+  { slug: 'austin', name: 'Austin', nameTr: 'Austin', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/Chicago', utcOffset: -6 },
+  { slug: 'dallas', name: 'Dallas', nameTr: 'Dallas', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/Chicago', utcOffset: -6 },
+  { slug: 'atlanta', name: 'Atlanta', nameTr: 'Atlanta', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/New_York', utcOffset: -5 },
+  { slug: 'denver', name: 'Denver', nameTr: 'Denver', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/Denver', utcOffset: -7 },
+  { slug: 'phoenix', name: 'Phoenix', nameTr: 'Phoenix', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/Phoenix', utcOffset: -7 },
+  { slug: 'montreal', name: 'Montreal', nameTr: 'Montreal', country: 'Canada', countryTr: 'Kanada', timezone: 'America/Toronto', utcOffset: -5 },
+  { slug: 'calgary', name: 'Calgary', nameTr: 'Calgary', country: 'Canada', countryTr: 'Kanada', timezone: 'America/Edmonton', utcOffset: -7 },
+  { slug: 'bangalore', name: 'Bangalore', nameTr: 'Bangalore', country: 'India', countryTr: 'Hindistan', timezone: 'Asia/Kolkata', utcOffset: 5.5 },
+  { slug: 'hyderabad', name: 'Hyderabad', nameTr: 'Haydarabad', country: 'India', countryTr: 'Hindistan', timezone: 'Asia/Kolkata', utcOffset: 5.5 },
+  { slug: 'taipei', name: 'Taipei', nameTr: 'Taipei', country: 'Taiwan', countryTr: 'Tayvan', timezone: 'Asia/Taipei', utcOffset: 8 },
+  { slug: 'jakarta', name: 'Jakarta', nameTr: 'Cakarta', country: 'Indonesia', countryTr: 'Endonezya', timezone: 'Asia/Jakarta', utcOffset: 7 },
+  { slug: 'manila', name: 'Manila', nameTr: 'Manila', country: 'Philippines', countryTr: 'Filipinler', timezone: 'Asia/Manila', utcOffset: 8 },
+  { slug: 'tel-aviv', name: 'Tel Aviv', nameTr: 'Tel Aviv', country: 'Israel', countryTr: 'İsrail', timezone: 'Asia/Jerusalem', utcOffset: 2 },
+  { slug: 'nairobi', name: 'Nairobi', nameTr: 'Nairobi', country: 'Kenya', countryTr: 'Kenya', timezone: 'Africa/Nairobi', utcOffset: 3 },
+  { slug: 'santiago', name: 'Santiago', nameTr: 'Santiago', country: 'Chile', countryTr: 'Şili', timezone: 'America/Santiago', utcOffset: -4 },
+  { slug: 'bogota', name: 'Bogota', nameTr: 'Bogota', country: 'Colombia', countryTr: 'Kolombiya', timezone: 'America/Bogota', utcOffset: -5 },
+  { slug: 'lima', name: 'Lima', nameTr: 'Lima', country: 'Peru', countryTr: 'Peru', timezone: 'America/Lima', utcOffset: -5 },
+  { slug: 'brisbane', name: 'Brisbane', nameTr: 'Brisbane', country: 'Australia', countryTr: 'Avustralya', timezone: 'Australia/Brisbane', utcOffset: 10 },
+  { slug: 'perth', name: 'Perth', nameTr: 'Perth', country: 'Australia', countryTr: 'Avustralya', timezone: 'Australia/Perth', utcOffset: 8 },
+  { slug: 'osaka', name: 'Osaka', nameTr: 'Osaka', country: 'Japan', countryTr: 'Japonya', timezone: 'Asia/Tokyo', utcOffset: 9 },
 ];
 
 export interface TimezonePair {
@@ -99,10 +125,12 @@ export function getTimezonePair(slug: string): TimezonePair | null {
 
   if (!from || !to) return null;
 
+  const hourDifference = to.utcOffset - from.utcOffset;
+
   return {
     slug,
     from,
     to,
-    hourDifference: to.utcOffset - from.utcOffset,
+    hourDifference,
   };
 }

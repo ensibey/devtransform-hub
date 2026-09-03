@@ -19,18 +19,18 @@ export function Footer() {
               <span>ZeroUpload</span>
             </div>
             <p className="text-zinc-400 text-xs leading-relaxed">
-              Gizlilik odaklı, sıfır sunucu yüklemesi gerektiren istemci taraflı araç ve kod dönüştürme paketi.
+              Privacy-first, zero-server developer converter and daily utility suite running 100% in your browser.
             </p>
             <div className="flex items-center space-x-1.5 text-emerald-400 font-mono text-[11px]">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Verileriniz asla cihazınızdan ayrılmaz</span>
+              <span>Your data never leaves your device</span>
             </div>
           </div>
 
           {/* Col 2: Top Converters */}
           <div className="space-y-2">
             <h4 className="font-semibold text-zinc-200 uppercase tracking-wider text-[11px] font-mono">
-              Popüler Dönüştürücüler
+              Top Converters
             </h4>
             <ul className="space-y-1.5">
               <li>
@@ -64,7 +64,7 @@ export function Footer() {
           {/* Col 3: Serialization & Schema */}
           <div className="space-y-2">
             <h4 className="font-semibold text-zinc-200 uppercase tracking-wider text-[11px] font-mono">
-              Veri & Formatlar
+              Data & Formats
             </h4>
             <ul className="space-y-1.5">
               <li>
@@ -95,30 +95,30 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Günlük Araçlar */}
+          {/* Col 4: Daily Utilities */}
           <div className="space-y-2">
             <h4 className="font-semibold text-zinc-200 uppercase tracking-wider text-[11px] font-mono">
-              Günlük Araçlar
+              Daily Utilities
             </h4>
             <ul className="space-y-1.5">
               <li>
                 <Link href="/tools/pdf-merge/" className="hover:text-zinc-200 transition-colors">
-                  PDF Birleştirici
+                  PDF Merger
                 </Link>
               </li>
               <li>
                 <Link href="/tools/image-compressor/" className="hover:text-zinc-200 transition-colors">
-                  Görsel Sıkıştırıcı
+                  Image Compressor
                 </Link>
               </li>
               <li>
                 <Link href="/tools/qr-code-generator/" className="hover:text-zinc-200 transition-colors">
-                  QR Kod Oluşturucu
+                  QR Code Generator
                 </Link>
               </li>
               <li>
                 <Link href="/tools/word-counter/" className="hover:text-zinc-200 transition-colors">
-                  Kelime & Karakter Sayacı
+                  Word & Character Counter
                 </Link>
               </li>
               <li>
@@ -132,11 +132,11 @@ export function Footer() {
 
         <div className="border-t border-border mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-zinc-500 text-[11px]">
           <div>
-            © {new Date().getFullYear()} ZeroUpload. Açık kaynak MIT Lisansı ile sunulmaktadır.
+            © {new Date().getFullYear()} ZeroUpload. Open source under MIT License.
           </div>
           <div className="flex items-center space-x-1 mt-2 sm:mt-0 font-mono text-emerald-400">
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span>%100 İstemci Taraflı & Güvenli</span>
+            <span>100% Client-Side & Secure</span>
           </div>
         </div>
       </div>
