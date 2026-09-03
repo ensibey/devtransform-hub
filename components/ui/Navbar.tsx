@@ -11,6 +11,7 @@ import {
   Command as CommandIcon,
 } from 'lucide-react';
 import { PrivacyBadge } from './PrivacyBadge';
+import { BrandLogo } from './BrandLogo';
 
 export function Navbar() {
   const triggerCommandPalette = () => {
@@ -30,19 +31,9 @@ export function Navbar() {
         <div className="flex items-center space-x-6">
           <Link
             href="/"
-            className="flex items-center space-x-2 text-zinc-100 font-semibold tracking-tight hover:text-white transition-colors"
+            className="flex items-center hover:opacity-90 transition-opacity"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-emerald to-brand-indigo flex items-center justify-center shadow-lg shadow-brand-emerald/10">
-              <Code2 className="w-4 h-4 text-black font-bold" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-bold tracking-tight flex items-center space-x-1">
-                <span>DevTransform</span>
-                <span className="text-[10px] font-mono px-1 py-0.2 rounded bg-emerald-500/10 text-brand-emerald border border-emerald-500/30">
-                  OLED
-                </span>
-              </span>
-            </div>
+            <BrandLogo size={32} />
           </Link>
 
           {/* Quick Categories Navigation */}

@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ShieldCheck, Code2, Zap } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
 import { FORMAT_LIST } from '@/lib/matrix';
 
 export function Footer() {
@@ -12,12 +13,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Col 1: About & Privacy */}
           <div className="space-y-3">
-            <div className="flex items-center space-x-2 text-zinc-100 font-semibold">
-              <div className="w-6 h-6 rounded bg-brand-emerald/20 border border-brand-emerald/40 flex items-center justify-center">
-                <Code2 className="w-3.5 h-3.5 text-brand-emerald" />
-              </div>
-              <span>ZeroUpload</span>
-            </div>
+            <BrandLogo size={28} />
             <p className="text-zinc-400 text-xs leading-relaxed">
               Privacy-first, zero-server developer converter and daily utility suite running 100% in your browser.
             </p>

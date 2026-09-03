@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { CopyButton } from '@/components/shared/CopyButton';
-import { Palette, Sparkles, Sliders, RefreshCw, Layers } from 'lucide-react';
+import { Palette, Sparkles, Sliders, RefreshCw, Layers, Check } from 'lucide-react';
 
 const PRESET_GRADIENTS = [
   { name: 'Hyper Emerald', color1: '#10b981', color2: '#06b6d4', angle: 135 },
@@ -11,6 +11,12 @@ const PRESET_GRADIENTS = [
   { name: 'Deep Oceanic', color1: '#0f172a', color2: '#3b82f6', angle: 180 },
   { name: 'Aurora Borealis', color1: '#10b981', color2: '#6366f1', angle: 120 },
   { name: 'Midnight Violet', color1: '#18181b', color2: '#7c3aed', angle: 225 },
+  { name: 'Instagram Sunset', color1: '#f09433', color2: '#bc1888', angle: 45 },
+  { name: 'Spotify Neon', color1: '#1db954', color2: '#191414', angle: 135 },
+  { name: 'Electric Velvet', color1: '#7928ca', color2: '#ff0080', angle: 160 },
+  { name: 'Golden Hour', color1: '#f5af19', color2: '#f12711', angle: 90 },
+  { name: 'Matrix Hacker', color1: '#000000', color2: '#00ff66', angle: 180 },
+  { name: 'Cosmic Blue', color1: '#00c6ff', color2: '#0072ff', angle: 90 },
 ];
 
 export function GradientGenerator() {
@@ -25,6 +31,10 @@ export function GradientGenerator() {
       : `radial-gradient(circle, ${color1}, ${color2})`;
 
   const cssRule = `background: ${gradientCss};`;
+  const tailwindRule =
+    gradientType === 'linear'
+      ? `bg-gradient-to-tr from-[${color1}] to-[${color2}]`
+      : `bg-[radial-gradient(circle,${color1},${color2})]`;
 
   const randomize = () => {
     const randomHex = () =>
@@ -42,17 +52,20 @@ export function GradientGenerator() {
       {/* Preset Gradients */}
       <div className="p-4 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-2">
         <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
-          <span>Curated Color Presets:</span>
+          <span className="flex items-center space-x-1.5 text-white font-bold">
+            <Sparkles className="w-4 h-4 text-brand-emerald" />
+            <span>Curated Designer Color Presets:</span>
+          </span>
           <button
             type="button"
             onClick={randomize}
-            className="text-brand-emerald hover:text-white flex items-center space-x-1 transition-colors"
+            className="text-brand-emerald hover:text-white flex items-center space-x-1 transition-colors font-bold"
           >
             <RefreshCw className="w-3.5 h-3.5" />
-            <span>Randomize</span>
+            <span>Randomize Colors</span>
           </button>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 pt-1">
           {PRESET_GRADIENTS.map((p) => (
             <button
               key={p.name}
@@ -88,8 +101,8 @@ export function GradientGenerator() {
               <button
                 type="button"
                 onClick={() => setGradientType('linear')}
-                className={`px-2.5 py-1 rounded-lg transition-colors ${
-                  gradientType === 'linear' ? 'bg-zinc-800 text-white font-bold' : 'text-zinc-400 hover:text-white'
+                className={`px-3 py-1 rounded-lg transition-colors ${
+                  gradientType === 'linear' ? 'bg-zinc-800 text-brand-emerald font-bold' : 'text-zinc-400 hover:text-white'
                 }`}
               >
                 Linear
@@ -97,8 +110,8 @@ export function GradientGenerator() {
               <button
                 type="button"
                 onClick={() => setGradientType('radial')}
-                className={`px-2.5 py-1 rounded-lg transition-colors ${
-                  gradientType === 'radial' ? 'bg-zinc-800 text-white font-bold' : 'text-zinc-400 hover:text-white'
+                className={`px-3 py-1 rounded-lg transition-colors ${
+                  gradientType === 'radial' ? 'bg-zinc-800 text-brand-emerald font-bold' : 'text-zinc-400 hover:text-white'
                 }`}
               >
                 Radial
@@ -149,7 +162,7 @@ export function GradientGenerator() {
           {gradientType === 'linear' && (
             <div className="space-y-1.5 text-xs font-mono">
               <div className="flex justify-between text-zinc-400">
-                <span>Gradient Angle / Direction:</span>
+                <span>Gradient Angle:</span>
                 <span className="text-brand-emerald font-bold">{angle}°</span>
               </div>
               <input
@@ -167,30 +180,47 @@ export function GradientGenerator() {
         {/* Live Canvas */}
         <div className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 flex flex-col justify-between space-y-4">
           <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
-            <span>Live Gradient Canvas:</span>
-            <span className="text-brand-emerald font-bold">{gradientType}</span>
+            <span className="flex items-center space-x-1.5 font-bold text-white">
+              <Layers className="w-4 h-4 text-sky-400" />
+              <span>Live Gradient Canvas:</span>
+            </span>
+            <span className="text-brand-emerald font-bold uppercase">{gradientType}</span>
           </div>
 
           <div
             className="h-[220px] rounded-2xl border border-white/10 shadow-2xl flex items-center justify-center p-6 transition-all duration-200"
             style={{ background: gradientCss }}
           >
-            <span className="px-4 py-2 rounded-xl bg-black/40 backdrop-blur-md border border-white/20 text-white font-mono text-xs font-bold drop-shadow">
-              Gradient Preview
+            <span className="px-5 py-2.5 rounded-xl bg-black/50 backdrop-blur-md border border-white/20 text-white font-mono text-xs font-bold drop-shadow">
+              Instant Visual Canvas
             </span>
           </div>
         </div>
       </div>
 
-      {/* Generated CSS Snippet */}
-      <div className="p-4 rounded-2xl bg-zinc-900/60 border border-brand-emerald/40 space-y-2">
-        <div className="flex items-center justify-between text-xs font-mono text-brand-emerald">
-          <span className="font-bold">CSS Background Rule:</span>
-          <CopyButton text={cssRule} />
+      {/* Code Export: CSS & Tailwind */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 font-mono text-xs">
+        {/* CSS Rule */}
+        <div className="p-4 rounded-2xl bg-zinc-900/60 border border-brand-emerald/40 space-y-2">
+          <div className="flex items-center justify-between text-brand-emerald font-bold">
+            <span>CSS Style Rule:</span>
+            <CopyButton text={cssRule} />
+          </div>
+          <pre className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-200 overflow-x-auto select-all">
+            {cssRule}
+          </pre>
         </div>
-        <pre className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 text-xs font-mono text-zinc-200 overflow-x-auto">
-          {cssRule}
-        </pre>
+
+        {/* Tailwind Rule */}
+        <div className="p-4 rounded-2xl bg-zinc-900/60 border border-sky-500/40 space-y-2">
+          <div className="flex items-center justify-between text-sky-400 font-bold">
+            <span>Tailwind CSS Utility Class:</span>
+            <CopyButton text={tailwindRule} />
+          </div>
+          <pre className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 text-zinc-200 overflow-x-auto select-all">
+            {tailwindRule}
+          </pre>
+        </div>
       </div>
     </div>
   );
