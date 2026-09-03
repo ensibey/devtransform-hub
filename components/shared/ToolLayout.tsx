@@ -186,17 +186,45 @@ export function ToolLayout({ tool, children, relatedTools = [] }: ToolLayoutProp
           <div className="p-4 rounded-2xl bg-zinc-900/90 border border-sky-500/40 space-y-3 font-mono text-xs animate-in fade-in slide-in-from-top-2 duration-200">
             <div className="flex items-center justify-between text-sky-400 font-bold">
               <span>Embed Widget Code (Copy & Paste to your HTML / Blog):</span>
-              <CopyButton text={`<iframe src="https://devtransform-hub.vercel.app/embed/${tool.slug}/" width="100%" height="480" frameborder="0" style="border-radius: 16px; overflow: hidden;"></iframe>\n<p style="font-size: 11px; color: #71717a;"><a href="https://devtransform-hub.vercel.app/tools/${tool.slug}/" target="_blank" rel="noopener noreferrer">⚡ Powered by ZeroUpload</a></p>`} />
+              <CopyButton text={`<iframe src="https://devtransform-hub.vercel.app/embed/${tool.slug}/" width="100%" height="480" frameborder="0" style="border-radius: 16px; overflow: hidden;"></iframe>\n<p style="font-size: 11px; color: #71717a;"><a href="https://devtransform-hub.vercel.app/tools/${tool.slug}/" target="_blank" rel="noopener noreferrer">⚡ Powered by DevTransform</a></p>`} />
             </div>
             <textarea
               readOnly
               rows={3}
-              value={`<iframe src="https://devtransform-hub.vercel.app/embed/${tool.slug}/" width="100%" height="480" frameborder="0" style="border-radius: 16px; overflow: hidden;"></iframe>\n<p style="font-size: 11px; color: #71717a;"><a href="https://devtransform-hub.vercel.app/tools/${tool.slug}/" target="_blank" rel="noopener noreferrer">⚡ Powered by ZeroUpload</a></p>`}
+              value={`<iframe src="https://devtransform-hub.vercel.app/embed/${tool.slug}/" width="100%" height="480" frameborder="0" style="border-radius: 16px; overflow: hidden;"></iframe>\n<p style="font-size: 11px; color: #71717a;"><a href="https://devtransform-hub.vercel.app/tools/${tool.slug}/" target="_blank" rel="noopener noreferrer">⚡ Powered by DevTransform</a></p>`}
               className="w-full p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sky-300 select-all focus:outline-none resize-none leading-relaxed"
             />
-            <span className="text-[10px] text-zinc-500 block">
-              Free to embed on any blog, documentation, or developer site. Includes automatic iframe resizing.
-            </span>
+            <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
+              <span className="text-[10px] text-zinc-500">
+                Free to embed on any blog, documentation, or developer site. Includes automatic iframe sandbox.
+              </span>
+              <div className="flex items-center gap-2">
+                <a
+                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${tool.title} - Fast, 100% private developer tool:`)}&url=${encodeURIComponent(`https://devtransform-hub.vercel.app/tools/${tool.slug}/`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2 py-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded text-[11px] transition-colors"
+                >
+                  Post to X
+                </a>
+                <a
+                  href={`https://www.reddit.com/submit?url=${encodeURIComponent(`https://devtransform-hub.vercel.app/tools/${tool.slug}/`)}&title=${encodeURIComponent(`${tool.title} - Free Online Dev Tool`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2 py-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded text-[11px] transition-colors"
+                >
+                  Reddit
+                </a>
+                <a
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://devtransform-hub.vercel.app/tools/${tool.slug}/`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2 py-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded text-[11px] transition-colors"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            </div>
           </div>
         )}
       </div>

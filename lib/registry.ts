@@ -84,6 +84,10 @@ import { CssMinifierStudio } from '@/components/tools/dev/CssMinifierStudio';
 import { Base64FileInspector } from '@/components/tools/dev/Base64FileInspector';
 import { HtmlEntitiesStudio } from '@/components/tools/dev/HtmlEntitiesStudio';
 import { UserAgentInspector } from '@/components/tools/dev/UserAgentInspector';
+import { CrontabVisualizer } from '@/components/tools/dev/CrontabVisualizer';
+import { JwtSignerBuilder } from '@/components/tools/dev/JwtSignerBuilder';
+import { ColorContrastChecker } from '@/components/tools/dev/ColorContrastChecker';
+import { JsonToZodConverter } from '@/components/tools/dev/JsonToZodConverter';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -1062,6 +1066,86 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Parse client User-Agent strings online to identify browser, operating system, rendering engine, and device type.',
     component: UserAgentInspector,
+  },
+  {
+    id: 'crontab-generator-visualizer',
+    slug: 'crontab-generator-visualizer',
+    title: 'Crontab Expression Generator & Schedule Visualizer',
+    shortDesc: 'Construct, edit, and validate 5-field cron schedules with human explanations and next execution timestamps.',
+    category: 'dev',
+    keywords: ['crontab generator', 'cron expression', 'cron syntax tester', 'cron schedule visualizer', 'cron job builder'],
+    icon: 'Clock',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate and test crontab expressions visually. Get instant English translations of cron syntax and preview upcoming execution times.',
+    faqs: [
+      {
+        question: 'What do the 5 fields in a standard cron expression represent?',
+        answer: 'The five fields represent: (1) Minute (0-59), (2) Hour (0-23), (3) Day of the Month (1-31), (4) Month of the Year (1-12 or JAN-DEC), and (5) Day of the Week (0-6 where 0 is Sunday).',
+      },
+      {
+        question: 'How does the slash step syntax (e.g. */15) work in crontab?',
+        answer: 'The slash step notation specifies increments through the field range. For example, */15 in the minute position fires at minutes 0, 15, 30, and 45 of every hour.',
+      },
+    ],
+    component: CrontabVisualizer,
+  },
+  {
+    id: 'jwt-builder-signer',
+    slug: 'jwt-builder-signer',
+    title: 'JWT Token Builder & HMAC Secret Signer',
+    shortDesc: 'Construct customized JSON Web Tokens (JWT), edit header and claims, and sign with HMAC SHA-256 / 384 / 512.',
+    category: 'dev',
+    keywords: ['jwt builder', 'sign jwt online', 'jwt signer', 'hmac sha256 jwt', 'generate jwt token'],
+    icon: 'ShieldCheck',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Create and cryptographically sign JSON Web Tokens (JWT) client-side using WebCrypto HMAC SHA-256/384/512. 100% private.',
+    faqs: [
+      {
+        question: 'Are my HMAC secret keys or payloads sent to any remote server?',
+        answer: 'No. All JWT creation and HMAC cryptographic signatures are calculated 100% locally in your browser using the W3C Web Cryptography API (crypto.subtle).',
+      },
+    ],
+    component: JwtSignerBuilder,
+  },
+  {
+    id: 'color-contrast-checker',
+    slug: 'color-contrast-checker',
+    title: 'WCAG Color Contrast Ratio Checker & Accessibility Studio',
+    shortDesc: 'Calculate WCAG 2.1 contrast ratios between text and background colors with AA / AAA compliance pass badges.',
+    category: 'dev',
+    keywords: ['color contrast checker', 'wcag contrast ratio', 'accessibility color contrast', 'wcag 2.1 checker'],
+    icon: 'Eye',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Check text and background color contrast ratios against WCAG 2.1 Level AA and AAA requirements with live preview.',
+    faqs: [
+      {
+        question: 'What is the minimum WCAG contrast ratio for normal text?',
+        answer: 'WCAG 2.1 Level AA requires a minimum contrast ratio of 4.5:1 for normal body text (below 18pt regular or 14pt bold), and 7:1 for enhanced AAA compliance.',
+      },
+    ],
+    component: ColorContrastChecker,
+  },
+  {
+    id: 'json-to-zod-schema-converter',
+    slug: 'json-to-zod-schema-converter',
+    title: 'JSON to Zod Schema & TypeScript Converter',
+    shortDesc: 'Infer and generate type-safe Zod schema validation code and z.infer TypeScript types from sample JSON payloads.',
+    category: 'dev',
+    keywords: ['json to zod', 'zod schema generator', 'convert json to zod', 'zod infer typescript'],
+    icon: 'FileCode2',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert sample JSON data into TypeScript Zod schemas (z.object, z.array, z.string) with automatic email, UUID, and date heuristic detection.',
+    faqs: [
+      {
+        question: 'How does the JSON to Zod converter detect special string formats?',
+        answer: 'The converter inspects string values using regex heuristics to automatically identify UUIDs (z.string().uuid()), RFC 5322 emails (z.string().email()), ISO 8601 datetimes, and web URLs.',
+      },
+    ],
+    component: JsonToZodConverter,
   },
 ];
 
