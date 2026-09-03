@@ -76,6 +76,10 @@ import { SqlJsonConverter } from '@/components/tools/dev/SqlJsonConverter';
 import { TextTransformPro } from '@/components/tools/text/TextTransformPro';
 import { GlassmorphismStudio } from '@/components/tools/dev/GlassmorphismStudio';
 import { HmacGenerator } from '@/components/tools/dev/HmacGenerator';
+import { SvgToJsxConverter } from '@/components/tools/dev/SvgToJsxConverter';
+import { YamlToTsConverter } from '@/components/tools/dev/YamlToTsConverter';
+import { EpochConverterPro } from '@/components/tools/dev/EpochConverterPro';
+import { MongoObjectIdStudio } from '@/components/tools/dev/MongoObjectIdStudio';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -950,6 +954,58 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Compute HMAC-SHA256 and HMAC-SHA512 cryptographic message authentication codes with secret keys.',
     component: HmacGenerator,
+  },
+  {
+    id: 'svg-to-jsx-converter',
+    slug: 'svg-to-jsx-converter',
+    title: 'SVG to React (JSX/TSX) & CSS Data URI Converter',
+    shortDesc: 'Convert raw SVG into reusable React JSX components with props and background-image CSS data URIs.',
+    category: 'dev',
+    keywords: ['svg to jsx', 'svg to react', 'svg to tsx', 'svg to data uri', 'react svg generator'],
+    icon: 'Code2',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert SVG code into typed React JSX components with self-closing tags and camelCase attributes.',
+    component: SvgToJsxConverter,
+  },
+  {
+    id: 'yaml-to-typescript-converter',
+    slug: 'yaml-to-typescript-converter',
+    title: 'YAML to TypeScript Interface Converter',
+    shortDesc: 'Generate clean TypeScript interfaces and types from YAML configuration and Kubernetes files.',
+    category: 'dev',
+    keywords: ['yaml to typescript', 'yaml to ts', 'yaml type generator', 'k8s yaml to ts'],
+    icon: 'FileCode',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert YAML configuration documents into strongly typed TypeScript interfaces with optional fields.',
+    component: YamlToTsConverter,
+  },
+  {
+    id: 'unix-epoch-timestamp-converter',
+    slug: 'unix-epoch-timestamp-converter',
+    title: 'Unix Epoch Timestamp Converter & Real-Time Clock',
+    shortDesc: 'Live Unix epoch clock in seconds & milliseconds with two-way human datetime, ISO 8601, and UTC conversion.',
+    category: 'dev',
+    keywords: ['epoch converter', 'unix timestamp', 'timestamp to date', 'current epoch time', 'epoch to human date'],
+    icon: 'Clock',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert Unix epoch timestamps to human readable UTC and local dates with real-time seconds ticker.',
+    component: EpochConverterPro,
+  },
+  {
+    id: 'mongo-objectid-inspector',
+    slug: 'mongo-objectid-inspector',
+    title: 'MongoDB ObjectId Inspector & Generator Studio',
+    shortDesc: 'Deconstruct 24-char hex MongoDB ObjectIds into timestamp, machine ID, process ID, and increment counter.',
+    category: 'dev',
+    keywords: ['mongodb objectid generator', 'objectid timestamp decoder', 'mongo id inspector', 'bson objectid'],
+    icon: 'Database',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Extract embedded creation dates, machine codes, and sequence counters from 24-character MongoDB ObjectIds.',
+    component: MongoObjectIdStudio,
   },
 ];
 
