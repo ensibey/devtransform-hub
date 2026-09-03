@@ -72,6 +72,10 @@ import { DockerComposeConverter } from '@/components/tools/dev/DockerComposeConv
 import { HtmlToJsxConverter } from '@/components/tools/dev/HtmlToJsxConverter';
 import { JsonSchemaToTsConverter } from '@/components/tools/dev/JsonSchemaToTsConverter';
 import { SriHashGenerator } from '@/components/tools/dev/SriHashGenerator';
+import { SqlJsonConverter } from '@/components/tools/dev/SqlJsonConverter';
+import { TextTransformPro } from '@/components/tools/text/TextTransformPro';
+import { GlassmorphismStudio } from '@/components/tools/dev/GlassmorphismStudio';
+import { HmacGenerator } from '@/components/tools/dev/HmacGenerator';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -894,6 +898,58 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Generate W3C compliant Subresource Integrity (SRI) hashes and production HTML script/link tags.',
     component: SriHashGenerator,
+  },
+  {
+    id: 'sql-to-json-converter',
+    slug: 'sql-to-json-converter',
+    title: 'SQL INSERT to JSON & JSON to SQL Converter',
+    shortDesc: 'Bidirectional converter between SQL INSERT statements and JSON object arrays with custom tables.',
+    category: 'dev',
+    keywords: ['sql to json', 'json to sql insert', 'sql insert to json', 'sql json converter'],
+    icon: 'Database',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert SQL INSERT queries into JSON arrays or transform JSON datasets into ready-to-run SQL INSERT statements.',
+    component: SqlJsonConverter,
+  },
+  {
+    id: 'text-transform-pro',
+    slug: 'text-transform-pro',
+    title: 'Text Transform Pro (ROT13, Binary, Morse, Leet)',
+    shortDesc: 'Multi-functional text transformer for ROT13, binary bits, international Morse code, and 1337 speak.',
+    category: 'text',
+    keywords: ['text transform', 'rot13 cipher', 'text to binary', 'morse code encoder', 'leetspeak generator'],
+    icon: 'Type',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Encode and decode strings to ROT13 Caesar cipher, binary bytes, Morse code, and leetspeak.',
+    component: TextTransformPro,
+  },
+  {
+    id: 'css-glassmorphism-studio',
+    slug: 'css-glassmorphism-studio',
+    title: 'CSS Glassmorphism & Backdrop Blur Visual Studio',
+    shortDesc: 'Interactive frosted glass generator with blur, opacity, and border controls plus Tailwind export.',
+    category: 'dev',
+    keywords: ['glassmorphism generator', 'css backdrop blur', 'frosted glass css', 'glassmorphism studio'],
+    icon: 'Layers',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Design modern frosted glass UI components with live backdrop blur preview and Tailwind CSS classes.',
+    component: GlassmorphismStudio,
+  },
+  {
+    id: 'hmac-signature-generator',
+    slug: 'hmac-signature-generator',
+    title: 'HMAC Webhook Signature & Hash Playground',
+    shortDesc: 'Generate and verify HMAC-SHA256, HMAC-SHA512 webhook signatures for Stripe and GitHub testing.',
+    category: 'dev',
+    keywords: ['hmac generator', 'hmac sha256', 'webhook signature tester', 'stripe signature generator'],
+    icon: 'Key',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Compute HMAC-SHA256 and HMAC-SHA512 cryptographic message authentication codes with secret keys.',
+    component: HmacGenerator,
   },
 ];
 
