@@ -80,6 +80,10 @@ import { SvgToJsxConverter } from '@/components/tools/dev/SvgToJsxConverter';
 import { YamlToTsConverter } from '@/components/tools/dev/YamlToTsConverter';
 import { EpochConverterPro } from '@/components/tools/dev/EpochConverterPro';
 import { MongoObjectIdStudio } from '@/components/tools/dev/MongoObjectIdStudio';
+import { CssMinifierStudio } from '@/components/tools/dev/CssMinifierStudio';
+import { Base64FileInspector } from '@/components/tools/dev/Base64FileInspector';
+import { HtmlEntitiesStudio } from '@/components/tools/dev/HtmlEntitiesStudio';
+import { UserAgentInspector } from '@/components/tools/dev/UserAgentInspector';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -1006,6 +1010,58 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Extract embedded creation dates, machine codes, and sequence counters from 24-character MongoDB ObjectIds.',
     component: MongoObjectIdStudio,
+  },
+  {
+    id: 'css-minifier-beautifier',
+    slug: 'css-minifier-beautifier',
+    title: 'CSS Minifier & Beautifier / Formatter Studio',
+    shortDesc: 'Compress stylesheets to remove whitespace and comments or beautify minified CSS into indented code.',
+    category: 'dev',
+    keywords: ['css minifier', 'minify css', 'css beautifier', 'css formatter', 'compress css'],
+    icon: 'FileCode',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Minify CSS stylesheets online to reduce payload size or unminify and format obfuscated CSS rules.',
+    component: CssMinifierStudio,
+  },
+  {
+    id: 'base64-to-file-inspector',
+    slug: 'base64-to-file-inspector',
+    title: 'Base64 to File / PDF / Image Downloader & Inspector',
+    shortDesc: 'Decode Base64 strings and Data URLs, inspect MIME type and file size, and download as real binary files.',
+    category: 'dev',
+    keywords: ['base64 to file', 'base64 to pdf', 'base64 file download', 'base64 to image', 'decode base64 to file'],
+    icon: 'FileText',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert Base64 data strings into downloadable PDF, PNG, JPEG, and binary files with live preview.',
+    component: Base64FileInspector,
+  },
+  {
+    id: 'html-entities-encoder-decoder',
+    slug: 'html-entities-encoder-decoder',
+    title: 'HTML Entities Encoder & Decoder Studio',
+    shortDesc: 'Convert special characters to HTML entities (&amp;, &lt;, &gt;) and decode entity strings into raw HTML.',
+    category: 'dev',
+    keywords: ['html entities encoder', 'html entities decoder', 'encode html entities', 'html entity converter'],
+    icon: 'Code',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Escape special HTML characters to prevent XSS vulnerabilities or decode HTML entities back to raw text.',
+    component: HtmlEntitiesStudio,
+  },
+  {
+    id: 'user-agent-parser-inspector',
+    slug: 'user-agent-parser-inspector',
+    title: 'User-Agent Parser & Device Hardware Inspector',
+    shortDesc: 'Inspect and parse browser User-Agent strings to extract OS, browser version, device form factor, and engine.',
+    category: 'dev',
+    keywords: ['user agent parser', 'parse user agent', 'user agent checker', 'browser user agent string'],
+    icon: 'Globe',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Parse client User-Agent strings online to identify browser, operating system, rendering engine, and device type.',
+    component: UserAgentInspector,
   },
 ];
 
