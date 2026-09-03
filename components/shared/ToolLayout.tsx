@@ -18,7 +18,9 @@ import {
   Check,
   Maximize2,
   Minimize2,
+  Code2,
 } from 'lucide-react';
+import { CopyButton } from './CopyButton';
 
 export interface ToolLayoutProps {
   tool: ToolDefinition;
@@ -31,6 +33,7 @@ export function ToolLayout({ tool, children, relatedTools = [] }: ToolLayoutProp
   const [isFavorite, setIsFavorite] = useState(false);
   const [copiedShare, setCopiedShare] = useState(false);
   const [isZenMode, setIsZenMode] = useState(false);
+  const [showEmbedModal, setShowEmbedModal] = useState(false);
 
   useEffect(() => {
     addRecentToolSlug(tool.slug);
@@ -160,8 +163,42 @@ export function ToolLayout({ tool, children, relatedTools = [] }: ToolLayoutProp
               />
               <span>{isFavorite ? 'Saved' : 'Pin'}</span>
             </button>
+
+            {/* Embed Widget Button */}
+            <button
+              type="button"
+              onClick={() => setShowEmbedModal(!showEmbedModal)}
+              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl border text-xs font-mono transition-colors shadow-sm ${
+                showEmbedModal
+                  ? 'bg-sky-500/20 text-sky-300 border-sky-500/40 font-bold'
+                  : 'bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 border-zinc-800'
+              }`}
+              title="Embed this interactive tool on your website or blog"
+            >
+              <Code2 className="w-3.5 h-3.5" />
+              <span>Embed</span>
+            </button>
           </div>
         </div>
+
+        {/* Embed Widget Popover Box */}
+        {showEmbedModal && (
+          <div className="p-4 rounded-2xl bg-zinc-900/90 border border-sky-500/40 space-y-3 font-mono text-xs animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="flex items-center justify-between text-sky-400 font-bold">
+              <span>Embed Widget Code (Copy & Paste to your HTML / Blog):</span>
+              <CopyButton text={`<iframe src="https://devtransform-hub.vercel.app/embed/${tool.slug}/" width="100%" height="480" frameborder="0" style="border-radius: 16px; overflow: hidden;"></iframe>\n<p style="font-size: 11px; color: #71717a;"><a href="https://devtransform-hub.vercel.app/tools/${tool.slug}/" target="_blank" rel="noopener noreferrer">⚡ Powered by ZeroUpload</a></p>`} />
+            </div>
+            <textarea
+              readOnly
+              rows={3}
+              value={`<iframe src="https://devtransform-hub.vercel.app/embed/${tool.slug}/" width="100%" height="480" frameborder="0" style="border-radius: 16px; overflow: hidden;"></iframe>\n<p style="font-size: 11px; color: #71717a;"><a href="https://devtransform-hub.vercel.app/tools/${tool.slug}/" target="_blank" rel="noopener noreferrer">⚡ Powered by ZeroUpload</a></p>`}
+              className="w-full p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-sky-300 select-all focus:outline-none resize-none leading-relaxed"
+            />
+            <span className="text-[10px] text-zinc-500 block">
+              Free to embed on any blog, documentation, or developer site. Includes automatic iframe resizing.
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Main Tool Container */}
