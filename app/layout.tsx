@@ -9,6 +9,11 @@ const CommandPalette = dynamic(
   { ssr: false }
 );
 
+const PwaRegister = dynamic(
+  () => import('@/components/ui/PwaRegister').then((m) => m.PwaRegister),
+  { ssr: false }
+);
+
 export const viewport: Viewport = {
   themeColor: '#000000',
 };
@@ -77,6 +82,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <CommandPalette />
+        <PwaRegister />
       </body>
     </html>
   );

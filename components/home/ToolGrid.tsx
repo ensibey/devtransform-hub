@@ -86,6 +86,8 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Globe: Globe,
   Lock: Lock,
   Calculator: Calculator,
+  Shield: ShieldCheck,
+  FileJson: FileCode,
 };
 
 export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {

@@ -8,6 +8,8 @@ import { getAllColorDefinitions } from '../lib/color-matrix';
 import { getAllTextTransformations } from '../lib/text-matrix';
 import { getAllHttpStatuses } from '../lib/http-status-data';
 import { getAllCronSchedules } from '../lib/cron-data';
+import { getAllRegexPatterns } from '../lib/regex-matrix';
+import { getAllShadowPresets } from '../lib/shadow-matrix';
 import { TOOLS_REGISTRY } from '../lib/registry';
 import { CATEGORIES } from '../types/tool';
 
@@ -92,6 +94,8 @@ export function generateSitemaps(targetDirs: string[]) {
     ...getAllTextTransformations().map((t) => ({ url: `${BASE_URL}/text/${t.slug}/`, priority: 0.7 })),
     ...getAllHttpStatuses().map((s) => ({ url: `${BASE_URL}/http-status/${s.slug}/`, priority: 0.7 })),
     ...getAllCronSchedules().map((c) => ({ url: `${BASE_URL}/cron/${c.slug}/`, priority: 0.7 })),
+    ...getAllRegexPatterns().map((r) => ({ url: `${BASE_URL}/regex/${r.slug}/`, priority: 0.8 })),
+    ...getAllShadowPresets().map((s) => ({ url: `${BASE_URL}/css-shadow/${s.slug}/`, priority: 0.8 })),
   ];
   const utilXml = buildUrlSetXml(utilUrls);
 

@@ -68,6 +68,10 @@ import { DnsInspector } from '@/components/tools/dev/DnsInspector';
 import { JsonPathEvaluator } from '@/components/tools/dev/JsonPathEvaluator';
 import { MarkdownHtmlConverter } from '@/components/tools/text/MarkdownHtmlConverter';
 import { BcryptSimulator } from '@/components/tools/dev/BcryptSimulator';
+import { DockerComposeConverter } from '@/components/tools/dev/DockerComposeConverter';
+import { HtmlToJsxConverter } from '@/components/tools/dev/HtmlToJsxConverter';
+import { JsonSchemaToTsConverter } from '@/components/tools/dev/JsonSchemaToTsConverter';
+import { SriHashGenerator } from '@/components/tools/dev/SriHashGenerator';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -838,6 +842,58 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     isNew: true,
     seoDescription: 'Generate salted bcrypt password hashes and verify plaintext strings against hash signatures.',
     component: BcryptSimulator,
+  },
+  {
+    id: 'docker-compose-converter',
+    slug: 'docker-compose-converter',
+    title: 'Docker Run to Docker Compose Converter',
+    shortDesc: 'Convert docker run CLI commands into clean version 3.8 docker-compose.yml configurations.',
+    category: 'dev',
+    keywords: ['docker run to compose', 'docker compose generator', 'docker run to docker compose', 'docker compose yml'],
+    icon: 'Terminal',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert complex docker run commands with ports, volumes, and env variables into docker-compose.yml files.',
+    component: DockerComposeConverter,
+  },
+  {
+    id: 'html-to-jsx-converter',
+    slug: 'html-to-jsx-converter',
+    title: 'HTML to React JSX Component Converter',
+    shortDesc: 'Transform raw HTML into clean React JSX with className, htmlFor, and camelCase inline styles.',
+    category: 'dev',
+    keywords: ['html to jsx', 'html to react', 'convert html to jsx', 'html to react component'],
+    icon: 'Code2',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert HTML code snippets into valid React JSX syntax with self-closing tags and style objects.',
+    component: HtmlToJsxConverter,
+  },
+  {
+    id: 'json-schema-to-typescript',
+    slug: 'json-schema-to-typescript',
+    title: 'JSON Schema to TypeScript Interfaces Converter',
+    shortDesc: 'Generate TypeScript interface and type declarations from JSON Schema Draft-07/04 definitions.',
+    category: 'dev',
+    keywords: ['json schema to typescript', 'json schema to ts', 'json schema type generator'],
+    icon: 'FileJson',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Compile JSON Schema definitions into clean, strongly typed TypeScript interfaces and types.',
+    component: JsonSchemaToTsConverter,
+  },
+  {
+    id: 'sri-hash-generator',
+    slug: 'sri-hash-generator',
+    title: 'Subresource Integrity (SRI) Hash & Tag Generator',
+    shortDesc: 'Compute cryptographic sha384, sha512, and sha256 SRI hashes for secure CDN script & style loading.',
+    category: 'dev',
+    keywords: ['sri hash generator', 'subresource integrity', 'sri hash', 'sha384 generator', 'integrity attribute'],
+    icon: 'Shield',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate W3C compliant Subresource Integrity (SRI) hashes and production HTML script/link tags.',
+    component: SriHashGenerator,
   },
 ];
 
