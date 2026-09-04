@@ -100,6 +100,8 @@ import { BcryptHashStudio } from '@/components/tools/dev/BcryptHashStudio';
 import { CssClipPathGenerator } from '@/components/tools/dev/CssClipPathGenerator';
 import { XmlJsonConverterPro } from '@/components/tools/dev/XmlJsonConverterPro';
 import { DataAnonymizerMasker } from '@/components/tools/dev/DataAnonymizerMasker';
+import { SemverCalculator } from '@/components/tools/dev/SemverCalculator';
+import { SvgToPngConverter } from '@/components/tools/image/SvgToPngConverter';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -1406,6 +1408,52 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: DataAnonymizerMasker,
+  },
+  {
+    id: 'semver-calculator',
+    slug: 'semver-calculator',
+    title: 'SemVer Calculator & Range Evaluator',
+    shortDesc: 'Inspect SemVer 2.0.0 versions, test caret and tilde ranges (^, ~, *), bump major/minor/patch releases, and batch-sort git release tags.',
+    category: 'dev',
+    keywords: ['semver calculator', 'semver range tester', 'semantic versioning checker', 'semver bumper', 'npm version tester'],
+    icon: 'GitCompare',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Free online SemVer 2.0.0 calculator and dependency range tester. Validate version numbers, calculate major/minor/patch bumps, and evaluate npm range rules.',
+    faqs: [
+      {
+        question: 'What is the difference between caret (^) and tilde (~) in SemVer?',
+        answer: 'Caret (^) allows updates that do not change the leftmost non-zero digit (e.g. ^1.2.3 allows >=1.2.3 <2.0.0), whereas tilde (~) restricts updates to patch releases only (e.g. ~1.2.3 allows >=1.2.3 <1.3.0).',
+      },
+      {
+        question: 'Are prerelease identifiers like alpha, beta, and rc supported?',
+        answer: 'Yes, full SemVer 2.0.0 specification rules for prerelease tags and build metadata are supported for inspection and sorting.',
+      },
+    ],
+    component: SemverCalculator,
+  },
+  {
+    id: 'svg-to-png-converter',
+    slug: 'svg-to-png-converter',
+    title: 'SVG to PNG, WebP & JPEG Converter',
+    shortDesc: 'Convert scalable vector graphics (SVG) to raster images (PNG, WebP, JPEG) with Retina 2x/4x/8x scaling and custom background transparency.',
+    category: 'image',
+    keywords: ['svg to png', 'svg to png converter', 'convert svg to webp', 'svg to high res png', 'vector to raster'],
+    icon: 'Image',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert SVG markup or vector files to crisp PNG, WebP, and JPEG images online. Supports Retina scaling (1x, 2x, 4x, 8x), custom backgrounds, and zero server upload.',
+    faqs: [
+      {
+        question: 'How do I export high-resolution Retina images from my SVG?',
+        answer: 'Select the 2x, 4x, or 8x scale button. DevTransform renders the vector paths onto an ultra-high resolution HTML5 canvas before generating the raster PNG file.',
+      },
+      {
+        question: 'Does PNG export preserve transparent backgrounds?',
+        answer: 'Yes, selecting Transparent background keeps full alpha channel transparency in PNG and WebP formats.',
+      },
+    ],
+    component: SvgToPngConverter,
   },
 ];
 
