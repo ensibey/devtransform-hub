@@ -625,6 +625,240 @@ export const CHEATSHEETS: CheatSheetDefinition[] = [
       },
     ],
   },
+  {
+    slug: 'linux-systemctl-systemd-cheat-sheet',
+    title: 'Linux systemctl & journalctl (systemd) Cheat Sheet',
+    category: 'linux',
+    description: 'Essential systemd command reference for Linux server administrators. Managing services, units, boot targets, timers, and streaming system logs.',
+    sections: [
+      {
+        title: 'Service Lifecycle Management',
+        items: [
+          { command: 'sudo systemctl start <service>', description: 'Start a stopped system service immediately' },
+          { command: 'sudo systemctl stop <service>', description: 'Stop a running system service immediately' },
+          { command: 'sudo systemctl restart <service>', description: 'Stop and restart service' },
+          { command: 'sudo systemctl reload <service>', description: 'Reload configuration without dropping active connections' },
+          { command: 'sudo systemctl status <service>', description: 'View service state, PID, memory, and recent log messages' },
+        ],
+      },
+      {
+        title: 'Enabling on Boot & Daemon Reload',
+        items: [
+          { command: 'sudo systemctl enable <service>', description: 'Configure service to automatically launch on system boot' },
+          { command: 'sudo systemctl disable <service>', description: 'Prevent service from launching on system boot' },
+          { command: 'sudo systemctl daemon-reload', description: 'Reload all systemd unit configuration files after editing' },
+          { command: 'systemctl is-active <service>', description: 'Returns 0 if service is currently running (script friendly)' },
+          { command: 'systemctl is-enabled <service>', description: 'Check if service is configured to launch on boot' },
+        ],
+      },
+      {
+        title: 'Streaming Logs with journalctl',
+        items: [
+          { command: 'journalctl -u <service> -f', description: 'Follow live streaming log output for a specific service' },
+          { command: 'journalctl -u <service> -n 100', description: 'Show the last 100 log lines for a specific service' },
+          { command: 'journalctl -u <service> --since "1 hour ago"', description: 'Filter logs generated within the last hour' },
+          { command: 'journalctl -p err -b', description: 'Show all error-level logs from current boot session' },
+          { command: 'sudo journalctl --vacuum-time=3d', description: 'Clean up journal logs older than 3 days to free disk space' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Why do I need to run systemctl daemon-reload?',
+        answer: 'systemd caches unit files in memory. If you edit, create, or delete a `.service` file under `/etc/systemd/system/`, you must execute `systemctl daemon-reload` so systemd re-reads the updated configuration.',
+      },
+    ],
+  },
+  {
+    slug: 'postgresql-psql-cheat-sheet',
+    title: 'PostgreSQL & psql CLI Meta-Commands Cheat Sheet',
+    category: 'database',
+    description: 'The complete reference for PostgreSQL developers and DBAs. Essential psql slash commands, table inspection, roles, databases, and backup tools.',
+    sections: [
+      {
+        title: 'Connecting & Navigation Meta-Commands',
+        items: [
+          { command: 'psql -U username -d dbname -h localhost', description: 'Connect to PostgreSQL server from terminal' },
+          { command: '\\l or \\l+', description: 'List all databases with owner, encoding, and size' },
+          { command: '\\c <database>', description: 'Connect / switch to a different database' },
+          { command: '\\dt or \\dt+', description: 'List all tables in current schema with disk sizes' },
+          { command: '\\d <table_name>', description: 'Describe table columns, types, indexes, and constraints' },
+          { command: '\\dn', description: 'List all schemas in database' },
+          { command: '\\du', description: 'List all database users, roles, and assigned permissions' },
+          { command: '\\x', description: 'Toggle expanded display mode (ideal for wide tables)' },
+          { command: '\\q', description: 'Quit psql terminal interface' },
+        ],
+      },
+      {
+        title: 'Performance & Diagnostic Queries',
+        items: [
+          { command: 'EXPLAIN ANALYZE SELECT ...;', description: 'Execute query and show actual execution plan and node timings' },
+          { command: 'SELECT pg_size_pretty(pg_database_size(\'db\'));', description: 'Get human-readable total database size on disk' },
+          { command: 'SELECT * FROM pg_stat_activity WHERE state != \'idle\';', description: 'View all currently active executing queries and connections' },
+          { command: 'SELECT pg_cancel_backend(pid);', description: 'Safely cancel a slow running query by process ID' },
+          { command: 'VACUUM (VERBOSE, ANALYZE);', description: 'Reclaim dead tuple storage and update query planner statistics' },
+        ],
+      },
+      {
+        title: 'Backup & Restore Utilities',
+        items: [
+          { command: 'pg_dump -U user -d dbname -F c -f backup.dump', description: 'Export compressed custom-format binary database backup' },
+          { command: 'pg_restore -U user -d dbname -v backup.dump', description: 'Restore custom-format backup file into database' },
+          { command: 'pg_dumpall -U postgres > full_cluster.sql', description: 'Dump entire PostgreSQL cluster including global roles' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the benefit of EXPLAIN ANALYZE over plain EXPLAIN in PostgreSQL?',
+        answer: 'Plain `EXPLAIN` only shows the optimizer\'s theoretical cost estimate without running the query, whereas `EXPLAIN ANALYZE` actually executes the SQL query, measuring real wall-clock runtime, index scans, and row counts.',
+      },
+    ],
+  },
+  {
+    slug: 'redis-cli-commands-cheat-sheet',
+    title: 'Redis CLI Commands & In-Memory Data Structures Cheat Sheet',
+    category: 'database',
+    description: 'Comprehensive Redis command reference for developers. Keys, Strings, Hashes, Lists, Sets, Sorted Sets, Pub/Sub, and Server Monitoring.',
+    sections: [
+      {
+        title: 'Key Expiration & Strings',
+        items: [
+          { command: 'SET key "value" EX 3600', description: 'Set string key with automatic 1-hour expiration (TTL)' },
+          { command: 'GET key', description: 'Retrieve value stored at key' },
+          { command: 'INCR key / INCRBY key 5', description: 'Atomically increment numerical value by 1 or specified amount' },
+          { command: 'TTL key', description: 'Check remaining time-to-live in seconds (-1 = infinite, -2 = expired)' },
+          { command: 'EXPIRE key 60', description: 'Set key timeout to 60 seconds' },
+          { command: 'DEL key1 key2', description: 'Delete one or more keys' },
+          { command: 'EXISTS key', description: 'Check if key exists (returns 1 or 0)' },
+        ],
+      },
+      {
+        title: 'Hashes & Lists',
+        items: [
+          { command: 'HSET user:1 name "Ada" role "Lead"', description: 'Store multiple field-value pairs inside a Redis hash' },
+          { command: 'HGET user:1 name', description: 'Retrieve specific field from hash' },
+          { command: 'HGETALL user:1', description: 'Retrieve all fields and values from hash' },
+          { command: 'LPUSH queue "job_1"', description: 'Prepend item to head of list (queue producer)' },
+          { command: 'RPOP queue', description: 'Remove and return item from tail of list (FIFO worker)' },
+          { command: 'BRPOP queue 30', description: 'Blocking pop: waits up to 30 seconds for an item to arrive' },
+        ],
+      },
+      {
+        title: 'Sorted Sets (ZSET) & Realtime Ranking',
+        items: [
+          { command: 'ZADD leaderboard 1500 "user_a"', description: 'Add member with floating-point numerical score' },
+          { command: 'ZREVRANGE leaderboard 0 9 WITHSCORES', description: 'Get Top 10 highest-scoring leaderboard entries' },
+          { command: 'ZINCRBY leaderboard 50 "user_a"', description: 'Increment player score by 50 points' },
+          { command: 'ZREVRANK leaderboard "user_a"', description: 'Get 0-indexed ranking of player based on highest score' },
+        ],
+      },
+      {
+        title: 'Monitoring & Administration',
+        items: [
+          { command: 'INFO memory', description: 'Display memory usage, fragmentation ratio, and peak RAM' },
+          { command: 'MONITOR', description: 'Stream all incoming Redis commands processed by server in real time' },
+          { command: 'SLOWLOG GET 10', description: 'Inspect the 10 most recent queries that exceeded slow threshold' },
+          { command: 'FLUSHDB / FLUSHALL', description: 'Delete all keys in current database / all databases (caution)' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Why should KEYS * never be run in production Redis?',
+        answer: 'Redis is single-threaded. `KEYS *` scans the entire keyspace synchronously, blocking all other application requests and queries until it finishes. Use `SCAN` instead for non-blocking iteration.',
+      },
+    ],
+  },
+  {
+    slug: 'tmux-shortcuts-cheat-sheet',
+    title: 'tmux Terminal Multiplexer Shortcuts Cheat Sheet',
+    category: 'terminal',
+    description: 'Essential keyboard shortcuts and commands for tmux. Sessions, windows, vertical/horizontal splits, pane resizing, and detach/attach.',
+    sections: [
+      {
+        title: 'Session Management',
+        items: [
+          { command: 'tmux new -s <name>', description: 'Start a brand new named tmux session' },
+          { command: 'tmux attach -t <name>', description: 'Reattach to an existing background tmux session' },
+          { command: 'tmux ls', description: 'List all running background tmux sessions' },
+          { command: 'Ctrl+b d', description: 'Detach cleanly from active session (leaves processes running)' },
+          { command: 'tmux kill-session -t <name>', description: 'Terminate specified session and kill its processes' },
+        ],
+      },
+      {
+        title: 'Pane Splits & Navigation (Prefix: Ctrl+b)',
+        items: [
+          { command: 'Ctrl+b %', description: 'Split current pane vertically into left and right' },
+          { command: 'Ctrl+b "', description: 'Split current pane horizontally into top and bottom' },
+          { command: 'Ctrl+b <arrow>', description: 'Move focus to pane in direction of arrow key' },
+          { command: 'Ctrl+b z', description: 'Toggle zoom / fullscreen for active pane' },
+          { command: 'Ctrl+b x', description: 'Close / kill active pane (with confirmation)' },
+          { command: 'Ctrl+b { or }', description: 'Swap current pane position with adjacent pane' },
+        ],
+      },
+      {
+        title: 'Windows & Tabs',
+        items: [
+          { command: 'Ctrl+b c', description: 'Create a new window (tab)' },
+          { command: 'Ctrl+b n / p', description: 'Switch to next / previous window' },
+          { command: 'Ctrl+b <0-9>', description: 'Jump directly to window by number' },
+          { command: 'Ctrl+b ,', description: 'Rename the current window tab' },
+          { command: 'Ctrl+b w', description: 'Open interactive visual list of all sessions and windows' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How do I scroll up in a tmux pane?',
+        answer: 'Press `Ctrl+b [` to enter Copy/Scroll mode, use the arrow keys or `PageUp`/`PageDown` to scroll, and press `q` to return to normal terminal input.',
+      },
+    ],
+  },
+  {
+    slug: 'markdown-syntax-cheat-sheet',
+    title: 'Markdown & GitHub Flavored Markdown (GFM) Cheat Sheet',
+    category: 'web',
+    description: 'The ultimate Markdown cheat sheet for README files, technical blogs, and documentation. Headings, code blocks, tables, task lists, and alerts.',
+    sections: [
+      {
+        title: 'Text Formatting & Headings',
+        items: [
+          { command: '# H1 to ###### H6', description: 'Headings level 1 through level 6' },
+          { command: '**bold** or __bold__', description: 'Bold text emphasis' },
+          { command: '*italic* or _italic_', description: 'Italic text emphasis' },
+          { command: '~~strikethrough~~', description: 'Strikethrough text (GFM)' },
+          { command: '`inline code`', description: 'Inline code snippet or identifier' },
+          { command: '> Blockquote', description: 'Blockquote callout section' },
+        ],
+      },
+      {
+        title: 'Tables & Code Blocks',
+        items: [
+          { command: '```lang ... ```', description: 'Fenced code block with syntax highlighting' },
+          { command: '| Col1 | Col2 |\\n|---|---|\\n| Val1 | Val2 |', description: 'GFM table with pipe delimiters' },
+          { command: '| :--- | :---: | ---: |', description: 'Table column alignment (left, center, right)' },
+        ],
+      },
+      {
+        title: 'Lists, Links & Task Checkboxes',
+        items: [
+          { command: '- [x] Completed item', description: 'GFM Interactive task checklist item (checked)' },
+          { command: '- [ ] Pending item', description: 'GFM Interactive task checklist item (unchecked)' },
+          { command: '[Link Title](https://example.com)', description: 'Hyperlink to external URL' },
+          { command: '![Alt text](/path/to/image.png)', description: 'Embedded image with alternate text' },
+          { command: '1. Ordered item', description: 'Numbered ordered list' },
+          { command: '---', description: 'Horizontal dividing rule' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is GitHub Flavored Markdown (GFM)?',
+        answer: 'GFM is an extension of standard CommonMark created by GitHub, adding support for tables, task checklist items (`[x]`), strikethrough (`~~`), autolinks, and GitHub callout alerts.',
+      },
+    ],
+  },
 ];
 
 export function getAllCheatSheets(): CheatSheetDefinition[] {
