@@ -106,6 +106,8 @@ import { StringEscapeUnescape } from '@/components/tools/dev/StringEscapeUnescap
 import { SqlToJsonSchemaGenerator } from '@/components/tools/dev/SqlToJsonSchemaGenerator';
 import { CssBlobRadiusGenerator } from '@/components/tools/dev/CssBlobRadiusGenerator';
 import { AsciiArtBannerGenerator } from '@/components/tools/text/AsciiArtBannerGenerator';
+import { TailwindPaletteGenerator } from '@/components/tools/dev/TailwindPaletteGenerator';
+import { JsonLinesConverterPro } from '@/components/tools/dev/JsonLinesConverterPro';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -1550,6 +1552,52 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: AsciiArtBannerGenerator,
+  },
+  {
+    id: 'tailwind-color-palette-generator',
+    slug: 'tailwind-color-palette-generator',
+    title: 'Tailwind CSS Color Palette & 11-Step Shade Generator',
+    shortDesc: 'Generate complete 11-step Tailwind CSS color scales (50 to 950) from any brand hex color with contrast ratings and copy-paste tailwind.config.js snippet.',
+    category: 'dev',
+    keywords: ['tailwind color generator', 'tailwind palette generator', 'hex to tailwind', 'color shade generator', 'tailwind theme colors'],
+    icon: 'Palette',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Interactive Tailwind CSS color palette generator. Compute 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950 shades with WCAG contrast and config export.',
+    faqs: [
+      {
+        question: 'How are the Tailwind shade steps calculated?',
+        answer: 'Shades are computed by mathematically blending the base 500 color towards pure white for lighter tints (50-400) and towards rich obsidian black for darker shades (600-950).',
+      },
+      {
+        question: 'Can I copy both Tailwind config and CSS Custom Properties?',
+        answer: 'Yes! The generator provides instant 1-click clipboard copy for both tailwind.config.js theme extension objects and standard CSS :root variables.',
+      },
+    ],
+    component: TailwindPaletteGenerator,
+  },
+  {
+    id: 'jsonl-converter',
+    slug: 'jsonl-converter',
+    title: 'JSON Lines (JSONL) to JSON Array & CSV Converter Pro',
+    shortDesc: 'Convert JSON Lines (.jsonl) files into standard formatted JSON arrays or CSV spreadsheets and vice versa with live row validation.',
+    category: 'dev',
+    keywords: ['jsonl to json', 'json lines converter', 'jsonl to csv', 'json to jsonl', 'jsonlines online parser'],
+    icon: 'FileCode',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'High-speed client-side JSON Lines (JSONL) converter. Parse dataset files for AI/LLM fine-tuning into formatted JSON arrays and RFC 4180 CSV tables.',
+    faqs: [
+      {
+        question: 'What is JSON Lines (JSONL)?',
+        answer: 'JSON Lines is a text format where each line is a valid, standalone JSON object separated by a newline character (\\n), widely used in big data streaming and LLM training datasets.',
+      },
+      {
+        question: 'Can I convert my JSON Array back into JSONL format?',
+        answer: 'Yes, select the JSON Array &rarr; JSONL mode to serialize any standard JSON array of objects into line-delimited JSON format.',
+      },
+    ],
+    component: JsonLinesConverterPro,
   },
 ];
 
