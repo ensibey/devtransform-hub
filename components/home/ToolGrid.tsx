@@ -66,6 +66,7 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Code2: Code2,
   Layers: Layers,
   FileCode: FileCode,
+  ArrowRightLeft: ArrowRightLeft,
   Table: Table,
   FileText: FileText,
   Database: Database,

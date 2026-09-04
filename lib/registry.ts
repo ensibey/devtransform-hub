@@ -124,6 +124,10 @@ import { MarkdownBadgeGenerator } from '@/components/tools/MarkdownBadgeGenerato
 import { SvgWaveGenerator } from '@/components/tools/SvgWaveGenerator';
 import { CssFilterEffectsStudio } from '@/components/tools/CssFilterEffectsStudio';
 import { TailwindGridGenerator } from '@/components/tools/TailwindGridGenerator';
+import { HtmlTableToMarkdownConverter } from '@/components/tools/HtmlTableToMarkdownConverter';
+import { TomlJsonConverterStudio } from '@/components/tools/TomlJsonConverterStudio';
+import { JsonToGraphqlSchemaConverter } from '@/components/tools/JsonToGraphqlSchemaConverter';
+import { CssNeumorphismStudio } from '@/components/tools/CssNeumorphismStudio';
 
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
@@ -1983,6 +1987,98 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: TailwindGridGenerator,
+  },
+  {
+    id: 'html-table-to-markdown',
+    slug: 'html-table-to-markdown',
+    title: 'HTML Table to Markdown Converter',
+    shortDesc: 'Convert HTML <table> structures with thead, tbody, th, td, and inline formatting into clean GitHub Flavored Markdown (GFM) tables.',
+    category: 'text',
+    keywords: ['html table to markdown', 'html to gfm converter', 'table markdown generator', 'convert html table to md', 'markdown table extractor'],
+    icon: 'Table',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Free online HTML table to Markdown converter. Transform HTML tables into clean GitHub Flavored Markdown tables with live preview and instant copy.',
+    faqs: [
+      {
+        question: 'Does this converter preserve HTML styling and inline tags?',
+        answer: 'It cleanly parses inner text, code tags, strong/em elements, and links into their native Markdown equivalents while discarding bulky presentation markup.',
+      },
+      {
+        question: 'Can I convert large tables without lag?',
+        answer: 'Yes. Parsing runs in high-speed native browser DOM APIs with 0ms server latency and zero upload risk.',
+      },
+    ],
+    component: HtmlTableToMarkdownConverter,
+  },
+  {
+    id: 'toml-to-json-converter',
+    slug: 'toml-to-json-converter',
+    title: 'TOML to JSON & JSON to TOML Converter',
+    shortDesc: 'Bi-directional parser and converter between TOML configuration format and structured JSON with syntax validation.',
+    category: 'dev',
+    keywords: ['toml to json', 'json to toml', 'toml converter', 'cargo toml parser', 'pyproject toml to json'],
+    icon: 'ArrowRightLeft',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert TOML config files (Cargo.toml, pyproject.toml) to JSON and vice versa directly in your browser with 100% client-side privacy.',
+    faqs: [
+      {
+        question: 'What types of TOML files can be converted?',
+        answer: 'Any standard TOML file including Cargo.toml, pyproject.toml, Fly.io configurations, and Hugo configs.',
+      },
+      {
+        question: 'Is any configuration data sent to a remote server?',
+        answer: 'No. All conversions happen entirely in your browser using pure client-side JavaScript.',
+      },
+    ],
+    component: TomlJsonConverterStudio,
+  },
+  {
+    id: 'json-to-graphql-schema',
+    slug: 'json-to-graphql-schema',
+    title: 'JSON to GraphQL Schema Generator',
+    shortDesc: 'Infer GraphQL types, queries, inputs, and mutations instantly from sample JSON payloads and API responses.',
+    category: 'dev',
+    keywords: ['json to graphql', 'graphql schema generator', 'json to gql schema', 'infer graphql types', 'api to graphql'],
+    icon: 'Code2',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate clean GraphQL schemas (types, queries, inputs, mutations) instantly from sample JSON API responses.',
+    faqs: [
+      {
+        question: 'How does it handle nested JSON objects and arrays?',
+        answer: 'Nested objects are recursively extracted into dedicated GraphQL types, and array elements are inspected to infer typed lists ([ItemType]).',
+      },
+      {
+        question: 'Can I customize the root type and query names?',
+        answer: 'Yes, you can customize the Root Type Name and the Query Name directly in the generator options.',
+      },
+    ],
+    component: JsonToGraphqlSchemaConverter,
+  },
+  {
+    id: 'css-neumorphism-generator',
+    slug: 'css-neumorphism-generator',
+    title: 'CSS Neumorphism (Soft UI) Studio',
+    shortDesc: 'Design soft UI / neumorphic components with realistic shadows, concave/convex gradients, adjustable light angles, and instant CSS export.',
+    category: 'dev',
+    keywords: ['css neumorphism generator', 'soft ui generator', 'neumorphic box shadow', 'css soft shadow', 'neumorphism designer'],
+    icon: 'Box',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Interactive CSS Neumorphism generator. Create modern soft UI box-shadows, convex/concave gradients, and copy CSS and React JSX code.',
+    faqs: [
+      {
+        question: 'What is Neumorphism in UI design?',
+        answer: 'Neumorphism (Soft UI) creates a tactile, physical look where UI elements appear to protrude from or sink into the background using dual multi-directional box shadows.',
+      },
+      {
+        question: 'Can I export both pure CSS and React inline styles?',
+        answer: 'Yes, the studio generates ready-to-use CSS box-shadow and background properties as well as React JSX style objects.',
+      },
+    ],
+    component: CssNeumorphismStudio,
   },
 ];
 

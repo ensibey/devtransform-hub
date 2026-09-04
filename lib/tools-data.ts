@@ -45,6 +45,8 @@ const CATEGORY_LABEL_MAP: Record<string, { key: ToolCategoryKey; label: string }
   pdf: { key: 'pdf', label: 'PDF & Documents' },
   dev: { key: 'dev', label: 'Developer & Code' },
   calculator: { key: 'calculators', label: 'Calculators' },
+  converters: { key: 'converters', label: 'Code Converters' },
+  css: { key: 'dev', label: 'CSS & Styling' },
 };
 
 export const DEVELOPER_TOOLS: DeveloperToolItem[] = TOOLS_REGISTRY.map((t) => {
