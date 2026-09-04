@@ -243,6 +243,78 @@ export const COMPARISONS: ComparisonDefinition[] = [
       whenToUseB: ['High-availability production cloud deployments across multiple cloud zones', 'Zero-downtime rolling deployments with automated rollbacks', 'Complex microservice architectures requiring automated load balancing and service discovery'],
     },
   },
+  {
+    slug: 'bun-vs-node',
+    title: 'Bun vs Node.js: Modern JavaScript Runtime Comparison',
+    itemAName: 'Bun',
+    itemBName: 'Node.js',
+    summary: 'Compare Bun (high-performance Zig-based runtime with built-in bundler and package manager) with Node.js (the battle-tested industry standard V8 runtime).',
+    features: [
+      { feature: 'Underlying Engine', itemA: 'JavaScriptCore (WebKit)', itemB: 'V8 (Chromium)', verdict: 'TIE' },
+      { feature: 'Execution & Startup Speed', itemA: 'Up to 4x faster cold start and execution', itemB: 'Standard V8 JIT performance', verdict: 'A' },
+      { feature: 'TypeScript Support', itemA: 'Native out-of-the-box execution (zero config)', itemB: 'Requires external transpiler (tsx, tsc, or swc)', verdict: 'A' },
+      { feature: 'Built-in Tooling', itemA: 'Native test runner, bundler, and package manager', itemB: 'Requires separate npm/yarn, webpack/esbuild, jest', verdict: 'A' },
+      { feature: 'Ecosystem & Production Battle-Testing', itemA: 'Newer, rapid iteration, occasional edge-case quirks', itemB: 'Over 15 years of battle-tested enterprise stability', verdict: 'B' },
+    ],
+    recommendations: {
+      whenToUseA: ['New greenfield fullstack TypeScript applications', 'High-speed local CLI scripts and task runners', 'Ultra-fast CI/CD pipeline dependency installations'],
+      whenToUseB: ['Mission-critical enterprise production infrastructure', 'Projects relying on legacy native C++ addons (Node-GYP)', 'Maximum compatibility across all npm packages'],
+    },
+  },
+  {
+    slug: 'nextjs-vs-remix',
+    title: 'Next.js vs Remix: Modern React Framework Comparison',
+    itemAName: 'Next.js (App Router)',
+    itemBName: 'Remix (React Router v7)',
+    summary: 'Evaluate architectural differences between Next.js (React Server Components, Vercel edge optimization) and Remix (web standard loaders, actions, and progressive enhancement).',
+    features: [
+      { feature: 'Data Fetching Model', itemA: 'React Server Components (RSC) + Suspense', itemB: 'Nested route Loaders & Actions', verdict: 'TIE' },
+      { feature: 'Form Handling & Mutations', itemA: 'Server Actions with useActionState', itemB: 'HTML Form native post and optimistic UI hooks', verdict: 'B' },
+      { feature: 'Static Generation (SSG)', itemA: 'Advanced incremental static regeneration (ISR)', itemB: 'Server-side rendering (SSR) focused with HTTP caching', verdict: 'A' },
+      { feature: 'Hosting Portability', itemA: 'Best on Vercel, requires Node server elsewhere', itemB: '100% web standard request/response (Cloudflare, Fly, Express)', verdict: 'B' },
+      { feature: 'Community & Adoption', itemA: 'Massive global developer ecosystem and plugins', itemB: 'Passionate developer base backed by Shopify', verdict: 'A' },
+    ],
+    recommendations: {
+      whenToUseA: ['Content-rich platforms, marketing hubs, and e-commerce requiring ISR', 'Teams leveraging React Server Components and nested streaming', 'Projects deploying directly to Vercel infrastructure'],
+      whenToUseB: ['Dynamic web applications with heavy form submissions and optimistic updates', 'Edge serverless deployments across non-Vercel clouds (Cloudflare Workers)', 'Teams prioritizing pure web standards (Request/Response/FormData)'],
+    },
+  },
+  {
+    slug: 'sqlite-vs-postgresql',
+    title: 'SQLite vs PostgreSQL: Embedded vs Client-Server Database',
+    itemAName: 'SQLite',
+    itemBName: 'PostgreSQL',
+    summary: 'Compare SQLite (zero-config, single-file, in-process embedded database) against PostgreSQL (heavyweight, extensible, enterprise client-server relational DBMS).',
+    features: [
+      { feature: 'Architecture', itemA: 'Embedded single file, zero network latency', itemB: 'Client-server process model with network sockets', verdict: 'TIE' },
+      { feature: 'Operational Overhead', itemA: 'Zero configuration, serverless, instant setup', itemB: 'Requires dedicated service, connection pools, user auth', verdict: 'A' },
+      { feature: 'Concurrent Write Throughput', itemA: 'Single-writer database lock (WAL mode)', itemB: 'Full MVCC with high concurrent write scaling', verdict: 'B' },
+      { feature: 'Advanced Data Types & Extensions', itemA: 'Minimal (TEXT, NUMERIC, INTEGER, REAL, BLOB)', itemB: 'Rich: JSONB, PostGIS, pgvector, full-text search', verdict: 'B' },
+      { feature: 'Resource Footprint', itemA: 'Under 1MB memory footprint', itemB: 'Requires tens to hundreds of megabytes of RAM', verdict: 'A' },
+    ],
+    recommendations: {
+      whenToUseA: ['Edge functions, mobile apps (iOS/Android), and desktop applications', 'Embedded local caching and read-heavy microservices', 'Local unit testing, development sandboxes, and staging databases'],
+      whenToUseB: ['High-concurrency web applications with heavy simultaneous writes', 'Applications requiring vector embeddings (pgvector) or GIS queries (PostGIS)', 'Enterprise data warehouses and microservices requiring strict RBAC'],
+    },
+  },
+  {
+    slug: 'graphql-vs-trpc',
+    title: 'GraphQL vs tRPC: End-to-End Type-Safe API Comparison',
+    itemAName: 'GraphQL',
+    itemBName: 'tRPC',
+    summary: 'Compare GraphQL (language-agnostic query specification with schema definition) with tRPC (zero-schema, end-to-end TypeScript type inference for fullstack apps).',
+    features: [
+      { feature: 'Language Portability', itemA: 'Polyglot: clients in Swift, Kotlin, Python, JS', itemB: 'TypeScript-only (monorepo or shared package)', verdict: 'A' },
+      { feature: 'Code Generation Overhead', itemA: 'Requires build-step code generation (GraphQL Codegen)', itemB: 'Zero build step: direct TypeScript type inference', verdict: 'B' },
+      { feature: 'Setup & Boilerplate', itemA: 'High: schemas, resolvers, types, client SDKs', itemB: 'Near zero: define router functions and export AppRouter', verdict: 'B' },
+      { feature: 'Network Overhead', itemA: 'POST requests with full query AST text', itemB: 'Standard HTTP GET/POST with query parameters and batching', verdict: 'B' },
+      { feature: 'Public API Suitability', itemA: 'Excellent for public 3rd-party developer APIs', itemB: 'Not designed for public untyped third parties', verdict: 'A' },
+    ],
+    recommendations: {
+      whenToUseA: ['Polyglot tech stacks where frontend is mobile/desktop and backend is Go/Rust/Java', 'Public APIs exposed to external third-party developers', 'Large microservice meshes using Apollo Federation'],
+      whenToUseB: ['Fullstack Next.js, Nuxt, or Remix applications written in 100% TypeScript', 'Fast-moving startups wanting immediate refactoring type safety', 'Projects where writing GraphQL schemas feels like unnecessary boilerplate'],
+    },
+  },
 ];
 
 export function getAllComparisons(): ComparisonDefinition[] {
