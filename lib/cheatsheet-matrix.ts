@@ -431,6 +431,200 @@ export const CHEATSHEETS: CheatSheetDefinition[] = [
       },
     ],
   },
+  {
+    slug: 'vim-editor-cheat-sheet',
+    title: 'Vim & Neovim Commands Cheat Sheet',
+    category: 'terminal',
+    description: 'Comprehensive keyboard shortcut and command reference for Vim and Neovim. Modes, navigation, editing, search/replace, and buffers.',
+    sections: [
+      {
+        title: 'Exiting & Saving',
+        items: [
+          { command: ':w', description: 'Write (save) current file without quitting' },
+          { command: ':q', description: 'Quit Vim (fails if unsaved changes exist)' },
+          { command: ':wq or :x or ZZ', description: 'Write changes and quit Vim' },
+          { command: ':q!', description: 'Quit immediately and discard all unsaved changes' },
+        ],
+      },
+      {
+        title: 'Navigation & Cursor Movement',
+        items: [
+          { command: 'h / j / k / l', description: 'Move left, down, up, right' },
+          { command: 'w / b', description: 'Jump forward / backward to start of next word' },
+          { command: 'e / ge', description: 'Jump to end of next / previous word' },
+          { command: '0 / $', description: 'Jump to absolute beginning / end of line' },
+          { command: '^', description: 'Jump to first non-blank character of line' },
+          { command: 'gg / G', description: 'Jump to very first / very last line of file' },
+          { command: ':<number> or <number>G', description: 'Jump directly to line number' },
+        ],
+      },
+      {
+        title: 'Editing & Manipulating Text',
+        items: [
+          { command: 'i / a', description: 'Insert mode before cursor / append mode after cursor' },
+          { command: 'o / O', description: 'Open new line below / above and enter insert mode' },
+          { command: 'x', description: 'Delete character under cursor' },
+          { command: 'dd / <number>dd', description: 'Delete (cut) current line / multiple lines' },
+          { command: 'yy / <number>yy', description: 'Yank (copy) current line / multiple lines' },
+          { command: 'p / P', description: 'Paste after / before cursor' },
+          { command: 'u / Ctrl+r', description: 'Undo last change / redo change' },
+          { command: 'cw', description: 'Change word (deletes word and enters insert mode)' },
+        ],
+      },
+      {
+        title: 'Search & Replace',
+        items: [
+          { command: '/pattern', description: 'Search forward for pattern' },
+          { command: '?pattern', description: 'Search backward for pattern' },
+          { command: 'n / N', description: 'Repeat search in same / opposite direction' },
+          { command: ':%s/old/new/g', description: 'Substitute all occurrences of old with new across entire file' },
+          { command: ':%s/old/new/gc', description: 'Substitute with interactive confirmation prompt for each occurrence' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How do I safely exit Vim without saving broken edits?',
+        answer: 'Press `Esc` multiple times to ensure you are in Normal mode, then type `:q!` and press `Enter` to force quit without saving.',
+      },
+    ],
+  },
+  {
+    slug: 'mongodb-queries-cheat-sheet',
+    title: 'MongoDB Query & Aggregation Pipeline Cheat Sheet',
+    category: 'database',
+    description: 'Essential MongoDB syntax reference for developers. Covers CRUD operations, query filters, projection, indexing, and aggregation pipelines.',
+    sections: [
+      {
+        title: 'Read & Filter Operations',
+        items: [
+          { command: 'db.collection.find()', description: 'Find all documents in collection' },
+          { command: 'db.collection.find({ status: "active" })', description: 'Filter documents by exact field value' },
+          { command: 'db.collection.find({ age: { $gte: 18, $lte: 65 } })', description: 'Filter with comparison operators ($gte, $lte, $ne, $in)' },
+          { command: 'db.collection.find({ tags: { $all: ["react", "node"] } })', description: 'Filter array field matching all specified elements' },
+          { command: 'db.collection.find({}, { name: 1, email: 1, _id: 0 })', description: 'Projection: include name and email, exclude _id' },
+          { command: 'db.collection.find().sort({ createdAt: -1 }).limit(10)', description: 'Sort descending (-1) or ascending (1) with pagination limit' },
+        ],
+      },
+      {
+        title: 'Create & Update Operations',
+        items: [
+          { command: 'db.collection.insertOne({ ... })', description: 'Insert single JSON document into collection' },
+          { command: 'db.collection.insertMany([{ ... }, { ... }])', description: 'Insert batch array of documents' },
+          { command: 'db.collection.updateOne({ _id }, { $set: { status: "verified" } })', description: 'Update specific field without overwriting document' },
+          { command: 'db.collection.updateMany({}, { $inc: { views: 1 } })', description: 'Atomically increment numerical field on matching records' },
+          { command: 'db.collection.updateOne({ email }, { $set: { lastLogin: new Date() } }, { upsert: true })', description: 'Update document if found, or insert if does not exist' },
+        ],
+      },
+      {
+        title: 'Aggregation Pipeline',
+        items: [
+          { command: '$match: { status: "paid" }', description: 'Filter stream documents before grouping or projection' },
+          { command: '$group: { _id: "$userId", total: { $sum: "$amount" } }', description: 'Group documents and calculate aggregate sums, averages, or counts' },
+          { command: '$sort: { total: -1 }', description: 'Sort grouped stream results' },
+          { command: '$lookup: { from: "users", localField: "userId", foreignField: "_id", as: "user" }', description: 'Perform left outer join with another collection' },
+          { command: '$unwind: "$tags"', description: 'Deconstruct array field into separate document for each element' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the performance difference between $set and replacing a document in MongoDB?',
+        answer: '`$set` only modifies the specified fields in place without transferring the entire document over the network or touching unmodified fields, dramatically reducing network IO and write locks.',
+      },
+    ],
+  },
+  {
+    slug: 'regex-patterns-cheat-sheet',
+    title: 'Regular Expressions (Regex) Syntax & Patterns Cheat Sheet',
+    category: 'web',
+    description: 'Quick reference guide for Regular Expressions. Character classes, quantifiers, anchors, capture groups, lookarounds, and common developer patterns.',
+    sections: [
+      {
+        title: 'Character Classes & Quantifiers',
+        items: [
+          { command: '.', description: 'Matches any single character except newline' },
+          { command: '\\d / \\D', description: 'Matches any digit (0-9) / non-digit' },
+          { command: '\\w / \\W', description: 'Matches word character (alphanumeric + underscore) / non-word character' },
+          { command: '\\s / \\S', description: 'Matches whitespace (space, tab, newline) / non-whitespace' },
+          { command: '[a-z0-9]', description: 'Matches any character within specified character set' },
+          { command: '[^a-z]', description: 'Negated character set: matches any character NOT in set' },
+          { command: '* / + / ?', description: 'Match 0 or more / 1 or more / 0 or 1 occurrence' },
+          { command: '{n,m}', description: 'Match between n and m occurrences' },
+        ],
+      },
+      {
+        title: 'Anchors & Assertions',
+        items: [
+          { command: '^ / $', description: 'Start of string / end of string anchor' },
+          { command: '\\b / \\B', description: 'Word boundary / non-word boundary' },
+          { command: '(?=abc)', description: 'Positive lookahead: asserts abc follows' },
+          { command: '(?!abc)', description: 'Negative lookahead: asserts abc does not follow' },
+          { command: '(?<=abc)', description: 'Positive lookbehind: asserts preceded by abc' },
+          { command: '(?<!abc)', description: 'Negative lookbehind: asserts not preceded by abc' },
+        ],
+      },
+      {
+        title: 'Common Production Regex Patterns',
+        items: [
+          { command: '^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$', description: 'Standard Email Address validator' },
+          { command: '^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$', description: 'Web URL with optional HTTP/HTTPS scheme' },
+          { command: '^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$', description: 'Strong password (minimum 8 chars, 1 letter, 1 number, 1 special)' },
+          { command: '^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$', description: 'Hex Color code (#fff or #4f46e5)' },
+          { command: '^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$', description: 'ISO 8601 Date (YYYY-MM-DD)' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the difference between greedy and lazy quantifiers in regex?',
+        answer: 'Greedy quantifiers (like `.*`) match as many characters as possible before stopping, while lazy quantifiers (like `.*?`) match as few characters as needed to satisfy the match condition.',
+      },
+    ],
+  },
+  {
+    slug: 'curl-commands-cheat-sheet',
+    title: 'cURL Command Line HTTP Request Cheat Sheet',
+    category: 'terminal',
+    description: 'The definitive cURL CLI cheat sheet for testing APIs and microservices. Headers, JSON payloads, file uploads, authentication, and debug tracing.',
+    sections: [
+      {
+        title: 'Basic HTTP Methods',
+        items: [
+          { command: 'curl https://api.example.com/items', description: 'Standard HTTP GET request and print response to stdout' },
+          { command: 'curl -I https://example.com', description: 'Fetch HTTP response headers only (HEAD request)' },
+          { command: 'curl -X POST https://api.example.com/items -d "name=Test"', description: 'HTTP POST request with url-encoded form body' },
+          { command: 'curl -X PUT https://api.example.com/items/1 -d "name=Updated"', description: 'HTTP PUT request' },
+          { command: 'curl -X DELETE https://api.example.com/items/1', description: 'HTTP DELETE request' },
+        ],
+      },
+      {
+        title: 'JSON API Requests & Headers',
+        items: [
+          { command: 'curl -X POST https://api.example.com/users -H "Content-Type: application/json" -d \'{"name":"Ada"}\'', description: 'POST JSON payload with Content-Type header' },
+          { command: 'curl -H "Authorization: Bearer <token>" https://api.example.com/secure', description: 'Authenticated request using Bearer token header' },
+          { command: 'curl -u username:password https://api.example.com', description: 'Basic HTTP Authentication' },
+          { command: 'curl -H "Accept: application/json" https://api.example.com', description: 'Specify Accept header for API response format' },
+        ],
+      },
+      {
+        title: 'Files, Redirects & Debugging',
+        items: [
+          { command: 'curl -L https://example.com/redirect', description: 'Follow HTTP 301/302 redirects automatically' },
+          { command: 'curl -o filename.zip https://example.com/archive.zip', description: 'Download remote file and save to local disk' },
+          { command: 'curl -F "file=@/path/to/image.png" https://api.example.com/upload', description: 'Upload file via multipart/form-data' },
+          { command: 'curl -v https://api.example.com', description: 'Verbose mode showing TLS handshake, request and response headers' },
+          { command: 'curl -sS https://api.example.com', description: 'Silent mode but still show errors if connection fails' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Why does curl not follow redirects by default?',
+        answer: 'By default, curl only fetches the requested URL. You must provide the `-L` (or `--location`) flag to instruct curl to follow 3xx redirect headers to the target endpoint.',
+      },
+    ],
+  },
 ];
 
 export function getAllCheatSheets(): CheatSheetDefinition[] {
