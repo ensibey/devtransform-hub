@@ -128,6 +128,10 @@ import { HtmlTableToMarkdownConverter } from '@/components/tools/HtmlTableToMark
 import { TomlJsonConverterStudio } from '@/components/tools/TomlJsonConverterStudio';
 import { JsonToGraphqlSchemaConverter } from '@/components/tools/JsonToGraphqlSchemaConverter';
 import { CssNeumorphismStudio } from '@/components/tools/CssNeumorphismStudio';
+import { TailwindColorPaletteGenerator } from '@/components/tools/TailwindColorPaletteGenerator';
+import { CronExpressionTesterVisualizer } from '@/components/tools/CronExpressionTesterVisualizer';
+import { JsonToTypescriptZodSchemaConverter } from '@/components/tools/JsonToTypescriptZodSchemaConverter';
+import { CssGlassmorphismStudio } from '@/components/tools/CssGlassmorphismStudio';
 
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
@@ -2079,6 +2083,98 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: CssNeumorphismStudio,
+  },
+  {
+    id: 'tailwind-color-palette-generator',
+    slug: 'tailwind-color-palette-generator',
+    title: 'Tailwind CSS Color Palette Generator',
+    shortDesc: 'Generate complete 11-shade Tailwind CSS palettes (50–950) from any base hex color with WCAG contrast verification and config export.',
+    category: 'dev',
+    keywords: ['tailwind color generator', 'tailwind palette generator', 'color palette to tailwind', 'hex to tailwind shades', 'tailwind color scales'],
+    icon: 'Palette',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate custom 11-step Tailwind CSS color palettes from any hex code. Export tailwind.config.js and CSS custom properties.',
+    faqs: [
+      {
+        question: 'How are the 11 Tailwind shades calculated?',
+        answer: 'Shades are dynamically mapped across perceived lightness targets while adjusting saturation curves to produce clean, non-muddy tints and dark tones.',
+      },
+      {
+        question: 'Does the tool check text readability contrast?',
+        answer: 'Yes, each swatch calculates WCAG relative luminance contrast ratios for both white and dark text.',
+      },
+    ],
+    component: TailwindColorPaletteGenerator,
+  },
+  {
+    id: 'cron-expression-visualizer',
+    slug: 'cron-expression-visualizer',
+    title: 'Cron Expression Tester & Schedule Visualizer',
+    shortDesc: 'Inspect crontab syntax with human-readable schedule translations and forecast upcoming execution timestamps in real time.',
+    category: 'dev',
+    keywords: ['cron tester', 'crontab validator', 'cron schedule visualizer', 'cron expression explained', 'crontab next execution'],
+    icon: 'Clock',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Validate and test cron expressions online. Get human-readable schedule summaries and see the next scheduled execution times.',
+    faqs: [
+      {
+        question: 'What cron format is supported?',
+        answer: 'The standard 5-part POSIX crontab format: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6).',
+      },
+      {
+        question: 'Are upcoming runs displayed in my local time zone?',
+        answer: 'Yes, timestamps are computed and localized according to your browser environment.',
+      },
+    ],
+    component: CronExpressionTesterVisualizer,
+  },
+  {
+    id: 'json-to-zod-schema',
+    slug: 'json-to-zod-schema',
+    title: 'JSON to Zod Schema & TypeScript Converter',
+    shortDesc: 'Convert JSON payloads into strict runtime Zod schemas with inferred TypeScript types, email/url detection, and integers.',
+    category: 'dev',
+    keywords: ['json to zod', 'zod schema generator', 'json to typescript zod', 'generate zod schema', 'zod infer type'],
+    icon: 'ShieldCheck',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert JSON data into production-ready Zod validation schemas and TypeScript types with automatic type inference and email/url detectors.',
+    faqs: [
+      {
+        question: 'Does it support nested objects and arrays?',
+        answer: 'Yes, nested objects and arrays of objects are recursively evaluated into valid nested Zod schemas.',
+      },
+      {
+        question: 'Can I infer TypeScript types from the generated schema?',
+        answer: 'Yes, the output provides both the z.object schema and the corresponding z.infer<typeof schema> TypeScript type definition.',
+      },
+    ],
+    component: JsonToTypescriptZodSchemaConverter,
+  },
+  {
+    id: 'css-glassmorphism-generator',
+    slug: 'css-glassmorphism-generator',
+    title: 'CSS Glassmorphism Studio & Generator',
+    shortDesc: 'Design frosted glass UI elements with backdrop blur, specular highlights, customizable stage backgrounds, and instant CSS/Tailwind exports.',
+    category: 'dev',
+    keywords: ['css glassmorphism generator', 'frosted glass css', 'glassmorphism builder', 'tailwind backdrop blur', 'css blur generator'],
+    icon: 'Sparkles',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Interactive Glassmorphism generator. Design frosted glass UI components with live backdrop blur, specular borders, and copy CSS or Tailwind classes.',
+    faqs: [
+      {
+        question: 'What CSS properties power glassmorphism?',
+        answer: 'The frosted look relies primarily on backdrop-filter: blur(), translucent background rgba colors, subtle border highlights, and soft box-shadows.',
+      },
+      {
+        question: 'Does glassmorphism work on all modern browsers?',
+        answer: 'Yes, all modern Chromium, WebKit (Safari), and Firefox browsers fully support backdrop-filter.',
+      },
+    ],
+    component: CssGlassmorphismStudio,
   },
 ];
 
