@@ -18,7 +18,9 @@ import {
   Terminal,
   Code2,
   Calculator,
+  Search,
   SearchX,
+  Smartphone,
   Zap,
   Palette,
   Triangle,
@@ -111,6 +113,8 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Grid: Grid,
   Triangle: Triangle,
   Share2: Share2,
+  Search: Search,
+  Smartphone: Smartphone,
 };
 
 export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {

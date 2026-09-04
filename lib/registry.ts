@@ -140,6 +140,10 @@ import { ChmodPermissionsCalculatorStudio } from '@/components/tools/ChmodPermis
 import { SqlSchemaToTypescriptInterfaceConverter } from '@/components/tools/SqlSchemaToTypescriptInterfaceConverter';
 import { CsvToJsonSchemaConverter } from '@/components/tools/CsvToJsonSchemaConverter';
 import { TailwindFluidTypographyCalculator } from '@/components/tools/TailwindFluidTypographyCalculator';
+import { HttpStatusCodeInspectorStudio } from '@/components/tools/HttpStatusCodeInspectorStudio';
+import { RegexCheatsheetTesterStudio } from '@/components/tools/RegexCheatsheetTesterStudio';
+import { CssCubicBezierStudio } from '@/components/tools/CssCubicBezierStudio';
+import { UserAgentParserStudio } from '@/components/tools/UserAgentParserStudio';
 
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
@@ -2367,6 +2371,98 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: TailwindFluidTypographyCalculator,
+  },
+  {
+    id: 'http-status-inspector',
+    slug: 'http-status-inspector',
+    title: 'HTTP Status Code Inspector & Diagnostics',
+    shortDesc: 'Search and inspect HTTP response codes, RFC specifications, cacheability rules, retry strategies, and developer resolution guides.',
+    category: 'dev',
+    keywords: ['http status inspector', 'http status codes reference', 'http error codes explained', 'rfc 9110 status codes', 'http response code lookup'],
+    icon: 'Globe',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Comprehensive HTTP status code search and diagnostics. Inspect RFC standards, CDN caching behavior, and retry recommendations.',
+    faqs: [
+      {
+        question: 'Which HTTP status codes are safe to retry?',
+        answer: 'Transient server errors like 502 (Bad Gateway), 503 (Service Unavailable), 504 (Gateway Timeout), and 429 (Too Many Requests with backoff) are generally retryable.',
+      },
+      {
+        question: 'What is the modern RFC specification for HTTP status codes?',
+        answer: 'HTTP semantics are formally standardized under IETF RFC 9110 (which obsoleted RFC 7231 and RFC 2616).',
+      },
+    ],
+    component: HttpStatusCodeInspectorStudio,
+  },
+  {
+    id: 'regex-cheatsheet-tester',
+    slug: 'regex-cheatsheet-tester',
+    title: 'Regular Expression Library & Live Tester',
+    shortDesc: 'Curated library of battle-tested regular expressions for emails, passwords, URLs, IPs, and SemVer with real-time matching and code generation.',
+    category: 'dev',
+    keywords: ['regex cheatsheet', 'regex tester online', 'email regex', 'password regex', 'regular expression library'],
+    icon: 'Search',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Interactive Regular Expression library and online tester. Test standard regex patterns with live group capture and code snippets.',
+    faqs: [
+      {
+        question: 'Does this tester support regex flags?',
+        answer: 'Yes, it supports standard flags including global (g), case-insensitive (i), multiline (m), and dotAll (s).',
+      },
+      {
+        question: 'Are regex patterns tested securely without server uploads?',
+        answer: 'Yes, all regex evaluation runs entirely in your local browser sandbox using native JavaScript RegExp.',
+      },
+    ],
+    component: RegexCheatsheetTesterStudio,
+  },
+  {
+    id: 'css-cubic-bezier-generator',
+    slug: 'css-cubic-bezier-generator',
+    title: 'CSS Cubic Bezier Easing Curve Generator',
+    shortDesc: 'Design custom animation acceleration curves with interactive SVG control handles, live motion preview, and Tailwind CSS exports.',
+    category: 'dev',
+    keywords: ['css cubic bezier generator', 'cubic bezier easing', 'css animation curve', 'tailwind transition timing', 'cubic bezier tool'],
+    icon: 'Sliders',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Interactive CSS cubic-bezier easing curve designer. Adjust curve coordinates visually, preview physical motion, and copy CSS and Tailwind code.',
+    faqs: [
+      {
+        question: 'What do the four cubic-bezier coordinates represent?',
+        answer: 'The four values (x1, y1, x2, y2) define the two control points of a cubic Bézier spline anchored between (0,0) and (1,1).',
+      },
+      {
+        question: 'Can cubic-bezier create bounce or spring effects?',
+        answer: 'Yes, by setting y1 or y2 values outside the [0, 1] range (e.g. y2 = 1.5), the animated element overshoots its target to simulate a spring bounce.',
+      },
+    ],
+    component: CssCubicBezierStudio,
+  },
+  {
+    id: 'user-agent-parser',
+    slug: 'user-agent-parser',
+    title: 'User-Agent Parser & Device Inspector',
+    shortDesc: 'Analyze and parse raw browser User-Agent strings to extract browser version, operating system, device type, rendering engine, and crawler bots.',
+    category: 'dev',
+    keywords: ['user agent parser', 'parse user agent string', 'ua parser online', 'detect browser from user agent', 'bot crawler ua detection'],
+    icon: 'Smartphone',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Free client-side User-Agent parser. Extract browser, OS, hardware device, and web crawler bot information with zero server uploads.',
+    faqs: [
+      {
+        question: 'Can this tool detect web crawler bots?',
+        answer: 'Yes, it identifies major search engine and AI crawlers including Googlebot, Bingbot, and OpenAI GPTBot.',
+      },
+      {
+        question: 'Does it support testing my own browser user agent?',
+        answer: 'Yes, click "Use My Browser UA" to automatically populate and inspect your current browser headers.',
+      },
+    ],
+    component: UserAgentParserStudio,
   },
 ];
 
