@@ -136,6 +136,10 @@ import { CurlToFetchAxiosConverter } from '@/components/tools/CurlToFetchAxiosCo
 import { JwtDecoderDebuggerStudio } from '@/components/tools/JwtDecoderDebuggerStudio';
 import { CssTriangleGeneratorStudio } from '@/components/tools/CssTriangleGeneratorStudio';
 import { OpenGraphPreviewDebuggerStudio } from '@/components/tools/OpenGraphPreviewDebuggerStudio';
+import { ChmodPermissionsCalculatorStudio } from '@/components/tools/ChmodPermissionsCalculatorStudio';
+import { SqlSchemaToTypescriptInterfaceConverter } from '@/components/tools/SqlSchemaToTypescriptInterfaceConverter';
+import { CsvToJsonSchemaConverter } from '@/components/tools/CsvToJsonSchemaConverter';
+import { TailwindFluidTypographyCalculator } from '@/components/tools/TailwindFluidTypographyCalculator';
 
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
@@ -2271,6 +2275,98 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: OpenGraphPreviewDebuggerStudio,
+  },
+  {
+    id: 'chmod-permissions-calculator',
+    slug: 'chmod-permissions-calculator',
+    title: 'Linux Permissions & Chmod Calculator',
+    shortDesc: 'Calculate Linux octal file permissions (e.g. 755, 644), symbolic notations, and terminal chmod commands with visual permission checkboxes.',
+    category: 'dev',
+    keywords: ['chmod calculator', 'linux permissions calculator', 'chmod 755', 'octal permissions converter', 'chmod symbolic notation'],
+    icon: 'Terminal',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Visual Linux chmod permissions calculator. Calculate 3-digit and 4-digit octal codes, symbolic strings, and commands with standard server presets.',
+    faqs: [
+      {
+        question: 'What is the difference between 755 and 644?',
+        answer: '755 grants the file owner read, write, and execute permissions while group and others can read and execute (ideal for scripts and web directories). 644 gives the owner read and write while others can only read (ideal for static files).',
+      },
+      {
+        question: 'What are special permission bits (SUID, SGID, Sticky)?',
+        answer: 'SUID (4000) runs files with owner privileges, SGID (2000) inherits group ownership, and the Sticky Bit (1000) restricts file deletion to the owner only (commonly used in /tmp).',
+      },
+    ],
+    component: ChmodPermissionsCalculatorStudio,
+  },
+  {
+    id: 'sql-to-typescript',
+    slug: 'sql-to-typescript',
+    title: 'SQL Schema to TypeScript Interface Converter',
+    shortDesc: 'Transform PostgreSQL, MySQL, and SQLite CREATE TABLE DDL queries into strictly typed TypeScript interfaces and type definitions.',
+    category: 'dev',
+    keywords: ['sql to typescript', 'create table to ts interface', 'sql schema to type', 'postgres to typescript', 'mysql to typescript'],
+    icon: 'Database',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Free online SQL to TypeScript converter. Turn SQL CREATE TABLE statements into TypeScript interfaces with nullable handling and camelCase options.',
+    faqs: [
+      {
+        question: 'How are primary keys and nullable columns converted?',
+        answer: 'Columns without NOT NULL or PRIMARY KEY are marked as optional (?) and nullable (| null), matching realistic database query results.',
+      },
+      {
+        question: 'Can I convert snake_case SQL columns into camelCase TypeScript properties?',
+        answer: 'Yes, enable the camelCase toggle to convert database field names into idiomatic JavaScript/TypeScript conventions.',
+      },
+    ],
+    component: SqlSchemaToTypescriptInterfaceConverter,
+  },
+  {
+    id: 'csv-to-json-schema',
+    slug: 'csv-to-json-schema',
+    title: 'CSV to JSON Schema Converter',
+    shortDesc: 'Infer production-ready JSON Schema (Draft 2020-12) specifications automatically from raw CSV tabular data.',
+    category: 'dev',
+    keywords: ['csv to json schema', 'infer json schema from csv', 'csv schema generator', 'csv data validator schema', 'csv to schema'],
+    icon: 'FileSpreadsheet',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate standard JSON Schema specifications directly from CSV data. Automatically infers integers, numbers, booleans, dates, and emails.',
+    faqs: [
+      {
+        question: 'How does it determine column types?',
+        answer: 'The generator inspects all rows in each column to identify integers, floats, booleans, ISO 8601 date-times, and email addresses.',
+      },
+      {
+        question: 'Does it support different CSV delimiters?',
+        answer: 'Yes, it automatically detects standard commas, tabs (TSV), and semicolons.',
+      },
+    ],
+    component: CsvToJsonSchemaConverter,
+  },
+  {
+    id: 'tailwind-fluid-typography',
+    slug: 'tailwind-fluid-typography',
+    title: 'Tailwind & CSS Fluid Typography Clamp Calculator',
+    shortDesc: 'Calculate seamless CSS clamp() responsive typography between mobile and desktop screen widths without jarring media query breakpoints.',
+    category: 'dev',
+    keywords: ['fluid typography calculator', 'css clamp generator', 'tailwind fluid font size', 'clamp font size calculator', 'responsive typography clamp'],
+    icon: 'Type',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Interactive CSS clamp() fluid typography generator. Compute linear interpolation formulas for font sizes and export custom Tailwind CSS config.',
+    faqs: [
+      {
+        question: 'Why is fluid typography better than media queries?',
+        answer: 'Fluid typography smoothly scales text continuously across every screen pixel, eliminating sudden layout shifts and jarring breakpoint jumps.',
+      },
+      {
+        question: 'How do I install the generated clamp value in Tailwind CSS?',
+        answer: 'Paste the generated fontSize extension directly into your tailwind.config.js theme.extend.fontSize object.',
+      },
+    ],
+    component: TailwindFluidTypographyCalculator,
   },
 ];
 
