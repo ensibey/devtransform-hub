@@ -96,6 +96,10 @@ import { JsonMinifyCompressor } from '@/components/tools/dev/JsonMinifyCompresso
 import { MarkdownTableConverter } from '@/components/tools/text/MarkdownTableConverter';
 import { ApiKeySecretGenerator } from '@/components/tools/dev/ApiKeySecretGenerator';
 import { HexToStringConverter } from '@/components/tools/dev/HexToStringConverter';
+import { BcryptHashStudio } from '@/components/tools/dev/BcryptHashStudio';
+import { CssClipPathGenerator } from '@/components/tools/dev/CssClipPathGenerator';
+import { XmlJsonConverterPro } from '@/components/tools/dev/XmlJsonConverterPro';
+import { DataAnonymizerMasker } from '@/components/tools/dev/DataAnonymizerMasker';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -1310,6 +1314,98 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: HexToStringConverter,
+  },
+  {
+    id: 'bcrypt-hash-studio',
+    slug: 'bcrypt-hash-studio',
+    title: 'Bcrypt Hash Studio & Cost Calculator',
+    shortDesc: 'Generate and verify bcrypt password hashes client-side with interactive cost round calculation, salt breakdown, and entropy analysis.',
+    category: 'dev',
+    keywords: ['bcrypt hash generator', 'bcrypt checker', 'verify bcrypt', 'bcrypt salt calculator', 'hash password online'],
+    icon: 'Shield',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Free online Bcrypt hash generator and password verifier. Inspect salt rounds, measure execution latency, and verify hash validity client-side with zero server logs.',
+    faqs: [
+      {
+        question: 'How do bcrypt cost rounds affect computation time?',
+        answer: 'Each increase in the cost factor (rounds) doubles the number of cryptographic iterations (2^cost), exponentially increasing hash calculation time to protect against brute-force attacks.',
+      },
+      {
+        question: 'Are my passwords transmitted across the network?',
+        answer: 'No. Everything is calculated 100% client-side in your browser memory. DevTransform never logs or transmits user passwords.',
+      },
+    ],
+    component: BcryptHashStudio,
+  },
+  {
+    id: 'css-clip-path-generator',
+    slug: 'css-clip-path-generator',
+    title: 'CSS Clip-Path Generator & Shape Studio',
+    shortDesc: 'Create modern CSS polygon, circle, ellipse, and inset clip-paths visually with interactive draggable control points and responsive code export.',
+    category: 'dev',
+    keywords: ['css clip path generator', 'clip path polygon', 'css shapes generator', 'css mask generator', 'clip-path maker'],
+    icon: 'Layers',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Interactive CSS clip-path visual maker. Design custom polygons, triangles, stars, badges, and hexagons with draggable SVG control points and instant CSS export.',
+    faqs: [
+      {
+        question: 'Which browsers support CSS clip-path?',
+        answer: 'CSS clip-path is universally supported by all modern browsers (Chrome, Firefox, Safari, Edge) with over 97% global market share.',
+      },
+      {
+        question: 'Can I copy both standard CSS and Tailwind CSS classes?',
+        answer: 'Yes, the studio exports standard clip-path declarations, vendor-prefixed syntax, and inline Tailwind arbitrary utility snippets.',
+      },
+    ],
+    component: CssClipPathGenerator,
+  },
+  {
+    id: 'xml-to-json-converter',
+    slug: 'xml-to-json-converter',
+    title: 'XML to JSON & JSON to XML Converter',
+    shortDesc: 'Convert XML payloads to structured JSON and JSON objects to valid XML with customizable indentation, attribute mapping, and syntax validation.',
+    category: 'dev',
+    keywords: ['xml to json', 'json to xml', 'convert xml to json online', 'xml parser', 'xml formatter'],
+    icon: 'FileCode',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Fast, two-way XML and JSON converter. Parse nested XML elements, convert attributes cleanly, format output with configurable spacing, 100% in-browser.',
+    faqs: [
+      {
+        question: 'How are XML attributes represented when converting to JSON?',
+        answer: 'XML attributes are cleanly mapped under the `_attributes` object property using standard xml-js compact representation.',
+      },
+      {
+        question: 'Does this converter support large XML payloads?',
+        answer: 'Yes, modern browser engines can easily parse and serialize multi-megabyte XML files client-side in milliseconds without server roundtrips.',
+      },
+    ],
+    component: XmlJsonConverterPro,
+  },
+  {
+    id: 'data-anonymizer-masker',
+    slug: 'data-anonymizer-masker',
+    title: 'Data Anonymizer & PII Masker',
+    shortDesc: 'Anonymize sensitive customer records, logs, and datasets. Mask emails, phone numbers, credit cards, IP addresses, and names with 1-click privacy presets.',
+    category: 'dev',
+    keywords: ['data anonymizer', 'pii masker', 'mask sensitive data', 'redact pii online', 'sanitize log data', 'gdpr data masking'],
+    icon: 'Fingerprint',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Client-side PII sanitizer and log masker. Anonymize emails, phone numbers, credit card numbers, and UUIDs with zero server transmission for GDPR/HIPAA compliance.',
+    faqs: [
+      {
+        question: 'What types of PII are automatically detected and masked?',
+        answer: 'The engine detects and masks email addresses, phone numbers (international and local), credit card numbers (Visa, Mastercard, Amex), IPv4/IPv6 addresses, and UUIDs.',
+      },
+      {
+        question: 'Is any masked data sent to an external API or LLM?',
+        answer: 'Never. All data parsing, masking, and replacement happens locally in browser memory. No telemetry or logs are ever stored or sent.',
+      },
+    ],
+    component: DataAnonymizerMasker,
   },
 ];
 
