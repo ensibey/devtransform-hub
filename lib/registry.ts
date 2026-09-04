@@ -108,6 +108,10 @@ import { CssBlobRadiusGenerator } from '@/components/tools/dev/CssBlobRadiusGene
 import { AsciiArtBannerGenerator } from '@/components/tools/text/AsciiArtBannerGenerator';
 import { TailwindPaletteGenerator } from '@/components/tools/dev/TailwindPaletteGenerator';
 import { JsonLinesConverterPro } from '@/components/tools/dev/JsonLinesConverterPro';
+import { JsonDiffComparator } from '@/components/tools/dev/JsonDiffComparator';
+import { JsonToPhpArrayConverter } from '@/components/tools/dev/JsonToPhpArrayConverter';
+import { HtpasswdGenerator } from '@/components/tools/dev/HtpasswdGenerator';
+import { CssGradientTextGenerator } from '@/components/tools/dev/CssGradientTextGenerator';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -1598,6 +1602,98 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: JsonLinesConverterPro,
+  },
+  {
+    id: 'json-diff',
+    slug: 'json-diff',
+    title: 'JSON Diff & Semantic Object Comparator',
+    shortDesc: 'Compare two JSON objects side-by-side with visual line-by-line diff highlighting, key-order normalization, and addition/deletion counters.',
+    category: 'dev',
+    keywords: ['json diff', 'compare json', 'json comparator', 'json diff online', 'diff two json files'],
+    icon: 'GitCompare',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Free online JSON diff and comparison tool. Compares JSON keys semantically regardless of ordering, highlights additions and deletions with syntax highlighting.',
+    faqs: [
+      {
+        question: 'Does this tool compare JSON semantically or as plain text?',
+        answer: 'It parses and normalizes JSON keys recursively before running Myers diff algorithm, ensuring differences reflect actual semantic structural changes rather than arbitrary key ordering.',
+      },
+      {
+        question: 'Are my JSON payloads uploaded to any remote server?',
+        answer: 'No. The entire diff calculation runs 100% client-side in your browser memory with zero network requests.',
+      },
+    ],
+    component: JsonDiffComparator,
+  },
+  {
+    id: 'json-to-php-array',
+    slug: 'json-to-php-array',
+    title: 'JSON to PHP Associative Array Converter',
+    shortDesc: 'Convert JSON payloads into clean PHP associative arrays using modern PHP 7.4+ short array syntax ([\'key\' => \'val\']) or legacy array().',
+    category: 'dev',
+    keywords: ['json to php', 'json to php array', 'convert json to php array online', 'laravel array generator'],
+    icon: 'FileCode',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Transform JSON data structures into native PHP associative arrays online. Supports PHP short syntax, variable assignment, type preservation, and WordPress/Laravel formatting.',
+    faqs: [
+      {
+        question: 'Are boolean, null, and numeric values preserved?',
+        answer: 'Yes! Booleans become `true`/`false`, `null` remains `null`, and numeric values are output as unquoted PHP integers and floats.',
+      },
+      {
+        question: 'Does it support nested objects and arrays?',
+        answer: 'Yes, arbitrarily nested JSON structures are recursively indented and serialized into valid PHP array syntax.',
+      },
+    ],
+    component: JsonToPhpArrayConverter,
+  },
+  {
+    id: 'htpasswd-generator',
+    slug: 'htpasswd-generator',
+    title: 'Apache & Nginx .htpasswd Basic Auth Generator',
+    shortDesc: 'Generate secure HTTP Basic Authentication .htpasswd credentials for Apache and Nginx web servers using SHA-1 and Apache MD5 algorithms.',
+    category: 'dev',
+    keywords: ['htpasswd generator', 'nginx basic auth', 'apache htpasswd generator', 'generate htpasswd online'],
+    icon: 'Lock',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate .htpasswd files for Apache and Nginx HTTP Basic Auth online. Supports multi-user management, SHA-1 and Apache APR1 MD5 hashes with Nginx config snippets.',
+    faqs: [
+      {
+        question: 'Which hash format is best for Nginx and Apache?',
+        answer: 'SHA-1 ({SHA}...) is supported out-of-the-box by both Nginx and Apache on all modern Linux distributions without additional crypt libraries.',
+      },
+      {
+        question: 'Are my credentials transmitted over the web?',
+        answer: 'Never. Hashes are computed locally in your browser using the native Web Cryptography API.',
+      },
+    ],
+    component: HtpasswdGenerator,
+  },
+  {
+    id: 'css-gradient-text-generator',
+    slug: 'css-gradient-text-generator',
+    title: 'CSS Gradient Text Generator Studio',
+    shortDesc: 'Create modern multi-color CSS text gradients with interactive angle sliders, preset color stops, and 1-click Tailwind CSS and CSS exports.',
+    category: 'dev',
+    keywords: ['css gradient text', 'text gradient generator', 'css text background clip', 'tailwind gradient text', 'gradient font css'],
+    icon: 'Type',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Design eye-catching CSS gradient text effects online. Customize linear gradient angles, color stops, and export clean background-clip CSS and Tailwind utilities.',
+    faqs: [
+      {
+        question: 'How do CSS gradient text effects work?',
+        answer: 'CSS gradient text applies a linear-gradient background to the text element and uses `-webkit-background-clip: text` with transparent text color to reveal the underlying gradient.',
+      },
+      {
+        question: 'Which browsers support CSS text gradients?',
+        answer: 'All modern browsers including Chrome, Safari, Edge, and Firefox support `-webkit-background-clip: text`.',
+      },
+    ],
+    component: CssGradientTextGenerator,
   },
 ];
 
