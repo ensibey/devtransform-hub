@@ -20,13 +20,15 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://devtransform-hub.vercel.app'),
+  applicationName: 'DevTransform',
   title: {
-    default: 'ZeroUpload - Privacy-First Zero-Server Developer Utility & Converter Suite',
-    template: '%s | ZeroUpload',
+    default: 'DevTransform - Free Developer Tools & Privacy-First Utilities',
+    template: '%s | DevTransform',
   },
   description:
-    'Ultra-fast, 100% client-side developer converter & formatter suite. Convert JSON, YAML, CSV, XML, TOML to TypeScript, Go, Rust, Python, SQL with zero server latency and total privacy.',
+    'Ultra-fast, 100% client-side developer converter & formatter suite. 135+ free standalone developer utilities, JSON to TypeScript/Go/Rust/Python, SQL formatters, and regex tools with zero server latency and total privacy.',
   keywords: [
+    'devtransform',
     'developer tools',
     'zero upload',
     'client side tools',
@@ -42,31 +44,33 @@ export const metadata: Metadata = {
     'jwt decoder',
     'privacy first dev tools',
   ],
-  authors: [{ name: 'ZeroUpload Team' }],
+  authors: [{ name: 'DevTransform Team' }],
   manifest: '/manifest.json',
   icons: {
     icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
       { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
       { url: '/icon.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
-    shortcut: '/icon.svg',
+    shortcut: '/favicon-48x48.png',
   },
   openGraph: {
-    title: 'ZeroUpload - Privacy-First Zero-Server Developer Converter Suite',
+    title: 'DevTransform - Privacy-First Zero-Server Developer Utilities',
     description:
-      'Convert JSON, YAML, CSV, XML, TOML to TypeScript, Go, Rust, Python, and SQL with sub-millisecond client-side Web Workers. Zero tracking, zero data leaves browser.',
+      'Fast, privacy-focused online developer tools. 135+ free standalone developer utilities, converters, visualizers, and formatters with 100% client-side privacy.',
     url: 'https://devtransform-hub.vercel.app',
-    siteName: 'ZeroUpload',
+    siteName: 'DevTransform',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZeroUpload - 100% Client-Side Developer Converter Suite',
+    title: 'DevTransform - 100% Client-Side Developer Converter Suite',
     description:
       'High-performance CodeMirror 6 developer converter. Zero server cost, privacy-first state sharing.',
   },
@@ -79,6 +83,16 @@ export const metadata: Metadata = {
   },
 };
 
+const WEBSITE_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'DevTransform',
+  alternateName: ['DevTransform Hub', 'ZeroUpload', 'devtransform-hub'],
+  url: 'https://devtransform-hub.vercel.app/',
+  description:
+    'Ultra-fast, 100% client-side developer converter & formatter suite with 135+ standalone utilities.',
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -86,6 +100,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        {/* Google Search Favicon & Site Name Standards */}
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+        <meta name="application-name" content="DevTransform" />
+        <meta name="apple-mobile-web-app-title" content="DevTransform" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(WEBSITE_SCHEMA),
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col bg-oled text-zinc-100 antialiased selection:bg-brand-emerald/30 selection:text-white">
         <Navbar />
         <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6">

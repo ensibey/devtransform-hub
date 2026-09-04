@@ -144,6 +144,10 @@ import { HttpStatusCodeInspectorStudio } from '@/components/tools/HttpStatusCode
 import { RegexCheatsheetTesterStudio } from '@/components/tools/RegexCheatsheetTesterStudio';
 import { CssCubicBezierStudio } from '@/components/tools/CssCubicBezierStudio';
 import { UserAgentParserStudio } from '@/components/tools/UserAgentParserStudio';
+import { Base64ImageEncoderDecoderStudio } from '@/components/tools/Base64ImageEncoderDecoderStudio';
+import { HtmlEntityEncoderDecoderStudio } from '@/components/tools/HtmlEntityEncoderDecoderStudio';
+import { CssAspectRatioCalculatorStudio } from '@/components/tools/CssAspectRatioCalculatorStudio';
+import { JsonMinifierBeautifierStudio } from '@/components/tools/JsonMinifierBeautifierStudio';
 
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
@@ -2463,6 +2467,98 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: UserAgentParserStudio,
+  },
+  {
+    id: 'base64-image-converter',
+    slug: 'base64-image-converter',
+    title: 'Base64 Image Encoder & Decoder Studio',
+    shortDesc: 'Convert PNG, JPEG, WebP, SVG files into compact Base64 Data URIs, or decode raw Base64 strings back to downloadable image files.',
+    category: 'image',
+    keywords: ['base64 image converter', 'image to base64', 'base64 to image', 'data uri generator', 'base64 image decoder'],
+    icon: 'Image',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Free online Base64 image encoder and decoder. Convert images to Base64 Data URIs and decode Base64 strings to downloadable PNG files.',
+    faqs: [
+      {
+        question: 'When should I use Base64 images instead of image URLs?',
+        answer: 'Base64 inlining is ideal for tiny icons, email templates, and eliminating extra HTTP network requests for critical above-the-fold assets.',
+      },
+      {
+        question: 'Is any image uploaded to a server?',
+        answer: 'No, all image encoding and decoding is processed directly inside your browser memory using native FileReader APIs.',
+      },
+    ],
+    component: Base64ImageEncoderDecoderStudio,
+  },
+  {
+    id: 'html-entity-encoder',
+    slug: 'html-entity-encoder',
+    title: 'HTML Entity Encoder & Decoder Studio',
+    shortDesc: 'Convert reserved HTML characters into safe named, decimal, or hexadecimal entities, or decode HTML entities back to plain text.',
+    category: 'text',
+    keywords: ['html entity encoder', 'html entity decoder', 'encode html characters', 'html escape tool', 'html entities converter'],
+    icon: 'Code2',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Bidirectional HTML entity encoder and decoder. Protect against XSS by escaping reserved characters into standard HTML entities.',
+    faqs: [
+      {
+        question: 'Why is HTML entity encoding important?',
+        answer: 'Encoding reserved characters like <, >, and & prevents cross-site scripting (XSS) attacks by instructing browsers to render characters as text instead of HTML tags.',
+      },
+      {
+        question: 'What is the difference between named and decimal entities?',
+        answer: 'Named entities use mnemonic names (e.g. &lt;), while decimal entities use ASCII/Unicode character codes (e.g. &#60;). Both render identically.',
+      },
+    ],
+    component: HtmlEntityEncoderDecoderStudio,
+  },
+  {
+    id: 'css-aspect-ratio-calculator',
+    slug: 'css-aspect-ratio-calculator',
+    title: 'CSS Aspect Ratio Calculator & Resizer',
+    shortDesc: 'Calculate simplified aspect ratios (16:9, 4:3, 1:1), proportional dimensions, and export modern CSS aspect-ratio properties.',
+    category: 'dev',
+    keywords: ['aspect ratio calculator', 'css aspect-ratio generator', 'image aspect ratio resizer', '16:9 calculator', 'proportional dimensions calculator'],
+    icon: 'Ratio',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Calculate and simplify aspect ratios online. Compute proportional heights/widths and export CSS aspect-ratio and Tailwind CSS classes.',
+    faqs: [
+      {
+        question: 'How does the CSS aspect-ratio property work?',
+        answer: 'The aspect-ratio property allows you to define the preferred width-to-height ratio for an element, preserving proportions automatically across responsive layouts.',
+      },
+      {
+        question: 'Does this calculator simplify ratios to their lowest terms?',
+        answer: 'Yes, it computes the Greatest Common Divisor (GCD) to reduce pixel dimensions (like 1920×1080) into their lowest canonical ratio (16:9).',
+      },
+    ],
+    component: CssAspectRatioCalculatorStudio,
+  },
+  {
+    id: 'json-minifier-beautifier',
+    slug: 'json-minifier-beautifier',
+    title: 'JSON Minifier & Beautifier Studio',
+    shortDesc: 'Compress JSON payloads to 1-line strings to save bandwidth, or beautify compact JSON with customizable 2-space, 4-space, or tab indentation.',
+    category: 'dev',
+    keywords: ['json minifier', 'json beautifier', 'compress json online', 'json formatter compact', 'json size reduction'],
+    icon: 'FileCode',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Fast client-side JSON minifier and beautifier. Compress payload size by up to 40% or format messy JSON with clean indentation.',
+    faqs: [
+      {
+        question: 'How much bandwidth does JSON minification save?',
+        answer: 'Minification removes unnecessary spaces, newlines, and indentations, typically reducing API payload size by 30% to 50%.',
+      },
+      {
+        question: 'Does minification alter JSON data values?',
+        answer: 'No, minification only strips whitespace characters outside of string literals without modifying any keys, numbers, or values.',
+      },
+    ],
+    component: JsonMinifierBeautifierStudio,
   },
 ];
 
