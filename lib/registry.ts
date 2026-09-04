@@ -102,6 +102,8 @@ import { XmlJsonConverterPro } from '@/components/tools/dev/XmlJsonConverterPro'
 import { DataAnonymizerMasker } from '@/components/tools/dev/DataAnonymizerMasker';
 import { SemverCalculator } from '@/components/tools/dev/SemverCalculator';
 import { SvgToPngConverter } from '@/components/tools/image/SvgToPngConverter';
+import { StringEscapeUnescape } from '@/components/tools/dev/StringEscapeUnescape';
+import { SqlToJsonSchemaGenerator } from '@/components/tools/dev/SqlToJsonSchemaGenerator';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -1454,6 +1456,52 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: SvgToPngConverter,
+  },
+  {
+    id: 'string-escape-unescape',
+    slug: 'string-escape-unescape',
+    title: 'String Escape & Unescape Multi-Language Studio',
+    shortDesc: 'Escape and unescape strings for JSON, JavaScript, SQL, HTML entities, URL percent encoding, Regex, and C# strings.',
+    category: 'dev',
+    keywords: ['string escape', 'unescape string', 'json escape online', 'sql escape string', 'html entity escape', 'regex escape'],
+    icon: 'Code2',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Two-way developer string escape and unescape tool. Safely escape newlines, quotes, backslashes, HTML entities, and SQL characters in-browser.',
+    faqs: [
+      {
+        question: 'Why does JSON escaping escape double quotes and backslashes?',
+        answer: 'In the RFC 8259 JSON specification, string values are delimited by double quotes, meaning any internal double quotes or backslashes must be escaped with a leading backslash (\\" and \\\\).',
+      },
+      {
+        question: 'How does SQL escaping protect against errors?',
+        answer: 'SQL standard escaping doubles internal single quotes (\'\' instead of \'), preventing syntax breakages in raw SQL INSERT and UPDATE queries.',
+      },
+    ],
+    component: StringEscapeUnescape,
+  },
+  {
+    id: 'sql-to-json-schema',
+    slug: 'sql-to-json-schema',
+    title: 'SQL Table DDL to JSON Schema Generator',
+    shortDesc: 'Convert PostgreSQL, MySQL, and SQLite CREATE TABLE statements into standard JSON Schema (draft 2020-12) with typed properties and required constraints.',
+    category: 'dev',
+    keywords: ['sql to json schema', 'create table to json schema', 'sql ddl to json schema', 'postgres to json schema'],
+    icon: 'Database',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert SQL CREATE TABLE DDL queries into valid JSON Schema objects instantly. Auto-maps SQL data types, timestamps, UUIDs, nullability, and primary keys.',
+    faqs: [
+      {
+        question: 'Which SQL dialects are supported?',
+        answer: 'The parser supports standard ANSI SQL, PostgreSQL (UUID, JSONB, TEXT[]), MySQL (AUTO_INCREMENT, TINYINT), and SQLite schemas.',
+      },
+      {
+        question: 'How are NOT NULL columns mapped?',
+        answer: 'Columns with NOT NULL or PRIMARY KEY constraints are automatically included in the top-level required array of the resulting JSON Schema.',
+      },
+    ],
+    component: SqlToJsonSchemaGenerator,
   },
 ];
 
