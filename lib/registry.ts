@@ -104,6 +104,8 @@ import { SemverCalculator } from '@/components/tools/dev/SemverCalculator';
 import { SvgToPngConverter } from '@/components/tools/image/SvgToPngConverter';
 import { StringEscapeUnescape } from '@/components/tools/dev/StringEscapeUnescape';
 import { SqlToJsonSchemaGenerator } from '@/components/tools/dev/SqlToJsonSchemaGenerator';
+import { CssBlobRadiusGenerator } from '@/components/tools/dev/CssBlobRadiusGenerator';
+import { AsciiArtBannerGenerator } from '@/components/tools/text/AsciiArtBannerGenerator';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -1502,6 +1504,52 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: SqlToJsonSchemaGenerator,
+  },
+  {
+    id: 'css-blob-generator',
+    slug: 'css-blob-generator',
+    title: 'CSS Fancy Border-Radius & Organic Blob Generator',
+    shortDesc: 'Design organic fluid blobs with 8-point CSS border-radius sliders, dynamic color gradients, and copy-paste Tailwind and CSS snippets.',
+    category: 'dev',
+    keywords: ['css blob generator', 'fancy border radius', 'blob maker', 'organic shapes css', 'border-radius 8 values'],
+    icon: 'Layers',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Visual CSS organic blob and fancy border-radius maker. Control 8 individual radius axes, test animation keyframes, and export clean CSS and Tailwind code.',
+    faqs: [
+      {
+        question: 'How does the 8-value CSS border-radius syntax work?',
+        answer: 'The slash (/) in border-radius separates horizontal radii from vertical radii (e.g. border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%), creating non-standard organic curvilinear shapes.',
+      },
+      {
+        question: 'Can I use the generated blob in Tailwind CSS?',
+        answer: 'Yes! We export both standard CSS declarations and Tailwind arbitrary value class strings for modern React/Next.js projects.',
+      },
+    ],
+    component: CssBlobRadiusGenerator,
+  },
+  {
+    id: 'ascii-art-generator',
+    slug: 'ascii-art-generator',
+    title: 'ASCII Art & FIGlet Banner Text Generator',
+    shortDesc: 'Create retro ASCII art text banners for terminal welcome messages, CLI scripts, README headers, and source code comment blocks.',
+    category: 'text',
+    keywords: ['ascii art generator', 'figlet generator', 'ascii banner maker', 'terminal banner generator', 'ascii text online'],
+    icon: 'Terminal',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Free online ASCII art text banner generator. Generate block and slant ASCII fonts, wrap in code comments (JS, Python, HTML), and copy in 1-click.',
+    faqs: [
+      {
+        question: 'What character sets can I convert into ASCII banners?',
+        answer: 'The generator supports uppercase/lowercase Latin alphanumeric characters (A-Z, 0-9) and common punctuation symbols (!, -, _, .).',
+      },
+      {
+        question: 'How do I add the banner into my code files?',
+        answer: 'Select your preferred comment wrapper (JavaScript, Python, or HTML) to automatically enclose the banner in safe comment delimiters.',
+      },
+    ],
+    component: AsciiArtBannerGenerator,
   },
 ];
 
