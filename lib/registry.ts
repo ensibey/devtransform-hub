@@ -120,6 +120,10 @@ import { RobotsTxtValidatorTester } from '@/components/tools/RobotsTxtValidatorT
 import { GitignoreGeneratorStudio } from '@/components/tools/GitignoreGeneratorStudio';
 import { SvgToDataUriConverter } from '@/components/tools/SvgToDataUriConverter';
 import { HexToRgbaConverter } from '@/components/tools/HexToRgbaConverter';
+import { MarkdownBadgeGenerator } from '@/components/tools/MarkdownBadgeGenerator';
+import { SvgWaveGenerator } from '@/components/tools/SvgWaveGenerator';
+import { CssFilterEffectsStudio } from '@/components/tools/CssFilterEffectsStudio';
+import { TailwindGridGenerator } from '@/components/tools/TailwindGridGenerator';
 
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
@@ -1887,6 +1891,98 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: HexToRgbaConverter,
+  },
+  {
+    id: 'markdown-badge-generator',
+    slug: 'markdown-badge-generator',
+    title: 'Markdown README Badge Generator Studio',
+    shortDesc: 'Create customizable vector badges for GitHub READMEs, open-source packages, and docs with 1-click Markdown copy.',
+    category: 'dev',
+    keywords: ['markdown badge generator', 'github readme badges', 'shields io generator', 'github badge maker', 'repo badges'],
+    icon: 'Award',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Design GitHub README badges online. Customize tech logos, status colors, and styles (flat, for-the-badge) with 1-click Markdown and HTML exports.',
+    faqs: [
+      {
+        question: 'What styles are supported for the badges?',
+        answer: 'You can choose between Flat, Flat Square, For-The-Badge, and Plastic styles powered by the Shields.io vector specification.',
+      },
+      {
+        question: 'Can I include brand and language logos?',
+        answer: 'Yes. Simply type any Simple-Icons brand slug (e.g. react, nextdotjs, python, docker, github) to embed official logos.',
+      },
+    ],
+    component: MarkdownBadgeGenerator,
+  },
+  {
+    id: 'svg-wave-generator',
+    slug: 'svg-wave-generator',
+    title: 'SVG Wave Divider Generator Studio',
+    shortDesc: 'Design smooth organic SVG wave dividers for website hero sections, footer transitions, and card backgrounds with live controls.',
+    category: 'dev',
+    keywords: ['svg wave generator', 'wave divider css', 'svg section divider', 'organic wave generator', 'curved section divider'],
+    icon: 'Waves',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate custom SVG wave section dividers online. Adjust wave complexity, heights, multi-layer fills, and export clean inline SVG or CSS.',
+    faqs: [
+      {
+        question: 'How do I use SVG waves as section dividers?',
+        answer: 'Place the generated SVG directly between two sections, set preserveAspectRatio="none", and ensure width is 100% for responsive full-bleed scaling.',
+      },
+      {
+        question: 'Do SVG waves impact page performance?',
+        answer: 'Not at all. The waves are pure mathematical cubic bezier vectors weighing less than 1KB with 0 raster pixel overhead.',
+      },
+    ],
+    component: SvgWaveGenerator,
+  },
+  {
+    id: 'css-filter-generator',
+    slug: 'css-filter-generator',
+    title: 'CSS Filter Effects Studio & Playground',
+    shortDesc: 'Design image filter effects with sliders for blur, contrast, brightness, sepia, hue-rotate, and 1-click CSS code export.',
+    category: 'dev',
+    keywords: ['css filter generator', 'css image filters', 'css blur brightness contrast', 'instagram css filters', 'css filter playground'],
+    icon: 'Sliders',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Experiment with CSS3 filter properties online. Customize blur, brightness, contrast, grayscale, and hue-rotate with live image previews and presets.',
+    faqs: [
+      {
+        question: 'Are CSS filters hardware accelerated?',
+        answer: 'Yes. Modern browsers execute CSS filters on the GPU, allowing smooth 60fps animations and instant rendering.',
+      },
+      {
+        question: 'Can CSS filters be applied to any HTML element?',
+        answer: 'Yes. Beyond images, filter can be applied to text, divs, cards, videos, and SVGs.',
+      },
+    ],
+    component: CssFilterEffectsStudio,
+  },
+  {
+    id: 'tailwind-grid-generator',
+    slug: 'tailwind-grid-generator',
+    title: 'Tailwind CSS Grid Visual Generator',
+    shortDesc: 'Build responsive 12-column CSS Grid layouts visually with interactive column and row span controls, gaps, and instant JSX copy.',
+    category: 'dev',
+    keywords: ['tailwind grid generator', 'css grid generator', 'tailwind layout builder', 'grid col span generator', 'tailwind grid visualizer'],
+    icon: 'Grid',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Interactive Tailwind CSS Grid generator. Design complex multi-column responsive grids, adjust col-span and row-span, and copy clean JSX code.',
+    faqs: [
+      {
+        question: 'How do column spans work in Tailwind CSS?',
+        answer: 'Tailwind provides col-span-{n} utility classes that compile to grid-column: span n / span n, allowing items to span multiple grid tracks.',
+      },
+      {
+        question: 'Can I export both React JSX and standard CSS?',
+        answer: 'Yes. The tool outputs formatted React/JSX code with Tailwind classes as well as pure standard CSS Grid declaration blocks.',
+      },
+    ],
+    component: TailwindGridGenerator,
   },
 ];
 

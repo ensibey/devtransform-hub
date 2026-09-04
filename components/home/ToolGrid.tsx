@@ -22,6 +22,10 @@ import {
   Palette,
   Bot,
   GitBranch,
+  Award,
+  Waves,
+  Sliders,
+  Grid,
   Layers,
   Key,
   Binary,
@@ -95,6 +99,10 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Palette: Palette,
   Bot: Bot,
   GitBranch: GitBranch,
+  Award: Award,
+  Waves: Waves,
+  Sliders: Sliders,
+  Grid: Grid,
 };
 
 export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
