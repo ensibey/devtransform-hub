@@ -148,6 +148,10 @@ import { Base64ImageEncoderDecoderStudio } from '@/components/tools/Base64ImageE
 import { HtmlEntityEncoderDecoderStudio } from '@/components/tools/HtmlEntityEncoderDecoderStudio';
 import { CssAspectRatioCalculatorStudio } from '@/components/tools/CssAspectRatioCalculatorStudio';
 import { JsonMinifierBeautifierStudio } from '@/components/tools/JsonMinifierBeautifierStudio';
+import { UrlComponentParserStudio } from '@/components/tools/UrlComponentParserStudio';
+import { MarkdownTableToHtmlConverter } from '@/components/tools/MarkdownTableToHtmlConverter';
+import { XmlSitemapGeneratorStudio } from '@/components/tools/XmlSitemapGeneratorStudio';
+import { HtaccessRedirectGeneratorStudio } from '@/components/tools/HtaccessRedirectGeneratorStudio';
 
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
@@ -843,8 +847,8 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     component: KeycodeInspector,
   },
   {
-    id: 'aspect-ratio-calculator',
-    slug: 'aspect-ratio-calculator',
+    id: 'aspect-ratio-visualizer',
+    slug: 'aspect-ratio-visualizer',
     title: 'Responsive Aspect Ratio & Resolution Calculator',
     shortDesc: 'Calculate proportional dimensions for 16:9, 4:3, 1:1, 9:16 (TikTok) with instant CSS snippets.',
     category: 'calculator',
@@ -2101,8 +2105,8 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     component: CssNeumorphismStudio,
   },
   {
-    id: 'tailwind-color-palette-generator',
-    slug: 'tailwind-color-palette-generator',
+    id: 'tailwind-shade-generator',
+    slug: 'tailwind-shade-generator',
     title: 'Tailwind CSS Color Palette Generator',
     shortDesc: 'Generate complete 11-shade Tailwind CSS palettes (50–950) from any base hex color with WCAG contrast verification and config export.',
     category: 'dev',
@@ -2239,8 +2243,8 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     component: JwtDecoderDebuggerStudio,
   },
   {
-    id: 'css-triangle-generator',
-    slug: 'css-triangle-generator',
+    id: 'css-border-triangle-generator',
+    slug: 'css-border-triangle-generator',
     title: 'CSS Triangle & Tooltip Arrow Generator',
     shortDesc: 'Generate lightweight pure CSS triangles and directional tooltip arrows using transparent border geometry with instant code copy.',
     category: 'dev',
@@ -2492,8 +2496,8 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
     component: Base64ImageEncoderDecoderStudio,
   },
   {
-    id: 'html-entity-encoder',
-    slug: 'html-entity-encoder',
+    id: 'html-entity-converter',
+    slug: 'html-entity-converter',
     title: 'HTML Entity Encoder & Decoder Studio',
     shortDesc: 'Convert reserved HTML characters into safe named, decimal, or hexadecimal entities, or decode HTML entities back to plain text.',
     category: 'text',
@@ -2559,6 +2563,98 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: JsonMinifierBeautifierStudio,
+  },
+  {
+    id: 'url-parser-builder',
+    slug: 'url-parser-builder',
+    title: 'URL Component Inspector & Query Parameter Studio',
+    shortDesc: 'Deconstruct web URLs into protocol, host, port, path, and hash with an interactive query parameter builder and cURL generator.',
+    category: 'dev',
+    keywords: ['url parser', 'query parameter builder', 'url inspector', 'parse url components', 'url query string editor', 'curl generator'],
+    icon: 'Globe',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Inspect and manipulate web URLs and query parameters online. Edit parameters, toggle query keys, inspect origins, and generate cURL commands.',
+    faqs: [
+      {
+        question: 'How does the query parameter editor work?',
+        answer: 'You can toggle parameters on or off, add new keys and values, or delete entries. The studio reconstructs and encodes the URL in real time.',
+      },
+      {
+        question: 'Is my URL data kept private?',
+        answer: 'Yes! All parsing and URL construction executes strictly in your browser using the native Web URL API without server transmission.',
+      },
+    ],
+    component: UrlComponentParserStudio,
+  },
+  {
+    id: 'markdown-to-html-table',
+    slug: 'markdown-to-html-table',
+    title: 'Markdown Table to HTML & CSV Studio',
+    shortDesc: 'Convert GitHub-flavored Markdown tables into responsive HTML tables (Tailwind, Bootstrap, Clean) and CSV with column alignment support.',
+    category: 'text',
+    keywords: ['markdown to html table', 'markdown table converter', 'markdown to csv', 'html table generator', 'convert markdown table'],
+    icon: 'Table',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert GitHub-Flavored Markdown tables to HTML tables with Tailwind or Bootstrap classes, or export to CSV. Includes live rendered preview.',
+    faqs: [
+      {
+        question: 'Does this converter support column alignment?',
+        answer: 'Yes! It parses standard Markdown alignment syntax (:--- for left, :---: for center, and ---: for right) and applies matching CSS text alignment classes.',
+      },
+      {
+        question: 'Can I copy both HTML code and CSV data?',
+        answer: 'Yes, with one click you can copy clean HTML markup, export to CSV for spreadsheets, or download the table as an .html file.',
+      },
+    ],
+    component: MarkdownTableToHtmlConverter,
+  },
+  {
+    id: 'xml-sitemap-generator',
+    slug: 'xml-sitemap-generator',
+    title: 'XML Sitemap Generator & Validator Studio',
+    shortDesc: 'Create, validate, and download Google-standard XML sitemaps (<urlset>) for Search Console with priority & changefreq controls.',
+    category: 'dev',
+    keywords: ['xml sitemap generator', 'sitemap xml creator', 'google sitemap builder', 'sitemap validator', 'sitemap generator online'],
+    icon: 'FileText',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate valid XML sitemaps for Google Search Console and Bing. Bulk paste URLs, configure changefreq, priority, and lastmod tags.',
+    faqs: [
+      {
+        question: 'What is the maximum number of URLs in a standard sitemap?',
+        answer: 'According to the official sitemaps.org protocol, a single sitemap file can contain up to 50,000 URLs and must not exceed 50 MB uncompressed.',
+      },
+      {
+        question: 'What priority values does Google support?',
+        answer: 'Priority values range from 0.0 to 1.0, with 1.0 typically reserved for your homepage or primary landing pages.',
+      },
+    ],
+    component: XmlSitemapGeneratorStudio,
+  },
+  {
+    id: 'htaccess-redirect-generator',
+    slug: 'htaccess-redirect-generator',
+    title: 'Apache .htaccess Redirect & Security Rules Studio',
+    shortDesc: 'Generate battle-tested Apache rewrite directives: Force HTTPS, www/non-www redirects, 301 SEO redirects, security headers, and Gzip compression.',
+    category: 'dev',
+    keywords: ['htaccess generator', 'htaccess redirect', 'force https htaccess', '301 redirect generator', 'htaccess security rules', 'apache mod_rewrite'],
+    icon: 'Server',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Online Apache .htaccess rule generator. Create 301 redirects, force HTTPS/SSL, canonical www/non-www domains, block sensitive files, and enable Gzip.',
+    faqs: [
+      {
+        question: 'Where do I place the .htaccess file?',
+        answer: 'Place the .htaccess file directly in your website document root directory (usually public_html, www, or htdocs) on Apache or LiteSpeed servers.',
+      },
+      {
+        question: 'What is the difference between a 301 and 302 redirect?',
+        answer: 'A 301 redirect is permanent and passes SEO link equity to the destination URL, whereas a 302 redirect is temporary and does not pass search rankings.',
+      },
+    ],
+    component: HtaccessRedirectGeneratorStudio,
   },
 ];
 
