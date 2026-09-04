@@ -556,6 +556,94 @@ export const HTTP_STATUSES: HttpStatusInfo[] = [
       },
     ],
   },
+  {
+    code: 406,
+    slug: '406-not-acceptable',
+    name: '406 Not Acceptable',
+    nameTr: '406 Kabul Edilemez',
+    category: '4xx',
+    categoryName: 'Client Error',
+    summary: 'The target resource does not have a current representation that would be acceptable to the user agent according to the proactive negotiation headers (Accept, Accept-Charset, Accept-Encoding, Accept-Language).',
+    summaryTr: 'Sunucu, istemcinin Accept başlığında talep ettiği içerik türünü (MIME type) üretemiyor.',
+    causes: ['Client requested format not produced by server (e.g. Accept: application/xml when API only serves application/json).'],
+    fixes: [
+      {
+        title: 'Check Accept Headers',
+        description: 'Ensure client Accept header matches server supported MIME types.',
+        codeSnippet: `curl -H "Accept: application/json" https://api.example.com/data`,
+      },
+    ],
+  },
+  {
+    code: 451,
+    slug: '451-unavailable-for-legal-reasons',
+    name: '451 Unavailable For Legal Reasons',
+    nameTr: '451 Yasal Nedenlerle Kullanılamıyor',
+    category: '4xx',
+    categoryName: 'Client Error',
+    summary: 'Access to the resource is blocked as a consequence of legal demands, such as government censorship or court injunctions (RFC 7725).',
+    summaryTr: 'İçerik mahkeme kararı, telif hakkı veya yasal sansür nedeniyle erişime engellenmiştir.',
+    causes: ['Court order, DMCA takedown notice, or national ISP blocking.'],
+    fixes: [
+      {
+        title: 'Verify Legal Injunction Details',
+        description: 'Inspect the response body for a link to the legal order or contact the website operator.',
+      },
+    ],
+  },
+  {
+    code: 505,
+    slug: '505-http-version-not-supported',
+    name: '505 HTTP Version Not Supported',
+    nameTr: '505 HTTP Sürümü Desteklenmiyor',
+    category: '5xx',
+    categoryName: 'Server Error',
+    summary: 'The server does not support, or refuses to support, the major version of HTTP that was used in the request message.',
+    summaryTr: 'Sunucu, istemcinin kullandığı HTTP protokol sürümünü (örn. HTTP/3 veya HTTP/0.9) desteklemiyor.',
+    causes: ['Outdated HTTP client library or misconfigured HTTP/2 / HTTP/3 negotiation.'],
+    fixes: [
+      {
+        title: 'Downgrade or Align HTTP Protocol',
+        description: 'Configure client or reverse proxy to use HTTP/1.1 or HTTP/2.',
+        codeSnippet: `curl --http1.1 https://api.example.com`,
+      },
+    ],
+  },
+  {
+    code: 507,
+    slug: '507-insufficient-storage',
+    name: '507 Insufficient Storage',
+    nameTr: '507 Yetersiz Depolama Alanı',
+    category: '5xx',
+    categoryName: 'Server Error',
+    summary: 'The method could not be performed on the resource because the server is unable to store the representation needed to successfully complete the request (WebDAV).',
+    summaryTr: 'Sunucu diski doldu veya depolama kotası aşıldı, istek kaydedilemiyor.',
+    causes: ['Server hard drive disk usage at 100%, inode exhaustion, or storage quota exceeded.'],
+    fixes: [
+      {
+        title: 'Check and Free Disk Space',
+        description: 'Clean up old log files, docker images, and temporary directories.',
+        codeSnippet: `df -h\ndocker system prune -a\njournalctl --vacuum-time=2d`,
+      },
+    ],
+  },
+  {
+    code: 508,
+    slug: '508-loop-detected',
+    name: '508 Loop Detected',
+    nameTr: '508 Sonsuz Döngü Algılandı',
+    category: '5xx',
+    categoryName: 'Server Error',
+    summary: 'The server terminated an operation because it encountered an infinite loop while processing a request with Depth: infinity (WebDAV).',
+    summaryTr: 'Sunucu, isteği işlerken sonsuz döngü tespit etti ve işlemi sonlandırdı.',
+    causes: ['Cyclic redirection rules, recursive WebDAV binding, or looping proxy configurations.'],
+    fixes: [
+      {
+        title: 'Inspect Redirect Chains & Proxy Loops',
+        description: 'Audit Nginx rewrite directives and symlinks to prevent circular self-referencing requests.',
+      },
+    ],
+  },
 ];
 
 export function getAllHttpStatuses(): HttpStatusInfo[] {
