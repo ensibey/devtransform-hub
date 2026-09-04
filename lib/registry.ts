@@ -116,6 +116,10 @@ import { BrotliGzipSizeEstimator } from '@/components/tools/BrotliGzipSizeEstima
 import { SvgPatternBackgroundGenerator } from '@/components/tools/SvgPatternBackgroundGenerator';
 import { MarkdownChangelogGenerator } from '@/components/tools/MarkdownChangelogGenerator';
 import { CssMeshGradientGenerator } from '@/components/tools/CssMeshGradientGenerator';
+import { RobotsTxtValidatorTester } from '@/components/tools/RobotsTxtValidatorTester';
+import { GitignoreGeneratorStudio } from '@/components/tools/GitignoreGeneratorStudio';
+import { SvgToDataUriConverter } from '@/components/tools/SvgToDataUriConverter';
+import { HexToRgbaConverter } from '@/components/tools/HexToRgbaConverter';
 
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
@@ -1791,6 +1795,98 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: CssMeshGradientGenerator,
+  },
+  {
+    id: 'robots-txt-validator',
+    slug: 'robots-txt-validator',
+    title: 'Robots.txt Validator & Real-Time Crawler Tester',
+    shortDesc: 'Author, validate, and test robots.txt crawl rules against Googlebot, Bingbot, and AI scrapers with RFC 9309 path testing.',
+    category: 'dev',
+    keywords: ['robots txt validator', 'robots txt generator', 'test robots txt', 'googlebot disallow tester', 'block ai scrapers robots txt'],
+    icon: 'Bot',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Validate and test robots.txt directives online. Check whether specific URL paths are allowed or disallowed for search engine bots and AI crawlers.',
+    faqs: [
+      {
+        question: 'How does this validator test robots.txt rules?',
+        answer: 'It evaluates path prefix lengths strictly according to the official IETF RFC 9309 Robots Exclusion Protocol specification.',
+      },
+      {
+        question: 'Can I block OpenAI and Anthropic AI crawlers?',
+        answer: 'Yes. Use the preloaded "Block AI Scrapers" preset to automatically disallow GPTBot, ChatGPT-User, CCBot, and Claude-Web.',
+      },
+    ],
+    component: RobotsTxtValidatorTester,
+  },
+  {
+    id: 'gitignore-generator',
+    slug: 'gitignore-generator',
+    title: '.gitignore Generator Studio',
+    shortDesc: 'Create comprehensive .gitignore files combining official GitHub templates for Node, Next.js, Python, macOS, VSCode, and Docker.',
+    category: 'dev',
+    keywords: ['gitignore generator', 'generate gitignore online', 'gitignore template', 'nextjs gitignore', 'python gitignore'],
+    icon: 'GitBranch',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate custom .gitignore files for any project stack. Multi-select templates for languages, frameworks, operating systems, and IDEs with 1-click download.',
+    faqs: [
+      {
+        question: 'Where do these gitignore templates come from?',
+        answer: 'All templates are curated from GitHub official gitignore repository standards and verified for modern development workflows.',
+      },
+      {
+        question: 'Can I add custom file rules to the generated .gitignore?',
+        answer: 'Yes. Use the custom pattern builder to append specific project tokens, environment files, or local database caches.',
+      },
+    ],
+    component: GitignoreGeneratorStudio,
+  },
+  {
+    id: 'svg-to-data-uri-converter',
+    slug: 'svg-to-data-uri-converter',
+    title: 'SVG to Data URI Converter & CSS Background Studio',
+    shortDesc: 'Convert SVG vector code into optimized UTF-8 data URIs for CSS background-image, HTML img, and Tailwind CSS without base64 bloat.',
+    category: 'dev',
+    keywords: ['svg to data uri', 'svg data uri generator', 'svg to css background', 'svg url encode', 'tailwind svg background'],
+    icon: 'FileCode',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert SVG code to optimized CSS data-URIs online. Generates clean RFC 3986 URL-encoded SVG markup ~30% smaller than base64 with live preview.',
+    faqs: [
+      {
+        question: 'Why is UTF-8 data-URI better than Base64 for SVGs?',
+        answer: 'UTF-8 URL-encoding is roughly 30% smaller than Base64 encoding, compresses better with Gzip, and remains human-readable for debugging.',
+      },
+      {
+        question: 'Does this tool sanitize XML headers and comments?',
+        answer: 'Yes, it automatically strips doctypes, XML prologues, and comments to keep the resulting data URI as minimal as possible.',
+      },
+    ],
+    component: SvgToDataUriConverter,
+  },
+  {
+    id: 'hex-to-rgba-converter',
+    slug: 'hex-to-rgba-converter',
+    title: 'HEX to RGBA & Color Format Converter',
+    shortDesc: 'Convert HEX color codes to RGBA, RGB, HSLA, and 8-digit HEX with interactive alpha transparency slider and live checkerboard preview.',
+    category: 'dev',
+    keywords: ['hex to rgba', 'hex to rgb converter', 'rgba to hex', 'color with opacity converter', 'css rgba generator'],
+    icon: 'Palette',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert HEX to RGBA and HSLA online. Adjust alpha transparency with real-time sliders and copy clean CSS, SCSS, and Tailwind color values.',
+    faqs: [
+      {
+        question: 'How do 8-digit HEX colors work?',
+        answer: 'The first 6 characters represent RGB (#RRGGBB) while the last 2 digits represent the alpha channel (00 for 0% opacity to FF for 100%).',
+      },
+      {
+        question: 'Which CSS format is recommended for transparent colors?',
+        answer: 'Modern CSS standard rgba(r, g, b, alpha) or standard 8-digit hex #RRGGBBAA are universally supported across all browsers.',
+      },
+    ],
+    component: HexToRgbaConverter,
   },
 ];
 

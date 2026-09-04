@@ -20,6 +20,8 @@ import {
   SearchX,
   Zap,
   Palette,
+  Bot,
+  GitBranch,
   Layers,
   Key,
   Binary,
@@ -91,6 +93,8 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   FileJson: FileCode,
   Zap: Zap,
   Palette: Palette,
+  Bot: Bot,
+  GitBranch: GitBranch,
 };
 
 export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
