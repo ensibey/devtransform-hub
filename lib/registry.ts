@@ -88,6 +88,10 @@ import { CrontabVisualizer } from '@/components/tools/dev/CrontabVisualizer';
 import { JwtSignerBuilder } from '@/components/tools/dev/JwtSignerBuilder';
 import { ColorContrastChecker } from '@/components/tools/dev/ColorContrastChecker';
 import { JsonToZodConverter } from '@/components/tools/dev/JsonToZodConverter';
+import { CidrSubnetCalculator } from '@/components/tools/dev/CidrSubnetCalculator';
+import { UuidV7Generator } from '@/components/tools/dev/UuidV7Generator';
+import { HttpSecurityHeadersGenerator } from '@/components/tools/dev/HttpSecurityHeadersGenerator';
+import { CsvToSqlConverter } from '@/components/tools/dev/CsvToSqlConverter';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -1146,6 +1150,86 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: JsonToZodConverter,
+  },
+  {
+    id: 'cidr-subnet-calculator',
+    slug: 'cidr-subnet-calculator',
+    title: 'IPv4 CIDR & Subnet Calculator Studio',
+    shortDesc: 'Calculate network address, broadcast address, netmask, usable IP range, wildcard mask, and host capacity from CIDR prefixes.',
+    category: 'dev',
+    keywords: ['subnet calculator', 'cidr calculator', 'ip range calculator', 'netmask calculator', 'ipv4 subnetting'],
+    icon: 'Network',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Interactive IPv4 CIDR and Subnet Calculator. Computes network address, broadcast, first/last usable IP, binary representation, and RFC 1918 classification in real-time.',
+    faqs: [
+      {
+        question: 'What is CIDR notation?',
+        answer: 'CIDR (Classless Inter-Domain Routing) notation represents an IP address and its associated subnet mask using a slash followed by the prefix length in bits (e.g., 192.168.1.0/24).',
+      },
+      {
+        question: 'Why are two addresses subtracted from total hosts in a subnet?',
+        answer: 'In standard IPv4 subnets (/30 and larger), the first address is reserved for the Network ID and the last address is reserved for the Subnet Broadcast address, leaving 2^(32-prefix) - 2 usable host addresses.',
+      },
+    ],
+    component: CidrSubnetCalculator,
+  },
+  {
+    id: 'uuid-v7-generator',
+    slug: 'uuid-v7-generator',
+    title: 'UUID v7 Time-Ordered RFC 9562 Generator',
+    shortDesc: 'Generate monotonic, time-ordered 128-bit UUID v7 identifiers optimized for database B-Tree index performance.',
+    category: 'dev',
+    keywords: ['uuid v7 generator', 'rfc 9562 uuid', 'time ordered uuid', 'uuid v7 vs v4', 'ulid uuid generator'],
+    icon: 'Key',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate RFC 9562 UUID v7 identifiers client-side. Extract encoded millisecond timestamps and batch export up to 100 sequential UUIDs.',
+    faqs: [
+      {
+        question: 'Why is UUID v7 superior to UUID v4 for database primary keys?',
+        answer: 'UUID v4 is completely random, causing severe index fragmentation and cache misses in database B-Trees. UUID v7 prefixes a 48-bit Unix timestamp, ensuring IDs sort chronologically and insert sequentially.',
+      },
+    ],
+    component: UuidV7Generator,
+  },
+  {
+    id: 'http-security-headers-generator',
+    slug: 'http-security-headers-generator',
+    title: 'HTTP Security Headers & CSP Studio',
+    shortDesc: 'Construct secure HTTP response headers (HSTS, CSP, X-Frame-Options, Permissions-Policy) with 1-click export for Nginx, Next.js, and Apache.',
+    category: 'dev',
+    keywords: ['security headers generator', 'hsts generator', 'csp generator', 'content security policy', 'nginx security headers'],
+    icon: 'ShieldCheck',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate A+ rated HTTP security headers including Content-Security-Policy (CSP), Strict-Transport-Security (HSTS), X-Frame-Options, and Referrer-Policy.',
+    faqs: [
+      {
+        question: 'Why are HTTP security headers important?',
+        answer: 'Security headers instruct modern web browsers to enforce strict encryption (HSTS), prevent cross-site scripting (CSP), block clickjacking (X-Frame-Options), and stop MIME sniffing (X-Content-Type-Options).',
+      },
+    ],
+    component: HttpSecurityHeadersGenerator,
+  },
+  {
+    id: 'csv-to-sql-converter',
+    slug: 'csv-to-sql-converter',
+    title: 'CSV to SQL Insert Statements Converter',
+    shortDesc: 'Convert CSV spreadsheets and tabular data into SQL INSERT INTO statements for PostgreSQL, MySQL, SQLite, and SQL Server.',
+    category: 'dev',
+    keywords: ['csv to sql', 'convert csv to sql insert', 'csv to postgres', 'csv to mysql', 'sql insert generator'],
+    icon: 'Database',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Transform CSV files and tabular data into multi-row SQL INSERT statements with custom table names, dialect quoting, and automatic NULL detection.',
+    faqs: [
+      {
+        question: 'Does the CSV to SQL converter support batch multi-row inserts?',
+        answer: 'Yes. You can configure batch sizes (e.g. 50 or 100 rows per INSERT statement) to prevent database packet limit errors while maximizing import throughput.',
+      },
+    ],
+    component: CsvToSqlConverter,
   },
 ];
 
