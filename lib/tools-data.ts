@@ -30,13 +30,12 @@ export interface DeveloperToolItem {
 }
 
 export const CATEGORY_FILTERS: CategoryFilterItem[] = [
-  { key: 'all', label: 'All Tools', iconName: 'Sparkles' },
-  { key: 'dev', label: '💻 Developer & Code', iconName: 'Terminal' },
-  { key: 'text', label: '✍️ Text & Content', iconName: 'FileText' },
-  { key: 'image', label: '🖼️ Image & Media', iconName: 'Image' },
-  { key: 'pdf', label: '📄 PDF & Documents', iconName: 'FileSpreadsheet' },
-  { key: 'calculators', label: '🧮 Math & Calculators', iconName: 'Calculator' },
-  { key: 'converters', label: '🔄 Code Converters', iconName: 'ArrowRightLeft' },
+  { key: 'all', label: '✨ Tüm Araçlar', iconName: 'Sparkles' },
+  { key: 'pdf', label: '📄 PDF & Doküman', iconName: 'FileSpreadsheet' },
+  { key: 'image', label: '🖼️ Görsel & Medya', iconName: 'Image' },
+  { key: 'text', label: '✍️ Metin & İçerik', iconName: 'FileText' },
+  { key: 'calculators', label: '🧮 Hesaplayıcılar', iconName: 'Calculator' },
+  { key: 'dev', label: '💻 Kod ve Veri Dönüştürücüler', iconName: 'Terminal' },
 ];
 
 const CATEGORY_LABEL_MAP: Record<string, { key: ToolCategoryKey; label: string }> = {

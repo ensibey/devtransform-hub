@@ -13,6 +13,8 @@ import {
 import { PrivacyBadge } from './PrivacyBadge';
 import { BrandLogo } from './BrandLogo';
 
+import { ThemeToggle } from './ThemeToggle';
+
 export function Navbar() {
   const triggerCommandPalette = () => {
     // Dispatch Cmd+K event
@@ -25,7 +27,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border bg-canvas/80 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full border-b border-slate-200 dark:border-border bg-white/85 dark:bg-canvas/80 backdrop-blur-md transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
         {/* Left: Brand / Logo */}
         <div className="flex items-center space-x-6">
@@ -36,63 +38,66 @@ export function Navbar() {
             <BrandLogo size={32} />
           </Link>
 
-          {/* Quick Categories Navigation */}
-          <nav className="hidden md:flex items-center space-x-4 text-xs text-zinc-400">
+          {/* User-Friendly Categories Navigation */}
+          <nav className="hidden lg:flex items-center space-x-3 text-xs font-medium text-slate-600 dark:text-zinc-400">
             <Link
-              href="/json-to-typescript/"
-              className="hover:text-zinc-200 transition-colors"
+              href="/category/pdf/"
+              className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
             >
-              JSON to TS
+              📄 PDF & Doküman
             </Link>
             <Link
-              href="/json-to-go/"
-              className="hover:text-zinc-200 transition-colors"
+              href="/category/image/"
+              className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
             >
-              JSON to Go
+              🖼️ Görsel & Medya
             </Link>
             <Link
-              href="/json-to-rust/"
-              className="hover:text-zinc-200 transition-colors"
+              href="/category/text/"
+              className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
             >
-              JSON to Rust
+              📝 Metin & İçerik
             </Link>
             <Link
-              href="/yaml-to-json/"
-              className="hover:text-zinc-200 transition-colors"
+              href="/category/calculator/"
+              className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
             >
-              YAML to JSON
+              🧮 Hesaplayıcılar
             </Link>
             <Link
-              href="/formatters/sql/"
-              className="hover:text-zinc-200 transition-colors flex items-center space-x-1 text-amber-400/90 hover:text-amber-300"
+              href="/category/dev/"
+              className="px-2 py-1 rounded-md text-emerald-600 dark:text-brand-emerald hover:text-emerald-700 dark:hover:text-emerald-300 font-semibold hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors flex items-center gap-1"
             >
-              <Sparkles className="w-3 h-3" />
-              <span>SQL Formatter</span>
+              <Code2 className="w-3.5 h-3.5" />
+              <span>Kod ve Veri Dönüştürücüler</span>
             </Link>
           </nav>
         </div>
 
-        {/* Right: Search Bar & Actions */}
-        <div className="flex items-center space-x-3">
+        {/* Right: Search Bar, Theme Toggle & Actions */}
+        <div className="flex items-center space-x-2 sm:space-x-3">
           <button
             type="button"
             onClick={triggerCommandPalette}
-            className="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-surface-100 hover:bg-surface-50 border border-border text-xs text-zinc-400 hover:text-zinc-200 transition-all shadow-sm group"
+            className="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-surface-100 hover:bg-slate-200 dark:hover:bg-surface-50 border border-slate-200 dark:border-border text-xs text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200 transition-all shadow-sm group"
           >
-            <Search className="w-3.5 h-3.5 text-zinc-400 group-hover:text-brand-emerald transition-colors" />
-            <span className="hidden sm:inline">Search 90+ Converters...</span>
-            <span className="sm:hidden">Search</span>
-            <kbd className="hidden sm:inline-flex items-center space-x-0.5 px-1.5 py-0.5 text-[10px] font-mono bg-surface text-zinc-400 rounded border border-border">
+            <Search className="w-3.5 h-3.5 text-slate-400 dark:text-zinc-400 group-hover:text-emerald-500 transition-colors" />
+            <span className="hidden sm:inline">140+ Araçta Ara...</span>
+            <span className="sm:hidden">Ara</span>
+            <kbd className="hidden sm:inline-flex items-center space-x-0.5 px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-surface text-slate-500 dark:text-zinc-400 rounded border border-slate-200 dark:border-border">
               <span>⌘</span>
               <span>K</span>
             </kbd>
           </button>
 
+          {/* Light / Dark Mode Toggle */}
+          <ThemeToggle />
+
           <a
-            href="https://github.com"
+            href="https://github.com/ensibey/devtransform-hub"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-1.5 text-zinc-400 hover:text-zinc-200 rounded-lg hover:bg-surface-100 transition-colors"
+            className="p-2 text-slate-500 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200 rounded-lg bg-slate-100 dark:bg-surface-100 hover:bg-slate-200 dark:hover:bg-surface-50 border border-slate-200 dark:border-border transition-colors"
             title="Open Source GitHub Repository"
           >
             <Github className="w-4 h-4" />

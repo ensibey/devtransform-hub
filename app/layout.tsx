@@ -99,8 +99,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Instant theme resolver without FOUC */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('devtransform_theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');document.documentElement.classList.remove('light');}else{document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}}catch(e){}})();`,
+          }}
+        />
         {/* Google Search Favicon & Site Name Standards */}
         <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
@@ -115,7 +121,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-oled text-zinc-100 antialiased selection:bg-brand-emerald/30 selection:text-white">
+      <body className="min-h-screen flex flex-col bg-slate-50 dark:bg-oled text-slate-900 dark:text-zinc-100 antialiased selection:bg-brand-emerald/30 selection:text-white transition-colors duration-200">
         <Navbar />
         <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6">
           {children}
