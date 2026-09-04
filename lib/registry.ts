@@ -112,6 +112,11 @@ import { JsonDiffComparator } from '@/components/tools/dev/JsonDiffComparator';
 import { JsonToPhpArrayConverter } from '@/components/tools/dev/JsonToPhpArrayConverter';
 import { HtpasswdGenerator } from '@/components/tools/dev/HtpasswdGenerator';
 import { CssGradientTextGenerator } from '@/components/tools/dev/CssGradientTextGenerator';
+import { BrotliGzipSizeEstimator } from '@/components/tools/BrotliGzipSizeEstimator';
+import { SvgPatternBackgroundGenerator } from '@/components/tools/SvgPatternBackgroundGenerator';
+import { MarkdownChangelogGenerator } from '@/components/tools/MarkdownChangelogGenerator';
+import { CssMeshGradientGenerator } from '@/components/tools/CssMeshGradientGenerator';
+
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -1694,6 +1699,98 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: CssGradientTextGenerator,
+  },
+  {
+    id: 'brotli-gzip-size-calculator',
+    slug: 'brotli-gzip-size-calculator',
+    title: 'Gzip & Brotli Bundle Size Calculator',
+    shortDesc: 'Inspect raw vs Gzip and Brotli compressed bundle sizes, compression ratios, and 3G/4G/5G transfer latency in real-time.',
+    category: 'dev',
+    keywords: ['brotli size calculator', 'gzip size checker', 'bundle size calculator', 'js gzip size', 'css compression calculator'],
+    icon: 'Zap',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Calculate JavaScript, CSS, and JSON bundle compression sizes online. Compare raw vs Gzip and Brotli with real-world 3G and 4G download speeds.',
+    faqs: [
+      {
+        question: 'How much smaller is Brotli compared to Gzip?',
+        answer: 'Brotli (br) typically delivers 14% to 22% smaller file sizes than standard Gzip for JavaScript, CSS, and HTML web assets.',
+      },
+      {
+        question: 'Does this calculator upload my code to a server?',
+        answer: 'No. All calculations run strictly in your browser using the native Web CompressionStream API or local WebAssembly.',
+      },
+    ],
+    component: BrotliGzipSizeEstimator,
+  },
+  {
+    id: 'svg-pattern-generator',
+    slug: 'svg-pattern-generator',
+    title: 'SVG Repeating Pattern Background Studio',
+    shortDesc: 'Create customizable repeating SVG background patterns (dots, grid, isometric, zigzag, blueprint) with 1-click CSS and vector downloads.',
+    category: 'dev',
+    keywords: ['svg pattern generator', 'css background pattern', 'repeating svg pattern', 'dot pattern css', 'seamless svg texture'],
+    icon: 'Layers',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Design seamless repeating SVG background patterns online. Customize dimensions, stroke weights, colors, and export clean CSS data URIs and SVGs.',
+    faqs: [
+      {
+        question: 'How do I use repeating SVG patterns in CSS?',
+        answer: 'Copy the CSS output snippet which contains a data URI background-image: url("data:image/svg+xml,...") and apply it to any container element.',
+      },
+      {
+        question: 'Do SVG pattern backgrounds slow down webpage loading?',
+        answer: 'No. Pure SVG data-URIs weigh less than 1KB and require zero additional network round-trips.',
+      },
+    ],
+    component: SvgPatternBackgroundGenerator,
+  },
+  {
+    id: 'markdown-changelog-generator',
+    slug: 'markdown-changelog-generator',
+    title: 'Keep a Changelog Markdown Generator',
+    shortDesc: 'Generate standardized CHANGELOG.md files following SemVer and Keep a Changelog specifications with categorized releases.',
+    category: 'text',
+    keywords: ['changelog generator', 'markdown changelog', 'keep a changelog generator', 'github release notes generator', 'semver changelog'],
+    icon: 'FileText',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Create professional CHANGELOG.md files for GitHub repositories. Add Added, Changed, Deprecated, Removed, Fixed, and Security entries with live preview.',
+    faqs: [
+      {
+        question: 'What is the Keep a Changelog standard?',
+        answer: 'Keep a Changelog is an open-source convention for authoring release logs that categorize modifications under Added, Changed, Deprecated, Removed, Fixed, and Security.',
+      },
+      {
+        question: 'Can I export directly to a CHANGELOG.md file?',
+        answer: 'Yes, 1-click download produces a standard UTF-8 encoded CHANGELOG.md ready to commit to your Git repository.',
+      },
+    ],
+    component: MarkdownChangelogGenerator,
+  },
+  {
+    id: 'css-mesh-gradient-generator',
+    slug: 'css-mesh-gradient-generator',
+    title: 'CSS Mesh Gradient Studio & Canvas',
+    shortDesc: 'Create fluid multi-point CSS radial mesh gradients with interactive anchor coordinates, curated presets, and 1-click Tailwind export.',
+    category: 'dev',
+    keywords: ['css mesh gradient', 'mesh gradient generator', 'css radial gradient mesh', 'tailwind mesh gradient', 'gradient background generator'],
+    icon: 'Palette',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Design high-performance CSS mesh gradients visually. Adjust radial anchor points, diffusion radiuses, and copy pure CSS or Tailwind classes.',
+    faqs: [
+      {
+        question: 'Are CSS mesh gradients performant on mobile devices?',
+        answer: 'Yes. Unlike heavy canvas or bitmap images, CSS mesh gradients use GPU-accelerated native CSS radial gradients that render smoothly at 60fps.',
+      },
+      {
+        question: 'Can I use this mesh gradient in Tailwind CSS?',
+        answer: 'Yes. The tool provides arbitrary value Tailwind syntax ready for copy-pasting directly into your JSX/HTML templates.',
+      },
+    ],
+    component: CssMeshGradientGenerator,
   },
 ];
 

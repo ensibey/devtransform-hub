@@ -19,6 +19,7 @@ import {
   Calculator,
   SearchX,
   Zap,
+  Palette,
   Layers,
   Key,
   Binary,
@@ -88,6 +89,8 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Calculator: Calculator,
   Shield: ShieldCheck,
   FileJson: FileCode,
+  Zap: Zap,
+  Palette: Palette,
 };
 
 export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {

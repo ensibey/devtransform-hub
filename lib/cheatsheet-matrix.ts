@@ -859,6 +859,137 @@ export const CHEATSHEETS: CheatSheetDefinition[] = [
       },
     ],
   },
+  {
+    slug: 'npm-pnpm-yarn-cheat-sheet',
+    title: 'NPM, PNPM & Yarn Commands Cheat Sheet',
+    category: 'web',
+    description: 'Side-by-side command reference for Node.js package managers: npm, pnpm, and yarn. Covers installing, scripts, auditing, lockfiles, and workspaces.',
+    sections: [
+      {
+        title: 'Package Installation & Dependencies',
+        items: [
+          { command: 'npm i <pkg> | pnpm add <pkg> | yarn add <pkg>', description: 'Install package as a runtime production dependency' },
+          { command: 'npm i -D <pkg> | pnpm add -D <pkg> | yarn add -D <pkg>', description: 'Install package as devDependency' },
+          { command: 'npm i -g <pkg> | pnpm add -g <pkg> | yarn global add <pkg>', description: 'Install package globally on machine' },
+          { command: 'npm ci | pnpm install --frozen-lockfile | yarn --immutable', description: 'Deterministic clean CI install from lockfile' },
+          { command: 'npm rm <pkg> | pnpm rm <pkg> | yarn remove <pkg>', description: 'Uninstall package from dependencies and node_modules' },
+        ],
+      },
+      {
+        title: 'Running Scripts & Executables',
+        items: [
+          { command: 'npm run <script> | pnpm <script> | yarn <script>', description: 'Execute lifecycle script defined in package.json' },
+          { command: 'npx <bin> | pnpm dlx <bin> | yarn dlx <bin>', description: 'Download and execute CLI tool without global installation' },
+          { command: 'npm audit | pnpm audit | yarn npm audit', description: 'Scan dependencies for known security CVE vulnerabilities' },
+          { command: 'npm outdated | pnpm outdated | yarn outdated', description: 'List packages that have newer versions available' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Why is pnpm faster and more disk-efficient than npm?',
+        answer: 'pnpm uses a hard-linked, content-addressable global store, preventing duplicate packages across projects on your disk.',
+      },
+    ],
+  },
+  {
+    slug: 'linux-ssh-scp-cheat-sheet',
+    title: 'SSH & SCP Remote Server Commands Cheat Sheet',
+    category: 'linux',
+    description: 'Essential SSH keys, secure shell logins, remote port tunneling, and scp / rsync secure file transfer command reference.',
+    sections: [
+      {
+        title: 'Key Generation & Remote Login',
+        items: [
+          { command: 'ssh-keygen -t ed25519 -C "email@domain.com"', description: 'Generate modern, secure Ed25519 SSH keypair' },
+          { command: 'ssh-copy-id -i ~/.ssh/id_ed25519.pub user@host', description: 'Copy public key to remote server ~/.ssh/authorized_keys' },
+          { command: 'ssh -i ~/.ssh/key.pem user@hostname', description: 'Connect to remote server using private key file' },
+          { command: 'ssh -p 2222 user@hostname', description: 'Connect to SSH server running on non-standard port' },
+        ],
+      },
+      {
+        title: 'SCP & Rsync File Transfers',
+        items: [
+          { command: 'scp file.txt user@host:/remote/path/', description: 'Copy local file to remote server directory' },
+          { command: 'scp -r user@host:/remote/dir/ ./local/', description: 'Recursively copy directory from remote server to local' },
+          { command: 'rsync -avzP ./src/ user@host:/dest/', description: 'Fast incremental sync with archive mode, compression, and progress bar' },
+          { command: 'ssh -L 8080:localhost:3000 user@host', description: 'Local port forwarding: access remote 3000 on local 8080' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Why is Ed25519 preferred over RSA for SSH keys?',
+        answer: 'Ed25519 offers better security with faster signing and smaller 256-bit keys compared to legacy 2048/4096-bit RSA keys.',
+      },
+    ],
+  },
+  {
+    slug: 'sqlite3-cli-cheat-sheet',
+    title: 'SQLite3 CLI & Dot-Commands Cheat Sheet',
+    category: 'database',
+    description: 'Comprehensive SQLite command-line reference. Covers dot-commands, table inspection, CSV import/export, index analysis, and backups.',
+    sections: [
+      {
+        title: 'Dot Commands & Meta-Information',
+        items: [
+          { command: 'sqlite3 app.db', description: 'Open or create a SQLite database file' },
+          { command: '.tables', description: 'List all tables in the active database' },
+          { command: '.schema <table_name>', description: 'Display the CREATE TABLE schema and indexes for a table' },
+          { command: '.mode column | .headers on', description: 'Format SELECT query output as readable aligned columns with headers' },
+          { command: '.quit / .exit', description: 'Exit the sqlite3 interactive shell' },
+        ],
+      },
+      {
+        title: 'Import, Export & Backups',
+        items: [
+          { command: '.mode csv\n.import data.csv target_table', description: 'Import CSV file into a SQLite table' },
+          { command: '.mode csv\n.output data.csv\nSELECT * FROM target;\n.output stdout', description: 'Export query results directly to CSV file' },
+          { command: '.dump > backup.sql', description: 'Dump entire database as SQL statements' },
+          { command: '.backup backup.db', description: 'Create live binary database snapshot without locking' },
+          { command: 'VACUUM;', description: 'Reclaim unused disk space and defragment database file' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is WAL mode in SQLite?',
+        answer: 'Write-Ahead Logging (WAL) enables concurrent readers and writers (`PRAGMA journal_mode=WAL;`), significantly boosting performance.',
+      },
+    ],
+  },
+  {
+    slug: 'tar-gzip-compression-cheat-sheet',
+    title: 'Tar, Gzip & Linux Compression Cheat Sheet',
+    category: 'linux',
+    description: 'Quick reference for tar, tar.gz, tar.bz2, zip, and unzip commands on Linux, macOS, and WSL.',
+    sections: [
+      {
+        title: 'Tar.gz Creating & Extracting',
+        items: [
+          { command: 'tar -czvf archive.tar.gz /path/to/folder', description: 'Create a gzipped tar archive with verbose output' },
+          { command: 'tar -xzvf archive.tar.gz', description: 'Extract a gzipped tar archive into current directory' },
+          { command: 'tar -xzvf archive.tar.gz -C /target/dir', description: 'Extract archive into specific target directory' },
+          { command: 'tar -tzvf archive.tar.gz', description: 'List archive contents without extracting files to disk' },
+        ],
+      },
+      {
+        title: 'Zip, Bzip2 & Gzip Standalone',
+        items: [
+          { command: 'zip -r archive.zip folder/', description: 'Create a standard .zip archive of a directory' },
+          { command: 'unzip archive.zip -d /target/dir', description: 'Extract .zip archive into target directory' },
+          { command: 'gzip file.txt', description: 'Compress single file to file.txt.gz (removes original)' },
+          { command: 'gzip -d file.txt.gz', description: 'Decompress gzipped file back to file.txt' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What do the -czvf flags stand for in tar?',
+        answer: '-c = create archive, -z = gzip compression, -v = verbose output, -f = specify archive filename.',
+      },
+    ],
+  },
 ];
 
 export function getAllCheatSheets(): CheatSheetDefinition[] {

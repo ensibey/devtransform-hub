@@ -315,6 +315,60 @@ export const COMPARISONS: ComparisonDefinition[] = [
       whenToUseB: ['Fullstack Next.js, Nuxt, or Remix applications written in 100% TypeScript', 'Fast-moving startups wanting immediate refactoring type safety', 'Projects where writing GraphQL schemas feels like unnecessary boilerplate'],
     },
   },
+  {
+    slug: 'tailwind-vs-bootstrap',
+    title: 'Tailwind CSS vs Bootstrap: Modern CSS Framework Comparison',
+    itemAName: 'Tailwind CSS',
+    itemBName: 'Bootstrap',
+    summary: 'Compare Tailwind CSS (utility-first, highly customizable, purged production builds) with Bootstrap (pre-built UI components, rapid grid prototyping).',
+    features: [
+      { feature: 'Design Philosophy', itemA: 'Utility-first low-level primitives', itemB: 'Component-first pre-styled widgets (cards, navbars, modals)', verdict: 'A' },
+      { feature: 'Production Bundle Size', itemA: 'Tiny (usually 5KB - 15KB purged CSS)', itemB: 'Moderate to heavy (~150KB - 250KB CSS + JS)', verdict: 'A' },
+      { feature: 'Design Uniqueness', itemA: 'Custom bespoke designs, no "Tailwind look"', itemB: 'Generic recognizable "Bootstrap look" unless heavily overridden', verdict: 'A' },
+      { feature: 'Learning Curve for Beginners', itemA: 'Steeper: requires solid CSS knowledge', itemB: 'Gentler: copy-paste prebuilt component classes', verdict: 'B' },
+      { feature: 'Design System Integration', itemA: 'Config-driven theme variables & arbitrary values', itemB: 'Sass variable customization and overrides', verdict: 'A' },
+    ],
+    recommendations: {
+      whenToUseA: ['Modern web applications where custom brand design and micro-interactions matter', 'Next.js, Vue, or Svelte projects with component isolation', 'Performance-critical sites aiming for high Core Web Vitals'],
+      whenToUseB: ['Internal admin dashboards, backoffice portals, or rapid prototypes', 'Projects with junior developers who want pre-packaged UI widgets quickly', 'Teams comfortable with classical Bootstrap Sass architecture'],
+    },
+  },
+  {
+    slug: 'redis-vs-memcached',
+    title: 'Redis vs Memcached: In-Memory Caching Architecture Comparison',
+    itemAName: 'Redis',
+    itemBName: 'Memcached',
+    summary: 'Analyze Redis (multi-model in-memory data store with persistence, pub/sub, and Lua scripting) versus Memcached (multi-threaded, simple LRU key-value cache).',
+    features: [
+      { feature: 'Data Structures', itemA: 'Strings, Hashes, Lists, Sets, Sorted Sets, Bitmaps, Streams', itemB: 'Raw string / binary blobs only', verdict: 'A' },
+      { feature: 'Data Persistence', itemA: 'RDB snapshots & AOF append-only logs', itemB: 'Purely ephemeral RAM (no persistence on reboot)', verdict: 'A' },
+      { feature: 'Threading Model', itemA: 'Event-driven single core per instance (I/O threads in v6+)', itemB: 'True multi-threaded architecture utilizing all CPU cores', verdict: 'B' },
+      { feature: 'Replication & High Availability', itemA: 'Built-in Sentinel, Redis Cluster, and read replicas', itemB: 'No built-in clustering (relies on client-side hashing)', verdict: 'A' },
+      { feature: 'Pub/Sub & Streaming', itemA: 'Native Pub/Sub and persistent Redis Streams', itemB: 'Not supported', verdict: 'A' },
+    ],
+    recommendations: {
+      whenToUseA: ['Caching complex data structures, session stores, leaderboards, and rate limiters', 'Applications requiring background job queues (BullMQ, Sidekiq)', 'Environments needing persistent cache recovery across server restarts'],
+      whenToUseB: ['High-throughput, simple read-heavy key-value caching across multi-core servers', 'Large monolithic database query result caching with strict LRU eviction', 'Simple architectures with zero requirement for data types or persistence'],
+    },
+  },
+  {
+    slug: 'pnpm-vs-npm',
+    title: 'pnpm vs npm: Node.js Package Manager Performance Comparison',
+    itemAName: 'pnpm',
+    itemBName: 'npm',
+    summary: 'Compare pnpm (hard-link content-addressable storage with non-flat strict isolation) against npm (standard default package manager with flat node_modules).',
+    features: [
+      { feature: 'Disk Space Efficiency', itemA: 'Global content-addressable store; 1 copy of pkg per disk', itemB: 'Duplicates package files across every local repository', verdict: 'A' },
+      { feature: 'Installation Speed', itemA: 'Up to 2x - 3x faster than npm in CI and cold runs', itemB: 'Moderate speed with modern caching', verdict: 'A' },
+      { feature: 'Phantom Dependency Protection', itemA: 'Strict symlinked structure prevents unlisted imports', itemB: 'Flat node_modules allows phantom dependency leaks', verdict: 'A' },
+      { feature: 'Default Ecosystem Support', itemA: 'Requires installation or corepack activation', itemB: 'Shipped by default with every official Node.js install', verdict: 'B' },
+      { feature: 'Monorepo Workspace Tooling', itemA: 'First-class built-in workspace protocol (`workspace:*`)', itemB: 'Basic workspace support with occasional hoist bugs', verdict: 'A' },
+    ],
+    recommendations: {
+      whenToUseA: ['Monorepos (Turborepo, Nx) and large enterprise multi-package codebases', 'Developers with limited SSD disk space running dozens of local projects', 'CI/CD deployment pipelines where fast dependency caching reduces billable minutes'],
+      whenToUseB: ['Quick scripts, beginner tutorials, and zero-setup single file Node projects', 'Environments where strict symlink directory structures cause rare native build issues'],
+    },
+  },
 ];
 
 export function getAllComparisons(): ComparisonDefinition[] {

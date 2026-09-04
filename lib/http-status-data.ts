@@ -644,6 +644,57 @@ export const HTTP_STATUSES: HttpStatusInfo[] = [
       },
     ],
   },
+  {
+    code: 426,
+    slug: '426-upgrade-required',
+    name: '426 Upgrade Required',
+    nameTr: '426 Protokol Yükseltmesi Gerekli',
+    category: '4xx',
+    categoryName: 'Client Error',
+    summary: 'The client should switch to a different protocol such as TLS/1.3 or WebSocket specified in the Upgrade header.',
+    summaryTr: 'İstemcinin Upgrade başlığında belirtilen protokole (ör. WebSocket veya TLS) geçmesi zorunludur.',
+    causes: ['Connecting with plaintext HTTP to an endpoint requiring modern TLS or WebSocket handshake.'],
+    fixes: [
+      {
+        title: 'Send Upgrade Header',
+        description: 'Ensure client sends Upgrade: websocket and Connection: Upgrade headers during handshake.',
+      },
+    ],
+  },
+  {
+    code: 428,
+    slug: '428-precondition-required',
+    name: '428 Precondition Required',
+    nameTr: '428 Ön Koşul Başlığı Gerekli (If-Match)',
+    category: '4xx',
+    categoryName: 'Client Error',
+    summary: 'The origin server requires the request to be conditional to prevent the "lost update" problem where multiple clients modify a resource simultaneously.',
+    summaryTr: 'Kaynakta çakışmaları ve eşzamanlı üzerine yazmaları önlemek için sunucu If-Match veya If-Unmodified-Since başlığı talep ediyor.',
+    causes: ['PUT or PATCH request sent without an ETag-based If-Match header.'],
+    fixes: [
+      {
+        title: 'Include If-Match Header',
+        description: 'Fetch the latest ETag via GET first, then provide If-Match: "etag_value" in your mutation.',
+      },
+    ],
+  },
+  {
+    code: 511,
+    slug: '511-network-authentication-required',
+    name: '511 Network Authentication Required',
+    nameTr: '511 Ağ Kimlik Doğrulaması Gerekli (Captive Portal)',
+    category: '5xx',
+    categoryName: 'Server Error',
+    summary: 'Indicates that the client needs to authenticate to gain network access, such as logging into a Wi-Fi captive portal.',
+    summaryTr: 'Ağ erişimi kazanmak için kullanıcının bir captive portal (ör. otel veya havaalanı Wi-Fi giriş ekranı) üzerinden oturum açması gerektiğini belirtir.',
+    causes: ['Intercepting proxy or captive portal preventing internet access until terms or credentials are submitted.'],
+    fixes: [
+      {
+        title: 'Log In via Captive Portal',
+        description: 'Navigate browser to default gateway or captive portal login URL to authenticate connection.',
+      },
+    ],
+  },
 ];
 
 export function getAllHttpStatuses(): HttpStatusInfo[] {
