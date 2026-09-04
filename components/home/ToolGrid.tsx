@@ -21,6 +21,8 @@ import {
   SearchX,
   Zap,
   Palette,
+  Triangle,
+  Share2,
   Bot,
   GitBranch,
   Award,
@@ -107,6 +109,8 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Waves: Waves,
   Sliders: Sliders,
   Grid: Grid,
+  Triangle: Triangle,
+  Share2: Share2,
 };
 
 export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {

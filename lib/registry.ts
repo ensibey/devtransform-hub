@@ -132,6 +132,10 @@ import { TailwindColorPaletteGenerator } from '@/components/tools/TailwindColorP
 import { CronExpressionTesterVisualizer } from '@/components/tools/CronExpressionTesterVisualizer';
 import { JsonToTypescriptZodSchemaConverter } from '@/components/tools/JsonToTypescriptZodSchemaConverter';
 import { CssGlassmorphismStudio } from '@/components/tools/CssGlassmorphismStudio';
+import { CurlToFetchAxiosConverter } from '@/components/tools/CurlToFetchAxiosConverter';
+import { JwtDecoderDebuggerStudio } from '@/components/tools/JwtDecoderDebuggerStudio';
+import { CssTriangleGeneratorStudio } from '@/components/tools/CssTriangleGeneratorStudio';
+import { OpenGraphPreviewDebuggerStudio } from '@/components/tools/OpenGraphPreviewDebuggerStudio';
 
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
@@ -2175,6 +2179,98 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: CssGlassmorphismStudio,
+  },
+  {
+    id: 'curl-to-fetch-converter',
+    slug: 'curl-to-fetch-converter',
+    title: 'cURL to Fetch, Axios & Python Converter',
+    shortDesc: 'Convert cURL terminal commands into modern JavaScript Fetch API, Axios requests, and Python Requests code snippets.',
+    category: 'dev',
+    keywords: ['curl to fetch', 'curl to axios', 'curl to python', 'convert curl to javascript', 'curl converter online'],
+    icon: 'Terminal',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Free online cURL command converter. Transform cURL syntax into JavaScript Fetch, Axios, and Python code instantly.',
+    faqs: [
+      {
+        question: 'Does this converter support custom headers and JSON payloads?',
+        answer: 'Yes, it parses -H headers, -d/--data payloads, and -X methods into properly formatted JavaScript and Python objects.',
+      },
+      {
+        question: 'Are sensitive API keys sent over the network?',
+        answer: 'No, all command parsing occurs locally inside your browser with zero network requests.',
+      },
+    ],
+    component: CurlToFetchAxiosConverter,
+  },
+  {
+    id: 'jwt-debugger-decoder',
+    slug: 'jwt-debugger-decoder',
+    title: 'JWT Debugger & Decoder Studio',
+    shortDesc: 'Decode JSON Web Tokens locally with real-time expiration inspection, claim viewing, and zero-upload client privacy.',
+    category: 'dev',
+    keywords: ['jwt debugger', 'decode jwt online', 'jwt token inspector', 'jwt claims decoder', 'jwt expiration check'],
+    icon: 'Key',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Fast client-side JWT decoder and debugger. Inspect Header, Payload, Claims, and Expiration timestamps with complete privacy.',
+    faqs: [
+      {
+        question: 'Is my secret key or token exposed to any server?',
+        answer: 'Never. Decoding is performed entirely using browser Base64 algorithms with 0 external network requests.',
+      },
+      {
+        question: 'How does it detect token expiration?',
+        answer: 'It extracts the exp claim and compares it against your local client clock to calculate remaining validity time.',
+      },
+    ],
+    component: JwtDecoderDebuggerStudio,
+  },
+  {
+    id: 'css-triangle-generator',
+    slug: 'css-triangle-generator',
+    title: 'CSS Triangle & Tooltip Arrow Generator',
+    shortDesc: 'Generate lightweight pure CSS triangles and directional tooltip arrows using transparent border geometry with instant code copy.',
+    category: 'dev',
+    keywords: ['css triangle generator', 'css arrow generator', 'pure css triangle', 'tooltip arrow css', 'css border triangle'],
+    icon: 'Triangle',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Interactive CSS triangle generator. Create arrows and tooltip pointers pointing top, bottom, left, right, or diagonal using border geometry.',
+    faqs: [
+      {
+        question: 'How do CSS border triangles work?',
+        answer: 'By giving an element zero width and height and using colored and transparent borders, the intersecting border angles form geometric triangles.',
+      },
+      {
+        question: 'Are these triangles responsive and supported across all browsers?',
+        answer: 'Yes, border-based triangles are compatible with 100% of web browsers from legacy engines to modern mobile WebKit.',
+      },
+    ],
+    component: CssTriangleGeneratorStudio,
+  },
+  {
+    id: 'open-graph-preview-generator',
+    slug: 'open-graph-preview-generator',
+    title: 'Open Graph & Social Meta Preview Studio',
+    shortDesc: 'Preview and validate how your web pages appear on Twitter/X, Facebook, LinkedIn, and Discord with live HTML meta tag generation.',
+    category: 'dev',
+    keywords: ['open graph preview', 'og tags generator', 'twitter card preview', 'social meta tags tester', 'social share mockup'],
+    icon: 'Share2',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Interactive Open Graph simulator. Preview Twitter Cards, Facebook posts, and Discord embeds, and copy complete SEO meta tag blocks.',
+    faqs: [
+      {
+        question: 'What is the recommended size for an Open Graph image?',
+        answer: 'The industry gold standard is 1200×630 pixels with an aspect ratio of 1.91:1 for crisp display across all social networks.',
+      },
+      {
+        question: 'Why are Open Graph meta tags essential for SEO and traffic?',
+        answer: 'When links are shared on social media and messaging platforms, OG tags ensure rich thumbnails and descriptive titles are displayed, boosting click-through rates.',
+      },
+    ],
+    component: OpenGraphPreviewDebuggerStudio,
   },
 ];
 
