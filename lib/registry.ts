@@ -92,6 +92,10 @@ import { CidrSubnetCalculator } from '@/components/tools/dev/CidrSubnetCalculato
 import { UuidV7Generator } from '@/components/tools/dev/UuidV7Generator';
 import { HttpSecurityHeadersGenerator } from '@/components/tools/dev/HttpSecurityHeadersGenerator';
 import { CsvToSqlConverter } from '@/components/tools/dev/CsvToSqlConverter';
+import { JsonMinifyCompressor } from '@/components/tools/dev/JsonMinifyCompressor';
+import { MarkdownTableConverter } from '@/components/tools/text/MarkdownTableConverter';
+import { ApiKeySecretGenerator } from '@/components/tools/dev/ApiKeySecretGenerator';
+import { HexToStringConverter } from '@/components/tools/dev/HexToStringConverter';
 
 export const TOOLS_REGISTRY: ToolDefinition[] = [
   // A. Text & Content
@@ -1230,6 +1234,82 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       },
     ],
     component: CsvToSqlConverter,
+  },
+  {
+    id: 'json-minify-compressor',
+    slug: 'json-minify-compressor',
+    title: 'JSON Minifier & One-Liner Compressor',
+    shortDesc: 'Strip whitespace, newlines, and indentations from JSON payloads to minimize byte size for ENV variables and APIs.',
+    category: 'dev',
+    keywords: ['json minifier', 'minify json', 'compress json', 'one line json', 'json compact'],
+    icon: 'Minimize2',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Minify JSON files online. Strip formatting, collapse multi-line objects into a compact single line, and calculate byte savings.',
+    faqs: [
+      {
+        question: 'Does minifying JSON change the data structure?',
+        answer: 'No. Minification only strips non-essential whitespace characters (spaces, tabs, and newlines) outside of string literals, preserving exact semantic structure.',
+      },
+    ],
+    component: JsonMinifyCompressor,
+  },
+  {
+    id: 'markdown-table-converter',
+    slug: 'markdown-table-converter',
+    title: 'Markdown Table to JSON & CSV Converter',
+    shortDesc: 'Parse GitHub Flavored Markdown tables into structured JSON arrays of objects and RFC 4180 CSV spreadsheets with visual table preview.',
+    category: 'text',
+    keywords: ['markdown table to json', 'markdown to csv', 'convert markdown table', 'markdown table parser'],
+    icon: 'Table',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Convert Markdown tables into JSON objects and CSV files in real-time. Features interactive visual data grid and 1-click clipboard copy.',
+    faqs: [
+      {
+        question: 'Can this tool handle markdown tables with missing cells or alignment pipes?',
+        answer: 'Yes. The parser normalizes delimiter pipes and automatically maps empty or uneven table cells to empty string values.',
+      },
+    ],
+    component: MarkdownTableConverter,
+  },
+  {
+    id: 'api-key-secret-generator',
+    slug: 'api-key-secret-generator',
+    title: 'API Key, Webhook Secret & Token Generator',
+    shortDesc: 'Generate cryptographically secure API keys, OAuth client secrets, and webhooks in Base64URL, Hex, and Alphanumeric encodings.',
+    category: 'dev',
+    keywords: ['api key generator', 'secret key generator', 'generate webhook secret', 'random token generator'],
+    icon: 'KeyRound',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Generate CSPRNG random API keys and authentication secrets with custom prefixes (sk_live_), length controls, and entropy ratings.',
+    faqs: [
+      {
+        question: 'How are the random API keys generated?',
+        answer: 'All tokens are generated using the browser\'s native Web Cryptography API (crypto.getRandomValues), guaranteeing true cryptographic randomness with zero network transmission.',
+      },
+    ],
+    component: ApiKeySecretGenerator,
+  },
+  {
+    id: 'hex-to-string-converter',
+    slug: 'hex-to-string-converter',
+    title: 'Hex to String & ASCII Byte Dump Inspector',
+    shortDesc: 'Decode hexadecimal strings into readable ASCII/UTF-8 text and encode plain text into hex bytes with live memory dump viewer.',
+    category: 'dev',
+    keywords: ['hex to string', 'hex to ascii', 'string to hex', 'hex dump online', 'hex decoder'],
+    icon: 'Binary',
+    isPopular: true,
+    isNew: true,
+    seoDescription: 'Two-way Hex to ASCII and String converter. Inspect byte representations, format with spaces or 0x prefixes, and view classic memory offset dumps.',
+    faqs: [
+      {
+        question: 'What character encoding does the hex converter use?',
+        answer: 'The converter uses standard UTF-8 variable-length byte encoding, allowing full support for multi-byte Unicode characters, emojis, and international alphabets.',
+      },
+    ],
+    component: HexToStringConverter,
   },
 ];
 

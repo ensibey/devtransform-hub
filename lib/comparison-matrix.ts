@@ -175,6 +175,74 @@ export const COMPARISONS: ComparisonDefinition[] = [
       whenToUseB: ['WordPress, Drupal, and classic LAMP stack deployments', 'High-throughput simple key-lookup read operations', 'Legacy infrastructure deeply optimized for InnoDB replication'],
     },
   },
+  {
+    slug: 'react-vs-vue',
+    title: 'React vs Vue: Modern JavaScript UI Framework Comparison',
+    itemAName: 'React',
+    itemBName: 'Vue.js',
+    summary: 'Evaluate architectural principles, rendering lifecycles, ecosystem maturity, and developer ergonomics between React and Vue 3.',
+    features: [
+      { feature: 'Template Paradigm', itemA: 'Full JavaScript power via JSX syntax', itemB: 'Single-File Components with HTML templates', verdict: 'TIE' },
+      { feature: 'State Reactivity', itemA: 'Explicit immutable state hooks (useState)', itemB: 'Automatic fine-grained proxy reactivity (ref/reactive)', verdict: 'B' },
+      { feature: 'Ecosystem & Job Market', itemA: 'Global market leader with massive hiring pool', itemB: 'Strong community, especially in Asia and Europe', verdict: 'A' },
+      { feature: 'Official Tooling', itemA: 'Unopinionated, community fragmented routers/state', itemB: 'Officially maintained Vue Router and Pinia', verdict: 'B' },
+    ],
+    recommendations: {
+      whenToUseA: ['Large teams requiring unified hiring and multi-platform reach (React Native)', 'Complex component abstractions with advanced TypeScript generics', 'Ecosystem heavy enterprise applications'],
+      whenToUseB: ['Progressive enhancement of existing server-rendered HTML', 'Teams that appreciate clean separation between template, script, and scoped styles', 'Developers wanting batteries-included official routing and state management'],
+    },
+  },
+  {
+    slug: 'grpc-vs-rest',
+    title: 'gRPC vs REST: Microservices API Protocol Comparison',
+    itemAName: 'gRPC (HTTP/2 + Protobuf)',
+    itemBName: 'REST (HTTP/1.1 + JSON)',
+    summary: 'Compare high-performance binary RPC communication (gRPC) against universal resource-based web APIs (RESTful JSON).',
+    features: [
+      { feature: 'Payload Size & Performance', itemA: 'Compact binary Protocol Buffers (up to 7x faster)', itemB: 'Verbose text-based JSON serialization', verdict: 'A' },
+      { feature: 'Multiplexing & Streaming', itemA: 'Bidirectional streaming via native HTTP/2', itemB: 'Request/Response only (requires SSE or WebSocket)', verdict: 'A' },
+      { feature: 'Browser Support', itemA: 'Limited (requires gRPC-Web proxy)', itemB: 'Universal native fetch/XMLHttpRequest', verdict: 'B' },
+      { feature: 'Human Debuggability', itemA: 'Requires specialized tools to decode binary', itemB: 'Trivial: plain text inspectable in DevTools and curl', verdict: 'B' },
+    ],
+    recommendations: {
+      whenToUseA: ['Internal backend-to-backend microservices communication', 'Real-time telemetry and high-throughput streaming systems', 'Polyglot systems requiring strictly typed cross-language contracts'],
+      whenToUseB: ['Public-facing web and mobile consumer APIs', 'Services where standard HTTP caching and simple browser testing are required', 'Third-party developer developer portals and webhooks'],
+    },
+  },
+  {
+    slug: 'redis-vs-memcached',
+    title: 'Redis vs Memcached: In-Memory Data Store Comparison',
+    itemAName: 'Redis',
+    itemBName: 'Memcached',
+    summary: 'Compare Redis (advanced in-memory data structures and persistence) with Memcached (pure multi-threaded high-concurrency key-value store).',
+    features: [
+      { feature: 'Data Structures', itemA: 'Rich: Hashes, Lists, Sets, Sorted Sets, Bitmaps', itemB: 'Simple string key-value pairs only', verdict: 'A' },
+      { feature: 'Disk Persistence', itemA: 'Configurable RDB snapshots and AOF logs', itemB: 'Pure RAM only (no disk persistence)', verdict: 'A' },
+      { feature: 'Multi-threading Architecture', itemA: 'Single-threaded event loop (multi-threaded I/O)', itemB: 'Fully multi-threaded multi-core architecture', verdict: 'B' },
+      { feature: 'Pub/Sub & Streaming', itemA: 'Built-in Pub/Sub and Redis Streams', itemB: 'None (caching only)', verdict: 'A' },
+    ],
+    recommendations: {
+      whenToUseA: ['Leaderboards (Sorted Sets), rate limiters, session stores, and message queues', 'Applications requiring persistent in-memory data across restarts', 'Geospatial queries and pub/sub message brokers'],
+      whenToUseB: ['Simple high-throughput caching of static HTML/DB query fragments', 'Multi-core servers with massive concurrent read/write scaling', 'Ultra-low overhead raw key-value caching where simplicity is key'],
+    },
+  },
+  {
+    slug: 'docker-vs-kubernetes',
+    title: 'Docker vs Kubernetes: Containerization vs Orchestration',
+    itemAName: 'Docker (Container Engine)',
+    itemBName: 'Kubernetes (K8s Orchestrator)',
+    summary: 'Clarify the relationship between packaging software into containers (Docker) and automating container deployment and self-healing at scale (Kubernetes).',
+    features: [
+      { feature: 'Core Responsibility', itemA: 'Package, build, and run individual containers', itemB: 'Orchestrate, schedule, and autoscale container fleets', verdict: 'TIE' },
+      { feature: 'Operational Complexity', itemA: 'Minimal: Simple CLI and docker-compose.yml', itemB: 'High: Control plane, etcd, networking, ingress, RBAC', verdict: 'A' },
+      { feature: 'Self-Healing & Auto-scaling', itemA: 'Basic restart policies only', itemB: 'Automatic pod rescheduling, health probes, and HPA', verdict: 'B' },
+      { feature: 'Multi-host Clustering', itemA: 'Docker Swarm (simple, limited features)', itemB: 'Industry standard for enterprise multi-node clusters', verdict: 'B' },
+    ],
+    recommendations: {
+      whenToUseA: ['Local developer workstation setups and CI/CD build environments', 'Single-server VPS deployments running small web applications', 'Creating portable reproducible container images'],
+      whenToUseB: ['High-availability production cloud deployments across multiple cloud zones', 'Zero-downtime rolling deployments with automated rollbacks', 'Complex microservice architectures requiring automated load balancing and service discovery'],
+    },
+  },
 ];
 
 export function getAllComparisons(): ComparisonDefinition[] {
