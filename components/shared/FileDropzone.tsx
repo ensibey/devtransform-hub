@@ -25,8 +25,8 @@ export function FileDropzone({
   multiple = false,
   maxSizeMB = 50,
   onFilesSelected,
-  title = 'Dosyalarınızı Buraya Sürükleyin veya Seçin',
-  subtitle = '%100 İstemci Taraflı • Dosyalarınız asla tarayıcınızdan çıkmaz',
+  title = 'Drag & Drop Your Files Here or Click to Browse',
+  subtitle = '100% Client-Side • Your files never leave your browser',
   className = '',
 }: FileDropzoneProps) {
   const [isDragging, setIsDragging] = useState(false);
@@ -100,7 +100,7 @@ export function FileDropzone({
       {/* Title & Subtitle */}
       <div className="space-y-1.5 max-w-md">
         <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-zinc-100 tracking-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-          {isDragging ? '🎉 Dosyayı Hemen Bırakın!' : title}
+          {isDragging ? '🎉 Drop files right here!' : title}
         </h3>
         <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 leading-relaxed">
           {subtitle}
@@ -111,7 +111,7 @@ export function FileDropzone({
       <div className="pt-2">
         <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm shadow-md transition-all group-hover:shadow-lg group-hover:shadow-emerald-600/30">
           <FolderOpen className="w-4 h-4" />
-          <span>Bilgisayardan Dosya Seçin</span>
+          <span>Browse Files from Computer</span>
         </span>
       </div>
 
@@ -119,12 +119,12 @@ export function FileDropzone({
       <div className="flex flex-wrap items-center justify-center gap-2 pt-2 text-[11px] font-mono">
         {accept && (
           <span className="px-2.5 py-1 rounded-lg bg-white dark:bg-zinc-800/80 border border-slate-200 dark:border-zinc-700 text-slate-700 dark:text-zinc-300 shadow-sm">
-            Desteklenen: <span className="font-semibold text-emerald-600 dark:text-emerald-400">{accept}</span>
+            Supported: <span className="font-semibold text-emerald-600 dark:text-emerald-400">{accept}</span>
           </span>
         )}
         <span className="px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 flex items-center gap-1 shadow-sm">
           <ShieldCheck className="w-3.5 h-3.5" />
-          Maks. {maxSizeMB} MB &bull; Sıfır Veri Yükleme
+          Max {maxSizeMB} MB &bull; Zero Server Uploads
         </span>
       </div>
     </div>

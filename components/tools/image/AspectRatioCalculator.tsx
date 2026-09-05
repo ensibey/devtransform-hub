@@ -51,7 +51,7 @@ export function AspectRatioCalculator() {
     <div className="space-y-6">
       {/* Preset Buttons */}
       <div className="p-4 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-3">
-        <span className="text-xs font-mono text-zinc-400">Popular Presets (Hazır Şablonlar):</span>
+        <span className="text-xs font-mono text-zinc-400">Popular Presets:</span>
         <div className="flex flex-wrap gap-2">
           {PRESETS.map((p) => (
             <button

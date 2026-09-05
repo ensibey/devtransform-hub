@@ -68,7 +68,7 @@ export function LoremIpsumGenerator() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Quantity */}
           <div className="space-y-1.5">
-            <label className="text-xs font-mono text-zinc-400">Quantity / Sayı:</label>
+            <label className="text-xs font-mono text-zinc-400">Quantity:</label>
             <input
               type="number"
               min="1"
@@ -81,15 +81,15 @@ export function LoremIpsumGenerator() {
 
           {/* Type */}
           <div className="space-y-1.5">
-            <label className="text-xs font-mono text-zinc-400">Type / Tür:</label>
+            <label className="text-xs font-mono text-zinc-400">Type:</label>
             <select
               value={type}
               onChange={(e: any) => setType(e.target.value)}
               className="w-full p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 font-mono text-sm text-white focus:outline-none focus:border-brand-emerald"
             >
-              <option value="paragraphs">Paragraphs (Paragraf)</option>
-              <option value="sentences">Sentences (Cümle)</option>
-              <option value="words">Words (Kelime)</option>
+              <option value="paragraphs">Paragraphs</option>
+              <option value="sentences">Sentences</option>
+              <option value="words">Words</option>
             </select>
           </div>
 

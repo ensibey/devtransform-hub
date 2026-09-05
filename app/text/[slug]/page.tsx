@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const item = getTextTransformationBySlug(params.slug);
   if (!item) return { title: 'Text Converter' };
 
-  const title = `${item.name} Online Converter & Tool (${item.nameTr})`;
+  const title = `${item.name} Online Formatter & Converter | DevTransform`;
   const description = `Free online ${item.name} utility. ${item.description} Instant client-side transformation with zero latency and complete privacy.`;
   const canonicalUrl = `https://devtransform-hub.vercel.app/text/${item.slug}/`;
 
@@ -47,7 +47,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     keywords: [
       item.slug.replace(/-/g, ' '),
       item.name.toLowerCase(),
-      `${item.nameTr.toLowerCase()}`,
       'text converter',
       'string manipulation online',
       'developer text tools',
@@ -60,7 +59,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url: canonicalUrl,
       type: 'website',
-      siteName: 'ZeroUpload Text Hub',
+      siteName: 'DevTransform Text Hub',
     },
   };
 }
@@ -133,7 +132,7 @@ export default function TextTransformationPage({ params }: PageProps) {
             {item.name}
           </h1>
           <p className="text-xs sm:text-sm text-zinc-400 max-w-3xl leading-relaxed">
-            {item.description} ({item.descriptionTr})
+            {item.description}
           </p>
         </div>
       </div>
@@ -145,7 +144,7 @@ export default function TextTransformationPage({ params }: PageProps) {
       <section className="space-y-3 pt-6 border-t border-zinc-800">
         <div className="flex items-center space-x-2 font-mono text-xs font-bold text-zinc-400 uppercase">
           <Layers className="w-4 h-4" />
-          <span>Diğer Metin Dönüştürücüleri (Related Text Tools)</span>
+          <span>Related Text Utilities</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
           {TEXT_TRANSFORMATIONS.filter((t) => t.slug !== item.slug).slice(0, 9).map((t) => (

@@ -59,10 +59,10 @@ export function PasswordGenerator() {
   const entropy = getEntropy();
 
   const getStrengthLabel = () => {
-    if (entropy < 40) return { label: 'Zayıf / Weak', color: 'text-rose-400', bg: 'bg-rose-500/20 border-rose-500/40' };
-    if (entropy < 65) return { label: 'Orta / Moderate', color: 'text-amber-400', bg: 'bg-amber-500/20 border-amber-500/40' };
-    if (entropy < 90) return { label: 'Güçlü / Strong', color: 'text-emerald-400', bg: 'bg-emerald-500/20 border-emerald-500/40' };
-    return { label: 'Çok Güçlü / Very Strong (Quantum Safe)', color: 'text-brand-emerald', bg: 'bg-emerald-500/20 border-emerald-500/50' };
+    if (entropy < 40) return { label: 'Weak', color: 'text-rose-400', bg: 'bg-rose-500/20 border-rose-500/40' };
+    if (entropy < 65) return { label: 'Moderate', color: 'text-amber-400', bg: 'bg-amber-500/20 border-amber-500/40' };
+    if (entropy < 90) return { label: 'Strong', color: 'text-emerald-400', bg: 'bg-emerald-500/20 border-emerald-500/40' };
+    return { label: 'Very Strong (Quantum Safe)', color: 'text-brand-emerald', bg: 'bg-emerald-500/20 border-emerald-500/50' };
   };
 
   const strength = getStrengthLabel();

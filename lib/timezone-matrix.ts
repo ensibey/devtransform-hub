@@ -4,87 +4,90 @@ export interface CityInfo {
   nameTr: string;
   country: string;
   countryTr: string;
+  countryCode: string;
   timezone: string;
   utcOffset: number; // Standard UTC offset in hours
+  lat: number;
+  lng: number;
+  isMiddleEastWorkweek?: boolean; // Sunday to Thursday workweek
 }
 
 export const CITIES: CityInfo[] = [
-  { slug: 'istanbul', name: 'Istanbul', nameTr: 'İstanbul', country: 'Turkey', countryTr: 'Türkiye', timezone: 'Europe/Istanbul', utcOffset: 3 },
-  { slug: 'london', name: 'London', nameTr: 'Londra', country: 'United Kingdom', countryTr: 'Birleşik Krallık', timezone: 'Europe/London', utcOffset: 0 },
-  { slug: 'new-york', name: 'New York', nameTr: 'New York', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/New_York', utcOffset: -5 },
-  { slug: 'tokyo', name: 'Tokyo', nameTr: 'Tokyo', country: 'Japan', countryTr: 'Japonya', timezone: 'Asia/Tokyo', utcOffset: 9 },
-  { slug: 'paris', name: 'Paris', nameTr: 'Paris', country: 'France', countryTr: 'Fransa', timezone: 'Europe/Paris', utcOffset: 1 },
-  { slug: 'berlin', name: 'Berlin', nameTr: 'Berlin', country: 'Germany', countryTr: 'Almanya', timezone: 'Europe/Berlin', utcOffset: 1 },
-  { slug: 'dubai', name: 'Dubai', nameTr: 'Dubai', country: 'United Arab Emirates', countryTr: 'Birleşik Arap Emirlikleri', timezone: 'Asia/Dubai', utcOffset: 4 },
-  { slug: 'singapore', name: 'Singapore', nameTr: 'Singapur', country: 'Singapore', countryTr: 'Singapur', timezone: 'Asia/Singapore', utcOffset: 8 },
-  { slug: 'sydney', name: 'Sydney', nameTr: 'Sidney', country: 'Australia', countryTr: 'Avustralya', timezone: 'Australia/Sydney', utcOffset: 10 },
-  { slug: 'los-angeles', name: 'Los Angeles', nameTr: 'Los Angeles', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/Los_Angeles', utcOffset: -8 },
-  { slug: 'chicago', name: 'Chicago', nameTr: 'Chicago', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/Chicago', utcOffset: -6 },
-  { slug: 'toronto', name: 'Toronto', nameTr: 'Toronto', country: 'Canada', countryTr: 'Kanada', timezone: 'America/Toronto', utcOffset: -5 },
-  { slug: 'amsterdam', name: 'Amsterdam', nameTr: 'Amsterdam', country: 'Netherlands', countryTr: 'Hollanda', timezone: 'Europe/Amsterdam', utcOffset: 1 },
-  { slug: 'rome', name: 'Rome', nameTr: 'Roma', country: 'Italy', countryTr: 'İtalya', timezone: 'Europe/Rome', utcOffset: 1 },
-  { slug: 'madrid', name: 'Madrid', nameTr: 'Madrid', country: 'Spain', countryTr: 'İspanya', timezone: 'Europe/Madrid', utcOffset: 1 },
-  { slug: 'frankfurt', name: 'Frankfurt', nameTr: 'Frankfurt', country: 'Germany', countryTr: 'Almanya', timezone: 'Europe/Berlin', utcOffset: 1 },
-  { slug: 'zurich', name: 'Zurich', nameTr: 'Zürih', country: 'Switzerland', countryTr: 'İsviçre', timezone: 'Europe/Zurich', utcOffset: 1 },
-  { slug: 'moscow', name: 'Moscow', nameTr: 'Moskova', country: 'Russia', countryTr: 'Rusya', timezone: 'Europe/Moscow', utcOffset: 3 },
-  { slug: 'seoul', name: 'Seoul', nameTr: 'Seul', country: 'South Korea', countryTr: 'Güney Kore', timezone: 'Asia/Seoul', utcOffset: 9 },
-  { slug: 'hong-kong', name: 'Hong Kong', nameTr: 'Hong Kong', country: 'Hong Kong', countryTr: 'Hong Kong', timezone: 'Asia/Hong_Kong', utcOffset: 8 },
-  { slug: 'shanghai', name: 'Shanghai', nameTr: 'Şanghay', country: 'China', countryTr: 'Çin', timezone: 'Asia/Shanghai', utcOffset: 8 },
-  { slug: 'bangkok', name: 'Bangkok', nameTr: 'Bangkok', country: 'Thailand', countryTr: 'Tayland', timezone: 'Asia/Bangkok', utcOffset: 7 },
-  { slug: 'mumbai', name: 'Mumbai', nameTr: 'Mumbai', country: 'India', countryTr: 'Hindistan', timezone: 'Asia/Kolkata', utcOffset: 5.5 },
-  { slug: 'delhi', name: 'Delhi', nameTr: 'Delhi', country: 'India', countryTr: 'Hindistan', timezone: 'Asia/Kolkata', utcOffset: 5.5 },
-  { slug: 'riyadh', name: 'Riyadh', nameTr: 'Riyad', country: 'Saudi Arabia', countryTr: 'Suudi Arabistan', timezone: 'Asia/Riyadh', utcOffset: 3 },
-  { slug: 'doha', name: 'Doha', nameTr: 'Doha', country: 'Qatar', countryTr: 'Katar', timezone: 'Asia/Qatar', utcOffset: 3 },
-  { slug: 'cairo', name: 'Cairo', nameTr: 'Kahire', country: 'Egypt', countryTr: 'Mısır', timezone: 'Africa/Cairo', utcOffset: 2 },
-  { slug: 'johannesburg', name: 'Johannesburg', nameTr: 'Johannesburg', country: 'South Africa', countryTr: 'Güney Afrika', timezone: 'Africa/Johannesburg', utcOffset: 2 },
-  { slug: 'sao-paulo', name: 'Sao Paulo', nameTr: 'Sao Paulo', country: 'Brazil', countryTr: 'Brezilya', timezone: 'America/Sao_Paulo', utcOffset: -3 },
-  { slug: 'buenos-aires', name: 'Buenos Aires', nameTr: 'Buenos Aires', country: 'Argentina', countryTr: 'Arjantin', timezone: 'America/Argentina/Buenos_Aires', utcOffset: -3 },
-  { slug: 'mexico-city', name: 'Mexico City', nameTr: 'Mexico City', country: 'Mexico', countryTr: 'Meksika', timezone: 'America/Mexico_City', utcOffset: -6 },
-  { slug: 'vancouver', name: 'Vancouver', nameTr: 'Vancouver', country: 'Canada', countryTr: 'Kanada', timezone: 'America/Vancouver', utcOffset: -8 },
-  { slug: 'san-francisco', name: 'San Francisco', nameTr: 'San Francisco', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/Los_Angeles', utcOffset: -8 },
-  { slug: 'miami', name: 'Miami', nameTr: 'Miami', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/New_York', utcOffset: -5 },
-  { slug: 'houston', name: 'Houston', nameTr: 'Houston', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/Chicago', utcOffset: -6 },
-  { slug: 'boston', name: 'Boston', nameTr: 'Boston', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/New_York', utcOffset: -5 },
-  { slug: 'seattle', name: 'Seattle', nameTr: 'Seattle', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/Los_Angeles', utcOffset: -8 },
-  { slug: 'dublin', name: 'Dublin', nameTr: 'Dublin', country: 'Ireland', countryTr: 'İrlanda', timezone: 'Europe/Dublin', utcOffset: 0 },
-  { slug: 'stockholm', name: 'Stockholm', nameTr: 'Stockholm', country: 'Sweden', countryTr: 'İsveç', timezone: 'Europe/Stockholm', utcOffset: 1 },
-  { slug: 'oslo', name: 'Oslo', nameTr: 'Oslo', country: 'Norway', countryTr: 'Norveç', timezone: 'Europe/Oslo', utcOffset: 1 },
-  { slug: 'copenhagen', name: 'Copenhagen', nameTr: 'Kopenhag', country: 'Denmark', countryTr: 'Danimarka', timezone: 'Europe/Copenhagen', utcOffset: 1 },
-  { slug: 'vienna', name: 'Vienna', nameTr: 'Viyana', country: 'Austria', countryTr: 'Avusturya', timezone: 'Europe/Vienna', utcOffset: 1 },
-  { slug: 'brussels', name: 'Brussels', nameTr: 'Brüksel', country: 'Belgium', countryTr: 'Belçika', timezone: 'Europe/Brussels', utcOffset: 1 },
-  { slug: 'athens', name: 'Athens', nameTr: 'Atina', country: 'Greece', countryTr: 'Yunanistan', timezone: 'Europe/Athens', utcOffset: 2 },
-  { slug: 'ankara', name: 'Ankara', nameTr: 'Ankara', country: 'Turkey', countryTr: 'Türkiye', timezone: 'Europe/Istanbul', utcOffset: 3 },
-  { slug: 'izmir', name: 'Izmir', nameTr: 'İzmir', country: 'Turkey', countryTr: 'Türkiye', timezone: 'Europe/Istanbul', utcOffset: 3 },
-  { slug: 'melbourne', name: 'Melbourne', nameTr: 'Melbourne', country: 'Australia', countryTr: 'Avustralya', timezone: 'Australia/Melbourne', utcOffset: 10 },
-  { slug: 'auckland', name: 'Auckland', nameTr: 'Auckland', country: 'New Zealand', countryTr: 'Yeni Zelanda', timezone: 'Pacific/Auckland', utcOffset: 12 },
-  { slug: 'honolulu', name: 'Honolulu', nameTr: 'Honolulu', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'Pacific/Honolulu', utcOffset: -10 },
-  { slug: 'kuala-lumpur', name: 'Kuala Lumpur', nameTr: 'Kuala Lumpur', country: 'Malaysia', countryTr: 'Malezya', timezone: 'Asia/Kuala_Lumpur', utcOffset: 8 },
-  // Expanded 25 Tech & Financial Hubs
-  { slug: 'lisbon', name: 'Lisbon', nameTr: 'Lizbon', country: 'Portugal', countryTr: 'Portekiz', timezone: 'Europe/Lisbon', utcOffset: 0 },
-  { slug: 'warsaw', name: 'Warsaw', nameTr: 'Varşova', country: 'Poland', countryTr: 'Polonya', timezone: 'Europe/Warsaw', utcOffset: 1 },
-  { slug: 'prague', name: 'Prague', nameTr: 'Prag', country: 'Czech Republic', countryTr: 'Çek Cumhuriyeti', timezone: 'Europe/Prague', utcOffset: 1 },
-  { slug: 'budapest', name: 'Budapest', nameTr: 'Budapeşte', country: 'Hungary', countryTr: 'Macaristan', timezone: 'Europe/Budapest', utcOffset: 1 },
-  { slug: 'helsinki', name: 'Helsinki', nameTr: 'Helsinki', country: 'Finland', countryTr: 'Finlandiya', timezone: 'Europe/Helsinki', utcOffset: 2 },
-  { slug: 'austin', name: 'Austin', nameTr: 'Austin', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/Chicago', utcOffset: -6 },
-  { slug: 'dallas', name: 'Dallas', nameTr: 'Dallas', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/Chicago', utcOffset: -6 },
-  { slug: 'atlanta', name: 'Atlanta', nameTr: 'Atlanta', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/New_York', utcOffset: -5 },
-  { slug: 'denver', name: 'Denver', nameTr: 'Denver', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/Denver', utcOffset: -7 },
-  { slug: 'phoenix', name: 'Phoenix', nameTr: 'Phoenix', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', timezone: 'America/Phoenix', utcOffset: -7 },
-  { slug: 'montreal', name: 'Montreal', nameTr: 'Montreal', country: 'Canada', countryTr: 'Kanada', timezone: 'America/Toronto', utcOffset: -5 },
-  { slug: 'calgary', name: 'Calgary', nameTr: 'Calgary', country: 'Canada', countryTr: 'Kanada', timezone: 'America/Edmonton', utcOffset: -7 },
-  { slug: 'bangalore', name: 'Bangalore', nameTr: 'Bangalore', country: 'India', countryTr: 'Hindistan', timezone: 'Asia/Kolkata', utcOffset: 5.5 },
-  { slug: 'hyderabad', name: 'Hyderabad', nameTr: 'Haydarabad', country: 'India', countryTr: 'Hindistan', timezone: 'Asia/Kolkata', utcOffset: 5.5 },
-  { slug: 'taipei', name: 'Taipei', nameTr: 'Taipei', country: 'Taiwan', countryTr: 'Tayvan', timezone: 'Asia/Taipei', utcOffset: 8 },
-  { slug: 'jakarta', name: 'Jakarta', nameTr: 'Cakarta', country: 'Indonesia', countryTr: 'Endonezya', timezone: 'Asia/Jakarta', utcOffset: 7 },
-  { slug: 'manila', name: 'Manila', nameTr: 'Manila', country: 'Philippines', countryTr: 'Filipinler', timezone: 'Asia/Manila', utcOffset: 8 },
-  { slug: 'tel-aviv', name: 'Tel Aviv', nameTr: 'Tel Aviv', country: 'Israel', countryTr: 'İsrail', timezone: 'Asia/Jerusalem', utcOffset: 2 },
-  { slug: 'nairobi', name: 'Nairobi', nameTr: 'Nairobi', country: 'Kenya', countryTr: 'Kenya', timezone: 'Africa/Nairobi', utcOffset: 3 },
-  { slug: 'santiago', name: 'Santiago', nameTr: 'Santiago', country: 'Chile', countryTr: 'Şili', timezone: 'America/Santiago', utcOffset: -4 },
-  { slug: 'bogota', name: 'Bogota', nameTr: 'Bogota', country: 'Colombia', countryTr: 'Kolombiya', timezone: 'America/Bogota', utcOffset: -5 },
-  { slug: 'lima', name: 'Lima', nameTr: 'Lima', country: 'Peru', countryTr: 'Peru', timezone: 'America/Lima', utcOffset: -5 },
-  { slug: 'brisbane', name: 'Brisbane', nameTr: 'Brisbane', country: 'Australia', countryTr: 'Avustralya', timezone: 'Australia/Brisbane', utcOffset: 10 },
-  { slug: 'perth', name: 'Perth', nameTr: 'Perth', country: 'Australia', countryTr: 'Avustralya', timezone: 'Australia/Perth', utcOffset: 8 },
-  { slug: 'osaka', name: 'Osaka', nameTr: 'Osaka', country: 'Japan', countryTr: 'Japonya', timezone: 'Asia/Tokyo', utcOffset: 9 },
+  { slug: 'istanbul', name: 'Istanbul', nameTr: 'İstanbul', country: 'Turkey', countryTr: 'Türkiye', countryCode: 'TR', timezone: 'Europe/Istanbul', utcOffset: 3, lat: 41.0082, lng: 28.9784 },
+  { slug: 'london', name: 'London', nameTr: 'Londra', country: 'United Kingdom', countryTr: 'Birleşik Krallık', countryCode: 'GB', timezone: 'Europe/London', utcOffset: 0, lat: 51.5074, lng: -0.1278 },
+  { slug: 'new-york', name: 'New York', nameTr: 'New York', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', countryCode: 'US', timezone: 'America/New_York', utcOffset: -5, lat: 40.7128, lng: -74.0060 },
+  { slug: 'tokyo', name: 'Tokyo', nameTr: 'Tokyo', country: 'Japan', countryTr: 'Japonya', countryCode: 'JP', timezone: 'Asia/Tokyo', utcOffset: 9, lat: 35.6762, lng: 139.6503 },
+  { slug: 'paris', name: 'Paris', nameTr: 'Paris', country: 'France', countryTr: 'Fransa', countryCode: 'FR', timezone: 'Europe/Paris', utcOffset: 1, lat: 48.8566, lng: 2.3522 },
+  { slug: 'berlin', name: 'Berlin', nameTr: 'Berlin', country: 'Germany', countryTr: 'Almanya', countryCode: 'DE', timezone: 'Europe/Berlin', utcOffset: 1, lat: 52.5200, lng: 13.4050 },
+  { slug: 'dubai', name: 'Dubai', nameTr: 'Dubai', country: 'United Arab Emirates', countryTr: 'Birleşik Arap Emirlikleri', countryCode: 'AE', timezone: 'Asia/Dubai', utcOffset: 4, lat: 25.2048, lng: 55.2708, isMiddleEastWorkweek: true },
+  { slug: 'singapore', name: 'Singapore', nameTr: 'Singapur', country: 'Singapore', countryTr: 'Singapur', countryCode: 'SG', timezone: 'Asia/Singapore', utcOffset: 8, lat: 1.3521, lng: 103.8198 },
+  { slug: 'sydney', name: 'Sydney', nameTr: 'Sidney', country: 'Australia', countryTr: 'Avustralya', countryCode: 'AU', timezone: 'Australia/Sydney', utcOffset: 10, lat: -33.8688, lng: 151.2093 },
+  { slug: 'los-angeles', name: 'Los Angeles', nameTr: 'Los Angeles', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', countryCode: 'US', timezone: 'America/Los_Angeles', utcOffset: -8, lat: 34.0522, lng: -118.2437 },
+  { slug: 'chicago', name: 'Chicago', nameTr: 'Chicago', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', countryCode: 'US', timezone: 'America/Chicago', utcOffset: -6, lat: 41.8781, lng: -87.6298 },
+  { slug: 'toronto', name: 'Toronto', nameTr: 'Toronto', country: 'Canada', countryTr: 'Kanada', countryCode: 'CA', timezone: 'America/Toronto', utcOffset: -5, lat: 43.6532, lng: -79.3832 },
+  { slug: 'amsterdam', name: 'Amsterdam', nameTr: 'Amsterdam', country: 'Netherlands', countryTr: 'Hollanda', countryCode: 'NL', timezone: 'Europe/Amsterdam', utcOffset: 1, lat: 52.3676, lng: 4.9041 },
+  { slug: 'rome', name: 'Rome', nameTr: 'Roma', country: 'Italy', countryTr: 'İtalya', countryCode: 'IT', timezone: 'Europe/Rome', utcOffset: 1, lat: 41.9028, lng: 12.4964 },
+  { slug: 'madrid', name: 'Madrid', nameTr: 'Madrid', country: 'Spain', countryTr: 'İspanya', countryCode: 'ES', timezone: 'Europe/Madrid', utcOffset: 1, lat: 40.4168, lng: -3.7038 },
+  { slug: 'frankfurt', name: 'Frankfurt', nameTr: 'Frankfurt', country: 'Germany', countryTr: 'Almanya', countryCode: 'DE', timezone: 'Europe/Berlin', utcOffset: 1, lat: 50.1109, lng: 8.6821 },
+  { slug: 'zurich', name: 'Zurich', nameTr: 'Zürih', country: 'Switzerland', countryTr: 'İsviçre', countryCode: 'CH', timezone: 'Europe/Zurich', utcOffset: 1, lat: 47.3769, lng: 8.5417 },
+  { slug: 'moscow', name: 'Moscow', nameTr: 'Moskova', country: 'Russia', countryTr: 'Rusya', countryCode: 'RU', timezone: 'Europe/Moscow', utcOffset: 3, lat: 55.7558, lng: 37.6173 },
+  { slug: 'seoul', name: 'Seoul', nameTr: 'Seul', country: 'South Korea', countryTr: 'Güney Kore', countryCode: 'KR', timezone: 'Asia/Seoul', utcOffset: 9, lat: 37.5665, lng: 126.9780 },
+  { slug: 'hong-kong', name: 'Hong Kong', nameTr: 'Hong Kong', country: 'Hong Kong', countryTr: 'Hong Kong', countryCode: 'HK', timezone: 'Asia/Hong_Kong', utcOffset: 8, lat: 22.3193, lng: 114.1694 },
+  { slug: 'shanghai', name: 'Shanghai', nameTr: 'Şanghay', country: 'China', countryTr: 'Çin', countryCode: 'CN', timezone: 'Asia/Shanghai', utcOffset: 8, lat: 31.2304, lng: 121.4737 },
+  { slug: 'bangkok', name: 'Bangkok', nameTr: 'Bangkok', country: 'Thailand', countryTr: 'Tayland', countryCode: 'TH', timezone: 'Asia/Bangkok', utcOffset: 7, lat: 13.7563, lng: 100.5018 },
+  { slug: 'mumbai', name: 'Mumbai', nameTr: 'Mumbai', country: 'India', countryTr: 'Hindistan', countryCode: 'IN', timezone: 'Asia/Kolkata', utcOffset: 5.5, lat: 19.0760, lng: 72.8777 },
+  { slug: 'delhi', name: 'Delhi', nameTr: 'Delhi', country: 'India', countryTr: 'Hindistan', countryCode: 'IN', timezone: 'Asia/Kolkata', utcOffset: 5.5, lat: 28.7041, lng: 77.1025 },
+  { slug: 'riyadh', name: 'Riyadh', nameTr: 'Riyad', country: 'Saudi Arabia', countryTr: 'Suudi Arabistan', countryCode: 'SA', timezone: 'Asia/Riyadh', utcOffset: 3, lat: 24.7136, lng: 46.6753, isMiddleEastWorkweek: true },
+  { slug: 'doha', name: 'Doha', nameTr: 'Doha', country: 'Qatar', countryTr: 'Katar', countryCode: 'QA', timezone: 'Asia/Qatar', utcOffset: 3, lat: 25.2854, lng: 51.5310, isMiddleEastWorkweek: true },
+  { slug: 'cairo', name: 'Cairo', nameTr: 'Kahire', country: 'Egypt', countryTr: 'Mısır', countryCode: 'EG', timezone: 'Africa/Cairo', utcOffset: 2, lat: 30.0444, lng: 31.2357, isMiddleEastWorkweek: true },
+  { slug: 'johannesburg', name: 'Johannesburg', nameTr: 'Johannesburg', country: 'South Africa', countryTr: 'Güney Afrika', countryCode: 'ZA', timezone: 'Africa/Johannesburg', utcOffset: 2, lat: -26.2041, lng: 28.0473 },
+  { slug: 'sao-paulo', name: 'Sao Paulo', nameTr: 'Sao Paulo', country: 'Brazil', countryTr: 'Brezilya', countryCode: 'BR', timezone: 'America/Sao_Paulo', utcOffset: -3, lat: -23.5505, lng: -46.6333 },
+  { slug: 'buenos-aires', name: 'Buenos Aires', nameTr: 'Buenos Aires', country: 'Argentina', countryTr: 'Arjantin', countryCode: 'AR', timezone: 'America/Argentina/Buenos_Aires', utcOffset: -3, lat: -34.6037, lng: -58.3816 },
+  { slug: 'mexico-city', name: 'Mexico City', nameTr: 'Mexico City', country: 'Mexico', countryTr: 'Meksika', countryCode: 'MX', timezone: 'America/Mexico_City', utcOffset: -6, lat: 19.4326, lng: -99.1332 },
+  { slug: 'vancouver', name: 'Vancouver', nameTr: 'Vancouver', country: 'Canada', countryTr: 'Kanada', countryCode: 'CA', timezone: 'America/Vancouver', utcOffset: -8, lat: 49.2827, lng: -123.1207 },
+  { slug: 'san-francisco', name: 'San Francisco', nameTr: 'San Francisco', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', countryCode: 'US', timezone: 'America/Los_Angeles', utcOffset: -8, lat: 37.7749, lng: -122.4194 },
+  { slug: 'miami', name: 'Miami', nameTr: 'Miami', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', countryCode: 'US', timezone: 'America/New_York', utcOffset: -5, lat: 25.7617, lng: -80.1918 },
+  { slug: 'houston', name: 'Houston', nameTr: 'Houston', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', countryCode: 'US', timezone: 'America/Chicago', utcOffset: -6, lat: 29.7604, lng: -95.3698 },
+  { slug: 'boston', name: 'Boston', nameTr: 'Boston', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', countryCode: 'US', timezone: 'America/New_York', utcOffset: -5, lat: 42.3601, lng: -71.0589 },
+  { slug: 'seattle', name: 'Seattle', nameTr: 'Seattle', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', countryCode: 'US', timezone: 'America/Los_Angeles', utcOffset: -8, lat: 47.6062, lng: -122.3321 },
+  { slug: 'dublin', name: 'Dublin', nameTr: 'Dublin', country: 'Ireland', countryTr: 'İrlanda', countryCode: 'IE', timezone: 'Europe/Dublin', utcOffset: 0, lat: 53.3498, lng: -6.2603 },
+  { slug: 'stockholm', name: 'Stockholm', nameTr: 'Stockholm', country: 'Sweden', countryTr: 'İsveç', countryCode: 'SE', timezone: 'Europe/Stockholm', utcOffset: 1, lat: 59.3293, lng: 18.0686 },
+  { slug: 'oslo', name: 'Oslo', nameTr: 'Oslo', country: 'Norway', countryTr: 'Norveç', countryCode: 'NO', timezone: 'Europe/Oslo', utcOffset: 1, lat: 59.9139, lng: 10.7522 },
+  { slug: 'copenhagen', name: 'Copenhagen', nameTr: 'Kopenhag', country: 'Denmark', countryTr: 'Danimarka', countryCode: 'DK', timezone: 'Europe/Copenhagen', utcOffset: 1, lat: 55.6761, lng: 12.5683 },
+  { slug: 'vienna', name: 'Vienna', nameTr: 'Viyana', country: 'Austria', countryTr: 'Avusturya', countryCode: 'AT', timezone: 'Europe/Vienna', utcOffset: 1, lat: 48.2082, lng: 16.3738 },
+  { slug: 'brussels', name: 'Brussels', nameTr: 'Brüksel', country: 'Belgium', countryTr: 'Belçika', countryCode: 'BE', timezone: 'Europe/Brussels', utcOffset: 1, lat: 50.8503, lng: 4.3517 },
+  { slug: 'athens', name: 'Athens', nameTr: 'Atina', country: 'Greece', countryTr: 'Yunanistan', countryCode: 'GR', timezone: 'Europe/Athens', utcOffset: 2, lat: 37.9838, lng: 23.7275 },
+  { slug: 'ankara', name: 'Ankara', nameTr: 'Ankara', country: 'Turkey', countryTr: 'Türkiye', countryCode: 'TR', timezone: 'Europe/Istanbul', utcOffset: 3, lat: 39.9334, lng: 32.8597 },
+  { slug: 'izmir', name: 'Izmir', nameTr: 'İzmir', country: 'Turkey', countryTr: 'Türkiye', countryCode: 'TR', timezone: 'Europe/Istanbul', utcOffset: 3, lat: 38.4237, lng: 27.1428 },
+  { slug: 'melbourne', name: 'Melbourne', nameTr: 'Melbourne', country: 'Australia', countryTr: 'Avustralya', countryCode: 'AU', timezone: 'Australia/Melbourne', utcOffset: 10, lat: -37.8136, lng: 144.9631 },
+  { slug: 'auckland', name: 'Auckland', nameTr: 'Auckland', country: 'New Zealand', countryTr: 'Yeni Zelanda', countryCode: 'NZ', timezone: 'Pacific/Auckland', utcOffset: 12, lat: -36.8485, lng: 174.7633 },
+  { slug: 'honolulu', name: 'Honolulu', nameTr: 'Honolulu', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', countryCode: 'US', timezone: 'Pacific/Honolulu', utcOffset: -10, lat: 21.3069, lng: -157.8583 },
+  { slug: 'kuala-lumpur', name: 'Kuala Lumpur', nameTr: 'Kuala Lumpur', country: 'Malaysia', countryTr: 'Malezya', countryCode: 'MY', timezone: 'Asia/Kuala_Lumpur', utcOffset: 8, lat: 3.1390, lng: 101.6869 },
+  { slug: 'lisbon', name: 'Lisbon', nameTr: 'Lizbon', country: 'Portugal', countryTr: 'Portekiz', countryCode: 'PT', timezone: 'Europe/Lisbon', utcOffset: 0, lat: 38.7223, lng: -9.1393 },
+  { slug: 'warsaw', name: 'Warsaw', nameTr: 'Varşova', country: 'Poland', countryTr: 'Polonya', countryCode: 'PL', timezone: 'Europe/Warsaw', utcOffset: 1, lat: 52.2297, lng: 21.0122 },
+  { slug: 'prague', name: 'Prague', nameTr: 'Prag', country: 'Czech Republic', countryTr: 'Çek Cumhuriyeti', countryCode: 'CZ', timezone: 'Europe/Prague', utcOffset: 1, lat: 50.0755, lng: 14.4378 },
+  { slug: 'budapest', name: 'Budapest', nameTr: 'Budapeşte', country: 'Hungary', countryTr: 'Macaristan', countryCode: 'HU', timezone: 'Europe/Budapest', utcOffset: 1, lat: 47.4979, lng: 19.0402 },
+  { slug: 'helsinki', name: 'Helsinki', nameTr: 'Helsinki', country: 'Finland', countryTr: 'Finlandiya', countryCode: 'FI', timezone: 'Europe/Helsinki', utcOffset: 2, lat: 60.1699, lng: 24.9384 },
+  { slug: 'austin', name: 'Austin', nameTr: 'Austin', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', countryCode: 'US', timezone: 'America/Chicago', utcOffset: -6, lat: 30.2672, lng: -97.7431 },
+  { slug: 'dallas', name: 'Dallas', nameTr: 'Dallas', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', countryCode: 'US', timezone: 'America/Chicago', utcOffset: -6, lat: 32.7767, lng: -96.7970 },
+  { slug: 'atlanta', name: 'Atlanta', nameTr: 'Atlanta', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', countryCode: 'US', timezone: 'America/New_York', utcOffset: -5, lat: 33.7490, lng: -84.3880 },
+  { slug: 'denver', name: 'Denver', nameTr: 'Denver', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', countryCode: 'US', timezone: 'America/Denver', utcOffset: -7, lat: 39.7392, lng: -104.9903 },
+  { slug: 'phoenix', name: 'Phoenix', nameTr: 'Phoenix', country: 'United States', countryTr: 'Amerika Birleşik Devletleri', countryCode: 'US', timezone: 'America/Phoenix', utcOffset: -7, lat: 33.4484, lng: -112.0740 },
+  { slug: 'montreal', name: 'Montreal', nameTr: 'Montreal', country: 'Canada', countryTr: 'Kanada', countryCode: 'CA', timezone: 'America/Toronto', utcOffset: -5, lat: 45.5017, lng: -73.5673 },
+  { slug: 'calgary', name: 'Calgary', nameTr: 'Calgary', country: 'Canada', countryTr: 'Kanada', countryCode: 'CA', timezone: 'America/Edmonton', utcOffset: -7, lat: 51.0447, lng: -114.0719 },
+  { slug: 'bangalore', name: 'Bangalore', nameTr: 'Bangalore', country: 'India', countryTr: 'Hindistan', countryCode: 'IN', timezone: 'Asia/Kolkata', utcOffset: 5.5, lat: 12.9716, lng: 77.5946 },
+  { slug: 'hyderabad', name: 'Hyderabad', nameTr: 'Haydarabad', country: 'India', countryTr: 'Hindistan', countryCode: 'IN', timezone: 'Asia/Kolkata', utcOffset: 5.5, lat: 17.3850, lng: 78.4867 },
+  { slug: 'taipei', name: 'Taipei', nameTr: 'Taipei', country: 'Taiwan', countryTr: 'Tayvan', countryCode: 'TW', timezone: 'Asia/Taipei', utcOffset: 8, lat: 25.0330, lng: 121.5654 },
+  { slug: 'jakarta', name: 'Jakarta', nameTr: 'Cakarta', country: 'Indonesia', countryTr: 'Endonezya', countryCode: 'ID', timezone: 'Asia/Jakarta', utcOffset: 7, lat: -6.2088, lng: 106.8456 },
+  { slug: 'manila', name: 'Manila', nameTr: 'Manila', country: 'Philippines', countryTr: 'Filipinler', countryCode: 'PH', timezone: 'Asia/Manila', utcOffset: 8, lat: 14.5995, lng: 120.9842 },
+  { slug: 'tel-aviv', name: 'Tel Aviv', nameTr: 'Tel Aviv', country: 'Israel', countryTr: 'İsrail', countryCode: 'IL', timezone: 'Asia/Jerusalem', utcOffset: 2, lat: 32.0853, lng: 34.7818, isMiddleEastWorkweek: true },
+  { slug: 'nairobi', name: 'Nairobi', nameTr: 'Nairobi', country: 'Kenya', countryTr: 'Kenya', countryCode: 'KE', timezone: 'Africa/Nairobi', utcOffset: 3, lat: -1.2921, lng: 36.8219 },
+  { slug: 'santiago', name: 'Santiago', nameTr: 'Santiago', country: 'Chile', countryTr: 'Şili', countryCode: 'CL', timezone: 'America/Santiago', utcOffset: -4, lat: -33.4489, lng: -70.6693 },
+  { slug: 'bogota', name: 'Bogota', nameTr: 'Bogota', country: 'Colombia', countryTr: 'Kolombiya', countryCode: 'CO', timezone: 'America/Bogota', utcOffset: -5, lat: 4.7110, lng: -74.0721 },
+  { slug: 'lima', name: 'Lima', nameTr: 'Lima', country: 'Peru', countryTr: 'Peru', countryCode: 'PE', timezone: 'America/Lima', utcOffset: -5, lat: -12.0464, lng: -77.0428 },
+  { slug: 'brisbane', name: 'Brisbane', nameTr: 'Brisbane', country: 'Australia', countryTr: 'Avustralya', countryCode: 'AU', timezone: 'Australia/Brisbane', utcOffset: 10, lat: -27.4698, lng: 153.0251 },
+  { slug: 'perth', name: 'Perth', nameTr: 'Perth', country: 'Australia', countryTr: 'Avustralya', countryCode: 'AU', timezone: 'Australia/Perth', utcOffset: 8, lat: -31.9505, lng: 115.8605 },
+  { slug: 'osaka', name: 'Osaka', nameTr: 'Osaka', country: 'Japan', countryTr: 'Japonya', countryCode: 'JP', timezone: 'Asia/Tokyo', utcOffset: 9, lat: 34.6937, lng: 135.5023 },
 ];
 
 export interface TimezonePair {
@@ -92,6 +95,106 @@ export interface TimezonePair {
   from: CityInfo;
   to: CityInfo;
   hourDifference: number;
+  distanceKm: number;
+  distanceMiles: number;
+  flightTime: string;
+  overlapHoursCount: number;
+  overlapWindowFrom: string;
+  overlapWindowTo: string;
+  instantAnswer: string;
+  workweekAlignment: string;
+}
+
+// Great Circle / Haversine formula
+export function calculateDistanceKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const R = 6371; // Earth's radius in kilometers
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLon = ((lon2 - lon1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos((lat1 * Math.PI) / 180) *
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return Math.round(R * c);
+}
+
+export function calculateFlightTimeFormatted(km: number): string {
+  // Commercial cruising speed ~820 km/h + 30 min takeoff/approach buffer
+  const totalMinutes = Math.round((km / 820) * 60) + 30;
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  return hours > 0 ? `~${hours}h ${minutes}m` : `~${minutes}m`;
+}
+
+export function calculateOverlapHours(hourDiff: number): {
+  overlapCount: number;
+  fromWindow: string;
+  toWindow: string;
+} {
+  const overlappingHours: number[] = [];
+  for (let h = 0; h < 24; h++) {
+    const target = (h + hourDiff + 24) % 24;
+    // Business hours 9am to 5pm (09:00 to 17:00)
+    if (h >= 9 && h <= 17 && target >= 9 && target <= 17) {
+      overlappingHours.push(h);
+    }
+  }
+
+  if (overlappingHours.length === 0) {
+    return {
+      overlapCount: 0,
+      fromWindow: 'No direct 9-5 overlap',
+      toWindow: 'Flex morning / evening required',
+    };
+  }
+
+  const startH = overlappingHours[0];
+  const endH = overlappingHours[overlappingHours.length - 1] + 1;
+  const targetStart = (startH + hourDiff + 24) % 24;
+  const targetEnd = (endH + hourDiff + 24) % 24;
+
+  const formatH = (val: number) => {
+    const hour12 = val % 12 || 12;
+    const ampm = val >= 12 && val < 24 ? 'PM' : 'AM';
+    return `${hour12}:00 ${ampm}`;
+  };
+
+  return {
+    overlapCount: overlappingHours.length,
+    fromWindow: `${formatH(startH)} - ${formatH(endH)}`,
+    toWindow: `${formatH(targetStart)} - ${formatH(targetEnd)}`,
+  };
+}
+
+export function calculateInstantAnswer(from: CityInfo, to: CityInfo, diff: number): string {
+  if (diff > 0) {
+    const targetHour = (12 + diff) % 24;
+    const target12 = targetHour % 12 || 12;
+    const ampm = targetHour >= 12 ? 'PM' : 'AM';
+    return `${to.name} is ${diff} hour${diff === 1 ? '' : 's'} ahead of ${from.name}. When it is 12:00 PM in ${from.name}, it is ${target12}:00 ${ampm} in ${to.name}.`;
+  } else if (diff < 0) {
+    const absDiff = Math.abs(diff);
+    const targetHour = (12 + diff + 24) % 24;
+    const target12 = targetHour % 12 || 12;
+    const ampm = targetHour >= 12 ? 'PM' : 'AM';
+    return `${to.name} is ${absDiff} hour${absDiff === 1 ? '' : 's'} behind ${from.name}. When it is 12:00 PM in ${from.name}, it is ${target12}:00 ${ampm} in ${to.name}.`;
+  }
+  return `${from.name} and ${to.name} share the exact same local time. When it is 12:00 PM in ${from.name}, it is also 12:00 PM in ${to.name}.`;
+}
+
+export function calculateWorkweekAlignment(from: CityInfo, to: CityInfo): string {
+  const fromIsME = !!from.isMiddleEastWorkweek;
+  const toIsME = !!to.isMiddleEastWorkweek;
+
+  if (fromIsME && toIsME) {
+    return 'Sunday – Thursday workweek alignment (Friday/Saturday weekend).';
+  }
+  if (!fromIsME && !toIsME) {
+    return 'Standard Monday – Friday business week alignment.';
+  }
+  return 'Cross-calendar notice: One location observes Sunday – Thursday, while the other observes Monday – Friday (Shared working days: Monday – Thursday).';
 }
 
 export function getAllTimezonePairs(): TimezonePair[] {
@@ -103,11 +206,26 @@ export function getAllTimezonePairs(): TimezonePair[] {
         const from = CITIES[i];
         const to = CITIES[j];
         const hourDifference = to.utcOffset - from.utcOffset;
+        const distanceKm = calculateDistanceKm(from.lat, from.lng, to.lat, to.lng);
+        const distanceMiles = Math.round(distanceKm * 0.621371);
+        const flightTime = calculateFlightTimeFormatted(distanceKm);
+        const overlap = calculateOverlapHours(hourDifference);
+        const instantAnswer = calculateInstantAnswer(from, to, hourDifference);
+        const workweekAlignment = calculateWorkweekAlignment(from, to);
+
         pairs.push({
           slug: `${from.slug}-to-${to.slug}`,
           from,
           to,
           hourDifference,
+          distanceKm,
+          distanceMiles,
+          flightTime,
+          overlapHoursCount: overlap.overlapCount,
+          overlapWindowFrom: overlap.fromWindow,
+          overlapWindowTo: overlap.toWindow,
+          instantAnswer,
+          workweekAlignment,
         });
       }
     }
@@ -126,11 +244,70 @@ export function getTimezonePair(slug: string): TimezonePair | null {
   if (!from || !to) return null;
 
   const hourDifference = to.utcOffset - from.utcOffset;
+  const distanceKm = calculateDistanceKm(from.lat, from.lng, to.lat, to.lng);
+  const distanceMiles = Math.round(distanceKm * 0.621371);
+  const flightTime = calculateFlightTimeFormatted(distanceKm);
+  const overlap = calculateOverlapHours(hourDifference);
+  const instantAnswer = calculateInstantAnswer(from, to, hourDifference);
+  const workweekAlignment = calculateWorkweekAlignment(from, to);
 
   return {
     slug,
     from,
     to,
     hourDifference,
+    distanceKm,
+    distanceMiles,
+    flightTime,
+    overlapHoursCount: overlap.overlapCount,
+    overlapWindowFrom: overlap.fromWindow,
+    overlapWindowTo: overlap.toWindow,
+    instantAnswer,
+    workweekAlignment,
   };
 }
+
+// Top metropolis pairs for crawl prioritization and internal linking
+export const POPULAR_TIMEZONE_SLUGS: string[] = [
+  'doha-to-sydney',
+  'sydney-to-doha',
+  'frankfurt-to-istanbul',
+  'istanbul-to-frankfurt',
+  'paris-to-ankara',
+  'ankara-to-paris',
+  'oslo-to-istanbul',
+  'istanbul-to-oslo',
+  'london-to-new-york',
+  'new-york-to-london',
+  'tokyo-to-london',
+  'london-to-tokyo',
+  'los-angeles-to-london',
+  'london-to-los-angeles',
+  'dubai-to-london',
+  'london-to-dubai',
+  'singapore-to-sydney',
+  'sydney-to-singapore',
+  'paris-to-tokyo',
+  'tokyo-to-paris',
+  'new-york-to-tokyo',
+  'tokyo-to-new-york',
+  'chicago-to-london',
+  'london-to-chicago',
+  'san-francisco-to-new-york',
+  'new-york-to-san-francisco',
+  'toronto-to-vancouver',
+  'vancouver-to-toronto',
+  'berlin-to-istanbul',
+  'istanbul-to-berlin',
+  'amsterdam-to-new-york',
+  'new-york-to-amsterdam',
+  'dubai-to-new-york',
+  'new-york-to-dubai',
+  'mumbai-to-london',
+  'london-to-mumbai',
+  'sydney-to-auckland',
+  'auckland-to-sydney',
+  'zurich-to-singapore',
+  'singapore-to-zurich',
+];
+

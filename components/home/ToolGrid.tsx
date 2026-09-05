@@ -193,7 +193,7 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
           }`}
         >
           <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-brand-emerald" />
-          <span>Tüm Araçlar ({DEVELOPER_TOOLS.length})</span>
+          <span>All Tools ({DEVELOPER_TOOLS.length})</span>
         </button>
 
         {/* Favorites Filter */}
@@ -208,7 +208,7 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
             }`}
           >
             <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
-            <span>Favoriler ({favoriteSlugs.length})</span>
+            <span>Favorites ({favoriteSlugs.length})</span>
           </button>
         )}
 
@@ -259,12 +259,12 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
                     <div className="flex items-center space-x-2">
                       {tool.isPopular && (
                         <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-500/30 font-bold">
-                          POPÜLER
+                          POPULAR
                         </span>
                       )}
                       {tool.isNew && (
                         <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-brand-emerald border border-emerald-200 dark:border-emerald-500/30 font-bold">
-                          YENİ
+                          NEW
                         </span>
                       )}
 
@@ -273,7 +273,7 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
                         type="button"
                         onClick={(e) => handleToggleFavorite(tool.slug, e)}
                         className="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-400 dark:text-zinc-500 hover:text-amber-500 transition-colors"
-                        title={isFav ? 'Favorilerden çıkar' : 'Favorilere ekle'}
+                        title={isFav ? 'Remove from favorites' : 'Add to favorites'}
                       >
                         <Star
                           className={`w-4 h-4 transition-colors ${
@@ -299,7 +299,7 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
                 <div className="pt-4 mt-3 border-t border-slate-100 dark:border-zinc-800/60 flex items-center justify-between text-xs font-mono text-slate-500 dark:text-zinc-500">
                   <span className="text-[11px] text-slate-500 dark:text-zinc-400">{tool.categoryLabel}</span>
                   <span className="flex items-center space-x-1 text-slate-600 dark:text-zinc-400 group-hover:text-emerald-600 dark:group-hover:text-brand-emerald font-semibold transition-colors">
-                    <span>Aracı Başlat</span>
+                    <span>Open Tool</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </div>
@@ -311,14 +311,14 @@ export function ToolGrid({ searchQuery, onClearSearch }: ToolGridProps) {
         /* Empty State */
         <div className="p-12 text-center rounded-2xl bg-slate-50 dark:bg-zinc-900/40 border border-dashed border-slate-300 dark:border-zinc-800 space-y-3 font-sans text-xs text-slate-600 dark:text-zinc-400">
           <SearchX className="w-8 h-8 text-slate-400 dark:text-zinc-600 mx-auto" />
-          <p className="text-sm text-slate-900 dark:text-zinc-300 font-bold">Aramanıza uygun araç bulunamadı.</p>
-          <p className="text-slate-500 dark:text-zinc-500">&quot;{searchQuery}&quot; için sonuç çıkmadı.</p>
+          <p className="text-sm text-slate-900 dark:text-zinc-300 font-bold">No tools match your search.</p>
+          <p className="text-slate-500 dark:text-zinc-500">No results found for &quot;{searchQuery}&quot;.</p>
           <button
             type="button"
             onClick={onClearSearch}
             className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-white font-semibold transition-colors"
           >
-            Aramayı Temizle
+            Clear Search
           </button>
         </div>
       )}

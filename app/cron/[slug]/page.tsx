@@ -229,7 +229,7 @@ export default function CronSchedulePage({ params }: PageProps) {
       <section className="space-y-3 pt-6 border-t border-zinc-800">
         <div className="flex items-center space-x-2 font-mono text-xs font-bold text-zinc-400 uppercase">
           <Layers className="w-4 h-4" />
-          <span>Diğer Popüler Cron Zamanlamaları</span>
+          <span>Other Popular Cron Schedules</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
           {CRON_SCHEDULES.filter((s) => s.slug !== item.slug).slice(0, 9).map((sch) => (

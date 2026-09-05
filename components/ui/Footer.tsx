@@ -2,31 +2,64 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ShieldCheck, Code2, Zap } from 'lucide-react';
+import { ShieldCheck, Github, Heart } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
-import { FORMAT_LIST } from '@/lib/matrix';
 
 export function Footer() {
   return (
     <footer className="w-full border-t border-slate-200 dark:border-border bg-slate-100/70 dark:bg-surface-200/50 mt-16 text-xs text-slate-600 dark:text-zinc-400 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Col 1: About & Privacy */}
-          <div className="space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          {/* Col 1: Brand & Privacy */}
+          <div className="space-y-3 lg:col-span-1">
             <BrandLogo size={28} />
             <p className="text-slate-600 dark:text-zinc-400 text-xs leading-relaxed">
-              Tamamen tarayıcınızda çalışan, sıfır sunucu maliyetli, gizlilik öncelikli günlük araç ve dönüştürücü paketi.
+              Fast, privacy-first developer utilities and daily file converters running 100% inside your browser. Zero server uploads, zero logs.
             </p>
             <div className="flex items-center space-x-1.5 text-emerald-600 dark:text-emerald-400 font-medium text-[11px]">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Verileriniz cihazınızdan asla çıkmaz</span>
+              <span>Your data never leaves your device</span>
             </div>
           </div>
 
-          {/* Col 2: Top Converters */}
+          {/* Col 2: Daily Utilities */}
           <div className="space-y-2">
             <h4 className="font-bold text-slate-900 dark:text-zinc-200 uppercase tracking-wider text-[11px] font-mono">
-              Kod & Veri Araçları
+              Daily Utilities
+            </h4>
+            <ul className="space-y-1.5">
+              <li>
+                <Link href="/tools/pdf-merge/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
+                  PDF Merger & Combiner
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/image-compressor/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
+                  Image Compressor (Live Slider)
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/qr-code-generator/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
+                  Vector QR Code Generator
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/word-counter/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
+                  Word Counter & Read Time
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/aspect-ratio-calculator/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
+                  Aspect Ratio Calculator
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 3: Top Converters */}
+          <div className="space-y-2">
+            <h4 className="font-bold text-slate-900 dark:text-zinc-200 uppercase tracking-wider text-[11px] font-mono">
+              Code Converters
             </h4>
             <ul className="space-y-1.5">
               <li>
@@ -50,17 +83,17 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/tools/url-parser-builder/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
-                  URL Parametre Stüdyosu
+                <Link href="/tools/curl-to-fetch-converter/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
+                  cURL to Fetch / Axios
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Serialization & Schema */}
+          {/* Col 4: Serialization & Formats */}
           <div className="space-y-2">
             <h4 className="font-bold text-slate-900 dark:text-zinc-200 uppercase tracking-wider text-[11px] font-mono">
-              Veri & Formatlar
+              Data & Formats
             </h4>
             <ul className="space-y-1.5">
               <li>
@@ -80,47 +113,53 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/tools/markdown-to-html-table/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
-                  Markdown Tablo Dönüştürücü
+                  Markdown Table Converter
                 </Link>
               </li>
               <li>
                 <Link href="/tools/xml-sitemap-generator/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
-                  XML Sitemap Üretici
+                  XML Sitemap Generator
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Daily Utilities */}
+          {/* Col 5: E-E-A-T Trust & Company */}
           <div className="space-y-2">
             <h4 className="font-bold text-slate-900 dark:text-zinc-200 uppercase tracking-wider text-[11px] font-mono">
-              Günlük Araçlar
+              Trust & Legal
             </h4>
             <ul className="space-y-1.5">
               <li>
-                <Link href="/tools/pdf-merge/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
-                  PDF Birleştirici
+                <Link href="/about/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
+                  About DevTransform
                 </Link>
               </li>
               <li>
-                <Link href="/tools/image-compressor/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
-                  Görsel Sıkıştırıcı (Canlı Slider)
+                <Link href="/privacy/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
+                  Privacy Policy (Zero Logs)
                 </Link>
               </li>
               <li>
-                <Link href="/tools/qr-code-generator/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
-                  QR Kod Oluşturucu
+                <Link href="/terms/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
+                  Terms of Service (MIT)
                 </Link>
               </li>
               <li>
-                <Link href="/tools/word-counter/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
-                  Kelime & Karakter Sayacı
+                <Link href="/contact/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
+                  Contact & Feedback
                 </Link>
               </li>
               <li>
-                <Link href="/tools/aspect-ratio-calculator/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
-                  En-Boy Oranı Hesaplayıcı
-                </Link>
+                <a
+                  href="https://github.com/ensibey/devtransform-hub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors inline-flex items-center gap-1"
+                >
+                  <Github className="w-3 h-3" />
+                  <span>GitHub Repository</span>
+                </a>
               </li>
             </ul>
           </div>
@@ -128,11 +167,11 @@ export function Footer() {
 
         <div className="border-t border-slate-200 dark:border-border mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-slate-500 text-[11px]">
           <div>
-            &copy; {new Date().getFullYear()} DevTransform. Açık kaynak MIT Lisanslı.
+            &copy; {new Date().getFullYear()} DevTransform. Open-source under MIT License.
           </div>
           <div className="flex items-center space-x-1 mt-2 sm:mt-0 font-medium text-emerald-600 dark:text-emerald-400">
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span>%100 İstemci Taraflı & Güvenli</span>
+            <span>100% In-Browser & Privacy-Guaranteed</span>
           </div>
         </div>
       </div>

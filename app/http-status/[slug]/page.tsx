@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const status = getHttpStatusBySlug(params.slug);
   if (!status) return { title: 'HTTP Status Code' };
 
-  const title = `HTTP ${status.code} ${status.name} Explained: Causes & How to Fix (${status.nameTr})`;
+  const title = `HTTP ${status.code} ${status.name} Explained: RFC Meaning, Causes & Fixes | DevTransform`;
   const description = `What is HTTP status ${status.code} (${status.name})? Learn the RFC definition, common root causes, and practical code solutions for Node.js, Python, and Nginx.`;
   const canonicalUrl = `https://devtransform-hub.vercel.app/http-status/${status.slug}/`;
 
@@ -53,8 +53,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `what is ${status.name.toLowerCase()}`,
       `${status.code} error fix`,
       `http ${status.code} ${status.name.toLowerCase()}`,
-      `${status.nameTr.toLowerCase()} nedir`,
-      `how to fix ${status.code}`,
+      `how to fix http ${status.code}`,
+      'http status code guide',
     ],
     alternates: {
       canonical: canonicalUrl,
@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url: canonicalUrl,
       type: 'website',
-      siteName: 'ZeroUpload HTTP Knowledgebase',
+      siteName: 'DevTransform Developer Knowledgebase',
     },
   };
 }
@@ -151,7 +151,7 @@ export default function HttpStatusPage({ params }: PageProps) {
             HTTP {status.code} — {status.name}
           </h1>
           <p className="text-xs sm:text-sm text-zinc-400 max-w-3xl leading-relaxed">
-            {status.summary} ({status.summaryTr})
+            {status.summary}
           </p>
         </div>
       </div>
@@ -162,7 +162,7 @@ export default function HttpStatusPage({ params }: PageProps) {
         <div className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-4 shadow-xl">
           <div className="flex items-center space-x-2 font-mono text-xs font-bold text-amber-400 uppercase">
             <AlertTriangle className="w-4 h-4" />
-            <span>Yaygın Nedenler / Common Causes</span>
+            <span>Common Causes & Diagnoses</span>
           </div>
           <ul className="space-y-2 text-xs text-zinc-300 leading-relaxed">
             {status.causes.map((cause, idx) => (
@@ -201,7 +201,7 @@ export default function HttpStatusPage({ params }: PageProps) {
       <section className="space-y-4">
         <div className="flex items-center space-x-2 font-mono text-xs font-bold text-white uppercase">
           <Code2 className="w-4 h-4 text-brand-emerald" />
-          <span>Nasıl Düzeltilir / Practical Code Solutions</span>
+          <span>How to Fix / Practical Code Solutions</span>
         </div>
 
         <div className="space-y-4">
@@ -226,7 +226,7 @@ export default function HttpStatusPage({ params }: PageProps) {
       <section className="space-y-3 pt-6 border-t border-zinc-800">
         <div className="flex items-center space-x-2 font-mono text-xs font-bold text-zinc-400 uppercase">
           <Layers className="w-4 h-4" />
-          <span>Diğer Popüler HTTP Durum Kodları</span>
+          <span>Other Popular HTTP Status Codes</span>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2">
           {HTTP_STATUSES.filter((s) => s.code !== status.code).slice(0, 12).map((item) => (

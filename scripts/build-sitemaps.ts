@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { getAllMatrixPairs, FORMAT_LIST } from '../lib/matrix';
-import { getAllTimezonePairs } from '../lib/timezone-matrix';
+import { getAllTimezonePairs, POPULAR_TIMEZONE_SLUGS } from '../lib/timezone-matrix';
 import { getAllUnitPairs } from '../lib/units-matrix';
 import { getAllPercentageProblems } from '../lib/percentage-matrix';
 import { getAllColorDefinitions } from '../lib/color-matrix';
@@ -53,19 +53,25 @@ ${entries}
 }
 
 export function generateSitemaps(targetDirs: string[]) {
-  // 1. Main URLs
+  // 1. Main URLs + EEAT Trust Pages
   const mainUrls = [
     { url: `${BASE_URL}/`, priority: 1.0, changeFrequency: 'daily' },
+    { url: `${BASE_URL}/about/`, priority: 0.8, changeFrequency: 'monthly' },
+    { url: `${BASE_URL}/privacy/`, priority: 0.8, changeFrequency: 'monthly' },
+    { url: `${BASE_URL}/terms/`, priority: 0.8, changeFrequency: 'monthly' },
+    { url: `${BASE_URL}/contact/`, priority: 0.8, changeFrequency: 'monthly' },
     ...Object.keys(CATEGORIES).map((c) => ({ url: `${BASE_URL}/category/${c}/`, priority: 0.8 })),
     ...FORMAT_LIST.map((f) => ({ url: `${BASE_URL}/formatters/${f.id}/`, priority: 0.7 })),
     ...TOOLS_REGISTRY.map((t) => ({ url: `${BASE_URL}/tools/${t.slug}/`, priority: 0.9 })),
   ];
   const mainXml = buildUrlSetXml(mainUrls);
 
-  // 2. Timezones
+  // 2. Timezones (Popular corridor metropolises boosted to 1.0)
+  const popularSet = new Set(POPULAR_TIMEZONE_SLUGS);
   const tzUrls = getAllTimezonePairs().map((p) => ({
     url: `${BASE_URL}/timezone/${p.slug}/`,
-    priority: 0.7,
+    priority: popularSet.has(p.slug) ? 1.0 : 0.7,
+    changeFrequency: popularSet.has(p.slug) ? 'daily' : 'weekly',
   }));
   const tzXml = buildUrlSetXml(tzUrls);
 

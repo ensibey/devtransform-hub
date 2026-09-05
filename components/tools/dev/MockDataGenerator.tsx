@@ -4,8 +4,8 @@ import React, { useState, useMemo } from 'react';
 import { CopyButton } from '@/components/shared/CopyButton';
 import { Database, RefreshCw, Download, Sliders, Check } from 'lucide-react';
 
-const FIRST_NAMES = ['Alex', 'Emma', 'Liam', 'Sophia', 'Noah', 'Olivia', 'Ethan', 'Ava', 'Lucas', 'Mia', 'Enis', 'Can', 'Zeynep', 'Deniz', 'Burak', 'Elif', 'Mert', 'Selin'];
-const LAST_NAMES = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Yılmaz', 'Kaya', 'Demir', 'Şahin', 'Çelik', 'Yıldız', 'Öztürk', 'Aydın'];
+const FIRST_NAMES = ['Alex', 'Emma', 'Liam', 'Sophia', 'Noah', 'Olivia', 'Ethan', 'Ava', 'Lucas', 'Mia', 'Benjamin', 'Charlotte', 'James', 'Amelia', 'Oliver', 'Harper'];
+const LAST_NAMES = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez', 'Hernandez', 'Lopez', 'Gonzalez', 'Wilson', 'Anderson', 'Taylor'];
 const CITIES = ['San Francisco', 'New York', 'London', 'Berlin', 'Tokyo', 'Istanbul', 'Paris', 'Toronto', 'Sydney', 'Amsterdam'];
 const ROLES = ['Frontend Developer', 'Backend Architect', 'Product Designer', 'DevOps Engineer', 'QA Specialist', 'Data Scientist', 'Security Analyst'];
 const COMPANIES = ['TechCorp', 'Starlight Media', 'CyberFlow', 'Apex Systems', 'Nebula AI', 'Vertex Labs', 'OmniCloud'];

@@ -53,20 +53,20 @@ export function HeroSection({
       {/* Top Privacy Pill */}
       <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-zinc-900/80 border border-emerald-200 dark:border-zinc-800 text-xs font-medium text-emerald-800 dark:text-zinc-300 shadow-sm mb-5">
         <Lock className="w-3.5 h-3.5 text-emerald-600 dark:text-brand-emerald" />
-        <span>Sıfır Sunucu Yüklemesi &bull; %100 Tarayıcı İçi Güvenli Çalışma</span>
+        <span>Zero Server Uploads &bull; 100% Private In-Browser Execution</span>
       </div>
 
       {/* Main Headline */}
       <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-b dark:from-white dark:via-zinc-100 dark:to-zinc-400 max-w-4xl leading-[1.1] pb-2">
-        Günlük Araçlar & <br className="hidden sm:inline" />
+        Daily Utilities & <br className="hidden sm:inline" />
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-500 to-sky-500 dark:from-brand-emerald dark:via-teal-300 dark:to-sky-400">
-          Gizlilik Odaklı Çözüm Paketi
+          Privacy-First Solution Suite
         </span>
       </h1>
 
       {/* Subtitle */}
       <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
-        PDF birleştirin, görselleri kalite kaybetmeden sıkıştırın, kelime sayın, QR kod oluşturun veya kod ve veri dönüştürücüleri kullanın. Hepsi tarayıcınızda, anında ve tamamen ücretsiz.
+        Merge PDFs, compress images losslessly, count words, create QR codes, or convert code and data structures. Everything runs instantly in your browser — 100% private, free forever, and zero server uploads.
       </p>
 
       {/* Central Search Bar */}
@@ -78,7 +78,7 @@ export function HeroSection({
             type="text"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="140+ Araç içinde arayın (Örn: PDF Birleştir, Görsel Sıkıştırıcı, QR Kod, Kelime Sayacı)..."
+            placeholder="Search 140+ tools (e.g. PDF Merge, Image Compressor, QR Code, Word Counter)..."
             className="w-full pl-12 pr-12 py-3.5 rounded-2xl bg-white dark:bg-zinc-900/90 border border-slate-300 dark:border-zinc-800 hover:border-slate-400 dark:hover:border-zinc-700 focus:border-emerald-500 dark:focus:border-brand-emerald/70 focus:ring-2 focus:ring-emerald-500/20 text-sm text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 focus:outline-none transition-all shadow-xl font-sans"
           />
           <kbd className="hidden sm:inline-flex items-center px-2 py-0.5 text-[11px] font-mono bg-slate-100 dark:bg-zinc-800 text-slate-500 dark:text-zinc-400 rounded-md border border-slate-200 dark:border-zinc-700 absolute right-4 pointer-events-none">
@@ -88,37 +88,37 @@ export function HeroSection({
 
         {/* User-Friendly Quick-Jump Chips */}
         <div className="flex flex-wrap items-center justify-center gap-2 mt-3.5 text-xs font-medium text-slate-600 dark:text-zinc-400">
-          <span className="text-[11px] text-slate-400 dark:text-zinc-500 mr-0.5">Popüler:</span>
+          <span className="text-[11px] text-slate-400 dark:text-zinc-500 mr-0.5">Popular:</span>
           <Link
             href="/tools/pdf-merge/"
             className="px-3 py-1 rounded-xl bg-white dark:bg-zinc-900/60 hover:bg-slate-100 dark:hover:bg-zinc-800 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-white transition-colors shadow-sm"
           >
-            📄 PDF Birleştirme
+            📄 PDF Merge
           </Link>
           <Link
             href="/tools/image-compressor/"
             className="px-3 py-1 rounded-xl bg-white dark:bg-zinc-900/60 hover:bg-slate-100 dark:hover:bg-zinc-800 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-white transition-colors shadow-sm"
           >
-            🖼️ Görsel Sıkıştırma
+            🖼️ Image Compressor
           </Link>
           <Link
             href="/tools/qr-code-generator/"
             className="px-3 py-1 rounded-xl bg-white dark:bg-zinc-900/60 hover:bg-slate-100 dark:hover:bg-zinc-800 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-white transition-colors shadow-sm"
           >
-            📱 QR Kod Üretici
+            📱 QR Code Generator
           </Link>
           <Link
             href="/tools/word-counter/"
             className="px-3 py-1 rounded-xl bg-white dark:bg-zinc-900/60 hover:bg-slate-100 dark:hover:bg-zinc-800 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-white transition-colors shadow-sm"
           >
-            🔤 Kelime Sayacı
+            🔤 Word Counter
           </Link>
           <Link
             href="/category/dev/"
             className="px-3 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 transition-colors shadow-sm font-semibold flex items-center gap-1"
           >
             <Sparkles className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
-            <span>Kod ve Veri Dönüştürücüler</span>
+            <span>Code & Data Converters</span>
           </Link>
         </div>
       </div>

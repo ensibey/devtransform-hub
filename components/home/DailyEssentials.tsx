@@ -22,13 +22,13 @@ export function DailyEssentials() {
         <div className="space-y-1">
           <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-[11px] font-medium text-emerald-700 dark:text-emerald-300">
             <Sparkles className="w-3 h-3 text-emerald-500 dark:text-emerald-400" />
-            <span>En Çok Kullanılan Günlük Araçlar</span>
+            <span>Most Popular Daily Utilities</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-            Öne Çıkan Araç Paketleri
+            Featured Tool Suites
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400">
-            Tarayıcınızda sıfır sunucu gecikmesiyle, %100 gizli ve tamamen yerel çalışan araçlar.
+            Zero server latency, 100% private, and running entirely inside your local browser.
           </p>
         </div>
 
@@ -36,7 +36,7 @@ export function DailyEssentials() {
           href="#tools"
           className="inline-flex items-center space-x-1 text-xs font-semibold text-emerald-600 dark:text-brand-emerald hover:underline"
         >
-          <span>140+ Aracın Tamamını Gör</span>
+          <span>Explore All 140+ Tools</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </div>
@@ -51,16 +51,16 @@ export function DailyEssentials() {
                 <FileSpreadsheet className="w-5 h-5" />
               </div>
               <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-rose-100 dark:bg-rose-500/10 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-500/30">
-                PDF Paketi
+                PDF Suite
               </span>
             </div>
 
             <div className="space-y-1.5">
               <h3 className="font-bold text-base text-slate-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-200 transition-colors">
-                PDF & Doküman Araçları
+                PDF & Document Tools
               </h3>
               <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
-                PDF birleştirin, sayfaları ayırın, döndürün ve fotoğrafları PDF formatına çevirin.
+                Merge multiple PDFs, split pages, rotate documents, and convert images into clean PDFs.
               </p>
             </div>
 
@@ -69,21 +69,21 @@ export function DailyEssentials() {
                 href="/tools/pdf-merge/"
                 className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-rose-600 dark:hover:text-white transition-colors"
               >
-                <span>• Çoklu PDF Birleştirme</span>
+                <span>• Merge Multiple PDFs</span>
                 <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
               <Link
                 href="/tools/pdf-split/"
                 className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-rose-600 dark:hover:text-white transition-colors"
               >
-                <span>• PDF Sayfalarını Ayırma</span>
+                <span>• Split PDF Pages</span>
                 <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
               <Link
                 href="/tools/image-to-pdf/"
                 className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-rose-600 dark:hover:text-white transition-colors"
               >
-                <span>• Görselden Yüksek Çözünürlüklü PDF</span>
+                <span>• Image to High-Res PDF</span>
                 <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
             </div>
@@ -94,7 +94,7 @@ export function DailyEssentials() {
               href="/category/pdf/"
               className="w-full py-2 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-rose-500/40 text-xs font-semibold text-center text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white block transition-colors shadow-sm"
             >
-              Tüm PDF Araçlarını Aç →
+              Open All PDF Tools &rarr;
             </Link>
           </div>
         </div>
@@ -107,16 +107,16 @@ export function DailyEssentials() {
                 <ImageIcon className="w-5 h-5" />
               </div>
               <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-sky-100 dark:bg-sky-500/10 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-500/30">
-                Görsel Paketi
+                Image Suite
               </span>
             </div>
 
             <div className="space-y-1.5">
               <h3 className="font-bold text-base text-slate-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-200 transition-colors">
-                Görsel & Medya Araçları
+                Image & Media Studio
               </h3>
               <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
-                Fotoğrafları kalite kaybı olmadan %80 sıkıştırın, özel QR kod oluşturun ve renk paletleri çıkarın.
+                Losslessly compress photos by up to 80%, generate crisp vector QR codes, and extract palettes.
               </p>
             </div>
 
@@ -125,21 +125,21 @@ export function DailyEssentials() {
                 href="/tools/image-compressor/"
                 className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-sky-600 dark:hover:text-white transition-colors"
               >
-                <span>• Canlı Önizlemeli Görsel Sıkıştırıcı</span>
+                <span>• Live Slider Image Compressor</span>
                 <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
               <Link
                 href="/tools/qr-code-generator/"
                 className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-sky-600 dark:hover:text-white transition-colors"
               >
-                <span>• Vektör QR Kod Üretici</span>
+                <span>• Vector QR Code Generator</span>
                 <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
               <Link
                 href="/tools/color-palette-extractor/"
                 className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-sky-600 dark:hover:text-white transition-colors"
               >
-                <span>• Fotoğraftan Renk Paleti Çıkarıcı</span>
+                <span>• Photo Color Palette Extractor</span>
                 <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
             </div>
@@ -150,7 +150,7 @@ export function DailyEssentials() {
               href="/category/image/"
               className="w-full py-2 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-sky-500/40 text-xs font-semibold text-center text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white block transition-colors shadow-sm"
             >
-              Tüm Görsel Araçlarını Aç →
+              Open All Image Tools &rarr;
             </Link>
           </div>
         </div>
@@ -163,16 +163,16 @@ export function DailyEssentials() {
                 <Terminal className="w-5 h-5" />
               </div>
               <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/30">
-                Kod & Veri
+                Code & Data
               </span>
             </div>
 
             <div className="space-y-1.5">
               <h3 className="font-bold text-base text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-200 transition-colors">
-                Kod ve Veri Dönüştürücüler
+                Code & Data Converters
               </h3>
               <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
-                JSON, SQL, cURL, Markdown ve YAML verilerini saniyeler içinde farklı formatlara ve dillere çevirin.
+                Transform JSON, SQL, cURL, Markdown, and YAML structures into code and formats in seconds.
               </p>
             </div>
 
@@ -181,21 +181,21 @@ export function DailyEssentials() {
                 href="/tools/json-to-typescript/"
                 className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-white transition-colors"
               >
-                <span>• JSON &rarr; TypeScript Arayüzü</span>
+                <span>• JSON &rarr; TypeScript Interface</span>
                 <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
               <Link
                 href="/tools/curl-to-fetch-converter/"
                 className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-white transition-colors"
               >
-                <span>• cURL &rarr; JavaScript / Python Kodu</span>
+                <span>• cURL &rarr; Fetch / Python / Axios</span>
                 <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
               <Link
                 href="/tools/markdown-to-html-table/"
                 className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-white transition-colors"
               >
-                <span>• Markdown Tablo &rarr; HTML / CSV</span>
+                <span>• Markdown Table &rarr; HTML / CSV</span>
                 <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
             </div>
@@ -206,7 +206,7 @@ export function DailyEssentials() {
               href="/category/dev/"
               className="w-full py-2 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-brand-emerald/40 text-xs font-semibold text-center text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white block transition-colors shadow-sm"
             >
-              Tüm Dönüştürücüleri Aç →
+              Open All Converters &rarr;
             </Link>
           </div>
         </div>
@@ -219,16 +219,16 @@ export function DailyEssentials() {
                 <FileText className="w-5 h-5" />
               </div>
               <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-violet-100 dark:bg-violet-500/10 text-violet-700 dark:text-violet-300 border border-violet-200 dark:border-violet-500/30">
-                Metin Paketi
+                Text Suite
               </span>
             </div>
 
             <div className="space-y-1.5">
               <h3 className="font-bold text-base text-slate-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-200 transition-colors">
-                Metin & İçerik Araçları
+                Text & Content Studio
               </h3>
               <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
-                Kelime ve harf sayımı, büyük-küçük harf dönüştürücü, metin karşılaştırma (diff) ve biçimlendiriciler.
+                Live word count, case conversion, side-by-side text diff checker, and string formatters.
               </p>
             </div>
 
@@ -237,21 +237,21 @@ export function DailyEssentials() {
                 href="/tools/word-counter/"
                 className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-violet-600 dark:hover:text-white transition-colors"
               >
-                <span>• Canlı Kelime & Okuma Süresi</span>
+                <span>• Live Word Count & Reading Time</span>
                 <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
               <Link
                 href="/tools/text-diff/"
                 className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-violet-600 dark:hover:text-white transition-colors"
               >
-                <span>• Yan Yana Metin Karşılaştırıcı (Diff)</span>
+                <span>• Side-by-Side Text Diff Comparator</span>
                 <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
               <Link
                 href="/tools/case-converter/"
                 className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-violet-600 dark:hover:text-white transition-colors"
               >
-                <span>• Büyük / Küçük Harf Değiştirici</span>
+                <span>• Upper / Lower / Title Case Converter</span>
                 <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
             </div>
@@ -262,7 +262,7 @@ export function DailyEssentials() {
               href="/category/text/"
               className="w-full py-2 rounded-xl bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-violet-500/40 text-xs font-semibold text-center text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white block transition-colors shadow-sm"
             >
-              Tüm Metin Araçlarını Aç →
+              Open All Text Tools &rarr;
             </Link>
           </div>
         </div>

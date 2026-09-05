@@ -39,7 +39,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       className="relative p-2 rounded-lg bg-slate-100 dark:bg-surface-100 hover:bg-slate-200 dark:hover:bg-surface-50 border border-slate-200 dark:border-border text-slate-600 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white transition-all shadow-sm group"
-      title={theme === 'dark' ? 'Açık Temaya Geç (Switch to Light Mode)' : 'Koyu Temaya Geç (Switch to Dark Mode)'}
+      title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
       aria-label="Toggle Color Theme"
     >
       {theme === 'dark' ? (

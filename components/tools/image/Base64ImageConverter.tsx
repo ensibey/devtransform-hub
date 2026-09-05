@@ -58,7 +58,7 @@ export function Base64ImageConverter() {
           <div className="space-y-1">
             <div className="flex items-center space-x-2 font-mono text-xs font-bold text-white uppercase">
               <Upload className="w-4 h-4 text-brand-emerald" />
-              <span>Image to Base64 (Görseli Base64&apos;e Çevir)</span>
+              <span>Image to Base64 Data URI Converter</span>
             </div>
             <p className="text-xs text-zinc-400">
               Select any PNG, JPG, WebP, or SVG file to convert into a Base64 data URI string.

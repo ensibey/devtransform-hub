@@ -35,7 +35,7 @@ export function UnitWorkspace({ from, to, multiplier }: UnitWorkspaceProps) {
         {/* From Input */}
         <div className="p-4 rounded-xl bg-zinc-950/80 border border-zinc-800 space-y-2">
           <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
-            <span>From: {from.name} ({from.nameTr})</span>
+            <span>From: {from.name}</span>
             <span className="font-bold text-brand-emerald">{from.symbol}</span>
           </div>
           <input
@@ -50,7 +50,7 @@ export function UnitWorkspace({ from, to, multiplier }: UnitWorkspaceProps) {
         {/* To Output */}
         <div className="p-4 rounded-xl bg-zinc-950/80 border border-brand-emerald/40 space-y-2 relative">
           <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
-            <span>To: {to.name} ({to.nameTr})</span>
+            <span>To: {to.name}</span>
             <span className="font-bold text-brand-emerald">{to.symbol}</span>
           </div>
           <div className="text-2xl font-bold font-mono text-brand-emerald truncate pr-10">

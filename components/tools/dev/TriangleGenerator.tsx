@@ -90,14 +90,14 @@ export function TriangleGenerator() {
                 onChange={(e: any) => setDirection(e.target.value)}
                 className="w-full p-2 rounded-xl bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:border-brand-emerald capitalize"
               >
-                <option value="top">Top (Yukarı)</option>
-                <option value="bottom">Bottom (Aşağı)</option>
-                <option value="left">Left (Sola)</option>
-                <option value="right">Right (Sağa)</option>
-                <option value="top-left">Top-Left (Sol Üst Köşe)</option>
-                <option value="top-right">Top-Right (Sağ Üst Köşe)</option>
-                <option value="bottom-left">Bottom-Left (Sol Alt Köşe)</option>
-                <option value="bottom-right">Bottom-Right (Sağ Alt Köşe)</option>
+                <option value="top">Top</option>
+                <option value="bottom">Bottom</option>
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+                <option value="top-left">Top-Left</option>
+                <option value="top-right">Top-Right</option>
+                <option value="bottom-left">Bottom-Left</option>
+                <option value="bottom-right">Bottom-Right</option>
               </select>
             </div>
 

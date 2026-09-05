@@ -19,7 +19,7 @@ const CHAR_MAP: Record<string, string> = {
 
 export function SlugGenerator() {
   const [inputText, setInputText] = useState(
-    'En İyi 10 Yazılım Geliştirici Aracı & Türkçe Karakter Dönüştürücü!'
+    'Top 10 Ultra-Fast Developer Tools & URL Slug Converter!'
   );
   const [separator, setSeparator] = useState<'-' | '_' | '.'>('-');
   const [lowercase, setLowercase] = useState(true);

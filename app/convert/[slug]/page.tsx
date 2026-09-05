@@ -35,9 +35,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const pair = getUnitPair(params.slug);
-  if (!pair) return { title: 'Unit Converter' };
+  if (!pair) return { title: 'Unit Converter | DevTransform' };
 
-  const title = `Convert ${pair.from.name} to ${pair.to.name} (${pair.from.symbol} to ${pair.to.symbol}) - ${pair.from.nameTr} ${pair.to.nameTr} Çevirme`;
+  const title = `Convert ${pair.from.name} to ${pair.to.name} (${pair.from.symbol} to ${pair.to.symbol}) - Unit Calculator | DevTransform`;
   const description = `Free online ${pair.from.name} to ${pair.to.name} converter. 1 ${pair.from.symbol} = ${pair.multiplier} ${pair.to.symbol}. Instant calculation with formula and conversion table.`;
   const canonicalUrl = `https://devtransform-hub.vercel.app/convert/${pair.slug}/`;
 
@@ -48,9 +48,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `convert ${pair.from.slug} to ${pair.to.slug}`,
       `${pair.from.symbol} to ${pair.to.symbol}`,
       `${pair.from.name} to ${pair.to.name}`,
-      `${pair.from.nameTr.toLowerCase()} ${pair.to.nameTr.toLowerCase()} çevirici`,
+      `how to convert ${pair.from.name.toLowerCase()} to ${pair.to.name.toLowerCase()}`,
       `${pair.from.category} converter`,
       'unit conversion table',
+      'instant unit calculator',
     ],
     alternates: {
       canonical: canonicalUrl,
@@ -60,7 +61,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url: canonicalUrl,
       type: 'website',
-      siteName: 'ZeroUpload Unit Hub',
+      siteName: 'DevTransform Unit Hub',
     },
   };
 }
@@ -119,7 +120,7 @@ export default function UnitPairPage({ params }: PageProps) {
           <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-xs font-mono text-zinc-400">
             <Link href="/" className="hover:text-zinc-200 transition-colors">Home</Link>
             <ChevronRight className="w-3 h-3 text-zinc-600" />
-            <Link href="/tools/unit-converter/" className="hover:text-zinc-200 transition-colors">{pair.from.categoryNameTr}</Link>
+            <Link href="/tools/unit-converter/" className="hover:text-zinc-200 transition-colors">{pair.from.categoryName}</Link>
             <ChevronRight className="w-3 h-3 text-zinc-600" />
             <span className="text-zinc-200">{pair.from.name}</span>
             <ArrowRight className="w-3 h-3 text-zinc-500" />
@@ -135,7 +136,7 @@ export default function UnitPairPage({ params }: PageProps) {
         <div className="space-y-1.5">
           <div className="flex items-center space-x-2 text-xs font-mono text-zinc-500">
             <Zap className="w-3.5 h-3.5 text-brand-emerald" />
-            <span>Category: {pair.from.categoryName} ({pair.from.categoryNameTr})</span>
+            <span>Category: {pair.from.categoryName}</span>
           </div>
 
           <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">

@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
-import { getAllTimezonePairs } from '@/lib/timezone-matrix';
+import { getAllTimezonePairs, POPULAR_TIMEZONE_SLUGS } from '@/lib/timezone-matrix';
 import { getAllUnitPairs } from '@/lib/units-matrix';
 import { getAllPercentageProblems } from '@/lib/percentage-matrix';
 import { getAllColorDefinitions } from '@/lib/color-matrix';
@@ -23,13 +23,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date();
   const routes: MetadataRoute.Sitemap = [];
 
-  // 1. Homepage
-  routes.push({
-    url: `${BASE_URL}/`,
-    lastModified: currentDate,
-    changeFrequency: 'daily',
-    priority: 1.0,
-  });
+  // 1. Homepage & EEAT Trust Pages
+  routes.push(
+    {
+      url: `${BASE_URL}/`,
+      lastModified: currentDate,
+      changeFrequency: 'daily',
+      priority: 1.0,
+    },
+    {
+      url: `${BASE_URL}/about/`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/privacy/`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/terms/`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/contact/`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    }
+  );
 
   // 2. 90 Code Converters
   const matrixPairs = getAllMatrixPairs();
@@ -42,14 +68,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 
-  // 3. Timezone Pairs (Top 2450 world city pairs)
+  // 3. Timezone Pairs (Top 2450 world city pairs, boosted popular corridors)
+  const popularSet = new Set(POPULAR_TIMEZONE_SLUGS);
   const tzPairs = getAllTimezonePairs();
   tzPairs.forEach((pair) => {
     routes.push({
       url: `${BASE_URL}/timezone/${pair.slug}/`,
       lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.7,
+      changeFrequency: popularSet.has(pair.slug) ? 'daily' : 'weekly',
+      priority: popularSet.has(pair.slug) ? 1.0 : 0.7,
     });
   });
 

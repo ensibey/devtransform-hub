@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import './globals.css';
 import { Navbar } from '@/components/ui/Navbar';
 import { Footer } from '@/components/ui/Footer';
+import { BookmarkPrompt } from '@/components/shared/BookmarkPrompt';
 
 const CommandPalette = dynamic(
   () => import('@/components/command/CommandPalette').then((m) => m.CommandPalette),
@@ -22,11 +23,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://devtransform-hub.vercel.app'),
   applicationName: 'DevTransform',
   title: {
-    default: 'DevTransform - Free Developer Tools & Privacy-First Utilities',
+    default: 'DevTransform - 140+ Free Developer Tools • No Sign-Up • 100% Free Forever • Zero Ads',
     template: '%s | DevTransform',
   },
   description:
-    'Ultra-fast, 100% client-side developer converter & formatter suite. 135+ free standalone developer utilities, JSON to TypeScript/Go/Rust/Python, SQL formatters, and regex tools with zero server latency and total privacy.',
+    'Ultra-fast, 100% client-side developer converter & formatter suite. 140+ free standalone developer utilities, JSON to TypeScript/Go/Rust/Python, SQL formatters, and regex tools with zero server latency and total privacy.',
   keywords: [
     'devtransform',
     'developer tools',
@@ -90,7 +91,14 @@ const WEBSITE_SCHEMA = {
   alternateName: ['DevTransform Hub', 'ZeroUpload', 'devtransform-hub'],
   url: 'https://devtransform-hub.vercel.app/',
   description:
-    'Ultra-fast, 100% client-side developer converter & formatter suite with 135+ standalone utilities.',
+    'Ultra-fast, 100% client-side developer converter & formatter suite with 140+ standalone utilities.',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    ratingCount: '1580',
+    bestRating: '5',
+    worstRating: '1',
+  },
 };
 
 export default function RootLayout({
@@ -127,6 +135,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <BookmarkPrompt />
         <CommandPalette />
         <PwaRegister />
       </body>

@@ -44,32 +44,32 @@ export function Navbar() {
               href="/category/pdf/"
               className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
             >
-              📄 PDF & Doküman
+              📄 PDF & Documents
             </Link>
             <Link
               href="/category/image/"
               className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
             >
-              🖼️ Görsel & Medya
+              🖼️ Image & Media
             </Link>
             <Link
               href="/category/text/"
               className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
             >
-              📝 Metin & İçerik
+              📝 Text & Content
             </Link>
             <Link
               href="/category/calculator/"
               className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
             >
-              🧮 Hesaplayıcılar
+              🧮 Calculators
             </Link>
             <Link
               href="/category/dev/"
               className="px-2 py-1 rounded-md text-emerald-600 dark:text-brand-emerald hover:text-emerald-700 dark:hover:text-emerald-300 font-semibold hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors flex items-center gap-1"
             >
               <Code2 className="w-3.5 h-3.5" />
-              <span>Kod ve Veri Dönüştürücüler</span>
+              <span>Code & Converters</span>
             </Link>
           </nav>
         </div>
@@ -82,8 +82,8 @@ export function Navbar() {
             className="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-surface-100 hover:bg-slate-200 dark:hover:bg-surface-50 border border-slate-200 dark:border-border text-xs text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200 transition-all shadow-sm group"
           >
             <Search className="w-3.5 h-3.5 text-slate-400 dark:text-zinc-400 group-hover:text-emerald-500 transition-colors" />
-            <span className="hidden sm:inline">140+ Araçta Ara...</span>
-            <span className="sm:hidden">Ara</span>
+            <span className="hidden sm:inline">Search 140+ Tools...</span>
+            <span className="sm:hidden">Search</span>
             <kbd className="hidden sm:inline-flex items-center space-x-0.5 px-1.5 py-0.5 text-[10px] font-mono bg-white dark:bg-surface text-slate-500 dark:text-zinc-400 rounded border border-slate-200 dark:border-border">
               <span>⌘</span>
               <span>K</span>

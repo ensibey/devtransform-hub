@@ -39,8 +39,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const color = getColorBySlug(params.slug);
   if (!color) return { title: 'Color Converter' };
 
-  const title = `${color.hex} to RGB, HSL & CMYK Converter — "${color.name}" (${color.nameTr} Renk Kodu)`;
-  const description = `Convert HEX ${color.hex} to RGB(${color.rgb.join(', ')}), HSL(${color.hsl[0]}, ${color.hsl[1]}%, ${color.hsl[2]}%), and CMYK. WCAG contrast ratio test, shades, and CSS code snippets.`;
+  const title = `${color.hex} to RGB, HSL & CMYK Converter — "${color.name}" Color Code | DevTransform`;
+  const description = `Convert HEX ${color.hex} to RGB(${color.rgb.join(', ')}), HSL(${color.hsl[0]}, ${color.hsl[1]}%, ${color.hsl[2]}%), and CMYK. WCAG contrast ratio test, color shades, and CSS snippets.`;
   const canonicalUrl = `https://devtransform-hub.vercel.app/color/${color.slug}/`;
 
   return {
@@ -50,10 +50,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `${color.hex.toLowerCase()} to rgb`,
       `${color.hex} rgb`,
       `${color.name.toLowerCase()} color code`,
-      `${color.nameTr.toLowerCase()} renk kodu`,
       `hex ${color.hex} to hsl`,
       'color converter',
       'hex to rgb online',
+      'cmyk color converter',
     ],
     alternates: {
       canonical: canonicalUrl,
@@ -159,7 +159,7 @@ export default function ColorPage({ params }: PageProps) {
             {color.hex} to RGB Converter
           </h1>
           <p className="text-xs sm:text-sm text-zinc-400 max-w-3xl leading-relaxed">
-            &ldquo;{color.name}&rdquo; ({color.nameTr} Renk Kodu) — HEX, RGB, HSL ve CMYK değerleri, kontrast oranları ve CSS kodları.
+            &ldquo;{color.name}&rdquo; — Exact HEX, RGB, HSL, and CMYK values, contrast ratios, and copy-ready CSS properties.
           </p>
         </div>
       </div>
@@ -243,7 +243,7 @@ export default function ColorPage({ params }: PageProps) {
       <div className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-4">
         <div className="flex items-center space-x-2 font-mono text-xs font-bold text-white uppercase">
           <Eye className="w-4 h-4 text-brand-emerald" />
-          <span>WCAG 2.1 Erişilebilirlik & Kontrast Oranı (Accessibility)</span>
+          <span>WCAG 2.1 Contrast Ratio & Accessibility Test</span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -301,7 +301,7 @@ export default function ColorPage({ params }: PageProps) {
       <section className="space-y-3 pt-6 border-t border-zinc-800">
         <div className="flex items-center space-x-2 font-mono text-xs font-bold text-zinc-400 uppercase">
           <Layers className="w-4 h-4" />
-          <span>Diğer Popüler Renk Kodları</span>
+          <span>Other Popular Color Codes</span>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2">
           {POPULAR_COLORS.filter((c) => c.slug !== color.slug).slice(0, 12).map((item) => (

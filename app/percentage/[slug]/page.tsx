@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const prob = getPercentageProblem(params.slug);
   if (!prob) return { title: 'Percentage Calculator' };
 
-  const title = `What is ${prob.percent}% of ${prob.baseNumber}? (${prob.result}) - ${prob.titleTr}`;
+  const title = `What is ${prob.percent}% of ${prob.baseNumber}? (${prob.result}) - Percentage Calculator`;
   const description = `${prob.percent}% of ${prob.baseNumber} is ${prob.result}. Step-by-step mathematical explanation, formula, discount calculator, and percentage table.`;
   const canonicalUrl = `https://devtransform-hub.vercel.app/percentage/${prob.slug}/`;
 
@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `what is ${prob.percent} percent of ${prob.baseNumber}`,
       `${prob.percent}% of ${prob.baseNumber}`,
       `calculate ${prob.percent}% of ${prob.baseNumber}`,
-      `${prob.baseNumber} sayısının yüzde ${prob.percent}i`,
+      'math percentage solver',
       'percentage calculator',
       'how to calculate percentages',
     ],
@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url: canonicalUrl,
       type: 'website',
-      siteName: 'ZeroUpload Math Hub',
+      siteName: 'DevTransform',
     },
   };
 }
@@ -152,7 +152,7 @@ export default function PercentageProblemPage({ params }: PageProps) {
             What is {prob.percent}% of {prob.baseNumber}?
           </h1>
           <p className="text-xs sm:text-sm text-zinc-400 max-w-3xl leading-relaxed">
-            {prob.titleTr} — Sonuç: <strong className="text-brand-emerald">{prob.result}</strong>. Adım adım çözüm, formül ve indirim hesaplaması.
+            Calculate {prob.percent}% of {prob.baseNumber} — Result: <strong className="text-brand-emerald">{prob.result}</strong>. Step-by-step formula, discount math, and financial examples.
           </p>
         </div>
       </div>
@@ -194,7 +194,7 @@ export default function PercentageProblemPage({ params }: PageProps) {
         <div className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-4 shadow-lg">
           <div className="flex items-center space-x-2 font-mono text-xs font-bold text-white uppercase">
             <CheckCircle2 className="w-4 h-4 text-brand-emerald" />
-            <span>Adım Adım Çözüm / Step-by-Step</span>
+            <span>Step-by-Step Solution & Formula</span>
           </div>
 
           <div className="space-y-3 text-xs text-zinc-300 leading-relaxed font-sans">
@@ -213,21 +213,21 @@ export default function PercentageProblemPage({ params }: PageProps) {
         <div className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-4 shadow-lg">
           <div className="flex items-center space-x-2 font-mono text-xs font-bold text-sky-400 uppercase">
             <TrendingUp className="w-4 h-4" />
-            <span>Günlük Hayattan Örnekler / Real-World Scenarios</span>
+            <span>Real-World Scenarios & Financial Examples</span>
           </div>
 
           <div className="space-y-2.5 text-xs text-zinc-300 font-mono">
             <div className="p-3 rounded-xl bg-zinc-950/60 border border-zinc-800/80 flex justify-between items-center">
-              <span className="text-zinc-400">🏷️ %{prob.percent} İndirimli Fiyat:</span>
-              <span className="font-bold text-emerald-400">₺{discountPrice.toFixed(2)}</span>
+              <span className="text-zinc-400">🏷️ {prob.percent}% Discounted Price:</span>
+              <span className="font-bold text-emerald-400">${discountPrice.toFixed(2)}</span>
             </div>
             <div className="p-3 rounded-xl bg-zinc-950/60 border border-zinc-800/80 flex justify-between items-center">
-              <span className="text-zinc-400">📈 %{prob.percent} Zam / KDV Eklenmiş:</span>
-              <span className="font-bold text-sky-400">₺{addedPrice.toFixed(2)}</span>
+              <span className="text-zinc-400">📈 {prob.percent}% Added / Sales Tax (VAT):</span>
+              <span className="font-bold text-sky-400">${addedPrice.toFixed(2)}</span>
             </div>
             <div className="p-3 rounded-xl bg-zinc-950/60 border border-zinc-800/80 flex justify-between items-center">
-              <span className="text-zinc-400">💰 İndirim / Fark Tutarı:</span>
-              <span className="font-bold text-amber-400">₺{prob.result}</span>
+              <span className="text-zinc-400">💰 Discount / Difference Amount:</span>
+              <span className="font-bold text-amber-400">${prob.result}</span>
             </div>
           </div>
         </div>
