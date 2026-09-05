@@ -44,8 +44,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const fromCode = pair.from.iata || pair.from.tzAbbr;
   const toCode = pair.to.iata || pair.to.tzAbbr;
-  const title = `${pair.from.name} to ${pair.to.name} Time Difference (${fromCode} to ${toCode}) & Live Clock | DevTransform`;
-  const description = `Live time difference between ${pair.from.name} (${fromCode}) and ${pair.to.name} (${toCode}). Instant answer, local clocks, ${pair.flightTime} flight time, ${pair.distanceKm.toLocaleString()} km distance, and business meeting overlap planner.`;
+  const title = `${pair.from.name} to ${pair.to.name} Time Difference & Live Clock (${pair.instantAnswer}) | Meeting Planner`;
+  const description = `Live time difference: ${pair.instantAnswer}. ${pair.overlapHoursCount} shared business hours, ${pair.flightTime} flight duration, dual real-time clocks, and 1-click Google Calendar meeting sync between ${pair.from.name} (${fromCode}) and ${pair.to.name} (${toCode}).`;
   const canonicalUrl = `https://devtransform-hub.vercel.app/timezone/${pair.slug}/`;
 
   return {
@@ -284,12 +284,12 @@ export default function TimezonePairPage({ params }: PageProps) {
           </h3>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs font-mono border-collapse">
-            <thead>
-              <tr className="border-b border-slate-200 dark:border-zinc-800 text-slate-500 dark:text-zinc-400 bg-slate-50 dark:bg-zinc-900/80">
-                <th className="p-3">{pair.from.name} ({pair.from.country})</th>
-                <th className="p-3">{pair.to.name} ({pair.to.country})</th>
+        <div className="overflow-x-auto -webkit-overflow-scrolling-touch">
+          <table className="w-full text-left text-xs font-mono border-collapse min-w-[420px]">
+            <thead className="sticky top-0 bg-slate-50 dark:bg-zinc-900 z-10 shadow-sm">
+              <tr className="border-b border-slate-200 dark:border-zinc-800 text-slate-500 dark:text-zinc-400">
+                <th className="p-3">{pair.from.name} ({pair.from.iata || pair.from.country})</th>
+                <th className="p-3">{pair.to.name} ({pair.to.iata || pair.to.country})</th>
                 <th className="p-3">Overlap Window</th>
               </tr>
             </thead>
@@ -324,9 +324,18 @@ export default function TimezonePairPage({ params }: PageProps) {
 
       {/* PILLAR 4: Popular Global Time Difference Routes (Internal Linking for Crawl Budget) */}
       <section className="rounded-2xl bg-white dark:bg-zinc-900/30 border border-slate-200 dark:border-zinc-800/60 p-5 sm:p-6 space-y-4 shadow-sm">
-        <h3 className="text-xs font-bold font-mono text-slate-900 dark:text-zinc-200 uppercase tracking-wider">
-          Popular Global Time Difference Routes
-        </h3>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <h3 className="text-xs font-bold font-mono text-slate-900 dark:text-zinc-200 uppercase tracking-wider">
+            Popular Global Time Difference Routes
+          </h3>
+          <Link
+            href="/timezone/directory/"
+            className="text-xs font-mono text-emerald-600 dark:text-brand-emerald hover:text-emerald-500 flex items-center space-x-1"
+          >
+            <span>Browse 75 Metropolises in Directory</span>
+            <ArrowRight className="w-3 h-3" />
+          </Link>
+        </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-xs">
           {POPULAR_TIMEZONE_SLUGS.slice(0, 16).map((popSlug) => {
             const parts = popSlug.split('-to-');

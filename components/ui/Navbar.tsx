@@ -39,37 +39,31 @@ export function Navbar() {
           </Link>
 
           {/* User-Friendly Categories Navigation */}
-          <nav className="hidden lg:flex items-center space-x-3 text-xs font-medium text-slate-600 dark:text-zinc-400">
+          <nav className="hidden lg:flex items-center space-x-2.5 text-xs font-medium text-slate-600 dark:text-zinc-400">
             <Link
-              href="/category/pdf/"
-              className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
+              href="/timezone/directory/"
+              className="px-2 py-1 rounded-md text-emerald-600 dark:text-brand-emerald hover:text-emerald-700 dark:hover:text-emerald-300 font-semibold hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors"
             >
-              📄 PDF & Documents
+              🌍 Timezones
             </Link>
             <Link
-              href="/category/image/"
+              href="/percentage/directory/"
               className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
             >
-              🖼️ Image & Media
+              % Percentages
             </Link>
             <Link
-              href="/category/text/"
+              href="/convert/directory/"
               className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
             >
-              📝 Text & Content
-            </Link>
-            <Link
-              href="/category/calculator/"
-              className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
-            >
-              🧮 Calculators
+              ⚖️ Units
             </Link>
             <Link
               href="/category/dev/"
-              className="px-2 py-1 rounded-md text-emerald-600 dark:text-brand-emerald hover:text-emerald-700 dark:hover:text-emerald-300 font-semibold hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors flex items-center gap-1"
+              className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors flex items-center gap-1"
             >
               <Code2 className="w-3.5 h-3.5" />
-              <span>Code & Converters</span>
+              <span>Converters</span>
             </Link>
           </nav>
         </div>

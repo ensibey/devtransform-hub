@@ -54,6 +54,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    // HTML Directory Hubs (Crawl Depth & Link Equity Root Nodes)
+    {
+      url: `${BASE_URL}/timezone/directory/`,
+      lastModified: currentDate,
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/percentage/directory/`,
+      lastModified: currentDate,
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/convert/directory/`,
+      lastModified: currentDate,
+      changeFrequency: 'daily',
+      priority: 0.9,
     }
   );
 

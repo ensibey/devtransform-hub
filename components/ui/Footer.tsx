@@ -93,32 +93,32 @@ export function Footer() {
           {/* Col 4: Serialization & Formats */}
           <div className="space-y-2">
             <h4 className="font-bold text-slate-900 dark:text-zinc-200 uppercase tracking-wider text-[11px] font-mono">
-              Data & Formats
+              Directories & Hubs
             </h4>
             <ul className="space-y-1.5">
               <li>
+                <Link href="/timezone/directory/" className="text-emerald-600 dark:text-brand-emerald font-semibold hover:underline">
+                  🌍 Timezone Directory (75 Cities)
+                </Link>
+              </li>
+              <li>
+                <Link href="/percentage/directory/" className="text-emerald-600 dark:text-brand-emerald font-semibold hover:underline">
+                  % Percentage Directory (1,100+)
+                </Link>
+              </li>
+              <li>
+                <Link href="/convert/directory/" className="text-emerald-600 dark:text-brand-emerald font-semibold hover:underline">
+                  ⚖️ Unit Directory (350+ Pairs)
+                </Link>
+              </li>
+              <li>
                 <Link href="/yaml-to-json/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
-                  YAML &rarr; JSON
+                  YAML &rarr; JSON Converter
                 </Link>
               </li>
               <li>
                 <Link href="/csv-to-json/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
-                  CSV &rarr; JSON
-                </Link>
-              </li>
-              <li>
-                <Link href="/xml-to-json/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
-                  XML &rarr; JSON
-                </Link>
-              </li>
-              <li>
-                <Link href="/tools/markdown-to-html-table/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
-                  Markdown Table Converter
-                </Link>
-              </li>
-              <li>
-                <Link href="/tools/xml-sitemap-generator/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
-                  XML Sitemap Generator
+                  CSV &rarr; JSON Converter
                 </Link>
               </li>
             </ul>

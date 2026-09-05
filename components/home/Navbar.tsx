@@ -49,7 +49,7 @@ export function Navbar() {
           </Link>
 
           {/* Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-5 text-xs font-medium text-zinc-400">
+          <nav className="hidden lg:flex items-center space-x-4 text-xs font-medium text-zinc-400">
             <Link
               href="/#tools"
               className="hover:text-zinc-100 transition-colors"
@@ -57,23 +57,28 @@ export function Navbar() {
               All Tools
             </Link>
             <Link
+              href="/timezone/directory/"
+              className="hover:text-emerald-400 transition-colors"
+            >
+              Timezones
+            </Link>
+            <Link
+              href="/percentage/directory/"
+              className="hover:text-sky-400 transition-colors"
+            >
+              Percentages
+            </Link>
+            <Link
+              href="/convert/directory/"
+              className="hover:text-indigo-400 transition-colors"
+            >
+              Units
+            </Link>
+            <Link
               href="/json-to-typescript/"
               className="hover:text-zinc-100 transition-colors"
             >
               Converters
-            </Link>
-            <Link
-              href="/formatters/sql/"
-              className="hover:text-zinc-100 transition-colors"
-            >
-              Formatters
-            </Link>
-            <Link
-              href="/tools/curl-to-code/"
-              className="hover:text-zinc-100 transition-colors flex items-center space-x-1 text-sky-400 hover:text-sky-300"
-            >
-              <Sparkles className="w-3 h-3" />
-              <span>cURL to Code</span>
             </Link>
           </nav>
         </div>

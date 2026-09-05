@@ -37,8 +37,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const pair = getUnitPair(params.slug);
   if (!pair) return { title: 'Unit Converter | DevTransform' };
 
-  const title = `Convert ${pair.from.name} to ${pair.to.name} (${pair.from.symbol} to ${pair.to.symbol}) - Unit Calculator | DevTransform`;
-  const description = `Free online ${pair.from.name} to ${pair.to.name} converter. 1 ${pair.from.symbol} = ${pair.multiplier} ${pair.to.symbol}. Instant calculation with formula and conversion table.`;
+  const title = `Convert ${pair.from.name} to ${pair.to.name} (${pair.from.symbol} to ${pair.to.symbol}) - Formula & Multiplier`;
+  const description = `1 ${pair.from.symbol} = ${pair.multiplier} ${pair.to.symbol}. Convert ${pair.from.name} to ${pair.to.name} with instant precision calculation, formula table, and reciprocal values.`;
   const canonicalUrl = `https://devtransform-hub.vercel.app/convert/${pair.slug}/`;
 
   return {
@@ -172,11 +172,20 @@ export default function UnitPairPage({ params }: PageProps) {
 
       {/* Conversion Table */}
       <section className="mt-10 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 p-5 space-y-4">
-        <div className="flex items-center space-x-2">
-          <Table className="w-4 h-4 text-brand-emerald" />
-          <h3 className="text-sm font-bold text-white uppercase font-mono">
-            {pair.from.name} to {pair.to.name} Quick Conversion Table
-          </h3>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="flex items-center space-x-2">
+            <Table className="w-4 h-4 text-brand-emerald" />
+            <h3 className="text-sm font-bold text-white uppercase font-mono">
+              {pair.from.name} to {pair.to.name} Quick Conversion Table
+            </h3>
+          </div>
+          <Link
+            href="/convert/directory/"
+            className="text-xs font-mono text-brand-emerald hover:text-emerald-300 flex items-center space-x-1"
+          >
+            <span>Browse 350+ Converters</span>
+            <ArrowRight className="w-3 h-3" />
+          </Link>
         </div>
 
         <div className="overflow-x-auto">

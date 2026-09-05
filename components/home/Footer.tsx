@@ -22,8 +22,26 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Links */}
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 font-mono text-[11px]">
+          {/* Links Grid */}
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 font-mono text-[11px]">
+            <Link
+              href="/timezone/directory/"
+              className="px-3 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-emerald-400 hover:text-emerald-300 transition-colors"
+            >
+              Timezone Directory
+            </Link>
+            <Link
+              href="/percentage/directory/"
+              className="px-3 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-emerald-400 hover:text-emerald-300 transition-colors"
+            >
+              Percentage Directory
+            </Link>
+            <Link
+              href="/convert/directory/"
+              className="px-3 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-emerald-400 hover:text-emerald-300 transition-colors"
+            >
+              Unit Directory
+            </Link>
             <Link
               href="/#tools"
               className="px-3 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 hover:text-white transition-colors"
@@ -31,10 +49,16 @@ export function Footer() {
               All Tools
             </Link>
             <Link
-              href="/category/dev/"
+              href="/about/"
               className="px-3 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 hover:text-white transition-colors"
             >
-              Developer Hub
+              About
+            </Link>
+            <Link
+              href="/privacy/"
+              className="px-3 py-1.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 hover:text-white transition-colors"
+            >
+              Privacy
             </Link>
             <a
               href="https://github.com/ensibey/devtransform-hub"

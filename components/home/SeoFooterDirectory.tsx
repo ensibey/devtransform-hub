@@ -55,11 +55,56 @@ export function SeoFooterDirectory() {
       <div className="space-y-2">
         <div className="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-xs font-mono text-brand-emerald">
           <Layers className="w-3.5 h-3.5" />
-          <span>Full Tool & Converter Directory</span>
+          <span>Full Tool & Programmatic Directory</span>
         </div>
         <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-          Explore 100+ Free In-Browser Developer Utilities
+          Explore 7,600+ Free In-Browser Developer Utilities & Calculations
         </h2>
+      </div>
+
+      {/* 3 Master Directory Index Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <Link
+          href="/timezone/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-emerald-950/30 to-zinc-900/60 border border-emerald-500/30 hover:border-emerald-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">World Timezone Directory</span>
+            <ArrowRight className="w-3.5 h-3.5 text-emerald-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            75 global metropolises, 5,500+ corridors, IATA airport codes, live clocks & meeting planners.
+          </p>
+          <span className="text-[11px] font-mono text-emerald-500 font-semibold">Browse 5,500+ Corridors &rarr;</span>
+        </Link>
+
+        <Link
+          href="/percentage/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-sky-950/30 to-zinc-900/60 border border-sky-500/30 hover:border-sky-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-sky-400 uppercase tracking-wider">Percentage Directory</span>
+            <ArrowRight className="w-3.5 h-3.5 text-sky-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            1,100+ solved math problems with copyable Excel formulas, tax & discount tables.
+          </p>
+          <span className="text-[11px] font-mono text-sky-500 font-semibold">Browse 1,100+ Formulas &rarr;</span>
+        </Link>
+
+        <Link
+          href="/convert/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-indigo-950/30 to-zinc-900/60 border border-indigo-500/30 hover:border-indigo-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-indigo-400 uppercase tracking-wider">Unit Conversion Hub</span>
+            <ArrowRight className="w-3.5 h-3.5 text-indigo-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            350+ precision measurement converters across length, mass, data storage, speed, and volume.
+          </p>
+          <span className="text-[11px] font-mono text-indigo-500 font-semibold">Browse 350+ Converters &rarr;</span>
+        </Link>
       </div>
 
       {/* 3-Column Internal Links Grid */}

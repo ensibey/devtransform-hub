@@ -37,10 +37,10 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const prob = getPercentageProblem(params.slug);
-  if (!prob) return { title: 'Percentage Calculator' };
+  if (!prob) return { title: 'Percentage Calculator | DevTransform' };
 
-  const title = `What is ${prob.percent}% of ${prob.baseNumber}? (${prob.result}) - Percentage Calculator`;
-  const description = `${prob.percent}% of ${prob.baseNumber} is ${prob.result}. Step-by-step mathematical explanation, formula, discount calculator, and percentage table.`;
+  const title = `What is ${prob.percent}% of ${prob.baseNumber}? (${prob.result}) + Excel Formula & Table`;
+  const description = `${prob.percent}% of ${prob.baseNumber} = ${prob.result}. Includes copyable Excel formula (=A1*${prob.percent}%), step-by-step mathematical breakdown, discount and sales tax tables, and interactive slider.`;
   const canonicalUrl = `https://devtransform-hub.vercel.app/percentage/${prob.slug}/`;
 
   return {
@@ -50,9 +50,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `what is ${prob.percent} percent of ${prob.baseNumber}`,
       `${prob.percent}% of ${prob.baseNumber}`,
       `calculate ${prob.percent}% of ${prob.baseNumber}`,
+      'excel percentage formula',
+      'discount calculator',
+      'sales tax formula',
       'math percentage solver',
       'percentage calculator',
-      'how to calculate percentages',
     ],
     alternates: {
       canonical: canonicalUrl,
@@ -62,7 +64,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url: canonicalUrl,
       type: 'website',
-      siteName: 'DevTransform',
+      siteName: 'DevTransform Percentage Solver',
     },
   };
 }
@@ -239,6 +241,71 @@ export default function PercentageProblemPage({ params }: PageProps) {
         initialPercent={prob.percent}
         initialBase={prob.baseNumber}
       />
+
+      {/* 10-Tier Discount, Tax & Rate Reference Table */}
+      <section className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-4 shadow-lg">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="flex items-center space-x-2 font-mono text-xs font-bold text-white uppercase">
+            <Calculator className="w-4 h-4 text-brand-emerald" />
+            <span>Percentage & Discount Reference Table for ${prob.baseNumber.toLocaleString()}</span>
+          </div>
+          <Link
+            href="/percentage/directory/"
+            className="text-xs font-mono text-brand-emerald hover:text-emerald-300 flex items-center space-x-1"
+          >
+            <span>Browse Full Directory</span>
+            <ArrowRight className="w-3 h-3" />
+          </Link>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs font-mono border-collapse min-w-[500px]">
+            <thead>
+              <tr className="border-b border-zinc-800 text-zinc-400 bg-zinc-950/60">
+                <th className="p-3">Percentage</th>
+                <th className="p-3">Amount</th>
+                <th className="p-3">Sale Price (-%)</th>
+                <th className="p-3">With Tax (+%)</th>
+                <th className="p-3">Quick Link</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-zinc-800/60 text-zinc-300">
+              {[5, 10, 15, 20, 25, 30, 40, 50, 75, 100].map((tierPercent) => {
+                const tierAmount = (tierPercent * prob.baseNumber) / 100;
+                const tierDiscount = prob.baseNumber - tierAmount;
+                const tierTax = prob.baseNumber + tierAmount;
+                const isCurrent = tierPercent === prob.percent;
+
+                return (
+                  <tr
+                    key={tierPercent}
+                    className={`hover:bg-zinc-800/40 transition-colors ${
+                      isCurrent ? 'bg-brand-emerald/10 font-bold text-white' : ''
+                    }`}
+                  >
+                    <td className="p-3 font-bold text-brand-emerald">
+                      {tierPercent}%
+                      {isCurrent && <span className="ml-2 text-[10px] bg-brand-emerald/20 text-brand-emerald px-1.5 py-0.5 rounded">Current</span>}
+                    </td>
+                    <td className="p-3">${tierAmount.toLocaleString()}</td>
+                    <td className="p-3 text-emerald-400">${tierDiscount.toLocaleString()}</td>
+                    <td className="p-3 text-sky-400">${tierTax.toLocaleString()}</td>
+                    <td className="p-3">
+                      <Link
+                        href={`/percentage/what-is-${tierPercent}-percent-of-${prob.baseNumber}/`}
+                        className="text-[11px] text-zinc-400 hover:text-white flex items-center space-x-1 group"
+                      >
+                        <span>View</span>
+                        <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </section>
 
       {/* FAQs */}
       <FaqAccordion
