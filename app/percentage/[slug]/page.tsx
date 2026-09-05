@@ -8,6 +8,7 @@ import {
   PercentageProblem,
 } from '@/lib/percentage-matrix';
 import { FaqAccordion } from '@/components/seo/FaqAccordion';
+import { InteractivePercentageSlider } from '@/components/percentage/InteractivePercentageSlider';
 import {
   Percent,
   Calculator,
@@ -232,6 +233,12 @@ export default function PercentageProblemPage({ params }: PageProps) {
           </div>
         </div>
       </div>
+
+      {/* Interactive Simulator & Developer Snippets */}
+      <InteractivePercentageSlider
+        initialPercent={prob.percent}
+        initialBase={prob.baseNumber}
+      />
 
       {/* FAQs */}
       <FaqAccordion

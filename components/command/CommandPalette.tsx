@@ -23,7 +23,7 @@ import {
   Calculator,
 } from 'lucide-react';
 import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
-import { TOOLS_REGISTRY } from '@/lib/registry';
+import { TOOLS_METADATA } from '@/lib/tools-metadata';
 import { CATEGORIES } from '@/types/tool';
 
 export function CommandPalette() {
@@ -83,7 +83,7 @@ export function CommandPalette() {
               heading="Standalone Utilities (100% Client-Side)"
               className="text-[10px] font-mono text-zinc-500 uppercase px-2 py-1"
             >
-              {TOOLS_REGISTRY.map((tool) => (
+              {TOOLS_METADATA.map((tool) => (
                 <CommandItem
                   key={tool.slug}
                   value={`${tool.title} ${tool.category} ${tool.keywords.join(' ')}`}

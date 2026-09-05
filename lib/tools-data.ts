@@ -1,4 +1,4 @@
-import { TOOLS_REGISTRY } from '@/lib/registry';
+import { TOOLS_METADATA } from '@/lib/tools-metadata';
 
 export type ToolCategoryKey =
   | 'all'
@@ -48,7 +48,7 @@ const CATEGORY_LABEL_MAP: Record<string, { key: ToolCategoryKey; label: string }
   css: { key: 'dev', label: 'CSS & Styling' },
 };
 
-export const DEVELOPER_TOOLS: DeveloperToolItem[] = TOOLS_REGISTRY.map((t) => {
+export const DEVELOPER_TOOLS: DeveloperToolItem[] = TOOLS_METADATA.map((t) => {
   const cat = CATEGORY_LABEL_MAP[t.category] || { key: 'dev', label: 'Developer' };
   return {
     id: t.id,

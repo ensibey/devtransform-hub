@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { CATEGORIES, ToolCategory } from '@/types/tool';
-import { getToolsByCategory } from '@/lib/registry';
+import { getToolsMetaByCategory } from '@/lib/tools-metadata';
 import { PrivacyBadge } from '@/components/ui/PrivacyBadge';
 import { EthicalAdUnit } from '@/components/ads/EthicalAdUnit';
 import {
@@ -61,7 +61,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
     notFound();
   }
 
-  const tools = getToolsByCategory(categoryInfo.id);
+  const tools = getToolsMetaByCategory(categoryInfo.id);
 
   return (
     <div className="space-y-8 py-2">

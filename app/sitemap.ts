@@ -7,7 +7,7 @@ import { getAllColorDefinitions } from '@/lib/color-matrix';
 import { getAllTextTransformations } from '@/lib/text-matrix';
 import { getAllHttpStatuses } from '@/lib/http-status-data';
 import { getAllCronSchedules } from '@/lib/cron-data';
-import { TOOLS_REGISTRY } from '@/lib/registry';
+import { TOOLS_METADATA } from '@/lib/tools-metadata';
 import { CATEGORIES } from '@/types/tool';
 
 import { generateSitemaps } from '@/scripts/build-sitemaps';
@@ -147,7 +147,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // 10. Standalone Utilities
-  TOOLS_REGISTRY.forEach((tool) => {
+  TOOLS_METADATA.forEach((tool) => {
     routes.push({
       url: `${BASE_URL}/tools/${tool.slug}/`,
       lastModified: currentDate,

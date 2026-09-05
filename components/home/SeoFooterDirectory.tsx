@@ -1,14 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
-import { TOOLS_REGISTRY } from '@/lib/registry';
+import { TOOLS_METADATA } from '@/lib/tools-metadata';
 import { FaqAccordion } from '@/components/seo/FaqAccordion';
 import { ArrowRight, Code2, Layers, Sparkles } from 'lucide-react';
 
 const HOMEPAGE_FAQS = [
   {
-    question: 'How is ZeroUpload completely free with zero server costs?',
-    answer: 'ZeroUpload is engineered as a static export Next.js web application deployed to Cloudflare Pages edge global CDN. All code transformations, parsing, and type synthesis execute 100% inside your browser using client-side Web Workers and WebAssembly. Because no computation or storage occurs on backend servers, infrastructure costs are $0.',
+    question: 'How is DevTransform completely free with zero server costs?',
+    answer: 'DevTransform is engineered as a high-performance Next.js application deployed to edge global CDN. All code transformations, parsing, and calculations execute 100% inside your browser using client-side Web Workers and WebAssembly. Because no computation or storage occurs on backend servers, privacy is total and infrastructure costs are $0.',
   },
   {
     question: 'Is it safe to paste enterprise production code, API keys, or JWT tokens?',
@@ -19,16 +19,16 @@ const HOMEPAGE_FAQS = [
     answer: 'When you click "Share", your state is compressed using the LZ-String algorithm and stored exclusively in the URL hash fragment (#data=...). Web browsers never send hash fragments to web servers in HTTP requests, keeping your shared snippets completely private.',
   },
   {
-    question: 'Can I use ZeroUpload offline as a Progressive Web App (PWA)?',
-    answer: 'Yes! ZeroUpload includes an offline Service Worker that caches static assets. Once loaded, all 100+ utilities and matrix converters function seamlessly even without an active internet connection.',
+    question: 'Can I use DevTransform offline as a Progressive Web App (PWA)?',
+    answer: 'Yes! DevTransform includes an offline Service Worker that caches static assets. Once loaded, all 140+ utilities and matrix converters function seamlessly even without an active internet connection.',
   },
 ];
 
 export function SeoFooterDirectory() {
   const allPairs = getAllMatrixPairs();
   const topConverters = allPairs.slice(0, 16);
-  const devTools = TOOLS_REGISTRY.filter((t) => t.category === 'dev' || t.category === 'text').slice(0, 8);
-  const mediaTools = TOOLS_REGISTRY.filter((t) => t.category === 'pdf' || t.category === 'image' || t.category === 'calculator').slice(0, 8);
+  const devTools = TOOLS_METADATA.filter((t) => t.category === 'dev' || t.category === 'text').slice(0, 8);
+  const mediaTools = TOOLS_METADATA.filter((t) => t.category === 'pdf' || t.category === 'image' || t.category === 'calculator').slice(0, 8);
 
   const faqSchema = {
     '@context': 'https://schema.org',

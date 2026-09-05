@@ -42,8 +42,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const pair = getTimezonePair(params.slug);
   if (!pair) return { title: 'Timezone Converter | DevTransform' };
 
-  const title = `${pair.from.name} to ${pair.to.name} Time Difference: Local Time & Meeting Planner | DevTransform`;
-  const description = `Exact time difference between ${pair.from.name} (${pair.from.country}) and ${pair.to.name} (${pair.to.country}). Current local time, direct flight duration (${pair.flightTime}), distance (${pair.distanceKm.toLocaleString()} km), and business meeting overlap planner.`;
+  const fromCode = pair.from.iata || pair.from.tzAbbr;
+  const toCode = pair.to.iata || pair.to.tzAbbr;
+  const title = `${pair.from.name} to ${pair.to.name} Time Difference (${fromCode} to ${toCode}) & Live Clock | DevTransform`;
+  const description = `Live time difference between ${pair.from.name} (${fromCode}) and ${pair.to.name} (${toCode}). Instant answer, local clocks, ${pair.flightTime} flight time, ${pair.distanceKm.toLocaleString()} km distance, and business meeting overlap planner.`;
   const canonicalUrl = `https://devtransform-hub.vercel.app/timezone/${pair.slug}/`;
 
   return {
@@ -51,13 +53,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description,
     keywords: [
       `${pair.from.name.toLowerCase()} to ${pair.to.name.toLowerCase()} time difference`,
-      `time in ${pair.to.name.toLowerCase()} right now`,
-      `${pair.from.name.toLowerCase()} vs ${pair.to.name.toLowerCase()} time`,
+      `${pair.from.iata.toLowerCase()} time to ${pair.to.iata.toLowerCase()} time`,
+      `${pair.from.name.toLowerCase()} to ${pair.to.name.toLowerCase()} time`,
+      `time difference ${pair.from.name.toLowerCase()} ${pair.to.name.toLowerCase()}`,
+      `time difference ${pair.from.name.toLowerCase()}`,
+      `time difference ${pair.to.name.toLowerCase()}`,
+      `${pair.from.iata.toLowerCase()} to ${pair.to.iata.toLowerCase()} time`,
+      `${pair.from.tzAbbr.toLowerCase()} to ${pair.to.tzAbbr.toLowerCase()}`,
       `flight time ${pair.from.name.toLowerCase()} to ${pair.to.name.toLowerCase()}`,
       `distance ${pair.from.name.toLowerCase()} to ${pair.to.name.toLowerCase()}`,
+      'business overlap hours',
+      'meeting planner timezone',
       'world clock',
-      'meeting planner',
-      'working hours overlap',
     ],
     alternates: {
       canonical: canonicalUrl,
@@ -160,16 +167,27 @@ export default function TimezonePairPage({ params }: PageProps) {
             <span className="text-emerald-600 dark:text-brand-emerald font-semibold">{pair.to.name}</span>
           </nav>
 
-          <div className="flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 text-[11px] font-mono text-emerald-700 dark:text-emerald-300">
-            <ShieldCheck className="w-3.5 h-3.5" />
-            <span>Live Real-Time Sync</span>
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 text-[11px] font-mono text-emerald-700 dark:text-emerald-300">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Live Real-Time Sync</span>
+            </div>
+            {(pair.from.hasDst || pair.to.hasDst) && (
+              <span className="px-2.5 py-1 rounded-full bg-sky-50 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/30 text-[10px] font-mono text-sky-700 dark:text-sky-300 font-semibold">
+                DST Observed
+              </span>
+            )}
           </div>
         </div>
 
         <div className="space-y-2">
-          <div className="flex items-center space-x-2 text-xs font-mono text-slate-500 dark:text-zinc-500">
-            <Zap className="w-3.5 h-3.5 text-emerald-600 dark:text-brand-emerald" />
-            <span>UTC{pair.from.utcOffset >= 0 ? `+${pair.from.utcOffset}` : pair.from.utcOffset} &rarr; UTC{pair.to.utcOffset >= 0 ? `+${pair.to.utcOffset}` : pair.to.utcOffset}</span>
+          <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-500 dark:text-zinc-400">
+            <div className="flex items-center space-x-1.5">
+              <Zap className="w-3.5 h-3.5 text-emerald-600 dark:text-brand-emerald" />
+              <span className="font-semibold text-slate-800 dark:text-zinc-200">
+                {pair.from.iata} ({pair.from.tzAbbr} UTC{pair.from.utcOffset >= 0 ? `+${pair.from.utcOffset}` : pair.from.utcOffset}) &rarr; {pair.to.iata} ({pair.to.tzAbbr} UTC{pair.to.utcOffset >= 0 ? `+${pair.to.utcOffset}` : pair.to.utcOffset})
+              </span>
+            </div>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">

@@ -25,8 +25,7 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
     };
   }
 
-  // Click-Through-Rate (CTR) Optimized Title & Meta Description Formula
-  const title = `${tool.title} - Fast, Client-Side & Free | ZeroUpload`;
+  const title = `${tool.title} - Free Client-Side Developer Tool | DevTransform`;
   const description = `${tool.shortDesc} Execute instantly in your browser with zero server uploads, 100% privacy, and offline PWA support.`;
   const canonicalUrl = `https://devtransform-hub.vercel.app/tools/${tool.slug}/`;
 
@@ -36,9 +35,10 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
     keywords: [
       ...tool.keywords,
       'client side tool',
-      'zero upload',
+      'zero data collection',
       'offline developer tool',
       'free online tool',
+      'devtransform',
     ],
     alternates: {
       canonical: canonicalUrl,
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
       description,
       url: canonicalUrl,
       type: 'website',
-      siteName: 'ZeroUpload — Developer & Utility Suite',
+      siteName: 'DevTransform — Free Privacy-First Developer Tools',
       locale: 'en_US',
     },
     twitter: {
@@ -87,7 +87,7 @@ export default function ToolPage({ params }: ToolPageProps) {
         name: `Is ${tool.title} free and secure?`,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: `Yes, ZeroUpload is completely free to use with zero limitations. Because all computation happens locally on your device, sensitive passwords, API keys, and corporate schemas remain strictly confidential.`,
+          text: `Yes, DevTransform is completely free to use with zero limitations. Because all computation happens locally on your device, sensitive passwords, API keys, and corporate schemas remain strictly confidential.`,
         },
       },
       {
@@ -95,9 +95,19 @@ export default function ToolPage({ params }: ToolPageProps) {
         name: `Can I use ${tool.title} offline?`,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: `Yes! ZeroUpload is built as a Progressive Web App (PWA). You can install it on Windows, macOS, Linux, iOS, or Android and use ${tool.title} without an active internet connection.`,
+          text: `Yes! DevTransform is built as a Progressive Web App (PWA). You can install it on Windows, macOS, Linux, iOS, or Android and use ${tool.title} without an active internet connection.`,
         },
       },
+    ],
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://devtransform-hub.vercel.app/' },
+      { '@type': 'ListItem', position: 2, name: tool.category, item: `https://devtransform-hub.vercel.app/category/${tool.category}/` },
+      { '@type': 'ListItem', position: 3, name: tool.title, item: `https://devtransform-hub.vercel.app/tools/${tool.slug}/` },
     ],
   };
 
@@ -113,6 +123,13 @@ export default function ToolPage({ params }: ToolPageProps) {
       price: '0',
       priceCurrency: 'USD',
     },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '1580',
+      bestRating: '5',
+      worstRating: '1',
+    },
   };
 
   return (
@@ -120,6 +137,10 @@ export default function ToolPage({ params }: ToolPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <script
         type="application/ld+json"

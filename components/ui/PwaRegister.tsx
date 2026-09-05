@@ -15,10 +15,10 @@ export function PwaRegister() {
         navigator.serviceWorker
           .register('/sw.js')
           .then((reg) => {
-            console.log('ZeroUpload SW registered:', reg.scope);
+            console.log('DevTransform SW registered:', reg.scope);
           })
           .catch((err) => {
-            console.error('ZeroUpload SW registration failed:', err);
+            console.error('DevTransform SW registration failed:', err);
           });
       });
     }

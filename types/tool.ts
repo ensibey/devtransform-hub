@@ -7,7 +7,7 @@ export interface ToolFaq {
   answer: string;
 }
 
-export interface ToolDefinition {
+export interface ToolMetadata {
   id: string;
   slug: string;
   title: string;
@@ -19,6 +19,9 @@ export interface ToolDefinition {
   isNew?: boolean;
   seoDescription: string;
   faqs?: ToolFaq[];
+}
+
+export interface ToolDefinition extends ToolMetadata {
   component: React.ComponentType;
 }
 
