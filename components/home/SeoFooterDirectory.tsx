@@ -62,14 +62,14 @@ export function SeoFooterDirectory() {
         </h2>
       </div>
 
-      {/* 3 Master Directory Index Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {/* 6 Master Directory Index Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <Link
           href="/timezone/directory/"
           className="p-4 rounded-xl bg-gradient-to-br from-emerald-950/30 to-zinc-900/60 border border-emerald-500/30 hover:border-emerald-500/60 transition-all group flex flex-col justify-between space-y-2"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">World Timezone Directory</span>
+            <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">World Timezones</span>
             <ArrowRight className="w-3.5 h-3.5 text-emerald-400 group-hover:translate-x-1 transition-transform" />
           </div>
           <p className="text-xs text-zinc-400">
@@ -79,11 +79,53 @@ export function SeoFooterDirectory() {
         </Link>
 
         <Link
+          href="/port/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-amber-950/30 to-zinc-900/60 border border-amber-500/30 hover:border-amber-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider">Developer Ports</span>
+            <ArrowRight className="w-3.5 h-3.5 text-amber-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            70+ ports (Node, React, Postgres, Redis, Docker), terminal kill commands & security advisories.
+          </p>
+          <span className="text-[11px] font-mono text-amber-500 font-semibold">Browse 70+ Ports &rarr;</span>
+        </Link>
+
+        <Link
+          href="/mime/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-violet-950/30 to-zinc-900/60 border border-violet-500/30 hover:border-violet-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-violet-400 uppercase tracking-wider">MIME Types & Headers</span>
+            <ArrowRight className="w-3.5 h-3.5 text-violet-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            60+ web MIME types, file extensions, Content-Type headers, and NGINX/Apache configs.
+          </p>
+          <span className="text-[11px] font-mono text-violet-500 font-semibold">Browse 60+ MIME Types &rarr;</span>
+        </Link>
+
+        <Link
+          href="/chmod/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-rose-950/30 to-zinc-900/60 border border-rose-500/30 hover:border-rose-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-rose-400 uppercase tracking-wider">chmod Matrix</span>
+            <ArrowRight className="w-3.5 h-3.5 text-rose-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            Interactive rwx permission breakdown (755, 644, 600, 777), recursive commands & security ratings.
+          </p>
+          <span className="text-[11px] font-mono text-rose-500 font-semibold">Browse chmod Matrix &rarr;</span>
+        </Link>
+
+        <Link
           href="/percentage/directory/"
           className="p-4 rounded-xl bg-gradient-to-br from-sky-950/30 to-zinc-900/60 border border-sky-500/30 hover:border-sky-500/60 transition-all group flex flex-col justify-between space-y-2"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-mono font-bold text-sky-400 uppercase tracking-wider">Percentage Directory</span>
+            <span className="text-xs font-mono font-bold text-sky-400 uppercase tracking-wider">Percentages</span>
             <ArrowRight className="w-3.5 h-3.5 text-sky-400 group-hover:translate-x-1 transition-transform" />
           </div>
           <p className="text-xs text-zinc-400">
@@ -97,7 +139,7 @@ export function SeoFooterDirectory() {
           className="p-4 rounded-xl bg-gradient-to-br from-indigo-950/30 to-zinc-900/60 border border-indigo-500/30 hover:border-indigo-500/60 transition-all group flex flex-col justify-between space-y-2"
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-mono font-bold text-indigo-400 uppercase tracking-wider">Unit Conversion Hub</span>
+            <span className="text-xs font-mono font-bold text-indigo-400 uppercase tracking-wider">Unit Converters</span>
             <ArrowRight className="w-3.5 h-3.5 text-indigo-400 group-hover:translate-x-1 transition-transform" />
           </div>
           <p className="text-xs text-zinc-400">

@@ -24,6 +24,8 @@ import {
   Globe,
   Percent,
   Scale,
+  Server,
+  FolderLock,
 } from 'lucide-react';
 import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
 import { TOOLS_METADATA } from '@/lib/tools-metadata';
@@ -183,6 +185,57 @@ export function CommandPalette() {
                 </div>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
                   /convert/directory/
+                </span>
+              </CommandItem>
+
+              <CommandItem
+                value="developer ports directory networking database dev servers 3000 8080 5432 6379 27017"
+                onSelect={() => handleSelect('/port/directory/')}
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+              >
+                <div className="flex items-center space-x-2">
+                  <Server className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
+                  <span className="font-medium text-zinc-100">Developer Ports Directory</span>
+                  <span className="text-[10px] font-mono text-amber-400 px-1.5 py-0.2 rounded bg-amber-950/40 border border-amber-500/30">
+                    70+ Ports
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                  /port/directory/
+                </span>
+              </CommandItem>
+
+              <CommandItem
+                value="mime types directory content type headers application json image webp pdf wasm"
+                onSelect={() => handleSelect('/mime/directory/')}
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+              >
+                <div className="flex items-center space-x-2">
+                  <FileCode className="w-3.5 h-3.5 text-violet-400 flex-shrink-0" />
+                  <span className="font-medium text-zinc-100">MIME Types & Headers Directory</span>
+                  <span className="text-[10px] font-mono text-violet-400 px-1.5 py-0.2 rounded bg-violet-950/40 border border-violet-500/30">
+                    60+ Mimes
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                  /mime/directory/
+                </span>
+              </CommandItem>
+
+              <CommandItem
+                value="chmod permissions directory linux unix security octal symbolic 755 644 600 777"
+                onSelect={() => handleSelect('/chmod/directory/')}
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+              >
+                <div className="flex items-center space-x-2">
+                  <FolderLock className="w-3.5 h-3.5 text-rose-400 flex-shrink-0" />
+                  <span className="font-medium text-zinc-100">chmod Linux Permissions Matrix</span>
+                  <span className="text-[10px] font-mono text-rose-400 px-1.5 py-0.2 rounded bg-rose-950/40 border border-rose-500/30">
+                    Matrix & Commands
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                  /chmod/directory/
                 </span>
               </CommandItem>
             </CommandGroup>

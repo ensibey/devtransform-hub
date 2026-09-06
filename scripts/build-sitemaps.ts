@@ -12,6 +12,9 @@ import { getAllRegexPatterns } from '../lib/regex-matrix';
 import { getAllShadowPresets } from '../lib/shadow-matrix';
 import { getAllCheatSheets } from '../lib/cheatsheet-matrix';
 import { getAllComparisons } from '../lib/comparison-matrix';
+import { getAllPorts } from '../lib/ports-data';
+import { getAllMimes } from '../lib/mime-data';
+import { getAllChmods } from '../lib/chmod-data';
 import { TOOLS_METADATA } from '../lib/tools-metadata';
 import { CATEGORIES } from '../types/tool';
 
@@ -60,6 +63,9 @@ export function generateSitemaps(targetDirs: string[]) {
     { url: `${BASE_URL}/privacy/`, priority: 0.8, changeFrequency: 'monthly' },
     { url: `${BASE_URL}/terms/`, priority: 0.8, changeFrequency: 'monthly' },
     { url: `${BASE_URL}/contact/`, priority: 0.8, changeFrequency: 'monthly' },
+    { url: `${BASE_URL}/port/directory/`, priority: 0.9, changeFrequency: 'weekly' },
+    { url: `${BASE_URL}/mime/directory/`, priority: 0.9, changeFrequency: 'weekly' },
+    { url: `${BASE_URL}/chmod/directory/`, priority: 0.9, changeFrequency: 'weekly' },
     ...Object.keys(CATEGORIES).map((c) => ({ url: `${BASE_URL}/category/${c}/`, priority: 0.8 })),
     ...FORMAT_LIST.map((f) => ({ url: `${BASE_URL}/formatters/${f.id}/`, priority: 0.7 })),
     ...TOOLS_METADATA.map((t) => ({ url: `${BASE_URL}/tools/${t.slug}/`, priority: 0.9 })),
@@ -106,6 +112,9 @@ export function generateSitemaps(targetDirs: string[]) {
     ...getAllShadowPresets().map((s) => ({ url: `${BASE_URL}/css-shadow/${s.slug}/`, priority: 0.8 })),
     ...getAllCheatSheets().map((c) => ({ url: `${BASE_URL}/cheatsheet/${c.slug}/`, priority: 0.8 })),
     ...getAllComparisons().map((v) => ({ url: `${BASE_URL}/vs/${v.slug}/`, priority: 0.8 })),
+    ...getAllPorts().map((p) => ({ url: `${BASE_URL}/port/${p.slug}/`, priority: 0.8 })),
+    ...getAllMimes().map((m) => ({ url: `${BASE_URL}/mime/${m.slug}/`, priority: 0.8 })),
+    ...getAllChmods().map((c) => ({ url: `${BASE_URL}/chmod/${c.slug}/`, priority: 0.8 })),
   ];
   const utilXml = buildUrlSetXml(utilUrls);
 

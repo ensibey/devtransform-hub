@@ -13,6 +13,8 @@ import {
   Sparkles,
   Code2,
   FileCode,
+  Server,
+  FolderLock,
 } from 'lucide-react';
 
 export default function NotFound() {
@@ -73,8 +75,8 @@ export default function NotFound() {
           </Link>
         </div>
 
-        {/* 3 Master Directories Quick Navigation */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+        {/* 6 Master Directories Quick Navigation */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-left">
           <Link
             href="/timezone/directory/"
             className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-emerald-500/40 hover:bg-zinc-850 transition-all group space-y-2"
@@ -109,6 +111,42 @@ export default function NotFound() {
             </div>
             <div className="font-bold text-sm text-white">Unit Conversion Hub</div>
             <p className="text-xs text-zinc-400">350+ metric & imperial measurement converters.</p>
+          </Link>
+
+          <Link
+            href="/port/directory/"
+            className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-amber-500/40 hover:bg-zinc-850 transition-all group space-y-2"
+          >
+            <div className="flex items-center justify-between">
+              <Server className="w-4 h-4 text-amber-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-zinc-600 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
+            </div>
+            <div className="font-bold text-sm text-white">Developer Ports Directory</div>
+            <p className="text-xs text-zinc-400">70+ ports, kill commands & security checks.</p>
+          </Link>
+
+          <Link
+            href="/mime/directory/"
+            className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-violet-500/40 hover:bg-zinc-850 transition-all group space-y-2"
+          >
+            <div className="flex items-center justify-between">
+              <FileCode className="w-4 h-4 text-violet-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-zinc-600 group-hover:text-violet-400 group-hover:translate-x-1 transition-all" />
+            </div>
+            <div className="font-bold text-sm text-white">MIME Types & Headers</div>
+            <p className="text-xs text-zinc-400">60+ Content-Type headers & Nginx configs.</p>
+          </Link>
+
+          <Link
+            href="/chmod/directory/"
+            className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-rose-500/40 hover:bg-zinc-850 transition-all group space-y-2"
+          >
+            <div className="flex items-center justify-between">
+              <FolderLock className="w-4 h-4 text-rose-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-zinc-600 group-hover:text-rose-400 group-hover:translate-x-1 transition-all" />
+            </div>
+            <div className="font-bold text-sm text-white">chmod Permissions Matrix</div>
+            <p className="text-xs text-zinc-400">Interactive rwx permissions & security ratings.</p>
           </Link>
         </div>
 

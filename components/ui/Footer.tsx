@@ -98,27 +98,32 @@ export function Footer() {
             <ul className="space-y-1.5">
               <li>
                 <Link href="/timezone/directory/" className="text-emerald-600 dark:text-brand-emerald font-semibold hover:underline">
-                  🌍 Timezone Directory (75 Cities)
+                  🌍 Timezone Directory (5,500+)
                 </Link>
               </li>
               <li>
-                <Link href="/percentage/directory/" className="text-emerald-600 dark:text-brand-emerald font-semibold hover:underline">
-                  % Percentage Directory (1,100+)
+                <Link href="/port/directory/" className="text-emerald-600 dark:text-brand-emerald font-semibold hover:underline">
+                  🔌 Developer Ports Directory
                 </Link>
               </li>
               <li>
-                <Link href="/convert/directory/" className="text-emerald-600 dark:text-brand-emerald font-semibold hover:underline">
+                <Link href="/mime/directory/" className="text-emerald-600 dark:text-brand-emerald font-semibold hover:underline">
+                  📄 MIME Types & Headers
+                </Link>
+              </li>
+              <li>
+                <Link href="/chmod/directory/" className="text-emerald-600 dark:text-brand-emerald font-semibold hover:underline">
+                  🔒 chmod Permissions Matrix
+                </Link>
+              </li>
+              <li>
+                <Link href="/convert/directory/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
                   ⚖️ Unit Directory (350+ Pairs)
                 </Link>
               </li>
               <li>
-                <Link href="/yaml-to-json/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
-                  YAML &rarr; JSON Converter
-                </Link>
-              </li>
-              <li>
-                <Link href="/csv-to-json/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
-                  CSV &rarr; JSON Converter
+                <Link href="/percentage/directory/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
+                  % Percentage Directory (1,100+)
                 </Link>
               </li>
             </ul>

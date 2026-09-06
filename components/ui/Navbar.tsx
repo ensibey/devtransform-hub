@@ -59,6 +59,24 @@ export function Navbar() {
               ⚖️ Units
             </Link>
             <Link
+              href="/port/directory/"
+              className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
+            >
+              🔌 Ports
+            </Link>
+            <Link
+              href="/mime/directory/"
+              className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
+            >
+              📄 MIME
+            </Link>
+            <Link
+              href="/chmod/directory/"
+              className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
+            >
+              🔒 Chmod
+            </Link>
+            <Link
               href="/category/dev/"
               className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors flex items-center gap-1"
             >

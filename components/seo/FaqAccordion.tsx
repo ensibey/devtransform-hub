@@ -10,16 +10,26 @@ export interface FaqItem {
 
 export interface FaqAccordionProps {
   faqs: FaqItem[];
-  fromName: string;
-  toName: string;
+  fromName?: string;
+  toName?: string;
+  title?: string;
+  subtitle?: string;
 }
 
-export function FaqAccordion({ faqs, fromName, toName }: FaqAccordionProps) {
+export function FaqAccordion({ faqs, fromName, toName, title, subtitle }: FaqAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  const headerTitle =
+    title ||
+    (fromName && toName
+      ? `Common Questions About ${fromName} to ${toName}`
+      : fromName
+      ? `Common Questions About ${fromName}`
+      : 'Frequently Asked Questions');
 
   return (
     <section className="mt-12 border-t border-border pt-10 text-zinc-300">
@@ -31,10 +41,10 @@ export function FaqAccordion({ faqs, fromName, toName }: FaqAccordionProps) {
             <span>Frequently Asked Questions</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-            Common Questions About {fromName} to {toName}
+            {headerTitle}
           </h2>
           <p className="text-xs sm:text-sm text-zinc-400 max-w-3xl leading-relaxed">
-            Everything you need to know regarding AST transformations, typing rules, and browser security.
+            {subtitle || 'Everything you need to know regarding specifications, syntax, and security best practices.'}
           </p>
         </div>
 
