@@ -161,6 +161,20 @@ export function SeoFooterDirectory() {
           </p>
           <span className="text-[11px] font-mono text-teal-500 font-semibold">Browse 50+ Entities &rarr;</span>
         </Link>
+
+        <Link
+          href="/dns/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-sky-950/30 to-zinc-900/60 border border-sky-500/30 hover:border-sky-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-sky-400 uppercase tracking-wider">DNS Records</span>
+            <ArrowRight className="w-3.5 h-3.5 text-sky-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            15+ DNS record types (A, CNAME, MX, TXT, SPF, DKIM, DMARC), zone file syntax &amp; dig commands.
+          </p>
+          <span className="text-[11px] font-mono text-sky-500 font-semibold">Browse DNS Directory &rarr;</span>
+        </Link>
       </div>
 
       {/* 3-Column Internal Links Grid */}

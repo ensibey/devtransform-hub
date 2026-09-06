@@ -255,6 +255,23 @@ export function CommandPalette() {
                   /html-entity/directory/
                 </span>
               </CommandItem>
+
+              <CommandItem
+                value="dns records directory a cname mx txt spf dkim dmarc caa nameserver lookup propagation"
+                onSelect={() => handleSelect('/dns/directory/')}
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+              >
+                <div className="flex items-center space-x-2">
+                  <Globe className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
+                  <span className="font-medium text-zinc-100">DNS Records & Setup Directory</span>
+                  <span className="text-[10px] font-mono text-sky-400 px-1.5 py-0.2 rounded bg-sky-950/40 border border-sky-500/30">
+                    15+ Types & Syntax
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                  /dns/directory/
+                </span>
+              </CommandItem>
             </CommandGroup>
 
             {/* Popular Global Timezones */}
