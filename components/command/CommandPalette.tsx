@@ -27,6 +27,7 @@ import {
   Server,
   FolderLock,
   GitBranch,
+  Clock,
 } from 'lucide-react';
 import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
 import { TOOLS_METADATA } from '@/lib/tools-metadata';
@@ -305,6 +306,23 @@ export function CommandPalette() {
                 </div>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
                   /git/directory/
+                </span>
+              </CommandItem>
+
+              <CommandItem
+                value="cron schedules directory expressions * * * * * crontab github actions syntax every 5 minutes midnight"
+                onSelect={() => handleSelect('/cron/directory/')}
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+              >
+                <div className="flex items-center space-x-2">
+                  <Clock className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
+                  <span className="font-medium text-zinc-100">Cron Schedules &amp; Expressions Directory</span>
+                  <span className="text-[10px] font-mono text-sky-400 px-1.5 py-0.2 rounded bg-sky-950/40 border border-sky-500/30">
+                    25+ Schedules
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                  /cron/directory/
                 </span>
               </CommandItem>
             </CommandGroup>

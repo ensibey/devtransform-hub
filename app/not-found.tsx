@@ -17,6 +17,7 @@ import {
   FolderLock,
   Zap,
   GitBranch,
+  Clock,
 } from 'lucide-react';
 
 export default function NotFound() {
@@ -197,6 +198,18 @@ export default function NotFound() {
             </div>
             <div className="font-bold text-sm text-white">Git Command Recipes</div>
             <p className="text-xs text-zinc-400">Undo commits, discard changes, resolve conflicts.</p>
+          </Link>
+
+          <Link
+            href="/cron/directory/"
+            className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-sky-500/40 hover:bg-zinc-850 transition-all group space-y-2"
+          >
+            <div className="flex items-center justify-between">
+              <Clock className="w-4 h-4 text-sky-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-zinc-600 group-hover:text-sky-400 group-hover:translate-x-1 transition-all" />
+            </div>
+            <div className="font-bold text-sm text-white">Cron Schedules Directory</div>
+            <p className="text-xs text-zinc-400">Everyday cron expressions explained in plain English.</p>
           </Link>
         </div>
 
