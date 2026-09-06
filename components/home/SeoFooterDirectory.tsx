@@ -175,6 +175,20 @@ export function SeoFooterDirectory() {
           </p>
           <span className="text-[11px] font-mono text-sky-500 font-semibold">Browse DNS Directory &rarr;</span>
         </Link>
+
+        <Link
+          href="/curl-to/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-amber-950/30 to-zinc-900/60 border border-amber-500/30 hover:border-amber-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider">cURL to Code</span>
+            <ArrowRight className="w-3.5 h-3.5 text-amber-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            Convert cURL commands to Python, JavaScript fetch, Axios, Go, Rust, PHP, C#, Java &amp; PowerShell.
+          </p>
+          <span className="text-[11px] font-mono text-amber-500 font-semibold">Browse 10+ Converters &rarr;</span>
+        </Link>
       </div>
 
       {/* 3-Column Internal Links Grid */}

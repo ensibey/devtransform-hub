@@ -127,6 +127,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/curl-to/directory/" className="text-emerald-600 dark:text-brand-emerald font-semibold hover:underline">
+                  ⚡ cURL to Code (10+ Languages)
+                </Link>
+              </li>
+              <li>
                 <Link href="/convert/directory/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
                   ⚖️ Unit Directory (350+ Pairs)
                 </Link>

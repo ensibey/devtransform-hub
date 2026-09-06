@@ -17,6 +17,7 @@ import { getAllMimes } from '../lib/mime-data';
 import { getAllChmods } from '../lib/chmod-data';
 import { getAllHtmlEntities } from '../lib/html-entities-data';
 import { getAllDnsRecords } from '../lib/dns-data';
+import { getAllCurlTargets } from '../lib/curl-targets-data';
 import { TOOLS_METADATA } from '../lib/tools-metadata';
 import { CATEGORIES } from '../types/tool';
 
@@ -70,6 +71,7 @@ export function generateSitemaps(targetDirs: string[]) {
     { url: `${BASE_URL}/chmod/directory/`, priority: 0.9, changeFrequency: 'weekly' },
     { url: `${BASE_URL}/html-entity/directory/`, priority: 0.9, changeFrequency: 'weekly' },
     { url: `${BASE_URL}/dns/directory/`, priority: 0.9, changeFrequency: 'weekly' },
+    { url: `${BASE_URL}/curl-to/directory/`, priority: 0.9, changeFrequency: 'weekly' },
     ...Object.keys(CATEGORIES).map((c) => ({ url: `${BASE_URL}/category/${c}/`, priority: 0.8 })),
     ...FORMAT_LIST.map((f) => ({ url: `${BASE_URL}/formatters/${f.id}/`, priority: 0.7 })),
     ...TOOLS_METADATA.map((t) => ({ url: `${BASE_URL}/tools/${t.slug}/`, priority: 0.9 })),
@@ -121,6 +123,7 @@ export function generateSitemaps(targetDirs: string[]) {
     ...getAllChmods().map((c) => ({ url: `${BASE_URL}/chmod/${c.slug}/`, priority: 0.8 })),
     ...getAllHtmlEntities().map((e) => ({ url: `${BASE_URL}/html-entity/${e.slug}/`, priority: 0.8 })),
     ...getAllDnsRecords().map((d) => ({ url: `${BASE_URL}/dns/${d.slug}/`, priority: 0.8 })),
+    ...getAllCurlTargets().map((c) => ({ url: `${BASE_URL}/curl-to/${c.slug}/`, priority: 0.8 })),
   ];
   const utilXml = buildUrlSetXml(utilUrls);
 

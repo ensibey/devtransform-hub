@@ -272,6 +272,23 @@ export function CommandPalette() {
                   /dns/directory/
                 </span>
               </CommandItem>
+
+              <CommandItem
+                value="curl to code converter python requests javascript fetch node axios go net http rust reqwest c# php"
+                onSelect={() => handleSelect('/curl-to/directory/')}
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+              >
+                <div className="flex items-center space-x-2">
+                  <Zap className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
+                  <span className="font-medium text-zinc-100">cURL to Code Converters</span>
+                  <span className="text-[10px] font-mono text-amber-400 px-1.5 py-0.2 rounded bg-amber-950/40 border border-amber-500/30">
+                    10 Languages
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                  /curl-to/directory/
+                </span>
+              </CommandItem>
             </CommandGroup>
 
             {/* Popular Global Timezones */}

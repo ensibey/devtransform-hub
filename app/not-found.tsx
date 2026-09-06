@@ -15,6 +15,7 @@ import {
   FileCode,
   Server,
   FolderLock,
+  Zap,
 } from 'lucide-react';
 
 export default function NotFound() {
@@ -171,6 +172,18 @@ export default function NotFound() {
             </div>
             <div className="font-bold text-sm text-white">DNS Records Directory</div>
             <p className="text-xs text-zinc-400">15+ record types, zone syntax & dig commands.</p>
+          </Link>
+
+          <Link
+            href="/curl-to/directory/"
+            className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-amber-500/40 hover:bg-zinc-850 transition-all group space-y-2"
+          >
+            <div className="flex items-center justify-between">
+              <Zap className="w-4 h-4 text-amber-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-zinc-600 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
+            </div>
+            <div className="font-bold text-sm text-white">cURL to Code Converters</div>
+            <p className="text-xs text-zinc-400">Convert cURL to 10+ programming languages.</p>
           </Link>
         </div>
 
