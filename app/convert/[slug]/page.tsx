@@ -148,9 +148,20 @@ export default function UnitPairPage({ params }: PageProps) {
         </div>
 
         <div className="space-y-1.5">
-          <div className="flex items-center space-x-2 text-xs font-mono text-zinc-500">
-            <Zap className="w-3.5 h-3.5 text-brand-emerald" />
-            <span>Category: {pair.from.categoryName}</span>
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="flex items-center space-x-2 text-xs font-mono text-zinc-500">
+              <Zap className="w-3.5 h-3.5 text-brand-emerald" />
+              <span>Category: {pair.from.categoryName}</span>
+            </div>
+
+            <Link
+              href={`/convert/${pair.to.slug}-to-${pair.from.slug}/`}
+              className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-lg bg-zinc-800/80 hover:bg-zinc-800 text-brand-emerald font-mono text-xs font-semibold border border-zinc-700 hover:border-brand-emerald/40 transition-colors shadow-sm group"
+              title={`Convert reverse: ${pair.to.name} to ${pair.from.name}`}
+            >
+              <span>⇄ Swap: {pair.to.name} to {pair.from.name}</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
           </div>
 
           <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">

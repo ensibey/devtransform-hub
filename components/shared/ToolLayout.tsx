@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ToolDefinition, CATEGORIES } from '@/types/tool';
 import { PrivacyBadge } from '@/components/ui/PrivacyBadge';
-import { EthicalAdUnit } from '@/components/ads/EthicalAdUnit';
 import { addRecentToolSlug, getFavoriteToolSlugs, toggleFavoriteToolSlug } from '@/lib/storage';
 import {
   Star,
@@ -233,8 +232,6 @@ export function ToolLayout({ tool, children, relatedTools = [] }: ToolLayoutProp
       <div className="w-full bg-surface-100 border border-border rounded-2xl p-4 sm:p-6 shadow-2xl">
         {children}
       </div>
-
-      <EthicalAdUnit />
 
       {/* FAQs & Documentation Section */}
       {tool.faqs && tool.faqs.length > 0 && (

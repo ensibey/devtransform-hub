@@ -60,6 +60,12 @@ export function EditorFooter({
             <span>{durationMs < 0.1 ? '<0.1ms' : `${durationMs.toFixed(1)}ms`}</span>
           </span>
         )}
+
+        {/* Keyboard Shortcuts Hint */}
+        <span className="hidden md:inline-flex items-center space-x-2 text-[10px] text-zinc-500 font-mono">
+          <span><kbd className="px-1 py-0.5 rounded bg-zinc-800 text-zinc-400">⌘↵</kbd> Run</span>
+          <span><kbd className="px-1 py-0.5 rounded bg-zinc-800 text-zinc-400">⌘⇧C</kbd> Copy</span>
+        </span>
       </div>
 
       {/* Right: Monospace size stats */}

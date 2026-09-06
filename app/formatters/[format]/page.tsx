@@ -5,7 +5,6 @@ import { FORMATS, FORMAT_LIST, isValidFormatId } from '@/lib/matrix';
 import { ConverterWorkspace } from '@/components/editor/ConverterWorkspace';
 import { JsonLdSchema } from '@/components/seo/JsonLdSchema';
 import { PrivacyBadge } from '@/components/ui/PrivacyBadge';
-import { EthicalAdUnit } from '@/components/ads/EthicalAdUnit';
 import { Sparkles, Zap, ShieldCheck } from 'lucide-react';
 
 interface PageProps {
@@ -106,8 +105,6 @@ export default function FormatterPage({ params }: PageProps) {
         initialFrom={format.id}
         initialTo={format.id}
       />
-
-      <EthicalAdUnit />
     </div>
   );
 }

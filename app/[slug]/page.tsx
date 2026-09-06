@@ -17,7 +17,6 @@ import { FaqAccordion } from '@/components/seo/FaqAccordion';
 import { RelatedTools } from '@/components/seo/RelatedTools';
 import { JsonLdSchema } from '@/components/seo/JsonLdSchema';
 import { PrivacyBadge } from '@/components/ui/PrivacyBadge';
-import { EthicalAdUnit } from '@/components/ads/EthicalAdUnit';
 import { ArrowRight, ChevronRight, Zap } from 'lucide-react';
 
 interface PageProps {
@@ -119,7 +118,7 @@ export default function MatrixConverterPage({ params }: PageProps) {
               Home
             </Link>
             <ChevronRight className="w-3 h-3 text-zinc-600" />
-            <Link href="/#converters" className="hover:text-zinc-200 transition-colors">
+            <Link href="/category/dev/" className="hover:text-zinc-200 transition-colors">
               Converters
             </Link>
             <ChevronRight className="w-3 h-3 text-zinc-600" />
@@ -132,9 +131,20 @@ export default function MatrixConverterPage({ params }: PageProps) {
         </div>
 
         <div className="space-y-1.5">
-          <div className="flex items-center space-x-2 text-xs font-mono text-zinc-500">
-            <Zap className="w-3.5 h-3.5 text-brand-emerald" />
-            <span>⚡ 100% Client-Side • Sub-Millisecond AST Engine</span>
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="flex items-center space-x-2 text-xs font-mono text-zinc-500">
+              <Zap className="w-3.5 h-3.5 text-brand-emerald" />
+              <span>⚡ 100% Client-Side • Sub-Millisecond AST Engine</span>
+            </div>
+
+            <Link
+              href={`/${pair.to}-to-${pair.from}/`}
+              className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-lg bg-zinc-800/80 hover:bg-zinc-800 text-brand-emerald font-mono text-xs font-semibold border border-zinc-700 hover:border-brand-emerald/40 transition-colors shadow-sm group"
+              title={`Swap conversion: ${pair.toMeta.shortName} to ${pair.fromMeta.shortName}`}
+            >
+              <span>⇄ Swap: {pair.toMeta.shortName} to {pair.fromMeta.shortName}</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
           </div>
 
           <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -152,8 +162,6 @@ export default function MatrixConverterPage({ params }: PageProps) {
         initialFrom={pair.from}
         initialTo={pair.to}
       />
-
-      <EthicalAdUnit />
 
       {/* Anti-Thin-Content Technical Comparison Table */}
       <TechnicalComparison

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { CATEGORIES, ToolCategory } from '@/types/tool';
 import { getToolsMetaByCategory } from '@/lib/tools-metadata';
 import { PrivacyBadge } from '@/components/ui/PrivacyBadge';
-import { EthicalAdUnit } from '@/components/ads/EthicalAdUnit';
 import {
   FileText,
   Image as ImageIcon,
@@ -125,8 +124,6 @@ export default function CategoryPage({ params }: CategoryPageProps) {
           </Link>
         ))}
       </div>
-
-      <EthicalAdUnit />
     </div>
   );
 }

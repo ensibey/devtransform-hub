@@ -60,3 +60,56 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   scrollbar-width: thin;
   scrollbar-color: #27272a #09090b;
 }
+
+/* Print & PDF Export Styles */
+@media print {
+  html, body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 10.5pt !important;
+  }
+
+  header,
+  footer,
+  nav,
+  button,
+  input[type="range"],
+  .no-print {
+    display: none !important;
+  }
+
+  main, .max-w-7xl, .max-w-5xl, .max-w-4xl, .max-w-3xl {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    page-break-inside: auto !important;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+    page-break-after: auto !important;
+  }
+
+  th, td {
+    border: 1px solid #e5e7eb !important;
+    color: #111827 !important;
+    background: transparent !important;
+    padding: 6px 8px !important;
+  }
+
+  th {
+    background-color: #f3f4f6 !important;
+    font-weight: 700 !important;
+  }
+
+  div, section {
+    box-shadow: none !important;
+    border-color: #e5e7eb !important;
+    background: transparent !important;
+  }
+}

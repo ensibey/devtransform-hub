@@ -70,9 +70,7 @@ export function JsonLdSchema({
         '@type': 'ListItem',
         position: 2,
         name: isConverter ? 'Converters' : 'Formatters',
-        item: isConverter
-          ? 'https://devtransform-hub.vercel.app/#converters'
-          : 'https://devtransform-hub.vercel.app/#formatters',
+        item: 'https://devtransform-hub.vercel.app/category/dev/',
       },
       {
         '@type': 'ListItem',

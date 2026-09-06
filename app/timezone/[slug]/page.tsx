@@ -198,9 +198,20 @@ export default function TimezonePairPage({ params }: PageProps) {
 
       {/* PILLAR 3: Above-the-Fold 0.2s Search Intent Instant Answer Callout */}
       <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-teal-500/5 to-transparent border-2 border-emerald-500/40 dark:border-brand-emerald/40 space-y-3 shadow-lg">
-        <div className="flex items-center space-x-2 text-xs font-mono font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
-          <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-brand-emerald" />
-          <span>Instant Answer</span>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2 text-xs font-mono font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-brand-emerald" />
+            <span>Instant Answer</span>
+          </div>
+
+          <Link
+            href={`/timezone/${pair.to.slug}-to-${pair.from.slug}/`}
+            className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-lg bg-emerald-100/70 dark:bg-emerald-950/60 hover:bg-emerald-200 dark:hover:bg-emerald-900/60 text-emerald-900 dark:text-emerald-300 font-mono text-xs font-semibold border border-emerald-300 dark:border-emerald-500/40 transition-colors shadow-sm group"
+            title={`Calculate reverse time difference from ${pair.to.name} to ${pair.from.name}`}
+          >
+            <span>⇄ Swap: {pair.to.name} to {pair.from.name}</span>
+            <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+          </Link>
         </div>
 
         <p className="text-base sm:text-xl font-bold text-slate-900 dark:text-white leading-relaxed">

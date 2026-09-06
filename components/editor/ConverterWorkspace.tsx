@@ -227,6 +227,34 @@ export function ConverterWorkspace({
     }
   };
 
+  // Power-User Keyboard Shortcuts (Ctrl+Enter, Ctrl+Shift+C, Ctrl+Shift+F)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Ctrl+Enter or Cmd+Enter: Re-run / Convert
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        e.preventDefault();
+        triggerConversion(inputCode, from, to);
+      }
+      // Ctrl+Shift+C or Cmd+Shift+C: Copy Output
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'c' || e.key === 'C')) {
+        if (outputCode) {
+          e.preventDefault();
+          navigator.clipboard.writeText(outputCode);
+          setShareCopied(true);
+          setTimeout(() => setShareCopied(false), 2000);
+        }
+      }
+      // Ctrl+Shift+F or Cmd+Shift+F: Format
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'f' || e.key === 'F')) {
+        e.preventDefault();
+        handleFormatInput();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [inputCode, from, to, outputCode, triggerConversion]);
+
   return (
     <div className="w-full flex flex-col space-y-3">
       {/* Top Workspace Toolbar */}
