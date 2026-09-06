@@ -26,6 +26,7 @@ import {
   Scale,
   Server,
   FolderLock,
+  GitBranch,
 } from 'lucide-react';
 import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
 import { TOOLS_METADATA } from '@/lib/tools-metadata';
@@ -287,6 +288,23 @@ export function CommandPalette() {
                 </div>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
                   /curl-to/directory/
+                </span>
+              </CommandItem>
+
+              <CommandItem
+                value="git command recipes undo last commit discard changes rename branch stash pop cherry pick reflog conflict"
+                onSelect={() => handleSelect('/git/directory/')}
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+              >
+                <div className="flex items-center space-x-2">
+                  <GitBranch className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                  <span className="font-medium text-zinc-100">Git Command Recipes &amp; Solutions</span>
+                  <span className="text-[10px] font-mono text-emerald-400 px-1.5 py-0.2 rounded bg-emerald-950/40 border border-emerald-500/30">
+                    15+ Recipes
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                  /git/directory/
                 </span>
               </CommandItem>
             </CommandGroup>

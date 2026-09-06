@@ -16,6 +16,7 @@ import {
   Server,
   FolderLock,
   Zap,
+  GitBranch,
 } from 'lucide-react';
 
 export default function NotFound() {
@@ -184,6 +185,18 @@ export default function NotFound() {
             </div>
             <div className="font-bold text-sm text-white">cURL to Code Converters</div>
             <p className="text-xs text-zinc-400">Convert cURL to 10+ programming languages.</p>
+          </Link>
+
+          <Link
+            href="/git/directory/"
+            className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-emerald-500/40 hover:bg-zinc-850 transition-all group space-y-2"
+          >
+            <div className="flex items-center justify-between">
+              <GitBranch className="w-4 h-4 text-emerald-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-zinc-600 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
+            </div>
+            <div className="font-bold text-sm text-white">Git Command Recipes</div>
+            <p className="text-xs text-zinc-400">Undo commits, discard changes, resolve conflicts.</p>
           </Link>
         </div>
 

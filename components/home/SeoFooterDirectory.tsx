@@ -189,6 +189,20 @@ export function SeoFooterDirectory() {
           </p>
           <span className="text-[11px] font-mono text-amber-500 font-semibold">Browse 10+ Converters &rarr;</span>
         </Link>
+
+        <Link
+          href="/git/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-emerald-950/30 to-zinc-900/60 border border-emerald-500/30 hover:border-emerald-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">Git Recipes</span>
+            <ArrowRight className="w-3.5 h-3.5 text-emerald-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            Instant terminal solutions: undo commits, discard changes, stash files, resolve conflicts &amp; reflog.
+          </p>
+          <span className="text-[11px] font-mono text-emerald-500 font-semibold">Browse 15+ Git Recipes &rarr;</span>
+        </Link>
       </div>
 
       {/* 3-Column Internal Links Grid */}
