@@ -28,6 +28,7 @@ import {
   FolderLock,
   GitBranch,
   Clock,
+  ShieldCheck,
 } from 'lucide-react';
 import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
 import { TOOLS_METADATA } from '@/lib/tools-metadata';
@@ -323,6 +324,23 @@ export function CommandPalette() {
                 </div>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
                   /cron/directory/
+                </span>
+              </CommandItem>
+
+              <CommandItem
+                value="http headers directory csp content security policy hsts cache control cors x frame options cookies"
+                onSelect={() => handleSelect('/http-header/directory/')}
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+              >
+                <div className="flex items-center space-x-2">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                  <span className="font-medium text-zinc-100">HTTP Headers &amp; Security Directory</span>
+                  <span className="text-[10px] font-mono text-emerald-400 px-1.5 py-0.2 rounded bg-emerald-950/40 border border-emerald-500/30">
+                    12+ Directives
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                  /http-header/directory/
                 </span>
               </CommandItem>
             </CommandGroup>

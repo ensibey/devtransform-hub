@@ -18,6 +18,7 @@ import {
   Zap,
   GitBranch,
   Clock,
+  ShieldCheck,
 } from 'lucide-react';
 
 export default function NotFound() {
@@ -210,6 +211,18 @@ export default function NotFound() {
             </div>
             <div className="font-bold text-sm text-white">Cron Schedules Directory</div>
             <p className="text-xs text-zinc-400">Everyday cron expressions explained in plain English.</p>
+          </Link>
+
+          <Link
+            href="/http-header/directory/"
+            className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-emerald-500/40 hover:bg-zinc-850 transition-all group space-y-2"
+          >
+            <div className="flex items-center justify-between">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-zinc-600 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
+            </div>
+            <div className="font-bold text-sm text-white">HTTP Headers &amp; Security</div>
+            <p className="text-xs text-zinc-400">CSP, HSTS, CORS &amp; caching directives with server configs.</p>
           </Link>
         </div>
 

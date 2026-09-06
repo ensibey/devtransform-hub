@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
 import { TOOLS_METADATA } from '@/lib/tools-metadata';
 import { FaqAccordion } from '@/components/seo/FaqAccordion';
-import { ArrowRight, Code2, Layers, Sparkles } from 'lucide-react';
+import { ArrowRight, Code2, Layers, Sparkles, ShieldCheck } from 'lucide-react';
 
 const HOMEPAGE_FAQS = [
   {
@@ -216,6 +216,20 @@ export function SeoFooterDirectory() {
             Plain English cron syntax (* * * * *), next run times, crontab examples &amp; GitHub Actions.
           </p>
           <span className="text-[11px] font-mono text-sky-500 font-semibold">Browse 25+ Schedules &rarr;</span>
+        </Link>
+
+        <Link
+          href="/http-header/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-emerald-950/30 to-zinc-900/60 border border-emerald-500/30 hover:border-emerald-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">HTTP Headers</span>
+            <ArrowRight className="w-3.5 h-3.5 text-emerald-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            Security &amp; caching directives (CSP, HSTS, CORS, Cache-Control) with NGINX, Apache &amp; Next.js configs.
+          </p>
+          <span className="text-[11px] font-mono text-emerald-500 font-semibold">Browse 12+ Headers &rarr;</span>
         </Link>
       </div>
 
