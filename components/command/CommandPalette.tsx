@@ -21,6 +21,9 @@ import {
   FileText,
   Image as ImageIcon,
   Calculator,
+  Globe,
+  Percent,
+  Scale,
 } from 'lucide-react';
 import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
 import { TOOLS_METADATA } from '@/lib/tools-metadata';
@@ -122,6 +125,123 @@ export function CommandPalette() {
                   </div>
                   <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
                     /category/{cat.id}/
+                  </span>
+                </CommandItem>
+              ))}
+            </CommandGroup>
+
+            {/* Master Programmatic Directories */}
+            <CommandGroup
+              heading="Master Programmatic Directories"
+              className="text-[10px] font-mono text-zinc-500 uppercase px-2 py-1 mt-2"
+            >
+              <CommandItem
+                value="timezone directory world clock cities time difference 75 metropolises"
+                onSelect={() => handleSelect('/timezone/directory/')}
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+              >
+                <div className="flex items-center space-x-2">
+                  <Globe className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                  <span className="font-medium text-zinc-100">World Timezone Directory</span>
+                  <span className="text-[10px] font-mono text-emerald-400 px-1.5 py-0.2 rounded bg-emerald-950/40 border border-emerald-500/30">
+                    5,500+ Corridors
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                  /timezone/directory/
+                </span>
+              </CommandItem>
+
+              <CommandItem
+                value="percentage directory math discount calculator formulas 1100"
+                onSelect={() => handleSelect('/percentage/directory/')}
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+              >
+                <div className="flex items-center space-x-2">
+                  <Percent className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
+                  <span className="font-medium text-zinc-100">Percentage Calculations Directory</span>
+                  <span className="text-[10px] font-mono text-sky-400 px-1.5 py-0.2 rounded bg-sky-950/40 border border-sky-500/30">
+                    1,100+ Formulas
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                  /percentage/directory/
+                </span>
+              </CommandItem>
+
+              <CommandItem
+                value="unit conversion directory metric imperial length weight data speed 350"
+                onSelect={() => handleSelect('/convert/directory/')}
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+              >
+                <div className="flex items-center space-x-2">
+                  <Scale className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
+                  <span className="font-medium text-zinc-100">Unit Conversion Directory</span>
+                  <span className="text-[10px] font-mono text-indigo-400 px-1.5 py-0.2 rounded bg-indigo-950/40 border border-indigo-500/30">
+                    350+ Pairs
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                  /convert/directory/
+                </span>
+              </CommandItem>
+            </CommandGroup>
+
+            {/* Popular Global Timezones */}
+            <CommandGroup
+              heading="Popular Global Time Differences"
+              className="text-[10px] font-mono text-zinc-500 uppercase px-2 py-1 mt-2"
+            >
+              {[
+                { from: 'London', to: 'New York', slug: 'london-to-new-york' },
+                { from: 'Paris', to: 'New York', slug: 'paris-to-new-york' },
+                { from: 'Tokyo', to: 'London', slug: 'tokyo-to-london' },
+                { from: 'Singapore', to: 'Sydney', slug: 'singapore-to-sydney' },
+                { from: 'Dubai', to: 'London', slug: 'dubai-to-london' },
+                { from: 'Istanbul', to: 'London', slug: 'istanbul-to-london' },
+              ].map((tz) => (
+                <CommandItem
+                  key={tz.slug}
+                  value={`time difference ${tz.from} to ${tz.to} clock timezone`}
+                  onSelect={() => handleSelect(`/timezone/${tz.slug}/`)}
+                  className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+                >
+                  <div className="flex items-center space-x-2">
+                    <Globe className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                    <span className="font-medium text-zinc-100">{tz.from} &rarr; {tz.to}</span>
+                  </div>
+                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                    /timezone/{tz.slug}/
+                  </span>
+                </CommandItem>
+              ))}
+            </CommandGroup>
+
+            {/* Popular Percentage Solvers */}
+            <CommandGroup
+              heading="Frequently Searched Percentage Solvers"
+              className="text-[10px] font-mono text-zinc-500 uppercase px-2 py-1 mt-2"
+            >
+              {[
+                { p: 10, b: 10000, res: 1000 },
+                { p: 20, b: 5000, res: 1000 },
+                { p: 30, b: 2000, res: 600 },
+                { p: 40, b: 2000, res: 800 },
+                { p: 50, b: 5000, res: 2500 },
+              ].map((prob) => (
+                <CommandItem
+                  key={`${prob.p}-${prob.b}`}
+                  value={`what is ${prob.p} percent of ${prob.b} calculate math`}
+                  onSelect={() => handleSelect(`/percentage/what-is-${prob.p}-percent-of-${prob.b}/`)}
+                  className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+                >
+                  <div className="flex items-center space-x-2">
+                    <Percent className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
+                    <span className="font-medium text-zinc-100">{prob.p}% of {prob.b.toLocaleString()}</span>
+                    <span className="text-xs font-mono text-brand-emerald font-semibold">= {prob.res.toLocaleString()}</span>
+                  </div>
+                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                    /percentage/what-is-{prob.p}-percent-of-{prob.b}/
                   </span>
                 </CommandItem>
               ))}

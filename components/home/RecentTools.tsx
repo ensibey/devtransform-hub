@@ -38,9 +38,59 @@ export function RecentTools() {
     }
   };
 
-  if (!mounted || recentTools.length === 0) {
+  const defaultQuickTools: DeveloperToolItem[] = [
+    {
+      id: 'json-to-typescript',
+      slug: 'json-to-typescript',
+      title: 'JSON to TypeScript',
+      description: 'Convert JSON to TS interfaces',
+      category: 'dev',
+      categoryLabel: 'Code & Data Converters',
+      icon: 'Code2',
+      tags: ['json', 'typescript', 'types'],
+      path: '/json-to-typescript/',
+    },
+    {
+      id: 'sql-formatter',
+      slug: 'sql',
+      title: 'SQL Formatter',
+      description: 'Beautify SQL queries',
+      category: 'dev',
+      categoryLabel: 'Code & Data Converters',
+      icon: 'Database',
+      tags: ['sql', 'format'],
+      path: '/formatters/sql/',
+    },
+    {
+      id: 'timezone-directory',
+      slug: 'timezone-directory',
+      title: 'Timezone Planner',
+      description: '75 metropolises & meeting planner',
+      category: 'calculators',
+      categoryLabel: 'Calculators',
+      icon: 'Globe',
+      tags: ['timezone', 'clock'],
+      path: '/timezone/directory/',
+    },
+    {
+      id: 'percentage-directory',
+      slug: 'percentage-directory',
+      title: 'Percentage Solver',
+      description: '1,100+ math formulas & Excel',
+      category: 'calculators',
+      categoryLabel: 'Calculators',
+      icon: 'Percent',
+      tags: ['percentage', 'math'],
+      path: '/percentage/directory/',
+    },
+  ];
+
+  if (!mounted) {
     return null;
   }
+
+  const displayTools = recentTools.length > 0 ? recentTools : defaultQuickTools;
+  const isRecent = recentTools.length > 0;
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 my-4 animate-in fade-in duration-200">
@@ -48,11 +98,11 @@ export function RecentTools() {
         <div className="flex items-center space-x-3 overflow-x-auto no-scrollbar py-0.5">
           <div className="flex items-center space-x-1.5 text-xs font-mono text-zinc-400 pl-1 flex-shrink-0">
             <Clock className="w-3.5 h-3.5 text-brand-emerald" />
-            <span>Recently Used:</span>
+            <span>{isRecent ? 'Recently Used:' : 'Quick Access:'}</span>
           </div>
 
           <div className="flex items-center space-x-2 flex-shrink-0">
-            {recentTools.map((tool) => (
+            {displayTools.map((tool) => (
               <Link
                 key={tool.id}
                 href={tool.path}
@@ -65,14 +115,16 @@ export function RecentTools() {
           </div>
         </div>
 
-        <button
-          type="button"
-          onClick={handleClear}
-          className="text-zinc-500 hover:text-rose-400 p-1.5 rounded-lg hover:bg-zinc-800/60 transition-colors flex-shrink-0 ml-2"
-          title="Clear history"
-        >
-          <X className="w-3.5 h-3.5" />
-        </button>
+        {isRecent && (
+          <button
+            type="button"
+            onClick={handleClear}
+            className="text-zinc-500 hover:text-rose-400 p-1.5 rounded-lg hover:bg-zinc-800/60 transition-colors flex-shrink-0 ml-2"
+            title="Clear history"
+          >
+            <X className="w-3.5 h-3.5" />
+          </button>
+        )}
       </div>
     </div>
   );

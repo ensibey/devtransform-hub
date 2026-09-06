@@ -66,17 +66,26 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'DevTransform - Privacy-First Zero-Server Developer Utilities',
     description:
-      'Fast, privacy-focused online developer tools. 135+ free standalone developer utilities, converters, visualizers, and formatters with 100% client-side privacy.',
+      'Fast, privacy-focused online developer tools. 140+ free standalone developer utilities, converters, visualizers, and formatters with 100% client-side privacy.',
     url: 'https://devtransform-hub.vercel.app',
     siteName: 'DevTransform',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'DevTransform - 140+ Free Developer Tools & 7,600+ Converters',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'DevTransform - 100% Client-Side Developer Converter Suite',
     description:
-      'High-performance CodeMirror 6 developer converter. Zero server cost, privacy-first state sharing.',
+      'High-performance developer utilities and converters. Zero server uploads, 100% private, offline PWA.',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,

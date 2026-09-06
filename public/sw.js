@@ -1,10 +1,13 @@
-const CACHE_NAME = 'zeroupload-cache-v1';
+const CACHE_NAME = 'devtransform-cache-v2';
 
 const STATIC_ASSETS = [
   '/',
   '/manifest.json',
   '/favicon.ico',
   '/robots.txt',
+  '/timezone/directory/',
+  '/percentage/directory/',
+  '/convert/directory/',
 ];
 
 self.addEventListener('install', (event) => {

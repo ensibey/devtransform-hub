@@ -11,7 +11,7 @@ export function Footer() {
           <div className="space-y-1.5 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start space-x-2">
               <span className="text-sm font-bold text-white tracking-tight">
-                Zero<span className="text-brand-emerald">Upload</span>
+                Dev<span className="text-brand-emerald">Transform</span>
               </span>
               <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
                 100% Client-Side
@@ -74,7 +74,7 @@ export function Footer() {
 
         <div className="border-t border-zinc-800/60 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-zinc-500 font-mono">
           <div>
-            © {new Date().getFullYear()} ZeroUpload. Open Source MIT License.
+            © {new Date().getFullYear()} DevTransform. Open Source MIT License.
           </div>
           <div className="flex items-center space-x-1 mt-2 sm:mt-0 text-emerald-400">
             <ShieldCheck className="w-3.5 h-3.5" />

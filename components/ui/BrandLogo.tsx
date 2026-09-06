@@ -59,15 +59,15 @@ export function BrandLogo({ className = '', size = 32, showText = true }: BrandL
         <div className="flex flex-col">
           <div className="flex items-center space-x-1.5">
             <span className="text-sm font-extrabold tracking-tight text-white font-mono flex items-center">
-              <span>Zero</span>
-              <span className="text-brand-emerald">Upload</span>
+              <span>Dev</span>
+              <span className="text-brand-emerald">Transform</span>
             </span>
             <span className="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded bg-emerald-500/10 text-brand-emerald border border-emerald-500/30">
-              PRO
+              FREE
             </span>
           </div>
           <span className="text-[10px] text-zinc-400 font-mono -mt-0.5 tracking-wider">
-            100% Client-Side
+            Zero-Upload &bull; 100% Client-Side
           </span>
         </div>
       )}

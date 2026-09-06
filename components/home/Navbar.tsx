@@ -36,7 +36,7 @@ export function Navbar() {
             </div>
             <div className="flex items-center space-x-2">
               <span className="text-base font-bold tracking-tight text-white">
-                Zero<span className="text-brand-emerald">Upload</span>
+                Dev<span className="text-brand-emerald">Transform</span>
               </span>
               <div className="hidden sm:flex items-center space-x-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono text-emerald-300">
                 <span className="relative flex h-1.5 w-1.5">
