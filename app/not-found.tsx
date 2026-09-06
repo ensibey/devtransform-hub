@@ -263,6 +263,18 @@ export default function NotFound() {
             <div className="font-bold text-sm text-white">Device Viewports &amp; Screen Sizes</div>
             <p className="text-xs text-zinc-400">CSS dimensions, DPR, media queries &amp; responsive breakpoints.</p>
           </Link>
+
+          <Link
+            href="/k8s/directory/"
+            className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-sky-500/40 hover:bg-zinc-850 transition-all group space-y-2"
+          >
+            <div className="flex items-center justify-between">
+              <Box className="w-4 h-4 text-sky-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-zinc-600 group-hover:text-sky-400 group-hover:translate-x-1 transition-all" />
+            </div>
+            <div className="font-bold text-sm text-white">Kubernetes kubectl Recipes</div>
+            <p className="text-xs text-zinc-400">Port-forwarding, container exec, CrashLoopBackOff fixes &amp; rollouts.</p>
+          </Link>
         </div>
 
         {/* Popular Essentials */}

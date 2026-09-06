@@ -273,6 +273,20 @@ export function SeoFooterDirectory() {
           </p>
           <span className="text-[11px] font-mono text-indigo-500 font-semibold">Browse 22+ Viewports &rarr;</span>
         </Link>
+
+        <Link
+          href="/k8s/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-sky-950/30 to-zinc-900/60 border border-sky-500/30 hover:border-sky-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-sky-400 uppercase tracking-wider">Kubernetes Recipes</span>
+            <ArrowRight className="w-3.5 h-3.5 text-sky-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            Port-forwarding, container exec bash, CrashLoopBackOff fixes, rolling restarts &amp; safe node draining.
+          </p>
+          <span className="text-[11px] font-mono text-sky-500 font-semibold">Browse 10+ K8s Guides &rarr;</span>
+        </Link>
       </div>
 
       {/* 3-Column Internal Links Grid */}
