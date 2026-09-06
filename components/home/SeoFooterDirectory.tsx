@@ -259,6 +259,20 @@ export function SeoFooterDirectory() {
           </p>
           <span className="text-[11px] font-mono text-emerald-500 font-semibold">Browse 10+ SQL Guides &rarr;</span>
         </Link>
+
+        <Link
+          href="/viewport/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-indigo-950/30 to-zinc-900/60 border border-indigo-500/30 hover:border-indigo-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-indigo-400 uppercase tracking-wider">Device Viewports</span>
+            <ArrowRight className="w-3.5 h-3.5 text-indigo-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            CSS dimensions, DPR scaling, screen resolutions, Tailwind breakpoints &amp; media queries for 22+ devices.
+          </p>
+          <span className="text-[11px] font-mono text-indigo-500 font-semibold">Browse 22+ Viewports &rarr;</span>
+        </Link>
       </div>
 
       {/* 3-Column Internal Links Grid */}

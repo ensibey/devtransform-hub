@@ -21,6 +21,7 @@ import {
   ShieldCheck,
   Box,
   Database,
+  Smartphone,
 } from 'lucide-react';
 
 export default function NotFound() {
@@ -249,6 +250,18 @@ export default function NotFound() {
             </div>
             <div className="font-bold text-sm text-white">SQL Recipes &amp; Solutions</div>
             <p className="text-xs text-zinc-400">Duplicates, upserts, zero-downtime indexes &amp; slow queries.</p>
+          </Link>
+
+          <Link
+            href="/viewport/directory/"
+            className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-indigo-500/40 hover:bg-zinc-850 transition-all group space-y-2"
+          >
+            <div className="flex items-center justify-between">
+              <Smartphone className="w-4 h-4 text-indigo-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all" />
+            </div>
+            <div className="font-bold text-sm text-white">Device Viewports &amp; Screen Sizes</div>
+            <p className="text-xs text-zinc-400">CSS dimensions, DPR, media queries &amp; responsive breakpoints.</p>
           </Link>
         </div>
 

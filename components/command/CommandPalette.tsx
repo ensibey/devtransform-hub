@@ -31,6 +31,7 @@ import {
   ShieldCheck,
   Box,
   Database,
+  Smartphone,
 } from 'lucide-react';
 import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
 import { TOOLS_METADATA } from '@/lib/tools-metadata';
@@ -377,6 +378,23 @@ export function CommandPalette() {
                 </div>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
                   /sql/directory/
+                </span>
+              </CommandItem>
+
+              <CommandItem
+                value="device viewport screen size resolutions css media query iphone galaxy ipad macbook breakpoints responsive simulator"
+                onSelect={() => handleSelect('/viewport/directory/')}
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+              >
+                <div className="flex items-center space-x-2">
+                  <Smartphone className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
+                  <span className="font-medium text-zinc-100">Device Viewports &amp; Screen Resolutions</span>
+                  <span className="text-[10px] font-mono text-indigo-400 px-1.5 py-0.2 rounded bg-indigo-950/40 border border-indigo-500/30">
+                    22+ Devices
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                  /viewport/directory/
                 </span>
               </CommandItem>
             </CommandGroup>
