@@ -287,6 +287,20 @@ export function SeoFooterDirectory() {
           </p>
           <span className="text-[11px] font-mono text-sky-500 font-semibold">Browse 10+ K8s Guides &rarr;</span>
         </Link>
+
+        <Link
+          href="/openssl/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-emerald-950/30 to-zinc-900/60 border border-emerald-500/30 hover:border-emerald-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">OpenSSL Cheatsheet</span>
+            <ArrowRight className="w-3.5 h-3.5 text-emerald-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            Self-signed certs, expiry date checks, private key modulus verification, PFX extraction &amp; CSRs.
+          </p>
+          <span className="text-[11px] font-mono text-emerald-500 font-semibold">Browse 10+ OpenSSL Guides &rarr;</span>
+        </Link>
       </div>
 
       {/* 3-Column Internal Links Grid */}

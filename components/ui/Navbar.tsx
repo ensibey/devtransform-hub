@@ -125,6 +125,12 @@ export function Navbar() {
               ☸️ K8s
             </Link>
             <Link
+              href="/openssl/directory/"
+              className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors"
+            >
+              🔐 OpenSSL
+            </Link>
+            <Link
               href="/category/dev/"
               className="px-2 py-1 rounded-md hover:text-slate-900 dark:hover:text-zinc-100 hover:bg-slate-100 dark:hover:bg-surface-100 transition-colors flex items-center gap-1"
             >
