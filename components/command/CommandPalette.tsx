@@ -29,6 +29,7 @@ import {
   GitBranch,
   Clock,
   ShieldCheck,
+  Box,
 } from 'lucide-react';
 import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
 import { TOOLS_METADATA } from '@/lib/tools-metadata';
@@ -341,6 +342,23 @@ export function CommandPalette() {
                 </div>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
                   /http-header/directory/
+                </span>
+              </CommandItem>
+
+              <CommandItem
+                value="docker command recipes exec bash prune disk system entrypoint cmd copy volume mount inspect logs"
+                onSelect={() => handleSelect('/docker/directory/')}
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+              >
+                <div className="flex items-center space-x-2">
+                  <Box className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
+                  <span className="font-medium text-zinc-100">Docker Command Recipes &amp; Solutions</span>
+                  <span className="text-[10px] font-mono text-sky-400 px-1.5 py-0.2 rounded bg-sky-950/40 border border-sky-500/30">
+                    10+ Recipes
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                  /docker/directory/
                 </span>
               </CommandItem>
             </CommandGroup>

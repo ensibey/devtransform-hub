@@ -147,6 +147,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/docker/directory/" className="text-emerald-600 dark:text-brand-emerald font-semibold hover:underline">
+                  🐳 Docker Recipes &amp; Solutions
+                </Link>
+              </li>
+              <li>
                 <Link href="/convert/directory/" className="hover:text-emerald-600 dark:hover:text-zinc-200 transition-colors">
                   ⚖️ Unit Directory (350+ Pairs)
                 </Link>
