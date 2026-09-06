@@ -288,6 +288,18 @@ export default function NotFound() {
             <div className="font-bold text-sm text-white">OpenSSL Command Cheatsheet</div>
             <p className="text-xs text-zinc-400">Self-signed certificates, expiration checks, private keys &amp; format conversions.</p>
           </Link>
+
+          <Link
+            href="/systemd/directory/"
+            className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-indigo-500/40 hover:bg-zinc-850 transition-all group space-y-2"
+          >
+            <div className="flex items-center justify-between">
+              <Server className="w-4 h-4 text-indigo-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all" />
+            </div>
+            <div className="font-bold text-sm text-white">Systemd Service Generator</div>
+            <p className="text-xs text-zinc-400">Production .service units for Node, Python, Go, Docker Compose &amp; timers.</p>
+          </Link>
         </div>
 
         {/* Popular Essentials */}
