@@ -148,6 +148,18 @@ export default function NotFound() {
             <div className="font-bold text-sm text-white">chmod Permissions Matrix</div>
             <p className="text-xs text-zinc-400">Interactive rwx permissions & security ratings.</p>
           </Link>
+
+          <Link
+            href="/html-entity/directory/"
+            className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-emerald-500/40 hover:bg-zinc-850 transition-all group space-y-2"
+          >
+            <div className="flex items-center justify-between">
+              <Code2 className="w-4 h-4 text-emerald-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-zinc-600 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
+            </div>
+            <div className="font-bold text-sm text-white">HTML Entities & Codes</div>
+            <p className="text-xs text-zinc-400">50+ named entities, decimal, hex, CSS & JS codes.</p>
+          </Link>
         </div>
 
         {/* Popular Essentials */}

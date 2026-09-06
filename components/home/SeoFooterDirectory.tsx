@@ -147,6 +147,20 @@ export function SeoFooterDirectory() {
           </p>
           <span className="text-[11px] font-mono text-indigo-500 font-semibold">Browse 350+ Converters &rarr;</span>
         </Link>
+
+        <Link
+          href="/html-entity/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-teal-950/30 to-zinc-900/60 border border-teal-500/30 hover:border-teal-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-teal-400 uppercase tracking-wider">HTML Entities</span>
+            <ArrowRight className="w-3.5 h-3.5 text-teal-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            50+ HTML entities (&amp;copy;, &amp;nbsp;, &amp;trade;), decimal, hex, CSS \XXXX &amp; JS unicode escapes.
+          </p>
+          <span className="text-[11px] font-mono text-teal-500 font-semibold">Browse 50+ Entities &rarr;</span>
+        </Link>
       </div>
 
       {/* 3-Column Internal Links Grid */}
