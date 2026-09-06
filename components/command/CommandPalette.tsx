@@ -30,6 +30,7 @@ import {
   Clock,
   ShieldCheck,
   Box,
+  Database,
 } from 'lucide-react';
 import { getAllMatrixPairs, FORMAT_LIST } from '@/lib/matrix';
 import { TOOLS_METADATA } from '@/lib/tools-metadata';
@@ -359,6 +360,23 @@ export function CommandPalette() {
                 </div>
                 <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
                   /docker/directory/
+                </span>
+              </CommandItem>
+
+              <CommandItem
+                value="sql recipes query database postgres mysql duplicate rows upsert on conflict truncate drop running total explain analyze"
+                onSelect={() => handleSelect('/sql/directory/')}
+                className="flex items-center justify-between px-3 py-2 rounded-lg text-xs text-zinc-300 hover:text-white hover:bg-zinc-800/80 cursor-pointer transition-colors"
+              >
+                <div className="flex items-center space-x-2">
+                  <Database className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                  <span className="font-medium text-zinc-100">SQL Recipes &amp; Database Solutions</span>
+                  <span className="text-[10px] font-mono text-emerald-400 px-1.5 py-0.2 rounded bg-emerald-950/40 border border-emerald-500/30">
+                    10+ Queries
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-zinc-800">
+                  /sql/directory/
                 </span>
               </CommandItem>
             </CommandGroup>
