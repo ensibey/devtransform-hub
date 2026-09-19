@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { TOOLS_REGISTRY, getToolBySlug } from '@/lib/registry';
 import Link from 'next/link';
@@ -15,6 +16,20 @@ export async function generateStaticParams() {
   return TOOLS_REGISTRY.map((tool) => ({
     slug: tool.slug,
   }));
+}
+
+export async function generateMetadata({ params }: EmbedPageProps): Promise<Metadata> {
+  const tool = getToolBySlug(params.slug);
+  return {
+    title: tool ? `${tool.title} (Embed Widget)` : 'Developer Tool Embed',
+    robots: {
+      index: false,
+      follow: true,
+    },
+    alternates: {
+      canonical: `https://devtransform-hub.vercel.app/tools/${params.slug}/`,
+    },
+  };
 }
 
 export default function EmbedToolPage({ params }: EmbedPageProps) {

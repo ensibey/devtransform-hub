@@ -61,7 +61,7 @@ export default function FormatterPage({ params }: PageProps) {
     notFound();
   }
 
-  const canonicalUrl = `https://devtransform.pages.dev/formatters/${format.id}/`;
+  const canonicalUrl = `https://devtransform-hub.vercel.app/formatters/${format.id}/`;
 
   return (
     <div className="space-y-8 py-2">

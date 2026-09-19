@@ -104,6 +104,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: 'https://devtransform-hub.vercel.app/',
+  },
   verification: {
     google: 's4kiAyjXGpZ7gq-DdsQY38jMii9EaQbfaQvRq5DQaJY',
   },
