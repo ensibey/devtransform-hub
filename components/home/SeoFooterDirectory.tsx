@@ -315,6 +315,34 @@ export function SeoFooterDirectory() {
           </p>
           <span className="text-[11px] font-mono text-indigo-500 font-semibold">Browse 8+ Systemd Templates &rarr;</span>
         </Link>
+
+        <Link
+          href="/regex/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-purple-950/30 to-zinc-900/60 border border-purple-500/30 hover:border-purple-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-purple-400 uppercase tracking-wider">RegEx Patterns</span>
+            <ArrowRight className="w-3.5 h-3.5 text-purple-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            Production-tested expressions for emails, passwords, URLs, phone numbers, UUIDs &amp; IPv4.
+          </p>
+          <span className="text-[11px] font-mono text-purple-500 font-semibold">Browse 27+ RegEx Patterns &rarr;</span>
+        </Link>
+
+        <Link
+          href="/gitignore/directory/"
+          className="p-4 rounded-xl bg-gradient-to-br from-emerald-950/30 to-zinc-900/60 border border-emerald-500/30 hover:border-emerald-500/60 transition-all group flex flex-col justify-between space-y-2"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">.gitignore Templates</span>
+            <ArrowRight className="w-3.5 h-3.5 text-emerald-400 group-hover:translate-x-1 transition-transform" />
+          </div>
+          <p className="text-xs text-zinc-400">
+            Rules for Node.js, Python, Next.js, Go, Rust, Java, macOS, Terraform, Docker &amp; IDEs.
+          </p>
+          <span className="text-[11px] font-mono text-emerald-500 font-semibold">Browse 12+ .gitignore Rules &rarr;</span>
+        </Link>
       </div>
 
       {/* 3-Column Internal Links Grid */}

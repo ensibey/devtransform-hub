@@ -26,6 +26,7 @@ import { getAllViewportDevices } from '../lib/viewport-data';
 import { getAllK8sRecipes } from '../lib/k8s-recipes-data';
 import { getAllOpenSslRecipes } from '../lib/openssl-recipes-data';
 import { getAllSystemdRecipes } from '../lib/systemd-recipes-data';
+import { getAllGitignoreTemplates } from '../lib/gitignore-data';
 import { TOOLS_METADATA } from '../lib/tools-metadata';
 import { CATEGORIES } from '../types/tool';
 
@@ -89,6 +90,8 @@ export function generateSitemaps(targetDirs: string[]) {
     { url: `${BASE_URL}/k8s/directory/`, priority: 0.9, changeFrequency: 'weekly' },
     { url: `${BASE_URL}/openssl/directory/`, priority: 0.9, changeFrequency: 'weekly' },
     { url: `${BASE_URL}/systemd/directory/`, priority: 0.9, changeFrequency: 'weekly' },
+    { url: `${BASE_URL}/regex/directory/`, priority: 0.9, changeFrequency: 'weekly' },
+    { url: `${BASE_URL}/gitignore/directory/`, priority: 0.9, changeFrequency: 'weekly' },
     ...Object.keys(CATEGORIES).map((c) => ({ url: `${BASE_URL}/category/${c}/`, priority: 0.8 })),
     ...FORMAT_LIST.map((f) => ({ url: `${BASE_URL}/formatters/${f.id}/`, priority: 0.7 })),
     ...TOOLS_METADATA.map((t) => ({ url: `${BASE_URL}/tools/${t.slug}/`, priority: 0.9 })),
@@ -149,6 +152,7 @@ export function generateSitemaps(targetDirs: string[]) {
     ...getAllK8sRecipes().map((k) => ({ url: `${BASE_URL}/k8s/${k.slug}/`, priority: 0.8 })),
     ...getAllOpenSslRecipes().map((o) => ({ url: `${BASE_URL}/openssl/${o.slug}/`, priority: 0.8 })),
     ...getAllSystemdRecipes().map((s) => ({ url: `${BASE_URL}/systemd/${s.slug}/`, priority: 0.8 })),
+    ...getAllGitignoreTemplates().map((g) => ({ url: `${BASE_URL}/gitignore/${g.slug}/`, priority: 0.8 })),
   ];
   const utilXml = buildUrlSetXml(utilUrls);
 
