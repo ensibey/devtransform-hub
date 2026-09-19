@@ -39,11 +39,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://devtransform-hub.vercel.app'),
   applicationName: 'DevTransform',
   title: {
-    default: 'DevTransform - 140+ Free Developer Tools • No Sign-Up • 100% Free Forever • Zero Ads',
+    default: 'DevTransform - 145+ Free Online Developer & PDF Tools • Zero Upload • 100% Private',
     template: '%s | DevTransform',
   },
   description:
-    'Ultra-fast, 100% client-side developer converter & formatter suite. 140+ free standalone developer utilities, JSON to TypeScript/Go/Rust/Python, SQL formatters, and regex tools with zero server latency and total privacy.',
+    'Ultra-fast, 100% private online document & developer utility platform. Word to PDF, PDF to Word, image compression, JSON converters, SQL formatters, and dev cheatsheets running entirely in your browser with zero server uploads.',
   keywords: [
     'devtransform',
     'developer tools',

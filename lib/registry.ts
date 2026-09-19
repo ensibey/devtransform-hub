@@ -24,6 +24,8 @@ import { PdfToWord } from '@/components/tools/pdf/PdfToWord';
 import { MarkdownToPdf } from '@/components/tools/pdf/MarkdownToPdf';
 import { HtmlToPdf } from '@/components/tools/pdf/HtmlToPdf';
 import { PdfWatermark } from '@/components/tools/pdf/PdfWatermark';
+import { CsvToPdf } from '@/components/tools/pdf/CsvToPdf';
+import { TextToPdf } from '@/components/tools/pdf/TextToPdf';
 
 // Calculator Tools
 import { PercentageCalculator } from '@/components/tools/calculator/PercentageCalculator';
@@ -459,6 +461,46 @@ export const TOOLS_REGISTRY: ToolDefinition[] = [
       }
     ],
     component: PdfWatermark,
+  },
+  {
+    id: 'csv-to-pdf',
+    slug: 'csv-to-pdf',
+    title: 'CSV to PDF Table Converter (Excel to .pdf)',
+    shortDesc: 'Convert CSV spreadsheets and Excel data into beautifully formatted, printable table reports in PDF.',
+    category: 'pdf',
+    keywords: ['csv to pdf', 'excel to pdf', 'spreadsheet to pdf', 'csv table to pdf', 'convert csv to pdf online', 'free csv to pdf'],
+    icon: 'FileSpreadsheet',
+    isPopular: true,
+    seoDescription: 'Convert CSV files and Excel exports into elegant, paginated PDF tables. Customize themes (corporate, striped, minimal), landscape/portrait orientation, and filter rows in real-time.',
+    faqs: [
+      {
+        question: 'Does this handle large CSV files?',
+        answer: 'Yes! PapaParse streams and parses spreadsheets with thousands of rows quickly within your browser.'
+      },
+      {
+        question: 'Can I choose landscape mode for wide tables?',
+        answer: 'Yes, landscape mode is enabled by default to ensure wide spreadsheets fit comfortably without clipping.'
+      }
+    ],
+    component: CsvToPdf,
+  },
+  {
+    id: 'text-to-pdf',
+    slug: 'text-to-pdf',
+    title: 'Text to PDF Converter (.txt to .pdf)',
+    shortDesc: 'Convert plain text, code, logs, and meeting minutes into structured vector PDF files with optional line numbers.',
+    category: 'pdf',
+    keywords: ['text to pdf', 'txt to pdf', 'convert text to pdf', 'code to pdf', 'log to pdf', 'free text to pdf'],
+    icon: 'FileText',
+    isPopular: true,
+    seoDescription: 'Transform plain text notes, source code, and logs into crisp vector PDF documents. Toggle line numbers, font families (monospace, serif, sans), and margins with zero server storage.',
+    faqs: [
+      {
+        question: 'Can I add line numbers to the PDF?',
+        answer: 'Yes! Toggle the Line Numbers checkbox to automatically number every line in the left margin, ideal for legal or code reviews.'
+      }
+    ],
+    component: TextToPdf,
   },
 
   // D. Daily Calculators

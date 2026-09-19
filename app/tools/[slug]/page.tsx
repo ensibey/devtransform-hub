@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
     };
   }
 
-  const title = `${tool.title} - Free Client-Side Developer Tool | DevTransform`;
-  const description = `${tool.shortDesc} Execute instantly in your browser with zero server uploads, 100% privacy, and offline PWA support.`;
+  const title = `${tool.title} - 100% Free & Private (No Upload, Instant) | DevTransform`;
+  const description = `${tool.shortDesc} 100% free forever, no registration, no file uploads to any cloud server. Fast, private, and runs directly in your browser.`;
   const canonicalUrl = `https://devtransform-hub.vercel.app/tools/${tool.slug}/`;
 
   return {
