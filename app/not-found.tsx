@@ -36,12 +36,12 @@ export default function NotFound() {
   };
 
   const topTools = [
+    { title: 'Word to PDF Converter', slug: 'word-to-pdf', path: '/tools/word-to-pdf/' },
+    { title: 'PDF to Word Converter', slug: 'pdf-to-word', path: '/tools/pdf-to-word/' },
+    { title: 'Linux chmod Calculator', slug: 'chmod-directory', path: '/chmod/directory/' },
+    { title: 'Cron Expression Explainer', slug: 'cron-directory', path: '/cron/directory/' },
     { title: 'JSON to TypeScript', slug: 'json-to-typescript', path: '/json-to-typescript/' },
-    { title: 'SQL Formatter', slug: 'sql', path: '/formatters/sql/' },
-    { title: 'Timezone Planner', slug: 'timezone-converter', path: '/tools/timezone-converter/' },
-    { title: 'Image Compressor', slug: 'image-compressor', path: '/tools/image-compressor/' },
-    { title: 'PDF Merge & Combine', slug: 'pdf-merge', path: '/tools/pdf-merge/' },
-    { title: 'cURL to Code Converter', slug: 'curl-to-code', path: '/tools/curl-to-code/' },
+    { title: 'Nginx Recipe Hub', slug: 'nginx-directory', path: '/nginx/directory/' },
   ];
 
   return (

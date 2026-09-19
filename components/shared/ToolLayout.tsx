@@ -20,6 +20,7 @@ import {
   Code2,
 } from 'lucide-react';
 import { CopyButton } from './CopyButton';
+import { RelatedToolsRail } from '@/components/seo/RelatedToolsRail';
 
 export interface ToolLayoutProps {
   tool: ToolDefinition;
@@ -293,6 +294,9 @@ export function ToolLayout({ tool, children, relatedTools = [] }: ToolLayoutProp
           </div>
         </section>
       )}
+
+      {/* Cross-Silo Internal Linking Rail for Google Bot & Users */}
+      <RelatedToolsRail currentCategory={tool.category} currentSlug={tool.slug} />
     </div>
   );
 }
