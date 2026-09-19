@@ -43,6 +43,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+import { FaqAccordion } from '@/components/seo/FaqAccordion';
+
 export default function RegexPage({ params }: Props) {
   const regex = getRegexPattern(params.slug);
   if (!regex) notFound();
@@ -51,8 +53,61 @@ export default function RegexPage({ params }: Props) {
   const pySnippet = `import re\n\npattern = r"${regex.pattern}"\nmatch = re.match(pattern, "${regex.sampleMatch}")\nprint(bool(match)) # True`;
   const goSnippet = `package main\nimport (\n  "fmt"\n  "regexp"\n)\n\nfunc main() {\n  re := regexp.MustCompile(\`${regex.pattern}\`)\n  fmt.Println(re.MatchString("${regex.sampleMatch}"))\n}`;
 
+  const faqs = [
+    {
+      question: `What is the regex pattern for ${regex.title}?`,
+      answer: `The regular expression pattern is /${regex.pattern}/${regex.flags}. ${regex.description}`,
+    },
+    {
+      question: `How do I test this regex in JavaScript and TypeScript?`,
+      answer: `Use regex.test(): const regex = /${regex.pattern}/${regex.flags}; const isValid = regex.test(inputString);`,
+    },
+    {
+      question: `What is an example of a matching and non-matching string?`,
+      answer: `A valid matching string is "${regex.sampleMatch}". A non-matching string is "${regex.sampleFail}".`,
+    },
+    {
+      question: `Is this regex safe from ReDoS (Catastrophic Backtracking)?`,
+      answer: `Yes, this pattern is optimized for linear execution time and safe for browser-side validation without locking up the UI thread.`,
+    },
+  ];
+
+  const techArticleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: `${regex.title} - Syntax, Explanation & Code Examples`,
+    description: regex.description,
+    url: `https://devtransform-hub.vercel.app/regex/${regex.slug}/`,
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://devtransform-hub.vercel.app/' },
+      { '@type': 'ListItem', position: 2, name: 'Regex Library', item: 'https://devtransform-hub.vercel.app/regex/directory/' },
+      { '@type': 'ListItem', position: 3, name: regex.title, item: `https://devtransform-hub.vercel.app/regex/${regex.slug}/` },
+    ],
+  };
+
+  const faqPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <div className="space-y-8 py-4">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }} />
       {/* Breadcrumb & Privacy Badge */}
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center space-x-2 text-xs font-mono text-zinc-400">
@@ -179,6 +234,11 @@ export default function RegexPage({ params }: Props) {
             </pre>
           </div>
         </div>
+      </div>
+
+      {/* Frequently Asked Questions */}
+      <div className="pt-4 border-t border-zinc-800/80">
+        <FaqAccordion faqs={faqs} />
       </div>
     </div>
   );

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevTransform Tools</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      width: 380px;
+      max-height: 520px;
+      background-color: #09090b;
+      color: #fafafa;
+      padding: 14px;
+      overflow-y: auto;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #27272a;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-badge {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #10b981, #06b6d4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 13px;
+      color: #000;
+    }
+    .title {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .privacy {
+      font-size: 10px;
+      background-color: rgba(16, 185, 129, 0.12);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2px 6px;
+      border-radius: 9999px;
+      font-family: monospace;
+      font-weight: 600;
+    }
+    .search-box {
+      margin: 12px 0;
+      position: relative;
+    }
+    .search-input {
+      width: 100%;
+      padding: 9px 12px;
+      background-color: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 12px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-input:focus {
+      border-color: #10b981;
+    }
+    .categories {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+    }
+    .cat-pill {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background-color: #18181b;
+      color: #a1a1aa;
+      border: 1px solid #27272a;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .cat-pill.active, .cat-pill:hover {
+      background-color: #27272a;
+      color: #fff;
+      border-color: #3f3f46;
+    }
+    .tools-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .tool-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background-color: #18181b;
+      border: 1px solid #27272a;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .tool-item:hover {
+      background-color: #27272a;
+      border-color: #3f3f46;
+      transform: translateY(-1px);
+    }
+    .tool-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .tool-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #f4f4f5;
+    }
+    .tool-desc {
+      font-size: 10px;
+      color: #a1a1aa;
+    }
+    .badge-tag {
+      font-size: 9px;
+      font-family: monospace;
+      padding: 2px 5px;
+      border-radius: 4px;
+      background-color: rgba(59, 130, 246, 0.12);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    .footer {
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px solid #27272a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #71717a;
+      font-family: monospace;
+    }
+    .footer a {
+      color: #34d399;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="brand">
+      <div class="logo-badge">⚡</div>
+      <div class="title">DevTransform Hub</div>
+    </div>
+    <div class="privacy">100% PRIVATE</div>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" class="search-input" placeholder="Search 145+ tools (e.g. word, cron, chmod, json)..." autofocus>
+  </div>
+
+  <div class="categories" id="catBar">
+    <div class="cat-pill active" data-cat="all">All Tools</div>
+    <div class="cat-pill" data-cat="popular">Popular</div>
+    <div class="cat-pill" data-cat="pdf">PDF & Docs</div>
+    <div class="cat-pill" data-cat="devops">DevOps</div>
+    <div class="cat-pill" data-cat="converters">Converters</div>
+  </div>
+
+  <div class="tools-list" id="toolsList">
+    <!-- Populated by popup.js -->
+  </div>
+
+  <div class="footer">
+    <span>Tip: Type <strong style="color: #60a5fa;">dt</strong> in address bar</span>
+    <a href="https://devtransform-hub.vercel.app" target="_blank">Open Hub ↗</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

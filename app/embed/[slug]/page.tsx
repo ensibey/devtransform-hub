@@ -67,7 +67,7 @@ export default function EmbedToolPage({ params }: EmbedPageProps) {
         </div>
       </div>
 
-      {/* Powered by ZeroUpload Backlink Footer */}
+      {/* Powered by DevTransform Backlink Footer */}
       <div className="mt-4 pt-2 border-t border-zinc-900 flex items-center justify-between text-[10px] font-mono text-zinc-500">
         <Link
           href="https://devtransform-hub.vercel.app"
@@ -76,7 +76,7 @@ export default function EmbedToolPage({ params }: EmbedPageProps) {
           className="hover:text-zinc-300 transition-colors flex items-center space-x-1"
         >
           <span>⚡ Powered by</span>
-          <span className="text-brand-emerald font-bold">ZeroUpload</span>
+          <span className="text-brand-emerald font-bold">DevTransform</span>
         </Link>
         <span>100% Client-Side • Zero Data Stored</span>
       </div>

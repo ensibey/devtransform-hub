@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { CopyButton } from '@/components/shared/CopyButton';
-import { Clock, Sparkles, Terminal, Calendar, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Clock, Sparkles, Terminal, Calendar, ArrowRight, CheckCircle2, Share2, Check } from 'lucide-react';
 import { CRON_SCHEDULES } from '@/lib/cron-data';
 
 interface CronInteractiveTranslatorProps {
@@ -102,8 +102,41 @@ function getNextExecutions(expr: string, count: number = 5): string[] {
 }
 
 export function CronInteractiveTranslator({ initialExpression = '0 0 * * *' }: CronInteractiveTranslatorProps) {
+  const [copiedLink, setCopiedLink] = useState(false);
   const [expression, setExpression] = useState(initialExpression);
   const [commandTarget, setCommandTarget] = useState('/usr/bin/python3 /opt/scripts/backup.py');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const paramExpr = params.get('expr');
+      if (paramExpr && paramExpr.trim().split(/\s+/).length === 5) {
+        setExpression(paramExpr.trim());
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      if (expression !== '0 0 * * *') {
+        url.searchParams.set('expr', expression);
+      } else {
+        url.searchParams.delete('expr');
+      }
+      window.history.replaceState(null, '', url.toString());
+    }
+  }, [expression]);
+
+  const handleCopyShareLink = () => {
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      url.searchParams.set('expr', expression);
+      navigator.clipboard.writeText(url.toString());
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 2000);
+    }
+  };
 
   const human = useMemo(() => humanizeCron(expression), [expression]);
   const nextRuns = useMemo(() => getNextExecutions(expression), [expression]);
@@ -136,15 +169,36 @@ export function CronInteractiveTranslator({ initialExpression = '0 0 * * *' }: C
           <h2 className="text-xl sm:text-2xl font-bold text-white">Cron Expression Translator & Next Run Schedule</h2>
         </div>
 
-        {matchedSlug && (
-          <Link
-            href={`/cron/${matchedSlug}/`}
-            className="text-xs px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/20 font-medium inline-flex items-center gap-1.5"
+        <div className="flex items-center gap-2.5">
+          <button
+            type="button"
+            onClick={handleCopyShareLink}
+            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 text-xs font-mono text-neutral-300 transition-colors shadow-sm"
+            title="Copy shareable link with this exact cron schedule"
           >
-            <span>View Dedicated Guide</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        )}
+            {copiedLink ? (
+              <>
+                <Check className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="text-emerald-400 font-bold">Link Copied!</span>
+              </>
+            ) : (
+              <>
+                <Share2 className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Share Schedule</span>
+              </>
+            )}
+          </button>
+
+          {matchedSlug && (
+            <Link
+              href={`/cron/${matchedSlug}/`}
+              className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-3 py-1.5 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20 transition-colors"
+            >
+              <span>Dedicated Guide</span>
+              <ArrowRight className="w-3 h-3" />
+            </Link>
+          )}
+        </div>
       </div>
 
       {/* Main Expression Input & Human Meaning */}

@@ -415,7 +415,426 @@ export const REGEX_PATTERNS: RegexDefinition[] = [
       '--|/\\* : Detects inline SQL comment syntax intended to truncate remaining queries',
     ],
   },
+  {
+  "slug": "ipv6-address-regex",
+  "title": "IPv6 Address Validation Regex",
+  "category": "web",
+  "pattern": "^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$",
+  "flags": "i",
+  "description": "Validates standard, compressed, and IPv4-mapped IPv6 network addresses compliant with RFC 4291.",
+  "sampleMatch": "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+  "sampleFail": "2001:db8:::8a2e:370:7334:extra",
+  "explanation": [
+    "^ : Starts at beginning of string",
+    "([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4} : Matches full 8-group 128-bit hex notation",
+    "| : Evaluates compressed double-colon (::) representations",
+    "$ : Must terminate without trailing characters"
+  ]
+},
+  {
+  "slug": "international-e164-phone-regex",
+  "title": "International E.164 Phone Number Regex",
+  "category": "validation",
+  "pattern": "^\\+[1-9]\\d{1,14}$",
+  "flags": "",
+  "description": "Strict ITU-T E.164 international phone number format beginning with plus sign followed by 2 to 15 digits.",
+  "sampleMatch": "+14155552671",
+  "sampleFail": "05321234567",
+  "explanation": [
+    "^\\+ : Requires leading plus symbol for country calling code",
+    "[1-9] : Leading country code digit cannot be zero",
+    "\\d{1,14}$ : Accommodates up to 14 subscriber digits according to ITU standard"
+  ]
+},
+  {
+  "slug": "uk-phone-number-regex",
+  "title": "United Kingdom Phone Number Regex",
+  "category": "validation",
+  "pattern": "^(?:(?:\\(?(?:0(?:0|11)\\)?[\\s-]?\\(?|\\+)44\\)?[\\s-]?(?:\\(?0\\)?[\\s-]?)?)|(?:\\(?0))(?:(?:\\d{5}\\)?[\\s-]?\\d{4,5})|(?:\\d{4}\\)?[\\s-]?(?:\\d{5}|\\d{3}[\\s-]?\\d{3}))|(?:\\d{3}\\)?[\\s-]?\\d{3}[\\s-]?\\d{3,4})|(?:\\d{2}\\)?[\\s-]?\\d{4}[\\s-]?\\d{4}))(?:[\\s-]?(?:x|ext\\.?)[\\s-]?\\d{1,5})?$",
+  "flags": "i",
+  "description": "Comprehensive United Kingdom mobile, landline, and national dialing format validator.",
+  "sampleMatch": "+44 7911 123456",
+  "sampleFail": "+44 123",
+  "explanation": [
+    "^(?:\\+44|0) : Supports international +44 prefix or local leading zero",
+    "Matches standard 10 or 11 digit geographic and mobile UK area codes",
+    "Permits optional spacing, hyphens, and office extension tags"
+  ]
+},
+  {
+  "slug": "visa-card-regex",
+  "title": "Visa Credit Card Number Regex",
+  "category": "security",
+  "pattern": "^4[0-9]{12}(?:[0-9]{3})?$",
+  "flags": "",
+  "description": "Matches 13-digit and standard 16-digit Visa debit and credit card numbers starting with 4.",
+  "sampleMatch": "4111111111111111",
+  "sampleFail": "5111111111111111",
+  "explanation": [
+    "^4 : Visa Issuer Identification Number (IIN) always begins with digit 4",
+    "[0-9]{12} : Base 12 digits",
+    "(?:[0-9]{3})?$ : Optional 3 additional digits for standard 16-digit cards"
+  ]
+},
+  {
+  "slug": "mastercard-card-regex",
+  "title": "Mastercard Credit Card Number Regex",
+  "category": "security",
+  "pattern": "^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$",
+  "flags": "",
+  "description": "Validates 16-digit Mastercard card numbers across traditional 51-55 series and 2221-2720 2-series ranges.",
+  "sampleMatch": "5500000000000004",
+  "sampleFail": "4500000000000004",
+  "explanation": [
+    "5[1-5] : Traditional Mastercard bin range 51 through 55",
+    "222[1-9]|... : Modern 2-series BIN ranges introduced in 2017",
+    "[0-9]{12}$ : Remaining 12 subscriber account digits"
+  ]
+},
+  {
+  "slug": "amex-card-regex",
+  "title": "American Express (Amex) Card Regex",
+  "category": "security",
+  "pattern": "^3[47][0-9]{13}$",
+  "flags": "",
+  "description": "Validates 15-digit American Express credit cards starting with prefixes 34 or 37.",
+  "sampleMatch": "378282246310005",
+  "sampleFail": "388282246310005",
+  "explanation": [
+    "^3[47] : Amex cards strictly begin with either 34 or 37",
+    "[0-9]{13}$ : Exactly 13 digits follow for a 15-digit total card number"
+  ]
+},
+  {
+  "slug": "iso-8601-datetime-regex",
+  "title": "ISO 8601 UTC / Timestamp Regex",
+  "category": "formatting",
+  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$",
+  "flags": "",
+  "description": "Matches standard ISO 8601 and RFC 3339 formatted timestamps including millisecond precision and UTC/timezone offsets.",
+  "sampleMatch": "2026-09-20T02:45:00.000Z",
+  "sampleFail": "2026-09-20 02:45:00",
+  "explanation": [
+    "^\\d{4}-\\d{2}-\\d{2} : YYYY-MM-DD calendar date components",
+    "T : Literal delimiter separating date from time",
+    "\\d{2}:\\d{2}:\\d{2} : Hour, minute, and second values",
+    "(?:\\.\\d+)? : Optional millisecond fractions",
+    "(?:Z|[+-]\\d{2}:\\d{2})$ : UTC indicator (Z) or explicit timezone delta"
+  ]
+},
+  {
+  "slug": "time-24-hour-hh-mm-regex",
+  "title": "24-Hour Time (HH:mm) Regex",
+  "category": "formatting",
+  "pattern": "^(?:[01]\\d|2[0-3]):[0-5]\\d$",
+  "flags": "",
+  "description": "Validates 24-hour military and European clock time from 00:00 through 23:59.",
+  "sampleMatch": "23:59",
+  "sampleFail": "24:00",
+  "explanation": [
+    "[01]\\d|2[0-3] : Restricts hours from 00 to 23",
+    ": : Colon separator",
+    "[0-5]\\d : Restricts minutes from 00 to 59"
+  ]
+},
+  {
+  "slug": "time-12-hour-am-pm-regex",
+  "title": "12-Hour Time with AM/PM Regex",
+  "category": "formatting",
+  "pattern": "^(?:1[0-2]|0?[1-9]):[0-5]\\d\\s*(?:[AaPp][Mm])$",
+  "flags": "",
+  "description": "Validates standard 12-hour time formats with case-insensitive AM or PM indicators.",
+  "sampleMatch": "11:45 PM",
+  "sampleFail": "13:00 PM",
+  "explanation": [
+    "(?:1[0-2]|0?[1-9]) : Hours 1 through 12 with optional leading zero",
+    ": : Time colon delimiter",
+    "[0-5]\\d : Valid minute representation 00-59",
+    "\\s*(?:[AaPp][Mm]) : Optional space followed by AM or PM designation"
+  ]
+},
+  {
+  "slug": "zip-code-us-regex",
+  "title": "United States Postal ZIP Code Regex",
+  "category": "validation",
+  "pattern": "^\\d{5}(?:-\\d{4})?$",
+  "flags": "",
+  "description": "Matches 5-digit US ZIP codes and standard 9-digit ZIP+4 formats (12345 or 12345-6789).",
+  "sampleMatch": "94016-1234",
+  "sampleFail": "9401",
+  "explanation": [
+    "^\\d{5} : Mandatory 5-digit base postal zone",
+    "(?:-\\d{4})?$ : Optional hyphen and 4-digit routing extension"
+  ]
+},
+  {
+  "slug": "postal-code-uk-regex",
+  "title": "United Kingdom Postcode Regex",
+  "category": "validation",
+  "pattern": "^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$",
+  "flags": "i",
+  "description": "Validates official UK postcodes across all outward and inward alphanumeric sectors.",
+  "sampleMatch": "SW1A 1AA",
+  "sampleFail": "12345",
+  "explanation": [
+    "^[A-Z]{1,2}[0-9][A-Z0-9]? : Outward code representing postal area and district",
+    " ? : Optional spacing",
+    "[0-9][A-Z]{2}$ : Inward code pinpointing street unit"
+  ]
+},
+  {
+  "slug": "postal-code-canada-regex",
+  "title": "Canada Postal Code Regex",
+  "category": "validation",
+  "pattern": "^[A-CEGHJ-NPR-TVXY]\\d[A-CEGHJ-NPR-TV-Z] ?\\d[A-CEGHJ-NPR-TV-Z]\\d$",
+  "flags": "i",
+  "description": "Validates Canadian postal codes adhering to official Canada Post character exclusions (excludes D, F, I, O, Q, U).",
+  "sampleMatch": "K1A 0B1",
+  "sampleFail": "D1A 0B1",
+  "explanation": [
+    "^[A-CEGHJ-NPR-TVXY] : First letter denotes geographic province (excludes disallowed letters)",
+    "\\d[A-Z] : Alternating number and letter structure",
+    "? : Optional space separating Forward Sortation Area from Local Delivery Unit"
+  ]
+},
+  {
+  "slug": "bitcoin-address-regex",
+  "title": "Bitcoin (BTC) Address Regex",
+  "category": "security",
+  "pattern": "^(?:1[a-km-zA-HJ-NP-Z1-9]{25,34}|3[a-km-zA-HJ-NP-Z1-9]{25,34}|bc1[a-zA-HJ-NP-Z0-9]{25,39})$",
+  "flags": "",
+  "description": "Validates Bitcoin Legacy (P2PKH starting with 1), SegWit P2SH (starting with 3), and Native SegWit (Bech32 starting with bc1) wallet addresses.",
+  "sampleMatch": "bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq",
+  "sampleFail": "0x71C8451C3343244F00806440",
+  "explanation": [
+    "1[...] : Base58Check P2PKH address",
+    "3[...] : Base58Check script hash P2SH address",
+    "bc1[...] : Native Bech32 SegWit format"
+  ]
+},
+  {
+  "slug": "ethereum-address-regex",
+  "title": "Ethereum (ETH) Address Regex",
+  "category": "security",
+  "pattern": "^0x[a-fA-F0-9]{40}$",
+  "flags": "",
+  "description": "Validates Ethereum and EVM-compatible (Polygon, Arbitrum, BSC) public account and contract hexadecimal addresses.",
+  "sampleMatch": "0x71C8451C3343244F0080644085429188e7D4d715",
+  "sampleFail": "71C8451C3343244F0080644085429188e7D4d715",
+  "explanation": [
+    "^0x : Mandatory hexadecimal prefix",
+    "[a-fA-F0-9]{40}$ : Exactly 40 hexadecimal characters representing 20-byte address hash"
+  ]
+},
+  {
+  "slug": "twitter-username-handle-regex",
+  "title": "Twitter / X Username Handle Regex",
+  "category": "web",
+  "pattern": "^@?[a-zA-Z0-9_]{1,15}$",
+  "flags": "",
+  "description": "Validates Twitter and X user handles, allowing an optional leading @ symbol and up to 15 alphanumeric or underscore characters.",
+  "sampleMatch": "@devtransform",
+  "sampleFail": "@this_username_is_way_too_long_for_x",
+  "explanation": [
+    "^@? : Optional leading @ symbol",
+    "[a-zA-Z0-9_]{1,15}$ : Restricts handle length to Twitter policy max of 15 chars"
+  ]
+},
+  {
+  "slug": "github-username-regex",
+  "title": "GitHub Username Regex",
+  "category": "web",
+  "pattern": "^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$",
+  "flags": "",
+  "description": "Strictly complies with GitHub username rules: max 39 chars, alphanumeric, single internal hyphens, no consecutive hyphens, cannot start or end with a hyphen.",
+  "sampleMatch": "ensibey",
+  "sampleFail": "-invalid-name",
+  "explanation": [
+    "^[a-zA-Z0-9] : Must begin with alphanumeric character",
+    "-(?=[a-zA-Z0-9]) : Hyphens permitted only if followed immediately by alphanumeric (no consecutive hyphens)",
+    "{0,38}$ : Total length capped at 39 characters"
+  ]
+},
+  {
+  "slug": "domain-name-fqdn-regex",
+  "title": "Fully Qualified Domain Name (FQDN) Regex",
+  "category": "web",
+  "pattern": "^(?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.(?:[A-Za-z]{2,}|(?:[A-Za-z0-9-]{1,63}(?<!-)\\.)+[A-Za-z]{2,})$",
+  "flags": "",
+  "description": "RFC 1035 compliant domain name and hostname validator preventing leading/trailing hyphens in labels.",
+  "sampleMatch": "api.devtransform-hub.vercel.app",
+  "sampleFail": "-bad-domain.com",
+  "explanation": [
+    "(?!-)[A-Za-z0-9-]{1,63}(?<!-) : Each domain label up to 63 chars, disallowing leading/trailing dashes",
+    "\\.[A-Za-z]{2,}$ : Top level domain must contain at least 2 alphabetic characters"
+  ]
+},
+  {
+  "slug": "subdomain-extractor-regex",
+  "title": "Subdomain Extraction Regex",
+  "category": "web",
+  "pattern": "^(?:https?:\\/\\/)?([a-zA-Z0-9-]+)\\.[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}",
+  "flags": "i",
+  "description": "Captures and isolates the third-level subdomain prefix from a full hostname or URL.",
+  "sampleMatch": "https://staging.example.com",
+  "sampleFail": "example.com",
+  "explanation": [
+    "(?:https?:\\/\\/)? : Disregards optional protocol schema",
+    "([a-zA-Z0-9-]+) : First capturing group isolates the leading subdomain label",
+    "\\.[a-zA-Z0-9-]+\\.[a-zA-Z]{2,} : Confirms presence of root domain and TLD"
+  ]
+},
+  {
+  "slug": "file-extension-regex",
+  "title": "File Extension Extraction Regex",
+  "category": "formatting",
+  "pattern": "\\.([a-zA-Z0-9]+)(?:\\?|#|$)",
+  "flags": "i",
+  "description": "Isolates the trailing file extension from local paths, URLs, or document names while safely ignoring query strings and hashes.",
+  "sampleMatch": "/uploads/invoice_report.pdf?version=2",
+  "sampleFail": "folder_without_extension/",
+  "explanation": [
+    "\\. : Literal period preceding extension name",
+    "([a-zA-Z0-9]+) : Captures alphanumeric extension tag",
+    "(?:\\?|#|$) : Stops before URL query parameters, fragment anchors, or end of string"
+  ]
+},
+  {
+  "slug": "rgb-rgba-color-regex",
+  "title": "CSS RGB / RGBA Color Function Regex",
+  "category": "formatting",
+  "pattern": "^rgba?\\(\\s*(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\s*,\\s*(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\s*,\\s*(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\s*(?:,\\s*(?:0|1|0?\\.\\d+)\\s*)?\\)$",
+  "flags": "i",
+  "description": "Matches valid CSS rgb(255, 255, 255) and rgba(0, 0, 0, 0.5) declarations restricting channels to 0-255.",
+  "sampleMatch": "rgba(16, 185, 129, 0.85)",
+  "sampleFail": "rgb(300, 0, 0)",
+  "explanation": [
+    "^rgba? : Matches rgb or rgba function declaration",
+    "(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d) : Ensures each R, G, B channel falls within valid 0 to 255 boundary",
+    "(?:,\\s*(?:0|1|0?\\.\\d+))? : Optional alpha transparency channel (0.0 to 1.0)"
+  ]
+},
+  {
+  "slug": "hsl-hsla-color-regex",
+  "title": "CSS HSL / HSLA Color Function Regex",
+  "category": "formatting",
+  "pattern": "^hsla?\\(\\s*(?:360|3[0-5]\\d|[12]?\\d{1,2})\\s*,\\s*(?:100|[1-9]?\\d)%\\s*,\\s*(?:100|[1-9]?\\d)%\\s*(?:,\\s*(?:0|1|0?\\.\\d+)\\s*)?\\)$",
+  "flags": "i",
+  "description": "Validates CSS hsl() and hsla() syntax, clamping hue to 0-360 and saturation/lightness to 0%-100%.",
+  "sampleMatch": "hsl(142, 70%, 45%)",
+  "sampleFail": "hsl(400, 50%, 50%)",
+  "explanation": [
+    "(?:360|3[0-5]\\d|[12]?\\d{1,2}) : Validates hue angle from 0 to 360 degrees",
+    "(?:100|[1-9]?\\d)% : Validates percentage values 0% to 100% for saturation and lightness",
+    "Optional alpha channel for hsla"
+  ]
+},
+  {
+  "slug": "html-attribute-extractor-regex",
+  "title": "HTML Attribute Value Extractor Regex",
+  "category": "formatting",
+  "pattern": "\\b([a-zA-Z-]+)=[\"\\']([^\"\\']+)[\"\\']",
+  "flags": "g",
+  "description": "Extracts HTML attribute key-value pairs (e.g., href=\"...\", class=\"...\", data-id=\"...\") from markup tags.",
+  "sampleMatch": "href=\"https://devtransform-hub.vercel.app\" class=\"text-brand\"",
+  "sampleFail": "plain text without attributes",
+  "explanation": [
+    "\\b([a-zA-Z-]+) : First capture group matches attribute name",
+    "=[\"\\'] : Equals sign with double or single opening quote",
+    "([^\"\\']+) : Second capture group matches attribute value until closing quote"
+  ]
+},
+  {
+  "slug": "markdown-url-link-regex",
+  "title": "Markdown Link Extractor Regex",
+  "category": "formatting",
+  "pattern": "\\[([^\\]]+)\\]\\((https?:\\/\\/[^\\s\\)]+)\\)",
+  "flags": "g",
+  "description": "Parses and extracts markdown hyperlink text labels and target destination URLs [Title](https://...).",
+  "sampleMatch": "[DevTransform Suite](https://devtransform-hub.vercel.app)",
+  "sampleFail": "![Alt text](image.png)",
+  "explanation": [
+    "\\[([^\\]]+)\\] : Captures link anchor text inside square brackets",
+    "\\((https?:\\/\\/[^\\s\\)]+)\\) : Captures valid HTTP/HTTPS destination URL in parentheses"
+  ]
+},
+  {
+  "slug": "camelcase-to-snakecase-regex",
+  "title": "CamelCase Word Boundary Regex",
+  "category": "formatting",
+  "pattern": "([a-z0-9])([A-Z])",
+  "flags": "g",
+  "description": "Identifies transitional word boundaries in camelCase and PascalCase identifiers to convert strings into snake_case or kebab-case.",
+  "sampleMatch": "devTransformHub",
+  "sampleFail": "lowercase",
+  "explanation": [
+    "([a-z0-9]) : Captures preceding lowercase letter or digit",
+    "([A-Z]) : Captures subsequent uppercase letter initiating new word"
+  ]
+},
+  {
+  "slug": "double-word-duplicate-regex",
+  "title": "Duplicate Consecutive Word Regex",
+  "category": "formatting",
+  "pattern": "\\b([a-zA-Z]+)\\s+\\1\\b",
+  "flags": "i",
+  "description": "Finds accidental repeated words in editorial prose and code comments (e.g., \"the the\", \"in in\").",
+  "sampleMatch": "This is the the best tool",
+  "sampleFail": "This is the best tool",
+  "explanation": [
+    "\\b([a-zA-Z]+) : Matches and captures an entire word at a word boundary",
+    "\\s+ : One or more whitespace spaces",
+    "\\1\\b : Backreference matches the exact duplicate word"
+  ]
+},
+  {
+  "slug": "leading-trailing-whitespace-regex",
+  "title": "Leading & Trailing Whitespace Regex",
+  "category": "formatting",
+  "pattern": "^\\s+|\\s+$",
+  "flags": "g",
+  "description": "Targets superfluous leading and trailing spaces or tab characters across string lines for clean sanitization.",
+  "sampleMatch": "   untrimmed developer input   ",
+  "sampleFail": "clean input",
+  "explanation": [
+    "^\\s+ : Matches spaces at beginning of line",
+    "| : Logical OR operator",
+    "\\s+$ : Matches trailing whitespace before end of line"
+  ]
+},
+  {
+  "slug": "c-style-comment-regex",
+  "title": "C-Style Code Comment Regex",
+  "category": "formatting",
+  "pattern": "\\/\\*[\\s\\S]*?\\*\\/|\\/\\/.*",
+  "flags": "g",
+  "description": "Matches single-line (//) and multi-line (/* ... */) code comments across JavaScript, C, Java, Go, and PHP.",
+  "sampleMatch": "/* Multi-line comment block */ // single line comment",
+  "sampleFail": "const x = 10 / 2;",
+  "explanation": [
+    "\\/\\*[\\s\\S]*?\\*\\/ : Non-greedy match of multi-line comment blocks",
+    "| : Logical OR operator",
+    "\\/\\/.* : Single line comment from double slash to end of line"
+  ]
+},
+  {
+  "slug": "json-key-value-regex",
+  "title": "JSON Key-Value Pair Extractor Regex",
+  "category": "formatting",
+  "pattern": "\"([^\"]+)\"\\s*:\\s*(\"[^\"]*\"|\\d+(?:\\.\\d+)?|true|false|null)",
+  "flags": "g",
+  "description": "Extracts property keys and primitive values (strings, numbers, booleans, null) from JSON data strings.",
+  "sampleMatch": "\"status\": 200, \"isClient\": true, \"name\": \"DevTransform\"",
+  "sampleFail": "{ empty: object }",
+  "explanation": [
+    "\"([^\"]+)\" : Captures JSON attribute key name",
+    "\\s*:\\s* : Colon property delimiter with surrounding whitespace",
+    "Second group captures string values, numbers, or boolean literals"
+  ]
+}
 ];
+
+
 
 export function getAllRegexPatterns(): RegexDefinition[] {
   return REGEX_PATTERNS;

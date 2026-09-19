@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "DevTransform - Developer & PDF Tools Hub",
+  "version": "1.0.0",
+  "description": "Instant 1-click access to 145+ private, client-side developer tools, PDF converters, cron translators, and code generators.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DevTransform Tools"
+  },
+  "omnibox": {
+    "keyword": "dt"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://devtransform-hub.vercel.app/*"
+  ]
+}

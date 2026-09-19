@@ -3,13 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { CopyButton } from '@/components/shared/CopyButton';
-import { ShieldCheck, ShieldAlert, AlertTriangle, Terminal, Check, Sparkles, Folder, FileCode } from 'lucide-react';
+import { ShieldCheck, ShieldAlert, AlertTriangle, Terminal, Check, Sparkles, Folder, FileCode, Share2 } from 'lucide-react';
 
 interface ChmodInteractiveCalculatorProps {
   initialOctal?: string;
 }
 
 export function ChmodInteractiveCalculator({ initialOctal = '755' }: ChmodInteractiveCalculatorProps) {
+  const [copiedLink, setCopiedLink] = useState(false);
   const [owner, setOwner] = useState({
     read: (parseInt(initialOctal[0] || '7', 10) & 4) !== 0,
     write: (parseInt(initialOctal[0] || '7', 10) & 2) !== 0,
@@ -66,6 +67,38 @@ export function ChmodInteractiveCalculator({ initialOctal = '755' }: ChmodIntera
     setOthers({ read: (pot & 4) !== 0, write: (pot & 2) !== 0, execute: (pot & 1) !== 0 });
   };
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const paramOctal = params.get('octal');
+      if (paramOctal && /^[0-7]{3}$/.test(paramOctal)) {
+        applyPreset(paramOctal);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      if (octal !== '755') {
+        url.searchParams.set('octal', octal);
+      } else {
+        url.searchParams.delete('octal');
+      }
+      window.history.replaceState(null, '', url.toString());
+    }
+  }, [octal]);
+
+  const handleCopyShareLink = () => {
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      url.searchParams.set('octal', octal);
+      navigator.clipboard.writeText(url.toString());
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 2000);
+    }
+  };
+
   return (
     <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 sm:p-8 shadow-xl">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-neutral-800">
@@ -77,6 +110,24 @@ export function ChmodInteractiveCalculator({ initialOctal = '755' }: ChmodIntera
         </div>
 
         <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={handleCopyShareLink}
+            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 text-xs font-mono text-neutral-300 transition-colors shadow-sm"
+            title="Copy shareable link with this exact permission configuration"
+          >
+            {copiedLink ? (
+              <>
+                <Check className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="text-emerald-400 font-bold">Link Copied!</span>
+              </>
+            ) : (
+              <>
+                <Share2 className="w-3.5 h-3.5 text-blue-400" />
+                <span>Share Config</span>
+              </>
+            )}
+          </button>
           <div className="text-right">
             <div className="text-xs text-neutral-400">Octal Value</div>
             <div className="text-3xl font-black font-mono text-emerald-400 tracking-wider">{octal}</div>
