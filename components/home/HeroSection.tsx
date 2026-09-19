@@ -90,10 +90,28 @@ export function HeroSection({
         <div className="flex flex-wrap items-center justify-center gap-2 mt-3.5 text-xs font-medium text-slate-600 dark:text-zinc-400">
           <span className="text-[11px] text-slate-400 dark:text-zinc-500 mr-0.5">Popular:</span>
           <Link
+            href="/tools/word-to-pdf/"
+            className="px-3 py-1 rounded-xl bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/50 border border-rose-200 dark:border-rose-800 text-rose-700 dark:text-rose-300 transition-colors shadow-sm font-semibold flex items-center gap-1.5"
+          >
+            <span>📄 Word to PDF</span>
+          </Link>
+          <Link
+            href="/tools/pdf-to-word/"
+            className="px-3 py-1 rounded-xl bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 dark:hover:bg-blue-900/50 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300 transition-colors shadow-sm font-semibold flex items-center gap-1.5"
+          >
+            <span>📑 PDF to Word</span>
+          </Link>
+          <Link
             href="/tools/pdf-merge/"
             className="px-3 py-1 rounded-xl bg-white dark:bg-zinc-900/60 hover:bg-slate-100 dark:hover:bg-zinc-800 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-white transition-colors shadow-sm"
           >
-            📄 PDF Merge
+            🔀 PDF Merge
+          </Link>
+          <Link
+            href="/tools/markdown-to-pdf/"
+            className="px-3 py-1 rounded-xl bg-white dark:bg-zinc-900/60 hover:bg-slate-100 dark:hover:bg-zinc-800 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-white transition-colors shadow-sm"
+          >
+            📝 Markdown to PDF
           </Link>
           <Link
             href="/tools/image-compressor/"
@@ -105,20 +123,14 @@ export function HeroSection({
             href="/tools/qr-code-generator/"
             className="px-3 py-1 rounded-xl bg-white dark:bg-zinc-900/60 hover:bg-slate-100 dark:hover:bg-zinc-800 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-white transition-colors shadow-sm"
           >
-            📱 QR Code Generator
-          </Link>
-          <Link
-            href="/tools/word-counter/"
-            className="px-3 py-1 rounded-xl bg-white dark:bg-zinc-900/60 hover:bg-slate-100 dark:hover:bg-zinc-800 border border-slate-200 dark:border-zinc-800 text-slate-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-white transition-colors shadow-sm"
-          >
-            🔤 Word Counter
+            📱 QR Code
           </Link>
           <Link
             href="/category/dev/"
             className="px-3 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 transition-colors shadow-sm font-semibold flex items-center gap-1"
           >
             <Sparkles className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
-            <span>Code & Data Converters</span>
+            <span>Developer Suite</span>
           </Link>
         </div>
       </div>

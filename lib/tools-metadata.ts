@@ -192,6 +192,107 @@ export const TOOLS_METADATA: ToolMetadata[] = [
     icon: 'RotateCw',
     seoDescription: 'Permanently rotate upside-down or sideways PDF pages by 90°, 180°, or 270° directly in your browser.',
   },
+  {
+    id: 'word-to-pdf',
+    slug: 'word-to-pdf',
+    title: 'Word to PDF Converter (.docx to .pdf)',
+    shortDesc: 'Convert Microsoft Word documents (.docx, .doc, .rtf, .txt) into clean, high-resolution PDF files with zero server uploads.',
+    category: 'pdf',
+    keywords: ['word to pdf', 'docx to pdf', 'convert word to pdf', 'doc to pdf', 'word converter online', 'free word to pdf'],
+    icon: 'FileText',
+    isPopular: true,
+    seoDescription: 'Convert Word .docx documents to PDF 100% privately in your browser. Preserves headings, bold text, lists, and formatting without uploading files to any cloud server.',
+    faqs: [
+      {
+        question: 'Are my confidential Word documents safe?',
+        answer: 'Yes, 100%. Conversion runs entirely inside your device RAM using client-side JavaScript. Zero bytes are ever sent over the internet.'
+      },
+      {
+        question: 'What file formats can I convert to PDF?',
+        answer: 'You can upload Microsoft Word (.docx), Word 97-2003 (.doc), Rich Text Format (.rtf), and plain text documents up to 25MB.'
+      }
+    ],
+  },
+  {
+    id: 'pdf-to-word',
+    slug: 'pdf-to-word',
+    title: 'PDF to Word Converter (.pdf to .doc)',
+    shortDesc: 'Convert PDF documents into editable Microsoft Word (.doc / .docx) and text files with live formatting preview.',
+    category: 'pdf',
+    keywords: ['pdf to word', 'convert pdf to word', 'pdf to docx', 'pdf to doc', 'pdf to editable text', 'free pdf to word converter'],
+    icon: 'FileSpreadsheet',
+    isPopular: true,
+    seoDescription: 'Convert PDF files into editable Microsoft Word documents privately in your browser. Extract text, preserve layout, and download .doc files compatible with Microsoft Office and Google Docs.',
+    faqs: [
+      {
+        question: 'Can I open the exported file in Microsoft Word and Google Docs?',
+        answer: 'Yes! The generated file uses standard Microsoft Word XML/HTML document encoding that opens natively in Microsoft Word, Google Docs, Apple Pages, and LibreOffice.'
+      },
+      {
+        question: 'Does this PDF converter upload my files?',
+        answer: 'Never. Unlike other online converters, your PDF files are parsed 100% locally on your machine.'
+      }
+    ],
+  },
+  {
+    id: 'markdown-to-pdf',
+    slug: 'markdown-to-pdf',
+    title: 'Markdown to PDF Converter (.md to .pdf)',
+    shortDesc: 'Convert Markdown notes, READMEs, and technical specs into professional vector PDF documents with code highlighting.',
+    category: 'pdf',
+    keywords: ['markdown to pdf', 'md to pdf', 'convert markdown to pdf', 'markdown print pdf', 'github markdown to pdf'],
+    icon: 'BookOpen',
+    isPopular: true,
+    seoDescription: 'Convert Markdown text and files into beautifully styled vector PDF documents. Features live split preview, code syntax styling, and clean page-break formatting.',
+    faqs: [
+      {
+        question: 'Does it support GitHub-flavored Markdown?',
+        answer: 'Yes! It supports headings (#), bold, italics, blockquotes, tables, bullet lists, numbered lists, and code blocks.'
+      }
+    ],
+  },
+  {
+    id: 'html-to-pdf',
+    slug: 'html-to-pdf',
+    title: 'HTML to PDF Converter (.html to .pdf)',
+    shortDesc: 'Compile HTML, CSS invoices, and web templates into crisp, printable A4 PDF documents with instant live preview.',
+    category: 'pdf',
+    keywords: ['html to pdf', 'convert html to pdf', 'save html as pdf', 'css to pdf', 'html invoice to pdf', 'free html to pdf'],
+    icon: 'FileCode',
+    isPopular: true,
+    seoDescription: 'Convert HTML code and CSS layouts into high-resolution vector PDF documents. Edit source code live, view formatted output, and print or download A4 PDFs with zero server uploads.',
+    faqs: [
+      {
+        question: 'Does this HTML to PDF converter support inline CSS styles?',
+        answer: 'Yes! It fully supports inline CSS styles, Google fonts, borders, flexbox grids, and styled tables.'
+      },
+      {
+        question: 'Is my invoice or client data kept private?',
+        answer: 'Absolutely. The conversion is performed 100% inside your browser memory.'
+      }
+    ],
+  },
+  {
+    id: 'pdf-watermark',
+    slug: 'pdf-watermark',
+    title: 'PDF Watermark & Page Numberer Tool',
+    shortDesc: 'Stamp custom diagonal text watermarks (CONFIDENTIAL, DRAFT) and add sequential page numbers to any PDF.',
+    category: 'pdf',
+    keywords: ['pdf watermark', 'add watermark to pdf', 'pdf page numbers', 'watermark pdf online', 'stamp pdf', 'number pdf pages'],
+    icon: 'Stamp',
+    isPopular: true,
+    seoDescription: 'Add custom diagonal watermarks and page numbering (Page 1 of N) to existing PDF files. Customize opacity, angle, colors, and placement with 100% client-side privacy.',
+    faqs: [
+      {
+        question: 'Can I choose the watermark transparency and angle?',
+        answer: 'Yes! You can choose opacity levels (15%, 25%, 45%), colors (gray, red, blue), and rotation angles (0° or 45°).'
+      },
+      {
+        question: 'Where are page numbers positioned?',
+        answer: 'You can position page numbers at the bottom center, bottom right, or top right of every page.'
+      }
+    ],
+  },
 
   // D. Daily Calculators
   {

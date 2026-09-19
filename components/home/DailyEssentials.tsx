@@ -57,14 +57,34 @@ export function DailyEssentials() {
 
             <div className="space-y-1.5">
               <h3 className="font-bold text-base text-slate-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-200 transition-colors">
-                PDF & Document Tools
+                PDF &amp; Word Converter Suite
               </h3>
               <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
-                Merge multiple PDFs, split pages, rotate documents, and convert images into clean PDFs.
+                Convert Word to PDF, PDF to editable Word, merge multiple PDFs, and compile Markdown documents privately.
               </p>
             </div>
 
             <div className="space-y-1 pt-2 border-t border-slate-100 dark:border-zinc-800/80 text-xs">
+              <Link
+                href="/tools/word-to-pdf/"
+                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-rose-600 dark:hover:text-white transition-colors font-medium"
+              >
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                  Word to PDF (.docx to .pdf)
+                </span>
+                <ArrowRight className="w-3 h-3 opacity-60" />
+              </Link>
+              <Link
+                href="/tools/pdf-to-word/"
+                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-white transition-colors font-medium"
+              >
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                  PDF to Word (.pdf to .doc)
+                </span>
+                <ArrowRight className="w-3 h-3 opacity-60" />
+              </Link>
               <Link
                 href="/tools/pdf-merge/"
                 className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-rose-600 dark:hover:text-white transition-colors"
@@ -73,17 +93,10 @@ export function DailyEssentials() {
                 <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
               <Link
-                href="/tools/pdf-split/"
-                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-rose-600 dark:hover:text-white transition-colors"
+                href="/tools/markdown-to-pdf/"
+                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-purple-600 dark:hover:text-white transition-colors"
               >
-                <span>• Split PDF Pages</span>
-                <ArrowRight className="w-3 h-3 opacity-60" />
-              </Link>
-              <Link
-                href="/tools/image-to-pdf/"
-                className="flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800/60 text-slate-700 dark:text-zinc-300 hover:text-rose-600 dark:hover:text-white transition-colors"
-              >
-                <span>• Image to High-Res PDF</span>
+                <span>• Markdown to PDF</span>
                 <ArrowRight className="w-3 h-3 opacity-60" />
               </Link>
             </div>
