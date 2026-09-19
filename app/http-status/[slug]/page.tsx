@@ -9,6 +9,7 @@ import {
 } from '@/lib/http-status-data';
 import { FaqAccordion } from '@/components/seo/FaqAccordion';
 import { CopyButton } from '@/components/shared/CopyButton';
+import { HttpStatusMultiLangSolver } from '@/components/http-status/HttpStatusMultiLangSolver';
 import {
   AlertTriangle,
   CheckCircle2,
@@ -196,6 +197,9 @@ export default function HttpStatusPage({ params }: PageProps) {
           </div>
         </div>
       </div>
+
+      {/* Multi-Language Code Implementations */}
+      <HttpStatusMultiLangSolver code={status.code} name={status.name} />
 
       {/* Code Solutions */}
       <section className="space-y-4">

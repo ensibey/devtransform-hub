@@ -14,6 +14,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { CopyButton } from '@/components/shared/CopyButton';
+import { CronInteractiveTranslator } from '@/components/cron/CronInteractiveTranslator';
 
 export default function CronDirectoryPage() {
   const allSchedules = useMemo(() => getAllCronSchedules(), []);
@@ -57,6 +58,9 @@ export default function CronDirectoryPage() {
           </p>
         </div>
       </div>
+
+      {/* Live Interactive Cron Translator */}
+      <CronInteractiveTranslator initialExpression="*/5 * * * *" />
 
       {/* Search & Category Filter */}
       <div className="space-y-4">

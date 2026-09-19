@@ -12,6 +12,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import { CopyButton } from '@/components/shared/CopyButton';
+import { ChmodInteractiveCalculator } from '@/components/chmod/ChmodInteractiveCalculator';
 
 export default function ChmodDirectoryPage() {
   const allChmods = useMemo(() => getAllChmods(), []);
@@ -53,6 +54,9 @@ export default function ChmodDirectoryPage() {
           </p>
         </div>
       </div>
+
+      {/* Live Interactive Calculator */}
+      <ChmodInteractiveCalculator initialOctal="755" />
 
       {/* Filter Bar */}
       <div className="bg-surface-100 border border-border rounded-xl p-4 sm:p-5 space-y-4">

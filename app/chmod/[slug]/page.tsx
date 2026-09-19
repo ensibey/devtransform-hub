@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { getAllChmods, getChmodBySlug, CHMOD_DATA } from '@/lib/chmod-data';
 import { FaqAccordion } from '@/components/seo/FaqAccordion';
 import { CopyButton } from '@/components/shared/CopyButton';
+import { ChmodInteractiveCalculator } from '@/components/chmod/ChmodInteractiveCalculator';
 import {
   ShieldAlert,
   ShieldCheck,
@@ -146,6 +147,9 @@ export default function ChmodDetailPage({ params }: PageProps) {
           </p>
         </div>
       </div>
+
+      {/* Interactive Permission Calculator */}
+      <ChmodInteractiveCalculator initialOctal={item.octal} />
 
       {/* Permission Matrix Visual Table */}
       <div className="bg-surface-100 border border-border rounded-xl p-5 space-y-4">

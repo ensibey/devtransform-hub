@@ -9,6 +9,7 @@ import {
 } from '@/lib/cron-data';
 import { FaqAccordion } from '@/components/seo/FaqAccordion';
 import { CopyButton } from '@/components/shared/CopyButton';
+import { CronInteractiveTranslator } from '@/components/cron/CronInteractiveTranslator';
 import {
   Clock,
   Terminal,
@@ -145,6 +146,9 @@ export default function CronSchedulePage({ params }: PageProps) {
           </p>
         </div>
       </div>
+
+      {/* Live Interactive Translator & Evaluator */}
+      <CronInteractiveTranslator initialExpression={item.expression} />
 
       {/* 5-Field Visual Anatomy Breakdown */}
       <div className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800 space-y-4 shadow-xl">
